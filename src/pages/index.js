@@ -1,22 +1,28 @@
-import React from "react"
+import React, { useLayoutEffect } from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import { motion } from "framer-motion"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+import Layout from "../components/layout"
+import ChapterClicker from "../components/chapter_clicker"
+
+let Splitting
+if (typeof window !== `undefined`) {
+  Splitting = require("splitting")
+}
+
+const IndexPage = () => {
+  useLayoutEffect(() => {
+    Splitting({ by: "words" });
+  })
+
+  return (
+    <Layout>
+      <h1 data-splitting>Hello There How are You Doing?</h1>
+      <div className="testing"></div>
+      <ChapterClicker/>
+    </Layout>
+  )
+}
 
 export default IndexPage

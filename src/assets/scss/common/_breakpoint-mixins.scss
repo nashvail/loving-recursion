@@ -1,0 +1,63 @@
+// breakpoint mixin
+// https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+@mixin mobile-only {
+  @media screen and (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin phone-xs {
+  @media screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (min-width: 375px) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media screen and (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media screen and (min-width: 1800px) {
+    @content;
+  }
+}
+
+// Conditional styling for Microsoft Edge V13 & 14
+@mixin edge-styles() {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+// Conditional styling for IE 10 & IE 11
+@mixin ie11-styles() {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
