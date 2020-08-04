@@ -1,0 +1,28 @@
+/* 
+  rgb() and rgba() that also accept a single argument as css variables can contain all 3
+  https://github.com/sass/node-sass/issues/2251
+*/
+
+@function rgb($r, $g: null, $b: null) {
+  @if ($g == null) {
+    @return unquote('rgb(#{$r})');
+  }
+
+  @if ($g and $b) {
+    @return unquote('rgb(#{$r}, #{$g}, #{$b})');
+  }
+
+  @error "wrong number of arguments";
+}
+
+@function rgba($r, $g, $b: null, $a: null) {
+  @if ($b == null) {
+    @return unquote('rgba(#{$r}, #{$g})');
+  }
+
+  @if ($b and $a) {
+    @return unquote('rgba(#{$r}, #{$g}, #{$b}, #{$a})');
+  }
+
+  @error "wrong number of arguments";
+}

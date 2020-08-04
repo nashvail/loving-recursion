@@ -1,0 +1,7 @@
+@function z($name) {
+    @return map_get($z-layers, $name);
+}
+
+@mixin z-index($name){
+    z-index: z($name);
+}

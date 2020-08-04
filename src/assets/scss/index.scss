@@ -1,22 +1,22 @@
-// // Mixins & variables
-// @import 'util/aspect-ratio';
-// @import 'util/button-reset';
-// @import 'util/list-reset';
-// @import 'util/rgba-fn';
-// @import 'util/units';
-// @import 'util/z-index-list';
-// @import 'util/_quantity-queries.scss';
+// Mixins & variables
+@import 'util/aspect-ratio';
+@import 'util/button-reset';
+@import 'util/list-reset';
+@import 'util/rgba-fn';
+@import 'util/units';
+@import 'util/z-index-list';
+@import 'util/_quantity-queries.scss';
 
 // @import 'common/variables';
 // @import 'common/colors';
 @import 'common/breakpoint-mixins';
 // @import 'common/font-mixins';
 
-// // Common
+// Common
 @import 'common/css-variables';
-// @import 'common/base';
+@import 'common/base';
 
-// // Components
+// Components
 // @import 'components/svg';
 // @import 'components/nav';
 @import 'components/chapter_clicker';
@@ -29,7 +29,8 @@
 // @import 'components/splitting';
 
 // // pages
-// @import 'pages/page-grid-layout';
+@import 'pages/page-home';
 // @import 'pages/page-about';
 // @import 'pages/page-content';
 // @import 'pages/page-wealth-creation';
+

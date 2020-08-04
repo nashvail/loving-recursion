@@ -1,0 +1,90 @@
+////
+/// Use when you want to style elements which occur at least, exactly, at most or between an x (and y) amount of times.
+/// Use with caution, since they some introduce extra specificity, which can make overwriting styles difficult. Styles apply to all children, when conditions are met.
+/// http://www.quantityqueries.com/
+/// @group Quantity Queries
+////
+
+/// Mixin to target elements when there are exactly n of them in a given parent.
+/// @param {Number} $count - Item count
+/// @example scss - qq-exactly function
+///     ul {
+///         @include qq-exactly(2) {
+///             color: red;
+///         }
+///     }
+
+@mixin qq-exactly($count) {
+
+    > :nth-last-child(#{$count}) {
+
+        &:first-child,
+        &:first-child ~ * {
+            @content;
+        }
+    }
+}
+
+/// Mixin to target elements when there are at least n of them in a given parent.
+/// @param {Number} $count - Lower boundary (inclusive)
+/// @example scss - qq-at-least function
+///     ul {
+///         @include qq-at-least(2) {
+///             color: red;
+///         }
+///     }
+
+@mixin qq-at-least($count) {
+
+    > :nth-last-child(n+#{$count}) {
+
+        &,
+        & ~ * {
+            @content;
+        }
+    }
+}
+
+/// Mixin to target elements when there are at most n of them in a given parent.
+/// @param {Number} $count - Upper boundary (inclusive)
+/// @example scss - qq-at-most function
+///     ul {
+///         @include qq-at-most(2) {
+///             color: red;
+///         }
+///     }
+
+@mixin qq-at-most($count) {
+
+    > :nth-last-child(-n + #{$count}) {
+
+        &:first-child,
+        &:first-child ~ * {
+            @content;
+        }
+    }
+}
+
+/// Mixin to target elements when there are at least x and at most y of them in a given parent.
+/// @param {Number} $count - Lower boundary (inclusive)
+/// @param {Number} $count - Upper boundary (inclusive)
+/// @example scss - qq-between function
+///     ul {
+///         @include qq-between(2) {
+///             color: red;
+///         }
+///     }
+
+@mixin qq-between($min, $max) {
+
+    > :nth-last-child(n+#{$min}) {
+
+        &:nth-last-child(-n+#{$max}) {
+
+            &:first-child,
+            &:first-child ~ * {
+                @content;
+            }
+        }
+    }
+}

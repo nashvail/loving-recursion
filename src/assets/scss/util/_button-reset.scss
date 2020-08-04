@@ -1,0 +1,20 @@
+@mixin button-reset {
+  appearance: none;
+  padding: 0;
+  background: none;
+  border: 0;
+  outline: none;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  cursor: pointer;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

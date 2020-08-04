@@ -5,6 +5,11 @@ import { motion } from "framer-motion"
 
 import Layout from "../components/layout"
 import ChapterClicker from "../components/chapter_clicker"
+import LeftSideContent from "../components/Home/LeftSideContent"
+import RightSideContent from "../components/Home/RightSideContent"
+
+// SCSS
+import "../assets/scss/index.scss"
 
 let Splitting
 if (typeof window !== `undefined`) {
@@ -17,12 +22,11 @@ const IndexPage = () => {
   })
 
   return (
-    <Layout>
-      <h1 data-splitting>Hello There How are You Doing?</h1>
-      <div className="testing"></div>
-      <ChapterClicker/>
-    </Layout>
-  )
+    <main className="home-page">
+      <LeftSideContent/>
+      <RightSideContent/>
+    </main>
+ )
 }
 
 export default IndexPage

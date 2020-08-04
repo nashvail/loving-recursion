@@ -1,0 +1,24 @@
+@function em($px-value, $base-value: $base-font-size) {
+    @return $px-value / $base-value * 1em;
+}
+
+@function convert-units($px-values, $unit, $base-value: $base-font-size) {
+
+    $values: ();
+
+    @each $value in $px-values {
+
+        @if $value == 0 or type-of($value) != "number" {
+            $values:append($values, $value);
+        } @else {
+            $values:append($values, ($value / $base-value) + $unit);
+        }
+    }
+
+    @return $values;
+
+}
+
+@mixin em($property, $px-values) {
+    #{$property}: convert-units($px-values, em);
+}

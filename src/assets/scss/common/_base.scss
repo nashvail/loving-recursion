@@ -1,0 +1,193 @@
+
+/**
+ * Hide content
+ * {@link https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/}
+ */
+ *[hidden] {
+  display: none !important;
+}
+
+/**
+ * Inheriting box sizing
+ * {@link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/}
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-feature-settings: 'kern' off;
+  font-feature-settings: 'kern' off;
+  -webkit-font-kerning: none;
+  font-kerning: none;
+  cursor: default;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(var(--color-white));
+  color: rgb(var(--color-grey-0));
+  // @include font-base;
+}
+
+p {
+  color: rgb(var(--color-grey-6));
+}
+
+/*
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  @include font-heading;
+}
+
+h1,
+.h1 {
+  @include font-h1;
+}
+
+h2,
+.h2 {
+  @include font-h2;
+}
+
+h3,
+.h3 {
+  @include font-h3;
+}
+
+h4,
+.h4 {
+  @include font-h4;
+}
+
+.title {
+  @include font-title;
+}
+
+.subtitle {
+  @include font-subtitle;
+}
+
+strong {
+  @include font-strong;
+}
+
+a {
+  display: inline-block;
+  color: rgb(var(--color-primary));
+  text-decoration: none;
+
+  background-image: linear-gradient(
+    0deg,
+    rgba(var(--color-primary), 0.3) 100%,
+    hsla(0, 0%, 100%, 0)
+  );
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transform-origin: left bottom;
+  transition: background-size $d-slow $ease-in-out;
+
+  &:hover {
+    background-size: 0 1px;
+    background-position: 100% 100%;
+  }
+}
+*/
+
+sub,
+sup {
+  font-size: 50%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -1em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+button {
+  @include button-reset;
+  // color: rgb(var(--color-secondary));
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+figcaption {
+  font-style: italic;
+}
+
+section {
+  // margin: 0 0 $sp-md;
+}
+
+nav {
+  ul,
+  ol {
+    @extend %list-reset;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin-left: 1em;
+  list-style: upper-roman;
+}
+
+p,
+figure,
+blockquote,
+ul,
+ol,
+ol li {
+  // margin-bottom: $sp-base;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

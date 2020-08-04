@@ -1,7 +1,9 @@
 import React from "react";
 
 const ChapterClicker = () => (
-  <div className="chapter_clicker"></div>
+  <li className="chapter_clicker">
+    
+  </li>
 );
 
 export default ChapterClicker;

@@ -1,0 +1,35 @@
+.home-page{
+  /* Variables */
+  --padding: 0px;
+  --columns: 5;
+  --gutter: 0px;
+
+  /* Styles */
+  width: 100%;
+  padding: var(--padding);
+  background: var(--color-grey-6);
+  display: grid;
+
+  // formula: (window-width - (padding + (gutter * (columns - 1))) / columns) - gutter
+  // because there's fewer gutters than columns, we only subtract it once from the window-width
+  // This is used to divide the window into columns of equal width and in the number of 
+  // columns
+  grid-template-columns: repeat(
+    var(--columns),
+    calc(((100vw - (2 * var(--padding)) - (var(--gutter) * (var(--columns) - 1))) / var(--columns)))
+  );
+  grid-gap: var(--gutter);
+
+  &__left {
+    justify-self: stretch;
+    background: black;
+    grid-column: 1/3 ;
+  }
+
+  &__right {
+    justify-self: stretch;
+    background: red;
+    grid-column: 3/-1;
+  }
+
+}
