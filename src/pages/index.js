@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 
 import { motion } from "framer-motion"
 
-import Layout from "../components/layout"
-import ChapterClicker from "../components/chapter_clicker"
 import LeftSideContent from "../components/Home/LeftSideContent"
 import RightSideContent from "../components/Home/RightSideContent"
 

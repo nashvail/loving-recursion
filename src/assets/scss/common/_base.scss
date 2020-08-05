@@ -169,8 +169,7 @@ nav {
 
 ul,
 ol {
-  margin: 0;
-  padding: 0;
+  @extend %list-reset;
 }
 
 ul {
