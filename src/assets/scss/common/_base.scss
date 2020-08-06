@@ -8,6 +8,23 @@
 }
 
 @font-face {
+  font-family: 'GT America-Expanded Regular';
+  src: url(../fonts/gt-america-expanded-regular.woff) format('woff'),
+    url(../fonts/gt-america-expanded-regular.woff2) format('woff2');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'GT America-Expanded Medium';
+  src: url(../fonts/gt-america-expanded-medium.woff) format('woff'),
+    url(../fonts/gt-america-expanded-medium.woff2) format('woff2');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'GT America-Standard Regular';
   src: url(../fonts/gt-america-standard-regular.woff) format('woff'),
     url(../fonts/gt-america-standard-regular.woff2) format('woff2');
@@ -68,7 +85,7 @@ body {
   padding: 0;
   background-color: rgb(var(--color-white));
   color: rgb(var(--color-grey-0));
-  font-family: 'GT America-Standard Bold';
+  font-family: 'GT America-Expanded Medium';
   // @include font-base;
 }
 
