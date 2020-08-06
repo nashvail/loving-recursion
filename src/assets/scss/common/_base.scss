@@ -1,3 +1,11 @@
+/* We are going to add the font stuff here */
+@font-face {
+  font-family: 'GT America-Expanded Bold';
+  src: url(../fonts/gt-america-expanded-bold-webfont.woff) format('woff'),
+    url(../fonts/gt-america-expanded-bold-webfont.woff2) format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
 
 /**
  * Hide content
@@ -43,6 +51,7 @@ body {
   padding: 0;
   background-color: rgb(var(--color-white));
   color: rgb(var(--color-grey-0));
+  font-family: 'GT America-Expanded Bold';
   // @include font-base;
 }
 

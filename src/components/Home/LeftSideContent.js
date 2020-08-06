@@ -10,7 +10,7 @@ const ChapterClicker = ({ number }) => (
 
 const LeftSideContent = () => (
   <section className="home-page__left">
-    <h1>Loving Recursion</h1>
+    <h1 style={{ fontSize: '48px '}}>LOVING RECURSION</h1>
     <h2>Written in English and JavaScript</h2>
     <ol className="home-page__left__chapter-list">
       <ChapterClicker number={1}/>
