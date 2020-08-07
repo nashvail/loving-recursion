@@ -35,19 +35,8 @@
       background: var(--color-blue-0);
     }
 
-    &__chapter-list {
-      & li {
-        // background: red;
-        margin: 1rem 0;
-        background: var(--color-grey-6);
-        padding: 2rem;
-        border-radius: 1rem;
-        cursor: pointer;
-        a {
-          text-decoration: none;
-        }
-      }
-    }
+    &__chapter-list {}
+     
   }
 
   &__right {

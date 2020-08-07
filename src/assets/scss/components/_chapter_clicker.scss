@@ -1,5 +1,15 @@
-.chapter_clicker {
-  width: 500px;
-  height: 500px;
+.chapter-list__item {
+  margin: 1rem 0;
   background: var(--color-grey-6);
+  padding: 32px;
+  border-radius: 1rem;
+  cursor: pointer;
+  a {
+    display: grid;
+    grid-template-columns: auto 32px;
+    align-content: center;
+    text-decoration: none;
+    align-items: center;
+  }
+
 }
