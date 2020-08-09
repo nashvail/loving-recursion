@@ -12,4 +12,7 @@
     align-items: center;
   }
 
+  &:hover {
+    background: var(--color-grey-5);
+  }
 }
