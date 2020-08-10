@@ -1,8 +1,10 @@
 import React from "react"
 
+import heroineImage from "../../assets/images/heroine.png"
+
 const RightSideContent = () => (
   <section className="home-page__right">
-    Hello there
+    <img src={heroineImage}></img>
   </section>
 )
 

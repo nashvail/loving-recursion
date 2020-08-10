@@ -3,12 +3,14 @@
   --padding: 0px;
   --columns: 5;
   --gutter: 0px;
+  --width: 90vw;
 
   /* Styles */
-  width: 100%;
   padding: var(--padding);
   background: var(--color-grey-6);
   display: grid;
+  width: var(--width);
+  margin: 0 auto;
 
   // formula: (window-width - (padding + (gutter * (columns - 1))) / columns) - gutter
   // because there's fewer gutters than columns, we only subtract it once from the window-width
@@ -16,7 +18,7 @@
   // columns
   grid-template-columns: repeat(
     var(--columns),
-    calc(((100vw - (2 * var(--padding)) - (var(--gutter) * (var(--columns) - 1))) / var(--columns)))
+    calc(((var(--width) - (2 * var(--padding)) - (var(--gutter) * (var(--columns) - 1))) / var(--columns)))
   );
   grid-gap: var(--gutter);
 
@@ -30,8 +32,8 @@
       display: block;
       content: '';
       top: 0;
-      height: 200px;
-      width: 100px;
+      height: 300px;
+      width: 230px;
       background: var(--color-blue-0);
     }
 
@@ -42,6 +44,14 @@
   &__right {
     justify-self: stretch;
     grid-column: 3/-1;
+    display: grid;
+    justify-content: center;
+    background: var(--color-grey-6);
+    img {
+      width: 60%;
+      max-width: 1000px;
+      margin: 10rem auto 0 auto;
+    }
   }
 
 }

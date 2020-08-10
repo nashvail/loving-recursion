@@ -5,7 +5,10 @@ import Lottie from "react-lottie"
 import animationData from "../../lotties/eg-lottie.json"
 
 // 👇 this fucking works
-const EyeLottie = ({ stopped, speed=1 }) => {
+const EyeLottie = ({ speed=1 }) => {
+
+  const [stopped, setStopped] = useState(false);
+
   const defaultOptions = {
     loop: false,
     autoplay: false,
@@ -15,9 +18,14 @@ const EyeLottie = ({ stopped, speed=1 }) => {
     },
   }
 
+  useEffect(() => {
+    setStopped(prev => !prev) ;
+  }, [speed])
+
   return (
     <div>
       <Lottie
+        isStopped={stopped}
         speed={speed}
         options={defaultOptions}
         height={32}
@@ -32,14 +40,14 @@ const EyeLottie = ({ stopped, speed=1 }) => {
 
 const ChapterClicker = ({ number, name, link }) => {
 
-  const [lottieStopped, setLottieStopped] = useState({stopped: true, speed: 1})
+  const [lottieSpeed, setLottieSpeed] = useState(1)
 
   const handleOnMouseEnter = (e) => {
-    setLottieStopped({stopped: false, speed: 2});
+    setLottieSpeed(2);
   }
 
   const handleOnMouseLeave = (e) => {
-    setLottieStopped({stopped: false, speed: -2.25});
+    setLottieSpeed(-2);
   }
   
   return (
@@ -67,7 +75,7 @@ const ChapterClicker = ({ number, name, link }) => {
           </span>
         </div>
         <div>
-          <EyeLottie stopped={lottieStopped.stopped} speed={lottieStopped.speed} />
+          <EyeLottie speed={lottieSpeed} />
         </div>
       </a>
     </li>
