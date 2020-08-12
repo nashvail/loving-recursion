@@ -1,8 +1,8 @@
 import React from "react";
 
 export default ({ children }) => (
-  <div>
-    <h1>My Layout</h1>
+  <main>
+    <h1>AM I being used?</h1>
     <div>{children}</div>
-  </div>
+  </main>
 )

@@ -8,12 +8,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: `${__dirname}/src/pages`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-page-creator`,
+    //   options: {
+    //     path: `${__dirname}/src/pages`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,7 +25,7 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
-        defaulLayouts: {
+        defaultLayouts: {
           posts: require.resolve("./src/templates/chapters.js"),
           default: require.resolve("./src/templates/chapters.js"),
         }
