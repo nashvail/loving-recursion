@@ -1,0 +1,15 @@
+.word {
+  display: inline-block;
+  overflow: hidden;
+  margin-bottom: -0.25em; // fix a weird line-height bug due to Splitting
+
+  .char {
+    display: inline-block;
+    transition: transform 0.5s calc(var(--char-index) * 0.035s) cubic-bezier(0.64, 0.04, 0.35, 1);
+    transform: translateY(100%);
+  }
+
+  .show & .char {
+    transform: translateY(0);
+  }
+}
