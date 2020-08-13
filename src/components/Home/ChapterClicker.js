@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
 import Lottie from "react-lottie"
+import { Link } from "gatsby"
 
 import animationData from "../../lotties/eg-lottie.json"
 
@@ -38,7 +39,7 @@ const EyeLottie = ({ speed=1 }) => {
 // Maybe what you can do here is just change state on hover and that gets rerendered right?
 // You have installed lottie web haven't you
 
-const ChapterClicker = ({ number, name, link }) => {
+const ChapterClicker = ({ number, name, link="#" }) => {
 
   const [lottieSpeed, setLottieSpeed] = useState(1)
 
@@ -52,7 +53,7 @@ const ChapterClicker = ({ number, name, link }) => {
   
   return (
     <li className="chapter-list__item" onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
-      <a href="#">
+      <Link to={link}>
         <div>
           <span
             style={{
@@ -68,7 +69,7 @@ const ChapterClicker = ({ number, name, link }) => {
             style={{
               fontFamily: "GT America-Expanded Medium",
               fontSize: "30px",
-              color: "#112d32",
+              color: "white",
             }}
           >
             {name}
@@ -77,7 +78,7 @@ const ChapterClicker = ({ number, name, link }) => {
         <div>
           <EyeLottie speed={lottieSpeed} />
         </div>
-      </a>
+      </Link>
     </li>
   )
 }

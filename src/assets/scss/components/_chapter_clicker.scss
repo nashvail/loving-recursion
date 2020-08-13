@@ -1,6 +1,7 @@
 .chapter-list__item {
   margin: 1rem 0;
-  background: var(--color-grey-6);
+  // background: var(--color-grey-6);
+  background: darken($color: #2C2A2E, $amount: 5%);
   padding: 32px;
   border-radius: 1rem;
   cursor: pointer;
@@ -13,6 +14,7 @@
   }
 
   &:hover {
-    background: var(--color-yellow-6);
+    background: var(--color-grey-6);
+    color: var(--color-grey-0);
   }
 }
