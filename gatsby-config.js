@@ -7,6 +7,7 @@ module.exports = {
     author: `@nashvail`,
   },
   plugins: [
+    `gatsby-plugin-transition-link`,
     `gatsby-plugin-react-helmet`,
     // {
     //   resolve: `gatsby-plugin-page-creator`,

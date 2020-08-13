@@ -1,7 +1,6 @@
 import React, { useLayoutEffect } from "react"
 import { Link } from "gatsby"
 
-import { motion } from "framer-motion"
 
 import LeftSideContent from "../components/Home/LeftSideContent"
 import RightSideContent from "../components/Home/RightSideContent"
