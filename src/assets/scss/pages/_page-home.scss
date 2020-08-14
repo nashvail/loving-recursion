@@ -1,3 +1,5 @@
+// Has css for home page and LeftSideContent and RightSideContent
+
 .home-page{
   /* Variables */
   --padding: 0px;
@@ -28,6 +30,21 @@
     padding: 0 40px 0 40px;
     // background: var(--color-white);
     background: #2C2A2E;
+
+    &__title {
+      font-size: 64px;
+      color: white;
+      font-family: 'GT America-Expanded Bold';
+      text-transform: uppercase;
+      &--word-one, &--word-two {
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      &--word-two {
+        margin-top: -3rem;
+      }
+    }
 
     &::before {
       display: block;

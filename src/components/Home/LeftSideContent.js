@@ -4,55 +4,33 @@ import ChapterClicker from "./ChapterClicker"
 
 let Splitting
 if (typeof window !== `undefined`) {
-  Splitting = require('splitting')
+  Splitting = require("splitting")
 }
 
-
 const LeftSideContent = () => {
-
-
   useLayoutEffect(() => {
-    Splitting({ by: 'chars' })
+    Splitting({ by: "words" })
   })
 
   useEffect(() => {
-
-    if(typeof window === 'undefined') return null;
-    const title = document.querySelector('.title');
+    if (typeof window === "undefined") return null
+    const title = document.querySelector(".home-page__left__title")
 
     setTimeout(() => {
-      title.classList.add('show')
+      title.classList.add("show")
     }, 175)
 
     return () => {
-      title.classList.remove('show')
+      title.classList.remove("show")
     }
-
-
-  }, []); // this is basically the first component did load
+  }, [])
 
   return (
     <section className="home-page__left">
-      <h1
-        style={{
-          fontSize: "56px",
-          color: "#ffffff",
-          fontFamily: "GT America-Standard Regular",
-        }}
-        className="title"
-        data-splitting=""
-      >
-        LOVING WHAT
-      </h1>
-      <h1
-        style={{
-          fontSize: "56px",
-          color: "#ffffff",
-          fontFamily: "GT America-Expanded Bold",
-          marginTop: "-4rem",
-        }}
-      >
-        RECURSION
+      <h1 className="home-page__left__title" data-splitting>
+        <span className="home-page__left__title--word-one">loving</span>
+        <br />
+        <span className="home-page__left__title--word-two">recursion</span>
       </h1>
       <h2>Chapters</h2>
       <ol className="home-page__left__chapter-list">
