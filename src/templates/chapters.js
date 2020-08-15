@@ -6,6 +6,8 @@ import heroImage from "../assets/images/hero-chapter-0.png";
 export default ({ children }) => (
   <main className="chapter-view">
     <section className="chapter-view__hero">
+      <h2>LOVING RECURSION</h2>
+      <h2>CHAPTER 0.</h2>
       <h1>INTRODUCTION</h1>
       <img src={heroImage} />
     </section>
