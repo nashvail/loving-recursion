@@ -2,7 +2,6 @@
   margin: 1rem 0;
   // background: var(--color-grey-6);
   background: darken($color: #2C2A2E, $amount: 5%);
-  padding: 32px;
   border-radius: 1rem;
   cursor: pointer;
   a {
@@ -11,6 +10,7 @@
     align-content: center;
     text-decoration: none;
     align-items: center;
+    padding: 32px;
   }
 
   &:hover {

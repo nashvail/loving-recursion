@@ -2,7 +2,7 @@
   background: var(--color-grey-6);
   &__hero {
     width: 100vw;
-    background: var(--color-grey-6);
+    background: var(--color-grey-0);
     display: grid;
     justify-content: center;
     padding-top: 15rem;
@@ -11,7 +11,7 @@
       width: 100%;
       font-family: 'GT America-Expanded Bold';
       font-size: 72px;
-      color: var(--color-blue-0);
+      color: var(--color-white);
       text-align: center;
     }
 
@@ -29,6 +29,6 @@
     margin: 0 auto;
     height: 1000px;
     margin-top: -30rem;
-    background: #2C2A2E;
+    background: var(--color-grey-minus1);
   }
 }

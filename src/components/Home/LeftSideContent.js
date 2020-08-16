@@ -32,7 +32,7 @@ const LeftSideContent = () => {
         <br />
         <span className="home-page__left__title--word-two">recursion</span>
       </h1>
-      <h2>Chapters</h2>
+      <h2 style={{color: "white"}}>Table Of Content</h2>
       <ol className="home-page__left__chapter-list">
         <ChapterClicker number={0} name="Introduction" link="/introduction" />
         <ChapterClicker number={1} name="The Encounter" />
