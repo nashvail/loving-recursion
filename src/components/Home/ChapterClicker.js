@@ -61,23 +61,10 @@ const ChapterClicker = ({ number, name, link = "#" }) => {
         to={link}
       >
         <div>
-          <span
-            style={{
-              fontFamily: "GT Eesti Pro Text-Regular",
-              fontSize: "20px",
-              display: "block",
-              color: "#75AAB3",
-            }}
-          >
+          <span className="chapter-list__item__chapter-number">
             Chapter {number}
           </span>
-          <span
-            style={{
-              fontFamily: "GT America-Expanded Medium",
-              fontSize: "30px",
-              color: "white",
-            }}
-          >
+          <span className="chapter-list__item__chapter-name">
             {name}
           </span>
         </div>
