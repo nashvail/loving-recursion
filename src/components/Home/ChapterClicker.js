@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
 import Lottie from "react-lottie"
-// import { Link } from "gatsby"
-import TransitionLink from "gatsby-plugin-transition-link"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
+// import TransitionLink from "gatsby-plugin-transition-link"
+// import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import animationData from "../../lotties/eg-lottie.json"
 
@@ -57,8 +57,7 @@ const ChapterClicker = ({ number, name, link = "#" }) => {
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
-      <AniLink
-        cover
+      <Link
         to={link}
       >
         <div>
@@ -85,7 +84,7 @@ const ChapterClicker = ({ number, name, link = "#" }) => {
         <div>
           <EyeLottie speed={lottieSpeed} />
         </div>
-      </AniLink>
+      </Link>
     </li>
   )
 }
