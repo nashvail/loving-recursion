@@ -8,7 +8,7 @@ const RightSideContent = () => (
     <div
       style={{
         width: "100%",
-        height: "1500px",
+        height: "100vh",
         background: "green"
       }}
     />
