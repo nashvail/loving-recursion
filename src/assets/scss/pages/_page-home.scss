@@ -79,13 +79,11 @@
       max-height: 100vh;
       min-height: 100vh;
       overflow: hidden;
+      display: grid;
+      justify-items: center;
       img {
-        top: 10rem;
-        position: absolute;
+        padding-top: 10rem;
         max-width: 60%;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
       }
     }
 
