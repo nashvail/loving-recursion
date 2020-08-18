@@ -1,7 +1,8 @@
-import React, { useEffect, useLayoutEffect } from "react"
+import React, { useEffect, useLayoutEffect, useRef, useContext } from "react"
 import { motion } from "framer-motion"
 
 import ChapterClicker from "./ChapterClicker"
+import { ScrollContext } from "../../pages/index"
 
 let Splitting
 if (typeof window !== `undefined`) {
@@ -9,6 +10,11 @@ if (typeof window !== `undefined`) {
 }
 
 const LeftSideContent = () => {
+  const sectionRef = useRef(null);
+
+  // Scroll position from right side component
+  const [scrollContext, setScrollContext] = useContext(ScrollContext)
+
   useLayoutEffect(() => {
     Splitting({ by: "words" })
   })
@@ -26,9 +32,14 @@ const LeftSideContent = () => {
     }
   }, [])
 
+  useEffect(() => {
+    sectionRef.current.scrollTo(0, scrollContext/5);
+  }, [scrollContext])
+
   return (
     <motion.section
       className="home-page__left"
+      ref={sectionRef}
       initial={{ x: -100 }}
       animate={{ x: 0 }}
       transition={{ ease: [0, 0.71, 0.15, 1.03] }}

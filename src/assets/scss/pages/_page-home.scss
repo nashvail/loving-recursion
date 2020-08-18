@@ -71,8 +71,8 @@
     max-height: 100vh;
     overflow-y: scroll;
     background: var(--color-grey-6);
-    scroll-snap-type: mandatory;
-    scroll-snap-type: y mandatory;
+    // scroll-snap-type: mandatory;
+    // scroll-snap-type: y mandatory;
 
     &__hero {
       position: relative;
@@ -92,7 +92,7 @@
     }
 
     section {
-      scroll-snap-align: start;
+      // scroll-snap-align: start;
     }
   }
 
