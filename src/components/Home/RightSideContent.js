@@ -4,21 +4,12 @@ import heroineImage from "../../assets/images/heroine.png"
 
 const RightSideContent = () => (
   <section className="home-page__right">
-    {/* <img src={heroineImage}></img> */}
-    <div
-      style={{
-        width: "100%",
-        height: "100vh",
-        background: "green"
-      }}
-    />
-    <div
-      style={{
-        width: "100%",
-        height: "1500px",
-        background: "red"
-      }}
-    />
+    <section className="home-page__right__hero">
+      <img src={heroineImage} />
+    </section>
+    <section className="home-page__right__rest">
+      <h1>What the fuck</h1>
+    </section>
 
   </section>
 )

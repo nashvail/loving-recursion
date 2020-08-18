@@ -73,13 +73,27 @@
     background: var(--color-grey-6);
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
-    img {
-      scroll-snap-align: start;
-      width: 60%;
-      max-width: 1000px;
-      margin: 13rem auto 0 auto;
+
+    &__hero {
+      position: relative;
+      max-height: 100vh;
+      min-height: 100vh;
+      overflow: hidden;
+      img {
+        top: 10rem;
+        position: absolute;
+        max-width: 60%;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
-    div {
+
+    &__rest {
+      height: 1500px;
+    }
+
+    section {
       scroll-snap-align: start;
     }
   }
