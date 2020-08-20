@@ -7,18 +7,18 @@ import RightSideContent from "../components/Home/RightSideContent"
 // SCSS
 import "../assets/scss/index.scss"
 
-export const ScrollContext = React.createContext()
+export const RightSideScrollContext = React.createContext()
 
 const IndexPage = () => {
   // For the value of the right section scrolled 
-  const [scrollContext, setScrollContext] = useState(0)
+  const [rightSideScrollContext, setRightSideScrollContext] = useState(0)
 
   return (
     <main className="home-page">
-      <ScrollContext.Provider value={[scrollContext, setScrollContext]}>
+      <RightSideScrollContext.Provider value={[rightSideScrollContext, setRightSideScrollContext]}>
         <LeftSideContent />
         <RightSideContent />
-      </ScrollContext.Provider>
+      </RightSideScrollContext.Provider>
     </main>
   )
 }

@@ -73,7 +73,6 @@
     background: var(--color-grey-6);
     // scroll-snap-type: mandatory;
     // scroll-snap-type: y mandatory;
-
     &__hero {
       position: relative;
       max-height: 100vh;
@@ -81,9 +80,22 @@
       overflow: hidden;
       display: grid;
       justify-items: center;
+      align-items: end;
       img {
+        max-width: 52%;
         padding-top: 10rem;
-        max-width: 60%;
+        z-index: 1;
+      }
+      &__lottie-1 {
+        position: absolute;
+        top: 8rem;
+        left: 15rem;
+        z-index: 2;
+      }
+      &__lottie-2 {
+        position: absolute;
+        top: 55rem;
+        right: 25rem;
       }
     }
 
