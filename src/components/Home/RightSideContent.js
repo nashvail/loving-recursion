@@ -10,7 +10,12 @@ import circleFrontData from "../../lotties/circleExpand.json"
 import circleFrontData2 from "../../lotties/circleExpand2.json"
 
 // Lottie
-const CircleExpandLottieFront = ({ className, width, height, animationData }) => {
+const CircleExpandLottieFront = ({
+  className,
+  width,
+  height,
+  animationData,
+}) => {
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -58,7 +63,18 @@ const RightSideContent = () => {
         />
       </section>
       <section className="home-page__right__rest">
-        <h1>What the fuck</h1>
+        <h2>Why is this Book?</h2>
+        <p>
+          This book is because one day an article about recursion that I was
+          writing got too long and too deep to be called just an article. See
+          this project as a collection of articles on the same topic or, a
+          “book”, if you want me to feel better and more pompous than I already
+          do; now that I have finished a project I thought I never would. This
+          book is also a test of my ideas on teaching philosophy that I have
+          come up with after some amount of pondering, about 10% more than a
+          normal human would. More details about this in the Introduction
+          chapter.
+        </p>
       </section>
     </section>
   )

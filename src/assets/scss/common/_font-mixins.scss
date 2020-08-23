@@ -1,0 +1,20 @@
+$heading-font: 'GT America-Expanded Bold', sans-serif;
+
+// $fs-base: ;
+// $fs-sm: ;
+$fs-md: 3.6rem;
+$fs-lg: 6.5rem;
+// $fs-xl: ;
+
+@mixin font-heading {
+  font-family: $heading-font;
+}
+
+@mixin font-h1 {
+  font-size: $fs-lg;
+}
+
+@mixin font-h2 {
+  font-size: $fs-md;
+}
+

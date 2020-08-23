@@ -1,0 +1,26 @@
+// These need to be changed
+
+// list of z-indexes
+$z-layers: (
+  'footer': 700,
+);
+
+// Spacing
+$sp-xs: 1rem;
+$sp-sm: 1.5rem;
+$sp-base: 2rem;
+$sp-md: 3.5rem;
+$sp-lg: 5rem;
+$sp-xl: 6.5rem;
+
+// Easings
+$ease-in: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+$ease-in-out: cubic-bezier(0.64, 0.04, 0.35, 1);
+
+// Durations
+$d-fast: 0.125s;
+$d-normal: 0.25s;
+$d-slow: 0.5s;
+$d-slower: 1.5s;
+$d-slowest: 2.25s;

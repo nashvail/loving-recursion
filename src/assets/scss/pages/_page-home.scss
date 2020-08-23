@@ -36,27 +36,26 @@
     background: #2C2A2E;
 
     &__title {
-      font-size: 64px;
       color: white;
-      font-family: 'GT America-Expanded Bold';
       text-transform: uppercase;
       &--word-one, &--word-two {
         display: inline-block;
         overflow: hidden;
       }
-
       &--word-two {
         margin-top: -3rem;
       }
     }
 
-    &::before {
+    &__flap {
       display: block;
       content: '';
       top: 0;
-      height: 300px;
-      width: 180px;
-      background: var(--color-blue-0);
+      height: 320px;
+      width: 200px;
+      background-image: url(../../images/flap.png);
+      background-size: contain;
+      background-repeat: no-repeat;
     }
 
     &__chapter-list {}
@@ -100,7 +99,12 @@
     }
 
     &__rest {
-      height: 1500px;
+      width: 80%;
+      margin: 0 auto;
+
+      h1 {
+        text-transform: uppercase;
+      }
     }
 
     section {

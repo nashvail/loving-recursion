@@ -47,6 +47,7 @@ const LeftSideContent = () => {
       // animate={{ x: 0 }}
       // transition={{ ease: [0, 0.71, 0.15, 1.03] }}
     >
+      <span className="home-page__left__flap"/>
       <h1 className="home-page__left__title" data-splitting>
         <span className="home-page__left__title--word-one">loving</span>
         <br />
