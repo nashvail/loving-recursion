@@ -38,6 +38,7 @@
     &__title {
       color: white;
       text-transform: uppercase;
+      margin-bottom: 0;
       &--word-one, &--word-two {
         display: inline-block;
         overflow: hidden;
@@ -53,9 +54,9 @@
       top: 0;
       height: 320px;
       width: 200px;
-      background-image: url(../../images/flap.png);
       background-size: contain;
       background-repeat: no-repeat;
+      background-image: url(../images/topart.png);
     }
 
     &__chapter-list {}
@@ -100,10 +101,12 @@
 
     &__rest {
       width: 80%;
-      margin: 0 auto;
+      margin: 0rem auto 10rem auto;
 
-      h1 {
+      h2, h1 {
+        color: var(--color-grey-0);
         text-transform: uppercase;
+        text-align: center;
       }
     }
 

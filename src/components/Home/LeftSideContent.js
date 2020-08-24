@@ -36,7 +36,7 @@ const LeftSideContent = () => {
   useEffect(() => {
     // Comment the line below if you don't want left side section to scroll
     // along with the right section but then also delete the wrappign contexts
-    sectionRef.current.scrollTo(0, scrollContext/5);
+    // sectionRef.current.scrollTo(0, scrollContext/5);
   }, [scrollContext])
 
   return (
@@ -53,7 +53,9 @@ const LeftSideContent = () => {
         <br />
         <span className="home-page__left__title--word-two">recursion</span>
       </h1>
-      <h2 style={{ color: "white" }}>Table Of Content</h2>
+      <p style={{ color: 'white' }}>A book about learning to love recursion. Written in English and JavaScript</p>
+      <br/>
+      <h3 style={{ color: "#508791" }}>Table Of Content</h3>
       <ol className="home-page__left__chapter-list">
         <ChapterClicker number={0} name="Introduction" link="/introduction" />
         <ChapterClicker number={1} name="The Encounter" />
