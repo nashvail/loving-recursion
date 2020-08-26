@@ -64,15 +64,14 @@
   }
 
   &__right {
-    background: blue;
-    justify-self: stretch;
     grid-column: 2/-1;
     max-width: 60vw;
     max-height: 100vh;
+    min-height: 100vh;
     overflow-y: scroll;
     background: var(--color-grey-6);
-    // scroll-snap-type: mandatory;
-    // scroll-snap-type: y mandatory;
+    
+    padding: 0 0 200vh;
     &__hero {
       position: relative;
       max-height: 100vh;
@@ -108,10 +107,6 @@
         text-transform: uppercase;
         text-align: center;
       }
-    }
-
-    section {
-      // scroll-snap-align: start;
     }
   }
 
