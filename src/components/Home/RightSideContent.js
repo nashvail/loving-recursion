@@ -48,6 +48,10 @@ const RightSideContent = () => {
       el: scrollRef.current,
       smooth: true,
     })
+
+    return(() => {
+      scroll.destroy();
+    })
   }, [])
 
   const onSectionScroll = e => {
