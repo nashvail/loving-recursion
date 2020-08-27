@@ -13,7 +13,7 @@ export default ({ children }) => (
   <AnimatePresence>
     <main className="chapter-view">
       <section className="chapter-view__hero">
-        <h2>CHAPTER 0</h2>
+        <h3>Chapter 0</h3>
         <h1 className="chapter-view__title">INTRODUCTION</h1>
         <motion.img
           src={heroImage}

@@ -68,9 +68,8 @@
     max-width: 60vw;
     max-height: 100vh;
     min-height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     background: var(--color-grey-6);
-    
     padding: 0 0 200vh;
     &__hero {
       position: relative;
@@ -101,12 +100,6 @@
     &__rest {
       width: 80%;
       margin: 0rem auto 10rem auto;
-
-      h2, h1 {
-        color: var(--color-grey-0);
-        text-transform: uppercase;
-        text-align: center;
-      }
     }
   }
 

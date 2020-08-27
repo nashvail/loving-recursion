@@ -1,5 +1,12 @@
 /* Font imports */
 @font-face {
+  font-family: 'GT America-Expanded Black';
+  src: url(../fonts/gt-america-expanded-black.woff) format('woff'),
+    url(../fonts/gt-america-expanded-black.woff2) format('woff2');
+}
+
+
+@font-face {
   font-family: 'GT America-Expanded Bold';
   src: url(../fonts/gt-america-expanded-bold-webfont.woff) format('woff'),
     url(../fonts/gt-america-expanded-bold-webfont.woff2) format('woff2');
