@@ -55,7 +55,7 @@ const LeftSideContent = () => {
       </h1>
       <p style={{ color: 'white' }}>A book about learning to love recursion. Written in English and JavaScript</p>
       <br/>
-      <h3 style={{ color: "#508791" }}>Index</h3>
+      <h3 style={{ color: 'var(--color-grey-4)'}}>Index</h3>
       <ol className="home-page__left__chapter-list">
         <ChapterClicker number={0} name="Introduction" link="/introduction" />
         <ChapterClicker number={1} name="The Encounter" />
