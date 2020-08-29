@@ -58,7 +58,7 @@ const LeftSideContent = () => {
       <h3 style={{ color: 'var(--color-grey-4)'}}>Index</h3>
       <ol className="home-page__left__chapter-list">
         <ChapterClicker number={0} name="Introduction" link="/introduction" />
-        <ChapterClicker number={1} name="The Encounter" />
+        <ChapterClicker number={1} name="The Encounter" link="/the_encounter" />
         <ChapterClicker number={2} name="Then Comes Trust" />
         <ChapterClicker number={3} name="Procedures and Patterns" />
         <ChapterClicker number={4} name="Chasing Cars, Drawing Triangles" />
