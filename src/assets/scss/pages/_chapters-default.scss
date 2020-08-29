@@ -1,7 +1,8 @@
 .chapter-view {
   background: var(--color-grey-6);
+  width: 100vw;
   &__hero {
-    width: 100vw;
+    width: 100%;
     background: var(--color-grey-minus1);
     display: grid;
     justify-content: center;
@@ -31,10 +32,20 @@
   }
 
   &__content {
-    width: 100%;
-    margin: 0 auto;
+    width: 100vw;
     height: 1000px;
     margin-top: -30rem;
     background: var(--color-grey-0);
+    // background: red;
+    display: grid;
+    justify-content: center;
+    color: var(--color-grey-6);
+    article {
+      padding-top: 40rem;
+      width: 100%;
+      min-width: 960px;
+      max-width: 960px;
+      // background: yellow;
+    }
   }
 }
