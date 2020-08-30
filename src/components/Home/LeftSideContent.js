@@ -4,13 +4,25 @@ import { motion } from "framer-motion"
 import ChapterClicker from "./ChapterClicker"
 import { RightSideScrollContext } from "../../pages/index"
 
+// Chapter Data
+import chapters from "../../data/chapters.json"
+
 let Splitting
 if (typeof window !== `undefined`) {
   Splitting = require("splitting")
 }
 
+// Renders the list of chapters
+const Chapters = () => {
+  return (
+    chapters.map((chapterData, key) => (
+      <ChapterClicker link={chapterData.link} name={chapterData.chapterName} number={key}/>
+    ))
+  );
+}
+
 const LeftSideContent = () => {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef(null)
 
   // Scroll position from right side component
   const [scrollContext, setScrollContext] = useContext(RightSideScrollContext)
@@ -47,24 +59,32 @@ const LeftSideContent = () => {
       // animate={{ x: 0 }}
       // transition={{ ease: [0, 0.71, 0.15, 1.03] }}
     >
-      <span className="home-page__left__flap"/>
+      <span className="home-page__left__flap" />
       <h1 className="home-page__left__title" data-splitting>
         <span className="home-page__left__title--word-one">loving</span>
         <br />
         <span className="home-page__left__title--word-two">recursion</span>
       </h1>
-      <p style={{ color: 'white' }}>A book about learning to love recursion. Written in English and JavaScript</p>
-      <br/>
-      <h3 style={{ color: 'var(--color-grey-4)'}}>Index</h3>
+      <p style={{ color: "white" }}>
+        A book about learning to love recursion. Written in English and
+        JavaScript
+      </p>
+      <br />
+      <h3 style={{ color: "var(--color-grey-4)" }}>Index</h3>
       <ol className="home-page__left__chapter-list">
-        <ChapterClicker number={0} name="Introduction" link="/introduction" />
-        <ChapterClicker number={1} name="The Encounter" link="/the_encounter" />
-        <ChapterClicker number={2} name="Then Comes Trust" />
-        <ChapterClicker number={3} name="Procedures and Patterns" />
-        <ChapterClicker number={4} name="Chasing Cars, Drawing Triangles" />
+        <Chapters />
       </ol>
     </motion.section>
   )
 }
 
 export default LeftSideContent
+
+/*
+<ChapterClicker number={0} name="Introduction" link="/introduction" />
+        <ChapterClicker number={1} name="The Encounter" link="/the_encounter" />
+        <ChapterClicker number={2} name="Then Comes Trust" />
+        <ChapterClicker number={3} name="Procedures and Patterns" />
+        <ChapterClicker number={4} name="Chasing Cars, Drawing Triangles" />
+      </
+*/

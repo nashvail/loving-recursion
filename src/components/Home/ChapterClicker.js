@@ -79,7 +79,7 @@ const ChapterClicker = ({ number, name, link = "#" }) => {
 ChapterClicker.propTypes = {
   number: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  link: PropTypes.string,
+  link: PropTypes.string.isRequired,
 }
 
 export default ChapterClicker
