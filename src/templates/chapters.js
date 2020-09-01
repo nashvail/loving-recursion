@@ -35,7 +35,7 @@ export default ({ children, pageContext }) => {
     <main className="chapter-view">
       <section className="chapter-view__hero">
         <h3 className="chapter-view__number">Chapter {chapterNumber}</h3>
-        <h1 className="chapter-view__title" data-splitting>
+        <h1 className="chapter-view__title">
           {chapterName}
         </h1>
         <ProgressiveImage src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}>
