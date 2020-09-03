@@ -3,8 +3,7 @@
   width: 100vw;
 
   &__title {
-    width: 960px;
-    margin: 0 auto;
+    overflow: hidden;
   }
 
   &__hero {
@@ -15,7 +14,7 @@
     justify-content: center;
     padding-top: 15rem;
 
-       img {
+    img {
       padding-top: 5rem;
       width: 60%;
       // max-width: 800px;
@@ -37,6 +36,15 @@
     h3 {
       color: var(--color-white);
       text-align: center;
+    }
+
+    h3 {
+      overflow: hidden;
+    }
+
+    h1 > span,
+    h3 > span {
+      display: inline-block;
     }
 
     h1 {

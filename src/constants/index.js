@@ -1,0 +1,1 @@
+export const TRANSITION_EASE = [0, 0.71, 0.15, 1.03];

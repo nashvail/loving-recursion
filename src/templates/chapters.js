@@ -1,60 +1,90 @@
 import React, { useEffect, useLayoutEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { graphql } from "gatsby"
 import ProgressiveImage from "react-progressive-image"
 
-import testSrc from "../assets/images/chapter-heroes/0.png"
+// Import constants
+import { TRANSITION_EASE } from "../constants"
 
-let Splitting
-if (typeof window !== `undefined`) {
-  Splitting = require("splitting")
+const CHAPTER_BREAKS = [-1, -1, 2]
+
+const Title = ({ addBreakAfter, text }) => {
+  if (addBreakAfter === -1) {
+    return (
+      <h1 className="chapter-view__title">
+        <motion.span
+          initial={{ y: 300 }}
+          animate={{ y: 0 }}
+          transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
+        >
+          {text}
+        </motion.span>
+      </h1>
+    )
+  } else {
+    // Split it into words
+    const words = text.split(" ")
+    const sentence1 = words.slice(0, addBreakAfter)
+    const sentence2 = words.slice(addBreakAfter)
+    return (
+      <h1 className="chapter-view__title">
+        <span style={{ overflow: "hidden" }}>
+          <motion.span
+            initial={{ y: 300 }}
+            animate={{ y: 0 }}
+            transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
+          >
+            {sentence1.join(" ")}
+          </motion.span>
+        </span>
+        <br />
+        <motion.span
+          initial={{ y: 300 }}
+          animate={{ y: 0 }}
+          transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
+        >
+          {sentence2.join(" ")}
+        </motion.span>
+      </h1>
+    )
+  }
 }
 
 export default ({ children, pageContext }) => {
   const chapterNumber = pageContext.frontmatter.number,
-    chapterName = pageContext.frontmatter.name;
-
-  useLayoutEffect(() => {
-    Splitting({ by: "lines" })
-  })
-
-  useEffect(() => {
-    if (typeof window === "undefined") return null
-    const title = document.querySelector(".chapter-view__title")
-
-    setTimeout(() => {
-      title.classList.add("show")
-    }, 175)
-
-    return () => {
-      title.classList.remove("show")
-    }
-  }, [])
+    chapterName = pageContext.frontmatter.name
 
   return (
     <main className="chapter-view">
       <section className="chapter-view__hero">
-        <h3 className="chapter-view__number">Chapter {chapterNumber}</h3>
-        <h1 className="chapter-view__title">
-          {chapterName}
-        </h1>
-        <ProgressiveImage src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}>
+        <h3 className="chapter-view__number">
+          <motion.span
+            initial={{ y: 40 }}
+            animate={{ y: 0 }}
+            transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
+          >
+            Chapter {chapterNumber}
+          </motion.span>
+        </h3>
+        <Title
+          addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
+          text={chapterName}
+        />
+        <ProgressiveImage
+          src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
+        >
           {src => (
-             <motion.img
-             src={src}
-             transition={{ ease: [0, 0.71, 0.15, 1.03] }}
-             initial={{ y: 200 }}
-             animate={{ y: 0 }}
-             alt={`Chapter ${chapterNumber} hero image`}
-           />
+            <motion.img
+              src={src}
+              transition={{ ease: TRANSITION_EASE, delay: 0.5 }}
+              initial={{ y: 200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              alt={`Chapter ${chapterNumber} hero image`}
+            />
           )}
         </ProgressiveImage>
-       
       </section>
       <section className="chapter-view__content">
-        <article>
-            {children}
-        </article>
+        <article>{children}</article>
       </section>
     </main>
   )
