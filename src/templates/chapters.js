@@ -5,7 +5,7 @@ import ProgressiveImage from "react-progressive-image"
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
-const CHAPTER_BREAKS = [-1, -1, 2]
+const CHAPTER_BREAKS = [-1, -1, 2, 2]
 
 const Title = ({ addBreakAfter, text }) => {
   if (addBreakAfter === -1) {

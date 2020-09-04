@@ -1,13 +1,14 @@
 $heading-font: 'GT America-Expanded Black', sans-serif;
+$heading3-font: 'GT America-Expanded Medium', sans-serif;
 
-$fs-base: 2.4rem;
-$fs-sm: 3rem;
-$fs-md: 3.6rem;
+$fs-sm: 2rem;
+$fs-base: 2.6rem;
+$fs-md: 3rem;
 $fs-lg: 6.5rem;
 // $fs-xl: ;
 
 @mixin font-base {
-  line-height: 150%; 
+  line-height: 4.2rem; 
   font-size: $fs-base;
 }
 
@@ -25,7 +26,7 @@ $fs-lg: 6.5rem;
 }
 
 @mixin font-h3 {
-  font-family: 'GT America-Expanded Medium';
-  font-size: $fs-sm;
+  font-family: $heading3-font;
+  font-size: $fs-md;
 }
 
