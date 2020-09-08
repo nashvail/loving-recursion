@@ -65,7 +65,7 @@ const LeftSideContent = () => {
         <br />
         <span className="home-page__left__title--word-two">recursion</span>
       </h1>
-      <p style={{ color: "white", width: "80%" }}>
+      <p style={{ color: "var(--color-grey-5)", width: "80%" }}>
         A book about learning to love recursion. Written in English and
         JavaScript
       </p>
