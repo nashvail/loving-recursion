@@ -2,9 +2,13 @@ import React, { useEffect, useLayoutEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import ProgressiveImage from "react-progressive-image"
 
+// Local imports
+import ChapterEnd from "../components/ChapterEnd"
+
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
+// Number of words after which we're supposed to shove in a <br/> tag
 const CHAPTER_BREAKS = [-1, -1, 2, 2]
 
 const Title = ({ addBreakAfter, text }) => {
@@ -86,6 +90,7 @@ export default ({ children, pageContext }) => {
       <section className="chapter-view__content">
         <article>{children}</article>
       </section>
+      <ChapterEnd nextChapterNumber={chapterNumber + 1}/>
     </main>
   )
 }
