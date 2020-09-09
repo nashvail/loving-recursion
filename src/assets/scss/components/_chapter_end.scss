@@ -5,10 +5,12 @@
   &__next-chapter {
     padding-top: 5rem;
     position: relative;
+    display: block;
     width: 100%;
     height: 650px;
     background-color: var(--color-grey-minus1);
     overflow: hidden;
+    cursor: pointer;
   
     h3, h4 {
       width: 100%;
@@ -36,6 +38,13 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      transition: transform 0.35s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: translateX(-50%) scale(1.08);
+      }
     }
   }
 
@@ -46,15 +55,23 @@
     color: var(--color-white);
 
     &__left {
-      padding: 2.4rem;
+      padding: 4.8rem;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: column;
       h3, h4 {
         margin: 0;
+      }
+
+      &__links {
+        list-style-type: none;
+        margin: 0;
+        margin-top: $sp-sm;
       }
     }
 
     &__right {
-      display: flex;
-      justify-content: center;
+      
       align-items: center;
       // background: red;
       img {
