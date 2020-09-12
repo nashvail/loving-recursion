@@ -87,7 +87,7 @@ const RightSideContent = () => {
         data-scroll-position="top"
       >
         <h1>
-          <span style={{ color: "var(--color-grey-2)" }}>WHY</span>
+          <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
           <br /> THE BOOK?
         </h1>
         <p>
@@ -103,7 +103,7 @@ const RightSideContent = () => {
         </p>
         {/* Praise Section  */}
         <section>
-          <h1> <span style={{ color: "var(--color-grey-2)" }}>A LITTLE</span> <br/> BIT OF PRAISE</h1>
+          <h1> <span style={{ color: "var(--color-yellow-4)" }}>A LITTLE</span> <br/> BIT OF PRAISE</h1>
           <p>Just enough to make you read the book.</p>
         </section>
       </section>

@@ -169,29 +169,15 @@ h4,
 strong {
   @include font-strong;
 }
+*/
 
 a {
   display: inline-block;
-  color: rgb(var(--color-primary));
+  // color: rgb(var(--color-primary));
   text-decoration: none;
+  // border-bottom: 1px solid white;
 
-  background-image: linear-gradient(
-    0deg,
-    rgba(var(--color-primary), 0.3) 100%,
-    hsla(0, 0%, 100%, 0)
-  );
-  background-size: 100% 1px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transform-origin: left bottom;
-  transition: background-size $d-slow $ease-in-out;
-
-  &:hover {
-    background-size: 0 1px;
-    background-position: 100% 100%;
-  }
 }
-*/
 
 sub,
 sup {

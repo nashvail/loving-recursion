@@ -64,7 +64,7 @@ export default ({ children, pageContext }) => {
           <motion.span
             initial={{ y: 40 }}
             animate={{ y: 0 }}
-            transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
+            transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
           >
             Chapter {chapterNumber}
           </motion.span>
@@ -79,7 +79,7 @@ export default ({ children, pageContext }) => {
           {src => (
             <motion.img
               src={src}
-              transition={{ ease: TRANSITION_EASE, delay: 0.5 }}
+              transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
               initial={{ y: 200, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               alt={`Chapter ${chapterNumber} hero image`}

@@ -14,5 +14,9 @@
   {
     "chapterName": "Connections & Procedures",
     "link": "/chapter3"
+  },
+  {
+    "chapterName": "Interlude: Graphical Recursion",
+    "link": "/chapter4"
   }
 ]
