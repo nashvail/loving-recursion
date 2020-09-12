@@ -3,7 +3,7 @@ $heading3-font: 'GT America-Expanded Medium', sans-serif;
 
 $fs-sm: 1.8rem;
 $fs-base: 2.6rem;
-$fs-md: 3rem;
+$fs-md: 3.6rem;
 $fs-lg: 6.5rem;
 // $fs-xl: ;
 
@@ -23,6 +23,8 @@ $fs-lg: 6.5rem;
 
 @mixin font-h2 {
   font-size: $fs-md;
+  font-family: 'GT America-Expanded Bold';
+  line-height: 5rem;
 }
 
 @mixin font-h3 {

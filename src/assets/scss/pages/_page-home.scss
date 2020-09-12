@@ -1,6 +1,6 @@
 // Has css for home page and LeftSideContent and RightSideContent
 
-.home-page{
+.home-page {
   /* Variables */
   --padding: 0px;
   --columns: 5;
@@ -33,14 +33,15 @@
     height: 100vh;
     padding: 0 40px 64px 40px;
     // background: var(--color-white);
-    background: #2C2A2E;
+    background: #2c2a2e;
     font-size: $fs-base;
 
     &__title {
       color: white;
       text-transform: uppercase;
       margin-bottom: 0;
-      &--word-one, &--word-two {
+      &--word-one,
+      &--word-two {
         display: inline-block;
         overflow: hidden;
       }
@@ -51,7 +52,7 @@
 
     &__flap {
       display: block;
-      content: '';
+      content: "";
       top: 0;
       height: 320px;
       width: 200px;
@@ -60,14 +61,14 @@
       background-image: url(../images/topart.png);
     }
 
-    &__chapter-list {}
+    &__chapter-list {
+    }
 
     &__donut1 {
       position: absolute;
       right: -16rem;
       top: -16rem;
     }
-     
   }
 
   &__right {
@@ -107,7 +108,77 @@
     &__rest {
       width: 80%;
       margin: 0rem auto 10rem auto;
+      &__praises {
+        list-style-type: none;
+        margin: 0;
+        &__praise {
+          margin-top: $sp-md;
+          display: flex;
+          flex-direction: column;
+          &--text-0 {
+            position: relative;
+            background: var(--color-blue-0);
+            color: var(--color-white);
+            padding: $sp-lg;
+
+            // The triangle
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -84px;
+              left: 0;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 84px 84px 0;
+              border-color: transparent var(--color-blue-3) transparent
+                transparent;
+            }
+          }
+          &--for-0 {
+            width: calc(100% - 84px);
+            align-self: flex-end;
+            padding: $sp-sm;
+            padding-right: 0;
+            &__content {
+              background: white;
+              padding: $sp-md;
+            }
+          }
+
+          &--text-1 {
+            position: relative;
+            background: var(--color-blue-0);
+            color: var(--color-white);
+            padding: $sp-lg;
+
+            // The triangle
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -84px;
+              right: 0;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 84px 84px 0;
+              border-color: transparent var(--color-blue-3) transparent
+                transparent;
+                transform: rotateY(180deg);
+            } 
+          }
+          &--for-1 {
+            width: calc(100% - 84px);
+            padding: $sp-sm;
+            padding-left: 0;
+            &__content {
+              background: white;
+              padding: $sp-md;
+            }
+          }
+
+        }
+      }
     }
   }
-
 }

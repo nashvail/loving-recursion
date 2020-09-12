@@ -6,6 +6,7 @@ import LocomotiveScroll from "locomotive-scroll"
 // Local imports
 import heroineImage from "../../assets/images/head.png"
 import { RightSideScrollContext } from "../../pages/index"
+import Praise from "./Praise";
 /// Lottie
 import circleFrontData from "../../lotties/circleExpand.json"
 import circleFrontData2 from "../../lotties/circleExpand2.json"
@@ -104,7 +105,7 @@ const RightSideContent = () => {
         {/* Praise Section  */}
         <section>
           <h1> <span style={{ color: "var(--color-yellow-4)" }}>A LITTLE</span> <br/> BIT OF PRAISE</h1>
-          <p>Just enough to make you read the book.</p>
+          <Praise/>
         </section>
       </section>
     </section>
