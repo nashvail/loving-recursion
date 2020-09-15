@@ -115,6 +115,11 @@
           margin-top: $sp-md;
           display: flex;
           flex-direction: column;
+
+          a {
+            // Style the work links here
+          }
+
           &--text-0 {
             position: relative;
             background: var(--color-blue-0);
