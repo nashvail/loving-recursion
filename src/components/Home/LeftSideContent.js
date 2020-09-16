@@ -10,6 +10,9 @@ import chapters from "../../data/chapters.json"
 // Image imports
 import donut1 from "../../assets/images/donut-1.svg"
 
+// Icon imports
+import IndexIcon from "../../assets/icons/32x32/index-yellow.inline.svg"
+
 let Splitting
 if (typeof window !== `undefined`) {
   Splitting = require("splitting")
@@ -17,11 +20,13 @@ if (typeof window !== `undefined`) {
 
 // Renders the list of chapters
 const Chapters = () => {
-  return (
-    chapters.map((chapterData, key) => (
-      <ChapterClicker link={chapterData.link} name={chapterData.chapterName} number={key}/>
-    ))
-  );
+  return chapters.map((chapterData, key) => (
+    <ChapterClicker
+      link={chapterData.link}
+      name={chapterData.chapterName}
+      number={key}
+    />
+  ))
 }
 
 const LeftSideContent = () => {
@@ -62,7 +67,7 @@ const LeftSideContent = () => {
       // animate={{ x: 0 }}
       // transition={{ ease: [0, 0.71, 0.15, 1.03] }}
     >
-      <img src={donut1} className="home-page__left__donut1"/>
+      <img src={donut1} className="home-page__left__donut1" />
       <span className="home-page__left__flap" />
       <h1 className="home-page__left__title" data-splitting>
         <span className="home-page__left__title--word-one">loving</span>
@@ -74,7 +79,16 @@ const LeftSideContent = () => {
         JavaScript
       </p>
       <br />
-      <h3 style={{ color: "var(--color-grey-4)" }}>Index</h3>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "32px auto",
+          gridGap: "1rem",
+          alignItems: "center"
+        }}
+      >
+        <IndexIcon style={{ marginTop: "7px"}} /> <h3 style={{ color: "var(--color-yellow-4)" }}>Index</h3>
+      </div>
       <ol className="home-page__left__chapter-list">
         <Chapters />
       </ol>
