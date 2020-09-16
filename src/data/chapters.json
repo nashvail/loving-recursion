@@ -1,22 +1,30 @@
 [
   {
     "chapterName": "Introduction",
-    "link": "/chapter0"
+    "link": "/chapter0",
+    "chapterNumber": 0
   },
   {
     "chapterName": "The Encounter",
-    "link": "/chapter1"
+    "link": "/chapter1",
+    "chapterNumber": 1
+  },
+  {
+    "chapterName": "inter"
   },
   {
     "chapterName": "And Then Comes Trust",
-    "link": "/chapter2"
+    "link": "/chapter2",
+    "chapterNumber": 2
   }, 
   {
     "chapterName": "Connections & Procedures",
-    "link": "/chapter3"
+    "link": "/chapter3",
+    "chapterNumber": 3
   },
   {
     "chapterName": "Interlude: Graphical Recursion",
-    "link": "/chapter4"
+    "link": "/chapter4",
+    "chapterNumber": 4
   }
 ]

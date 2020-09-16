@@ -36,12 +36,31 @@ const EyeLottie = ({ speed = 1 }) => {
     </div>
   )
 }
+const ChapterIntermediary = () => {
+  return (
+    <li className="chapter-list__inter">
+      <div>
+        <h3 style={{ color: "var(--color-blue-0)" }}>
+          New chapter every 2 weeks
+        </h3>
+        <p style={{ color: "var(--color-yellow-0)" }}>
+          I announce new chapters on my Twitter and Dribble.
+        </p>
+      </div>
+    </li>
+  )
+}
 
 // Maybe what you can do here is just change state on hover and that gets rerendered right?
 // You have installed lottie web haven't you
 
 const ChapterClicker = ({ number, name, link = "#" }) => {
   const [lottieSpeed, setLottieSpeed] = useState(1)
+
+  if (name === "inter") {
+    // Render the card that says following chapters are coming in the future
+    return <ChapterIntermediary />
+  }
 
   const handleOnMouseEnter = e => {
     setLottieSpeed(2)
@@ -57,16 +76,12 @@ const ChapterClicker = ({ number, name, link = "#" }) => {
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
     >
-      <Link
-        to={link}
-      >
+      <Link to={link}>
         <div>
           <span className="chapter-list__item__chapter-number">
             Chapter {number}
           </span>
-          <span className="chapter-list__item__chapter-name">
-            {name}
-          </span>
+          <span className="chapter-list__item__chapter-name">{name}</span>
         </div>
         <div>
           <EyeLottie speed={lottieSpeed} />

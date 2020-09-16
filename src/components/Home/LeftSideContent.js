@@ -20,14 +20,19 @@ if (typeof window !== `undefined`) {
 
 // Renders the list of chapters
 const Chapters = () => {
-  return chapters.map((chapterData, key) => (
-    <ChapterClicker
-      link={chapterData.link}
-      name={chapterData.chapterName}
-      number={key}
-    />
-  ))
+  return (
+    <ol className="home-page__left__chapter-list">
+      {chapters.map((chapterData, key) => (
+        <ChapterClicker
+          link={chapterData.link}
+          name={chapterData.chapterName}
+          number={chapterData.chapterNumber}
+        />
+      ))}
+    </ol>
+  )
 }
+
 
 const LeftSideContent = () => {
   const sectionRef = useRef(null)
@@ -84,25 +89,16 @@ const LeftSideContent = () => {
           display: "grid",
           gridTemplateColumns: "32px auto",
           gridGap: "1rem",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
-        <IndexIcon style={{ marginTop: "7px"}} /> <h3 style={{ color: "var(--color-yellow-4)" }}>Index</h3>
+        <IndexIcon style={{ marginTop: "7px" }} />{" "}
+        <h3 style={{ color: "var(--color-yellow-4)" }}>Index</h3>
       </div>
-      <ol className="home-page__left__chapter-list">
-        <Chapters />
-      </ol>
+
+      <Chapters />
     </motion.section>
   )
 }
 
 export default LeftSideContent
-
-/*
-<ChapterClicker number={0} name="Introduction" link="/introduction" />
-        <ChapterClicker number={1} name="The Encounter" link="/the_encounter" />
-        <ChapterClicker number={2} name="Then Comes Trust" />
-        <ChapterClicker number={3} name="Procedures and Patterns" />
-        <ChapterClicker number={4} name="Chasing Cars, Drawing Triangles" />
-      </
-*/

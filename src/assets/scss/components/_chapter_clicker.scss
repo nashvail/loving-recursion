@@ -2,7 +2,7 @@
   margin: 1rem 0;
   // background: var(--color-grey-6);
   background: darken($color: #2c2a2e, $amount: 5%);
-  border-radius: 1rem;
+  border-radius: 8px;
   cursor: pointer;
   a {
     display: grid;
@@ -33,3 +33,24 @@
     }
   }
 }
+
+// For the intermediary chapter announcement
+.chapter-list__inter {
+  padding: $sp-md;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: var(--color-yellow-4);
+  background-image: url(../images/inter-art.svg), url(../images/inter-bg.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: -35px center, center center;
+  background-size: auto, cover;
+  border-radius: 8px;
+  height: 380px;
+  width: 100%;
+  div {
+    width: 65%;
+  }
+}
+
