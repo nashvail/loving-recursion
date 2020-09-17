@@ -2,7 +2,7 @@
 .word {
   display: inline-block;
   overflow: hidden;
-  margin-bottom: -0.25em; // fix a weird line-height bug due to Splitting
+  // margin-bottom: -0.25em; // fix a weird line-height bug due to Splitting
   transition: transform 0.5s calc(var(--word-index) * 0.1s) cubic-bezier(0,.71,.15,1.03);  
   transform: translateY(100%);
 

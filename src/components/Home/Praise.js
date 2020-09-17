@@ -38,7 +38,7 @@ const SinglePraise = ({ direction, praiseObject }) => {
       <div
         className={`home-page__right__rest__praises__praise--text-${direction}`}
       >
-        <h2>{`"${praiseObject["text"]}"`}</h2>
+        <h3>{`"${praiseObject["text"]}"`}</h3>
         <span>- {praiseObject.author}</span>
       </div>
       <div
