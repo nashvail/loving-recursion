@@ -36,20 +36,6 @@ const EyeLottie = ({ speed = 1 }) => {
     </div>
   )
 }
-const ChapterIntermediary = () => {
-  return (
-    <li className="chapter-list__inter">
-      <div>
-        <h3 style={{ color: "var(--color-blue-0)" }}>
-          New chapter every 2 weeks
-        </h3>
-        <p style={{ color: "var(--color-yellow-0)" }}>
-          I announce new chapters on my Twitter and Dribble.
-        </p>
-      </div>
-    </li>
-  )
-}
 
 // Maybe what you can do here is just change state on hover and that gets rerendered right?
 // You have installed lottie web haven't you

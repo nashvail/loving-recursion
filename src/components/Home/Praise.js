@@ -32,7 +32,6 @@ const praises = [
 ]
 
 const SinglePraise = ({ direction, praiseObject }) => {
-  console.log(direction, praiseObject)
   return (
     <li className="home-page__right__rest__praises__praise">
       <div

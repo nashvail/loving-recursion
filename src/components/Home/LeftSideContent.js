@@ -18,17 +18,40 @@ if (typeof window !== `undefined`) {
   Splitting = require("splitting")
 }
 
+const ChapterIntermediary = () => {
+  return (
+    <li className="chapter-list__inter">
+      <div>
+        <h3 style={{ color: "var(--color-blue-0)" }}>
+          New chapter every 2 weeks
+        </h3>
+        <p style={{ color: "var(--color-yellow-0)" }}>
+          I announce new chapters on my Twitter and Dribble.
+        </p>
+      </div>
+    </li>
+  )
+}
+
 // Renders the list of chapters
 const Chapters = () => {
+  const chapterClickers = chapters.map((chapterData, key) => (
+    <ChapterClicker
+      link={chapterData.link}
+      name={chapterData.chapterName}
+      number={chapterData.chapterNumber}
+      key={key}
+    />
+  ));
+
+  // Insert the intermediary
+  chapterClickers.splice(2, 0, <ChapterIntermediary/>);
+
   return (
     <ol className="home-page__left__chapter-list">
-      {chapters.map((chapterData, key) => (
-        <ChapterClicker
-          link={chapterData.link}
-          name={chapterData.chapterName}
-          number={chapterData.chapterNumber}
-        />
-      ))}
+      {
+        chapterClickers.map((clicker) => clicker)
+      }
     </ol>
   )
 }
