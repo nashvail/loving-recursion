@@ -39,7 +39,7 @@ $fs-xl: $fs-lg * $ratio + 0.8rem;
 @mixin font-h3 {
   font-family: $heading3-font;
   font-size: $fs-md;
-  line-height: 130%;
+  line-height: 150%;
 }
 
 @mixin font-h4 {

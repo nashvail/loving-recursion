@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useContext } from "react"
 import { motion } from "framer-motion"
 
-import ChapterClicker from "./ChapterClicker"
+import ChapterClicker, { ChapterAnnouncement } from "./ChapterClicker"
 import { RightSideScrollContext } from "../../pages/index"
 
 // Chapter Data
@@ -18,21 +18,6 @@ if (typeof window !== `undefined`) {
   Splitting = require("splitting")
 }
 
-const ChapterIntermediary = () => {
-  return (
-    <li className="chapter-list__inter">
-      <div>
-        <h3 style={{ color: "var(--color-blue-0)" }}>
-          New chapter every 2 weeks
-        </h3>
-        <p style={{ color: "var(--color-yellow-0)" }}>
-          I announce new chapters on my Twitter and Dribble.
-        </p>
-      </div>
-    </li>
-  )
-}
-
 // Renders the list of chapters
 const Chapters = () => {
   const chapterClickers = chapters.map((chapterData, key) => (
@@ -45,7 +30,7 @@ const Chapters = () => {
   ));
 
   // Insert the intermediary
-  chapterClickers.splice(2, 0, <ChapterIntermediary/>);
+  chapterClickers.splice(2, 0, <ChapterAnnouncement/>);
 
   return (
     <ol className="home-page__left__chapter-list">
