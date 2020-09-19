@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@lottiefiles/lottie-player": "^0.5.1",
     "@mdx-js/mdx": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
     "autoprefixer": "^9.8.6",

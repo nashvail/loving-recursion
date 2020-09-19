@@ -4,6 +4,7 @@
   background: darken($color: #2c2a2e, $amount: 5%);
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.25s;
   a {
     display: grid;
     grid-template-columns: auto 32px;

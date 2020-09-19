@@ -2,6 +2,13 @@
   background: var(--color-grey-0);
   width: 100vw;
 
+  &__ham {
+    position: fixed;
+    top: 5rem;
+    left: 5rem;
+    z-index: 999;
+  }
+
   &__title {
     overflow: hidden;
   }

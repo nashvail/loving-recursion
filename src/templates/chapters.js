@@ -1,12 +1,42 @@
-import React, { useEffect, useLayoutEffect } from "react"
+import React, { useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import ProgressiveImage from "react-progressive-image"
+import "@lottiefiles/lottie-player"
 
 // Local imports
 import ChapterEnd from "../components/ChapterEnd"
+import HamburgerLottieJson from "../lotties/hamburgerLottie.json"
 
 // Import constants
 import { TRANSITION_EASE } from "../constants"
+
+const HamburgerLottie = ({ onClick }) => {
+  const lottieRef = useRef(null)
+
+  const handleMouseEnter = () => {
+    lottieRef.current.setSpeed(1);
+    lottieRef.current.setDirection(1);
+    lottieRef.current.play();
+  }
+
+  const handleMouseLeave = () => {
+    lottieRef.current.setSpeed(-2);
+    // lottieRef.current.setDirection(-1);
+    lottieRef.current.play();
+  }
+
+  return (
+    <button className="chapter-view__ham" tabIndex="1" onClick={onClick}>
+      <lottie-player
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        ref={lottieRef}
+        src="https://assets4.lottiefiles.com/private_files/lf30_W9OT35.json"
+        style={{width: "64px", height: "64px"}}
+      ></lottie-player>
+    </button>
+  )
+}
 
 // Number of words after which we're supposed to shove in a <br/> tag
 const CHAPTER_BREAKS = [-1, -1, 2, 2]
@@ -59,6 +89,7 @@ export default ({ children, pageContext }) => {
 
   return (
     <main className="chapter-view">
+      <HamburgerLottie onClick={() => console.log('me clicked')}/>
       <section className="chapter-view__hero">
         <h3 className="chapter-view__number">
           <motion.span
@@ -90,7 +121,7 @@ export default ({ children, pageContext }) => {
       <section className="chapter-view__content">
         <article>{children}</article>
       </section>
-      <ChapterEnd nextChapterNumber={chapterNumber + 1}/>
+      <ChapterEnd nextChapterNumber={chapterNumber + 1} />
     </main>
   )
 }
