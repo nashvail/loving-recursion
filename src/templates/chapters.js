@@ -20,7 +20,7 @@ const HamburgerLottie = ({ onClick }) => {
   }
 
   const handleMouseLeave = () => {
-    lottieRef.current.setSpeed(-2);
+    lottieRef.current.setSpeed(-3);
     // lottieRef.current.setDirection(-1);
     lottieRef.current.play();
   }
