@@ -1,28 +1,52 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import ProgressiveImage from "react-progressive-image"
 import "@lottiefiles/lottie-player"
 
 // Local imports
 import ChapterEnd from "../components/ChapterEnd"
+// Can't use this in the lottie yet it's only accepting URL json
 import HamburgerLottieJson from "../lotties/hamburgerLottie.json"
 
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
+/**
+ * SideBar
+ */
+
+const InlineSideBar = ({ isOpen = false }) => {
+
+  const tX = isOpen ? "0%" : "-100%"
+
+  return (
+    <aside
+      style={{
+        transform: `translateX(${tX})`
+      }}
+      className="inline-sidebar"
+    >
+      blah
+    </aside>
+  )
+}
+
+/**
+ * Hamburger Lottie
+ */
 const HamburgerLottie = ({ onClick }) => {
   const lottieRef = useRef(null)
 
   const handleMouseEnter = () => {
-    lottieRef.current.setSpeed(1);
-    lottieRef.current.setDirection(1);
-    lottieRef.current.play();
+    lottieRef.current.setSpeed(1)
+    lottieRef.current.setDirection(1)
+    lottieRef.current.play()
   }
 
   const handleMouseLeave = () => {
-    lottieRef.current.setSpeed(-3);
+    lottieRef.current.setSpeed(-3)
     // lottieRef.current.setDirection(-1);
-    lottieRef.current.play();
+    lottieRef.current.play()
   }
 
   return (
@@ -32,7 +56,7 @@ const HamburgerLottie = ({ onClick }) => {
         onMouseLeave={handleMouseLeave}
         ref={lottieRef}
         src="https://assets4.lottiefiles.com/private_files/lf30_W9OT35.json"
-        style={{width: "64px", height: "64px"}}
+        style={{ width: "64px", height: "64px" }}
       ></lottie-player>
     </button>
   )
@@ -87,41 +111,48 @@ export default ({ children, pageContext }) => {
   const chapterNumber = pageContext.frontmatter.number,
     chapterName = pageContext.frontmatter.name
 
+  const [isSideBarOpen, setIsSidebarOpen] = useState(false)
+
+  const toggleSideBar = _ => setIsSidebarOpen(!isSideBarOpen)
+
   return (
-    <main className="chapter-view">
-      <HamburgerLottie onClick={() => console.log('me clicked')}/>
-      <section className="chapter-view__hero">
-        <h3 className="chapter-view__number">
-          <motion.span
-            initial={{ y: 40 }}
-            animate={{ y: 0 }}
-            transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
+    <>
+      <InlineSideBar isOpen={isSideBarOpen}/>
+      <main className="chapter-view">
+        <HamburgerLottie onClick={toggleSideBar}/>
+        <section className="chapter-view__hero">
+          <h3 className="chapter-view__number">
+            <motion.span
+              initial={{ y: 40 }}
+              animate={{ y: 0 }}
+              transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
+            >
+              Chapter {chapterNumber}
+            </motion.span>
+          </h3>
+          <Title
+            addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
+            text={chapterName}
+          />
+          <ProgressiveImage
+            src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
           >
-            Chapter {chapterNumber}
-          </motion.span>
-        </h3>
-        <Title
-          addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
-          text={chapterName}
-        />
-        <ProgressiveImage
-          src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
-        >
-          {src => (
-            <motion.img
-              src={src}
-              transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
-              initial={{ y: 200, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              alt={`Chapter ${chapterNumber} hero image`}
-            />
-          )}
-        </ProgressiveImage>
-      </section>
-      <section className="chapter-view__content">
-        <article>{children}</article>
-      </section>
-      <ChapterEnd nextChapterNumber={chapterNumber + 1} />
-    </main>
+            {src => (
+              <motion.img
+                src={src}
+                transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
+                initial={{ y: 200, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                alt={`Chapter ${chapterNumber} hero image`}
+              />
+            )}
+          </ProgressiveImage>
+        </section>
+        <section className="chapter-view__content">
+          <article>{children}</article>
+        </section>
+        <ChapterEnd nextChapterNumber={chapterNumber + 1} />
+      </main>
+    </>
   )
 }
