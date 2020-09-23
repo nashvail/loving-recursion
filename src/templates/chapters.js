@@ -111,7 +111,7 @@ export default ({ children, pageContext }) => {
   const chapterNumber = pageContext.frontmatter.number,
     chapterName = pageContext.frontmatter.name
 
-  const [isSideBarOpen, setIsSidebarOpen] = useState(false)
+  const [isSideBarOpen, setIsSidebarOpen] = useState(true)
 
   const toggleSideBar = _ => setIsSidebarOpen(!isSideBarOpen)
 
