@@ -1,6 +1,5 @@
 .chapter-list__item {
-  margin: 1rem 0;
-  // background: var(--color-grey-6);
+  margin: $sp-xs 0;
   background: darken($color: #2c2a2e, $amount: 5%);
   border-radius: 8px;
   cursor: pointer;
@@ -11,7 +10,7 @@
     align-content: center;
     text-decoration: none;
     align-items: center;
-    padding: 32px;
+    padding: $sp-lg;
   }
 
   &__chapter-number {

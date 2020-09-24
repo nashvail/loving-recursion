@@ -4,9 +4,10 @@ import Lottie from "react-lottie"
 import LocomotiveScroll from "locomotive-scroll"
 
 // Local imports
+import Spacer from "../Spacer"
 import heroineImage from "../../assets/images/head.png"
 import { RightSideScrollContext } from "../../pages/index"
-import Praise from "./Praise";
+import Praise from "./Praise"
 /// Lottie
 import circleFrontData from "../../lotties/circleExpand.json"
 import circleFrontData2 from "../../lotties/circleExpand2.json"
@@ -91,6 +92,7 @@ const RightSideContent = () => {
           <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
           <br /> THE BOOK?
         </h1>
+        <Spacer height="sp_lg" />
         <p>
           This book is because one day an article about recursion that I was
           writing got too long and too deep to be called just an article. See
@@ -102,10 +104,18 @@ const RightSideContent = () => {
           normal human would. More details about this in the Introduction
           chapter.
         </p>
+        <Spacer height="sp_xxl" />
         {/* Praise Section  */}
         <section>
-          <h1> <span style={{ color: "var(--color-yellow-4)" }}>A LITTLE</span> <br/> BIT OF PRAISE</h1>
-          <Praise/>
+          <h1>
+            {" "}
+            <span style={{ color: "var(--color-yellow-4)" }}>
+              A LITTLE
+            </span>{" "}
+            <br /> BIT OF PRAISE
+          </h1>
+          <Spacer height="sp_lg" />
+          <Praise />
         </section>
       </section>
     </section>

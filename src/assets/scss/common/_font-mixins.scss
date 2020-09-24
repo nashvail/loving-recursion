@@ -1,49 +1,56 @@
-$heading-font: 'GT America-Expanded Black', sans-serif;
-$heading3-font: 'GT America-Expanded Medium', sans-serif;
-
-/*
-$fs-sm: 1.8rem; 
-$fs-base: 2.6rem; // h4, base
-$fs-md: 3.2rem; // h3
-$fs-lg: 5.6rem; // h2
-$fs-xl: 6.4rem; // h1
-*/
-
-$ratio: 1.3333;
-
+// Sizes
+$fs-sm: 2rem;
 $fs-base: 2.6rem;
-$fs-sm: $fs-base/$ratio; 
-$fs-md: $fs-base * $ratio;
-$fs-lg: $fs-md * $ratio;
-$fs-xl: $fs-lg * $ratio + 0.8rem;
+$fs-md: 3.4rem;
+$fs-lg: 4.4rem;
+$fs-xl: 6.4rem;
+
+// Line heights
+$ln-sm: 3.2rem;
+$ln-base: 4rem;
+$ln-md: 4.5rem;
+$ln-lg: 5.8rem;
+$ln-xl: 6.4rem;
+
+@mixin heading-common {
+  margin: 0;
+}
+
+@mixin font-sm {
+  line-height: $ln-sm;
+  font-size: $fs-sm;
+}
 
 @mixin font-base {
-  line-height: 4.2rem; 
+  line-height: $ln-base; 
   font-size: $fs-base;
 }
 
-@mixin font-heading {
-  font-family: $heading-font;
-  line-height: 100%;
-}
-
 @mixin font-h1 {
+  @include heading-common;
+  line-height: $ln-xl;
   font-size: $fs-xl;
+  font-family: 'GT America-Expanded Black';
 }
 
 @mixin font-h2 {
+  @include heading-common;
   font-size: $fs-lg;
+  line-height: $ln-lg;
   font-family: 'GT America-Expanded Bold';
 }
 
 @mixin font-h3 {
-  font-family: $heading3-font;
+  @include heading-common;
+  font-family: 'GT America-Expanded Medium';
   font-size: $fs-md;
-  line-height: 150%;
+  line-height: $ln-md;
 }
 
 @mixin font-h4 {
+  @include heading-common;
   font-family: 'GT America-Standard Bold';
   font-size: $fs-base;
+  line-height: $ln-base;
 }
 

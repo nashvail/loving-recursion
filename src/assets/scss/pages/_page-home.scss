@@ -34,7 +34,7 @@
     padding: 0 40px 64px 40px;
     // background: var(--color-white);
     background: #2c2a2e;
-    font-size: $fs-base;
+    @include font-sm;
 
     &__title {
       color: white;

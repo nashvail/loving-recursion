@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useContext } from "react"
 import { motion } from "framer-motion"
 
+import Spacer from "../Spacer"
 import ChapterClicker, { ChapterAnnouncement } from "./ChapterClicker"
 import { RightSideScrollContext } from "../../pages/index"
 
@@ -27,20 +28,17 @@ const Chapters = () => {
       number={chapterData.chapterNumber}
       key={key}
     />
-  ));
+  ))
 
   // Insert the intermediary
-  chapterClickers.splice(2, 0, <ChapterAnnouncement/>);
+  chapterClickers.splice(2, 0, <ChapterAnnouncement />)
 
   return (
     <ol className="home-page__left__chapter-list">
-      {
-        chapterClickers.map((clicker) => clicker)
-      }
+      {chapterClickers.map(clicker => clicker)}
     </ol>
   )
 }
-
 
 const LeftSideContent = () => {
   const sectionRef = useRef(null)
@@ -82,16 +80,24 @@ const LeftSideContent = () => {
     >
       <img src={donut1} className="home-page__left__donut1" />
       <span className="home-page__left__flap" />
+      {/* Spacer */}
+      <Spacer height="sp_xl" />
+      {/* Spacer */}
       <h1 className="home-page__left__title" data-splitting>
         <span className="home-page__left__title--word-one">loving</span>
         <br />
         <span className="home-page__left__title--word-two">recursion</span>
       </h1>
+      {/* Spacer */}
+      <Spacer height="sp_xs" />
+      {/* Spacer */}
       <p style={{ color: "var(--color-grey-5)", width: "80%" }}>
         A book about learning to love recursion. Written in English and
-        JavaScript
+        JavaScript.
       </p>
-      <br />
+      {/* Spacer */}
+      <Spacer height="sp_xxl" />
+      {/* Spacer */}
       <div
         style={{
           display: "grid",
@@ -103,7 +109,9 @@ const LeftSideContent = () => {
         <IndexIcon style={{ marginTop: "7px" }} />{" "}
         <h3 style={{ color: "var(--color-yellow-4)" }}>Index</h3>
       </div>
-
+      {/* Spacer */}
+      <Spacer height="sp_base" />
+      {/* Spacer */}
       <Chapters />
     </motion.section>
   )

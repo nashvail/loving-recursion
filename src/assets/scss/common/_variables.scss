@@ -4,12 +4,13 @@ $z-layers: (
 );
 
 // Spacing
-$sp-xs: 1rem;
-$sp-sm: 1.5rem;
+$sp-xs: 0.8rem; 
+$sp-sm: 1.6rem;
 $sp-base: 2.4rem;
-$sp-md: 3.5rem;
-$sp-lg: 5rem;
-$sp-xl: 6.5rem;
+$sp-md: 3.2rem;
+$sp-lg: 4rem;
+$sp-xl: 4.8rem;
+$sp-xxl: 5.6rem;
 
 // Easings
 $ease-in: cubic-bezier(0.895, 0.03, 0.685, 0.22);

@@ -5,6 +5,7 @@ import "@lottiefiles/lottie-player"
 
 // Local imports
 import ChapterEnd from "../components/ChapterEnd"
+import Spacer from "../components/Spacer"
 // Can't use this in the lottie yet it's only accepting URL json
 import HamburgerLottieJson from "../lotties/hamburgerLottie.json"
 
@@ -111,7 +112,7 @@ export default ({ children, pageContext }) => {
   const chapterNumber = pageContext.frontmatter.number,
     chapterName = pageContext.frontmatter.name
 
-  const [isSideBarOpen, setIsSidebarOpen] = useState(true)
+  const [isSideBarOpen, setIsSidebarOpen] = useState(false)
 
   const toggleSideBar = _ => setIsSidebarOpen(!isSideBarOpen)
 
@@ -130,10 +131,12 @@ export default ({ children, pageContext }) => {
               Chapter {chapterNumber}
             </motion.span>
           </h3>
+          <Spacer height='sp_base'/>
           <Title
             addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
             text={chapterName}
           />
+          <Spacer height='sp_xxl'/>
           <ProgressiveImage
             src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
           >

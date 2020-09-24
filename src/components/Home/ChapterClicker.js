@@ -6,6 +6,8 @@ import { Link } from "gatsby"
 // import TransitionLink from "gatsby-plugin-transition-link"
 // import AniLink from "gatsby-plugin-transition-link/AniLink"
 
+import Spacer from "../Spacer"
+
 import animationData from "../../lotties/eg-lottie.json"
 
 // 👇 this fucking works
@@ -45,6 +47,7 @@ export const ChapterAnnouncement = () => {
         <h3 style={{ color: "var(--color-blue-0)" }}>
           New chapter every 2 weeks
         </h3>
+        <Spacer height='sp_base'/>
         <p style={{ color: "var(--color-yellow-0)" }}>
           I announce new chapters on my Twitter and Dribble.
         </p>

@@ -71,6 +71,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -104,11 +106,6 @@ body {
 
 p {
   color: rgb(var(--color-grey-6));
-}
-
-
-h1, h2 {
-  @include font-heading;
 }
 
 h1 {
