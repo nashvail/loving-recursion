@@ -14,8 +14,13 @@
     }
   }
 
+  &__number {
+    color: var(--color-grey-5);
+  }
+
   &__title {
     overflow: hidden;
+    color: var(--color-white);
   }
 
   &__hero {
@@ -46,7 +51,6 @@
 
     h1,
     h3 {
-      color: var(--color-white);
       text-align: center;
     }
 
