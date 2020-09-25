@@ -36,17 +36,17 @@ const ChapterEnd = ({ nextChapterNumber }) => {
             <h3>By Nash Vail</h3>
             <ul className="footer__left__links">
               <li>
-                <a>
+                <a href="#">
                   <h4>Tweet a Feedback</h4>
                 </a>
               </li>
               <li>
-                <a>
+                <a href="#">
                   <h4>Support</h4>
                 </a>
               </li>
               <li>
-                <a>
+                <a href="#">
                   <h4>Contribute</h4>
                 </a>
               </li>

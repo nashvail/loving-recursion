@@ -21,14 +21,14 @@
   }
 
   &__chapter-name {
-    font-family: 'GT America-Expanded Medium';
+    font-family: "GT America-Expanded Medium";
     font-size: 30px;
     color: var(--color-white);
   }
 
   &:hover {
     background: var(--color-grey-6);
-    span{
+    span {
       color: var(--color-grey-0);
     }
   }
@@ -54,3 +54,10 @@
   }
 }
 
+.chapter-list__item--home {
+  background: var(--color-grey-1);
+  &:hover {
+    // background-color: darken(#0b2a9e, 10%);
+    color: white;
+  }
+}

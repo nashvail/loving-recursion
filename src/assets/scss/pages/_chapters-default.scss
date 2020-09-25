@@ -7,11 +7,7 @@
     top: 5rem;
     left: 5rem;
     z-index: 999;
-    transition: transform 0.25s;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    transition: transform 0.25s $ease-in-out;
   }
 
   &__number {

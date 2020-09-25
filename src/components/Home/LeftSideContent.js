@@ -78,7 +78,7 @@ const LeftSideContent = () => {
       // animate={{ x: 0 }}
       // transition={{ ease: [0, 0.71, 0.15, 1.03] }}
     >
-      <img src={donut1} className="home-page__left__donut1" />
+      <img src={donut1} className="home-page__left__donut1" alt="Decorational donut"/>
       <span className="home-page__left__flap" />
       {/* Spacer */}
       <Spacer height="sp_xl" />

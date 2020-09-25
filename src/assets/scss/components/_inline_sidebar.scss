@@ -15,7 +15,7 @@
     grid-gap: $sp-base;
     align-items: end;
     div {
-      h2{
+      h2 {
         span {
           display: block;
           &:nth-child(2) {
@@ -34,5 +34,23 @@
     a {
       padding: $sp-base $sp-md;
     }
+    &:hover {
+      svg {
+        stroke: #ff0000;
+      }
+    }
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    width: 100vw;
+    height: 100vh;
   }
 }

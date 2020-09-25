@@ -13,12 +13,10 @@ import HamburgerLottieJson from "../lotties/hamburgerLottie.json"
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
-
-
 /**
  * Hamburger Lottie
  */
-const HamburgerLottie = ({ onClick }) => {
+const HamburgerLottie = ({ onClick, style}) => {
   const lottieRef = useRef(null)
 
   const handleMouseEnter = () => {
@@ -34,7 +32,7 @@ const HamburgerLottie = ({ onClick }) => {
   }
 
   return (
-    <button className="chapter-view__ham" tabIndex="1" onClick={onClick}>
+    <button className="chapter-view__ham" tabIndex="1" onClick={onClick} style={style}>
       <lottie-player
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -101,9 +99,12 @@ export default ({ children, pageContext }) => {
 
   return (
     <>
-      <InlineSideBar isOpen={isSideBarOpen}/>
+      <InlineSideBar currentChapter={chapterNumber} isOpen={isSideBarOpen} />
       <main className="chapter-view">
-        <HamburgerLottie onClick={toggleSideBar}/>
+        <HamburgerLottie
+          style={{ transform: `translateX(${ isSideBarOpen ? "65rem" : 0})` }}
+          onClick={toggleSideBar}
+        />
         <section className="chapter-view__hero">
           <h3 className="chapter-view__number">
             <motion.span
@@ -114,12 +115,12 @@ export default ({ children, pageContext }) => {
               Chapter {chapterNumber}
             </motion.span>
           </h3>
-          <Spacer height='sp_base'/>
+          <Spacer height="sp_base" />
           <Title
             addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
             text={chapterName}
           />
-          <Spacer height='sp_xxl'/>
+          <Spacer height="sp_xxl" />
           <ProgressiveImage
             src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
           >

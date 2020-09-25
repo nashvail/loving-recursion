@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import Lottie from "react-lottie"
 import "@lottiefiles/lottie-player"
@@ -9,6 +9,9 @@ import { Link } from "gatsby"
 import Spacer from "../Spacer"
 
 import animationData from "../../lotties/eg-lottie.json"
+
+// Icon imports
+import HomeIcon from "../../assets/icons/32x32/home.inline.svg"
 
 // 👇 this fucking works
 const EyeLottie = ({ speed = 1 }) => {
@@ -47,7 +50,7 @@ export const ChapterAnnouncement = () => {
         <h3 style={{ color: "var(--color-blue-0)" }}>
           New chapter every 2 weeks
         </h3>
-        <Spacer height='sp_base'/>
+        <Spacer height="sp_base" />
         <p style={{ color: "var(--color-yellow-0)" }}>
           I announce new chapters on my Twitter and Dribble.
         </p>
@@ -55,6 +58,20 @@ export const ChapterAnnouncement = () => {
     </li>
   )
 }
+
+export const HomeClicker = () => (
+  <li className="chapter-list__item chapter-list__item--home">
+    <Link to="/">
+      <div>
+        <span className="chapter-list__item__chapter-number">Take me</span>
+        <span className="chapter-list__item__chapter-name">Home</span>
+      </div>
+      <div>
+        <HomeIcon />
+      </div>
+    </Link>
+  </li>
+)
 
 // Maybe what you can do here is just change state on hover and that gets rerendered right?
 // You have installed lottie web haven't you
@@ -71,12 +88,12 @@ const ChapterClicker = ({ number, name, link = "#" }) => {
   }
 
   return (
-    <li
-      className="chapter-list__item"
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-    >
-      <Link to={link}>
+    <li className="chapter-list__item">
+      <Link
+        to={link}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+      >
         <div>
           <span className="chapter-list__item__chapter-number">
             Chapter {number}
