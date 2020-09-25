@@ -80,7 +80,6 @@
     background: var(--color-grey-6);
     padding: 0 0 200vh;
     &__hero {
-      position: relative;
       max-height: 100vh;
       min-height: 100vh;
       overflow: hidden;
@@ -94,14 +93,14 @@
       }
       &__lottie-1 {
         position: absolute;
-        top: 8rem;
-        left: 15rem;
+        top: calc(3%);
+        left: calc(52%/2 - (52%/5) - 2rem);
         z-index: 2;
       }
       &__lottie-2 {
         position: absolute;
-        top: 55rem;
-        right: 25rem;
+        right: calc(52%/2 - 6rem);
+        bottom: calc(60%);
       }
     }
 
@@ -169,8 +168,8 @@
               border-width: 0 84px 84px 0;
               border-color: transparent var(--color-blue-3) transparent
                 transparent;
-                transform: rotateY(180deg);
-            } 
+              transform: rotateY(180deg);
+            }
           }
           &--for-1 {
             width: calc(100% - 84px);
@@ -181,7 +180,6 @@
               padding: $sp-md;
             }
           }
-
         }
       }
     }

@@ -34,8 +34,8 @@ const CircleExpandLottieFront = ({
         isStopped={false}
         speed={1}
         options={defaultOptions}
-        height={width}
-        width={height}
+        height={height + "%"}
+        width={width + "%"}
       />
     </div>
   )
@@ -64,8 +64,8 @@ const RightSideContent = () => {
     <section className="home-page__right" ref={scrollRef}>
       <section className="home-page__right__hero">
         <CircleExpandLottieFront
-          width={380}
-          height={380}
+          width={100}
+          height={100}
           className="home-page__right__hero__lottie-1"
           animationData={circleFrontData}
         />
@@ -73,11 +73,10 @@ const RightSideContent = () => {
           src={heroineImage}
           data-scroll
           data-scroll-speed="1"
-          data-scroll-position="top"
-        />
+          data-scroll-position="top"/>
         <CircleExpandLottieFront
-          width={200}
-          height={200}
+          width={80}
+          height={80}
           className="home-page__right__hero__lottie-2"
           animationData={circleFrontData2}
         />

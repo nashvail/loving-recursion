@@ -30,6 +30,8 @@ const InlineSideBar = ({ currentChapter = 0, isOpen = false }) => {
         </section>
         <section className="inline-sidebar__bottom">
           <Spacer height="sp_xxl" />
+          <hr style={{ borderColor: "var(--color-grey-0)", borderWidth: "2px"}}/>
+          <Spacer height="sp_xxl" />
           <ol>
             <HomeClicker />
             <ChapterClicker
