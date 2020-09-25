@@ -6,31 +6,14 @@ import "@lottiefiles/lottie-player"
 // Local imports
 import ChapterEnd from "../components/ChapterEnd"
 import Spacer from "../components/Spacer"
+import InlineSideBar from "../components/InlineSidebar"
 // Can't use this in the lottie yet it's only accepting URL json
 import HamburgerLottieJson from "../lotties/hamburgerLottie.json"
 
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
-/**
- * SideBar
- */
 
-const InlineSideBar = ({ isOpen = false }) => {
-
-  const tX = isOpen ? "0%" : "-100%"
-
-  return (
-    <aside
-      style={{
-        transform: `translateX(${tX})`
-      }}
-      className="inline-sidebar"
-    >
-      blah
-    </aside>
-  )
-}
 
 /**
  * Hamburger Lottie

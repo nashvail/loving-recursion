@@ -1,13 +1,13 @@
 import React from "react";
 
 const spacings = {
-  sp_xs: 8,
-  sp_sm: 16,
-  sp_base: 24,
-  sp_md: 32,
-  sp_lg: 40,
-  sp_xl: 48,
-  sp_xxl: 56
+  sp_xs: '0.8rem',
+  sp_sm: '1.6rem',
+  sp_base: '2.4rem',
+  sp_md: '3.2rem',
+  sp_lg: '4rem',
+  sp_xl: '4.8rem',
+  sp_xxl: '5.6rem'
 }
 
 const Spacer = (props) => {

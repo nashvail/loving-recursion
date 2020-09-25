@@ -1,0 +1,38 @@
+.inline-sidebar {
+  position: fixed;
+  color: var(--color-white);
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+  background-color: var(--color-grey-minus2);
+  z-index: 999;
+  transition: transform 0.3s $ease-in-out;
+  &__top {
+    padding: 0 $sp-lg 0 $sp-lg;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: $sp-base;
+    align-items: end;
+    div {
+      h2{
+        span {
+          display: block;
+          &:nth-child(2) {
+            margin-top: -$sp-sm/2;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 0 $sp-lg 0 $sp-lg;
+  }
+
+  .chapter-list__item {
+    a {
+      padding: $sp-base $sp-md;
+    }
+  }
+}
