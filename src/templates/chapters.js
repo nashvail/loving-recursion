@@ -16,7 +16,7 @@ import { TRANSITION_EASE } from "../constants"
 /**
  * Hamburger Lottie
  */
-const HamburgerLottie = ({ onClick, style}) => {
+const HamburgerLottie = ({ onClick, style }) => {
   const lottieRef = useRef(null)
 
   const handleMouseEnter = () => {
@@ -32,7 +32,12 @@ const HamburgerLottie = ({ onClick, style}) => {
   }
 
   return (
-    <button className="chapter-view__ham" tabIndex="1" onClick={onClick} style={style}>
+    <button
+      className="chapter-view__ham"
+      tabIndex="1"
+      onClick={onClick}
+      style={style}
+    >
       <lottie-player
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -89,6 +94,8 @@ const Title = ({ addBreakAfter, text }) => {
   }
 }
 
+export const SideBarOpenContext = React.createContext()
+
 export default ({ children, pageContext }) => {
   const chapterNumber = pageContext.frontmatter.number,
     chapterName = pageContext.frontmatter.name
@@ -99,47 +106,49 @@ export default ({ children, pageContext }) => {
 
   return (
     <>
-      <InlineSideBar currentChapter={chapterNumber} isOpen={isSideBarOpen} />
-      <main className="chapter-view">
-        <HamburgerLottie
-          style={{ transform: `translateX(${ isSideBarOpen ? "65rem" : 0})` }}
-          onClick={toggleSideBar}
-        />
-        <section className="chapter-view__hero">
-          <h3 className="chapter-view__number">
-            <motion.span
-              initial={{ y: 40 }}
-              animate={{ y: 0 }}
-              transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
-            >
-              Chapter {chapterNumber}
-            </motion.span>
-          </h3>
-          <Spacer height="sp_base" />
-          <Title
-            addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
-            text={chapterName}
+      <SideBarOpenContext.Provider value={[isSideBarOpen, setIsSidebarOpen]}>
+        <InlineSideBar currentChapter={chapterNumber} />
+        <main className="chapter-view">
+          <HamburgerLottie
+            style={{ transform: `translateX(${isSideBarOpen ? "65rem" : 0})` }}
+            onClick={toggleSideBar}
           />
-          <Spacer height="sp_xxl" />
-          <ProgressiveImage
-            src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
-          >
-            {src => (
-              <motion.img
-                src={src}
-                transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
-                initial={{ y: 200, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                alt={`Chapter ${chapterNumber} hero image`}
-              />
-            )}
-          </ProgressiveImage>
-        </section>
-        <section className="chapter-view__content">
-          <article>{children}</article>
-        </section>
-        <ChapterEnd nextChapterNumber={chapterNumber + 1} />
-      </main>
+          <section className="chapter-view__hero">
+            <h3 className="chapter-view__number">
+              <motion.span
+                initial={{ y: 40 }}
+                animate={{ y: 0 }}
+                transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
+              >
+                Chapter {chapterNumber}
+              </motion.span>
+            </h3>
+            <Spacer height="sp_base" />
+            <Title
+              addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
+              text={chapterName}
+            />
+            <Spacer height="sp_xxl" />
+            <ProgressiveImage
+              src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
+            >
+              {src => (
+                <motion.img
+                  src={src}
+                  transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
+                  initial={{ y: 200, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  alt={`Chapter ${chapterNumber} hero image`}
+                />
+              )}
+            </ProgressiveImage>
+          </section>
+          <section className="chapter-view__content">
+            <article>{children}</article>
+          </section>
+          <ChapterEnd nextChapterNumber={chapterNumber + 1} />
+        </main>
+      </SideBarOpenContext.Provider>
     </>
   )
 }

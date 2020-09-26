@@ -1,12 +1,19 @@
-import React from "react"
+import React, {useContext} from "react"
 import PropTypes from "prop-types"
 
 // Component Imports
 import ChapterClicker, { HomeClicker } from "../Home/ChapterClicker"
 import Spacer from "../Spacer"
 
-const InlineSideBar = ({ currentChapter = 0, isOpen = false }) => {
-  const tX = isOpen ? "0%" : "-100%"
+// Import context
+import { SideBarOpenContext } from "../../templates/chapters"
+
+const InlineSideBar = ({ currentChapter = 0}) => {
+  const [isSideBarOpen, setIsSidebarOpen] = useContext(SideBarOpenContext)
+
+  const tX = isSideBarOpen ? "0%" : "-100%"
+
+  const toggleSidebar = _ => setIsSidebarOpen(!isSideBarOpen);
 
   return (
     <>
@@ -56,16 +63,16 @@ const InlineSideBar = ({ currentChapter = 0, isOpen = false }) => {
         </section>
       </aside>
       <div
+        onClick={toggleSidebar}
         className="inline-sidebar-overlay"
-        style={{ display: `${isOpen ? 'block' : 'none'}`}}
+        style={{ display: `${isSideBarOpen ? 'block' : 'none'}`}}
       ></div>
     </>
   )
 }
 
 InlineSideBar.propTypes = {
-  chapterNumber: PropTypes.number,
-  isOpen: PropTypes.bool.isRequired,
+  chapterNumber: PropTypes.number
 }
 
 export default InlineSideBar
