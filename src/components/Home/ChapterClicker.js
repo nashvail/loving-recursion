@@ -9,6 +9,7 @@ import { Link } from "gatsby"
 import Spacer from "../Spacer"
 
 import animationData from "../../lotties/eg-lottie.json"
+import backToHomeLottieData from "../../lotties/backToHome.json"
 
 // Icon imports
 import HomeIcon from "../../assets/icons/32x32/home.inline.svg"
