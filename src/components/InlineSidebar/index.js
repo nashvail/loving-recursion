@@ -33,7 +33,13 @@ const InlineSideBar = ({ currentChapter = 0, isOpen = false }) => {
           <hr style={{ borderColor: "var(--color-grey-0)", borderWidth: "2px"}}/>
           <Spacer height="sp_xxl" />
           <ol>
-            <HomeClicker />
+            <ChapterClicker
+              style={{ padding: "3.2rem" }}
+              number="Take me"
+              name="Home"
+              link="/"
+              home
+            />
             <ChapterClicker
               style={{ padding: "3.2rem" }}
               number={2}

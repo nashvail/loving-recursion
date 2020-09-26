@@ -8,14 +8,14 @@ import { Link } from "gatsby"
 
 import Spacer from "../Spacer"
 
-import animationData from "../../lotties/eg-lottie.json"
+import eyeLottieData from "../../lotties/eg-lottie.json"
 import backToHomeLottieData from "../../lotties/backToHome.json"
 
 // Icon imports
 import HomeIcon from "../../assets/icons/32x32/home.inline.svg"
 
 // 👇 this fucking works
-const EyeLottie = ({ speed = 1 }) => {
+const IconLottie = ({ speed = 1, animationData }) => {
   const [stopped, setStopped] = useState(false)
 
   const defaultOptions = {
@@ -53,31 +53,17 @@ export const ChapterAnnouncement = () => {
         </h3>
         <Spacer height="sp_base" />
         <p style={{ color: "var(--color-yellow-0)" }}>
-          I announce new chapters on my Twitter and Dribble.
+          I announce new chapters on my <a href="https://twitter.com/nashvail" target="__blank">Twitter</a>and <a target="__blank" href="https://dribbble.com/nashvail">Dribbble</a>.
         </p>
       </div>
     </li>
   )
 }
 
-export const HomeClicker = () => (
-  <li className="chapter-list__item chapter-list__item--home">
-    <Link to="/">
-      <div>
-        <span className="chapter-list__item__chapter-number">Take me</span>
-        <span className="chapter-list__item__chapter-name">Home</span>
-      </div>
-      <div>
-        <HomeIcon />
-      </div>
-    </Link>
-  </li>
-)
-
 // Maybe what you can do here is just change state on hover and that gets rerendered right?
 // You have installed lottie web haven't you
 
-const ChapterClicker = ({ number, name, link = "#" }) => {
+const ChapterClicker = ({ number, name, link = "#", home }) => {
   const [lottieSpeed, setLottieSpeed] = useState(1)
 
   const handleOnMouseEnter = e => {
@@ -97,12 +83,12 @@ const ChapterClicker = ({ number, name, link = "#" }) => {
       >
         <div>
           <span className="chapter-list__item__chapter-number">
-            Chapter {number}
+            {typeof number === 'number' ? `Chapter ${number}` : number}
           </span>
           <span className="chapter-list__item__chapter-name">{name}</span>
         </div>
         <div>
-          <EyeLottie speed={lottieSpeed} />
+          <IconLottie animationData={home ? backToHomeLottieData : eyeLottieData} speed={lottieSpeed} />
         </div>
       </Link>
     </li>
