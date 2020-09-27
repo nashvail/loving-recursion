@@ -74,8 +74,10 @@ const ChapterClicker = ({ number, name, link = "#", home }) => {
     setLottieSpeed(-2)
   }
 
+  const mainClassName = home ? "chapter-list__item--home" : "chapter-list__item";
+
   return (
-    <li className="chapter-list__item">
+    <li className={mainClassName}>
       <Link
         to={link}
         onMouseEnter={handleOnMouseEnter}

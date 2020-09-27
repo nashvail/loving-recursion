@@ -1,19 +1,36 @@
-import React, {useContext} from "react"
+import React, { useContext } from "react"
 import PropTypes from "prop-types"
 
 // Component Imports
 import ChapterClicker, { HomeClicker } from "../Home/ChapterClicker"
 import Spacer from "../Spacer"
 
+// Chapters data
+import chapters from "../../data/chapters.json"
+
 // Import context
 import { SideBarOpenContext } from "../../templates/chapters"
 
-const InlineSideBar = ({ currentChapter = 0}) => {
+// Renders the list of chapters
+const Chapters = ({ ignore }) =>
+  chapters.map(
+    (chapterData, key) =>
+      key !== ignore && (
+        <ChapterClicker
+          link={chapterData.link}
+          name={chapterData.chapterName}
+          number={chapterData.chapterNumber}
+          key={key}
+        />
+      )
+  )
+
+const InlineSideBar = ({ currentChapter = 0 }) => {
   const [isSideBarOpen, setIsSidebarOpen] = useContext(SideBarOpenContext)
 
   const tX = isSideBarOpen ? "0%" : "-100%"
 
-  const toggleSidebar = _ => setIsSidebarOpen(!isSideBarOpen);
+  const toggleSidebar = _ => setIsSidebarOpen(!isSideBarOpen)
 
   return (
     <>
@@ -37,7 +54,9 @@ const InlineSideBar = ({ currentChapter = 0}) => {
         </section>
         <section className="inline-sidebar__bottom">
           <Spacer height="sp_xxl" />
-          <hr style={{ borderColor: "var(--color-grey-0)", borderWidth: "2px"}}/>
+          <hr
+            style={{ borderColor: "var(--color-grey-0)", borderWidth: "2px" }}
+          />
           <Spacer height="sp_xxl" />
           <ol>
             <ChapterClicker
@@ -47,32 +66,21 @@ const InlineSideBar = ({ currentChapter = 0}) => {
               link="/"
               home
             />
-            <ChapterClicker
-              style={{ padding: "3.2rem" }}
-              number={2}
-              name="Hello"
-              link="#"
-            />
-            <ChapterClicker
-              style={{ padding: "3.2rem" }}
-              number={2}
-              name="Hello"
-              link="#"
-            />
+            <Chapters ignore={currentChapter} />
           </ol>
         </section>
       </aside>
       <div
         onClick={toggleSidebar}
         className="inline-sidebar-overlay"
-        style={{ display: `${isSideBarOpen ? 'block' : 'none'}`}}
+        style={{ display: `${isSideBarOpen ? "block" : "none"}` }}
       ></div>
     </>
   )
 }
 
 InlineSideBar.propTypes = {
-  chapterNumber: PropTypes.number
+  chapterNumber: PropTypes.number,
 }
 
 export default InlineSideBar

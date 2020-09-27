@@ -34,6 +34,19 @@
   }
 }
 
+.chapter-list__item--home {
+  @extend .chapter-list__item;
+  background: var(--color-blue-0) !important;
+  color: var(--color-white) !important; 
+  
+  &:hover {
+    background: darken($color: #0b2a9e, $amount: 5%) !important;
+    span {
+      color: var(--color-white);
+    }
+  }
+}
+
 // For the intermediary chapter announcement
 .chapter-list__inter {
   padding: $sp-md;

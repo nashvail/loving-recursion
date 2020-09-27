@@ -4,10 +4,13 @@
   top: 0;
   left: 0;
   width: auto;
+  max-width: 65rem;
   height: 100vh;
   background-color: var(--color-grey-minus2);
   z-index: 999;
   transition: transform 0.3s $ease-in-out;
+  overflow: scroll;
+  padding-bottom: $sp-lg;
   &__top {
     padding: 0 $sp-lg 0 $sp-lg;
     display: grid;
