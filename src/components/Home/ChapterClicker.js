@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
 import Lottie from "react-lottie"
 import "@lottiefiles/lottie-player"
@@ -11,12 +11,28 @@ import Spacer from "../Spacer"
 import eyeLottieData from "../../lotties/eg-lottie.json"
 import backToHomeLottieData from "../../lotties/backToHome.json"
 
-// Icon imports
-import HomeIcon from "../../assets/icons/32x32/home.inline.svg"
+const IconLottie = ({ direction, animationData }) => {
+  const lottieRef = useRef(null)
+  const [speed, setSpeed] = useState(1)
+  const [stopped, setIsStopped] = useState(true)
 
-// 👇 this fucking works
-const IconLottie = ({ speed = 1, animationData }) => {
-  const [stopped, setStopped] = useState(false)
+  const playForward = () => {
+    setIsStopped(false);
+    setSpeed(2);
+    lottieRef.current.play();
+  }
+
+  const playBackward = () => {
+    setIsStopped(false);
+    setSpeed(-3);
+    lottieRef.current.play();
+  }
+
+  useEffect((e) => {
+    if(direction === 1) playForward();
+    else if (direction === 2) playBackward();
+    else console.log('CANT IDENTIFY');
+  }, [direction])
 
   const defaultOptions = {
     loop: false,
@@ -27,15 +43,12 @@ const IconLottie = ({ speed = 1, animationData }) => {
     },
   }
 
-  useEffect(() => {
-    setStopped(prev => !prev)
-  }, [speed])
-
   return (
     <div>
       <Lottie
-        isStopped={stopped}
         speed={speed}
+        isStopped={stopped}
+        ref= {lottieRef}
         options={defaultOptions}
         height={32}
         width={32}
@@ -60,18 +73,16 @@ export const ChapterAnnouncement = () => {
   )
 }
 
-// Maybe what you can do here is just change state on hover and that gets rerendered right?
-// You have installed lottie web haven't you
-
 const ChapterClicker = ({ number, name, link = "#", home }) => {
-  const [lottieSpeed, setLottieSpeed] = useState(1)
+  // 1 is forward, 2 is backward
+  const [lottieDirection, setLottieDirection] = useState(0)
 
   const handleOnMouseEnter = e => {
-    setLottieSpeed(2)
+    setLottieDirection(1);
   }
 
   const handleOnMouseLeave = e => {
-    setLottieSpeed(-2)
+    setLottieDirection(2);
   }
 
   const mainClassName = home ? "chapter-list__item--home" : "chapter-list__item";
@@ -90,7 +101,7 @@ const ChapterClicker = ({ number, name, link = "#", home }) => {
           <span className="chapter-list__item__chapter-name">{name}</span>
         </div>
         <div>
-          <IconLottie animationData={home ? backToHomeLottieData : eyeLottieData} speed={lottieSpeed} />
+          <IconLottie animationData={home ? backToHomeLottieData : eyeLottieData} direction={lottieDirection} />
         </div>
       </Link>
     </li>
@@ -98,7 +109,10 @@ const ChapterClicker = ({ number, name, link = "#", home }) => {
 }
 
 ChapterClicker.propTypes = {
-  number: PropTypes.number.isRequired,
+  number: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
   name: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
 }
