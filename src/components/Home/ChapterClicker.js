@@ -28,7 +28,7 @@ const IconLottie = ({ direction, animationData }) => {
     lottieRef.current.play();
   }
 
-  useEffect((e) => {
+  useEffect(() => {
     if(direction === 1) playForward();
     else if (direction === 2) playBackward();
     else console.log('CANT IDENTIFY');
@@ -74,7 +74,7 @@ export const ChapterAnnouncement = () => {
 }
 
 const ChapterClicker = ({ number, name, link = "#", home }) => {
-  // 1 is forward, 2 is backward
+  // 1 is forward, 2 is backward, 0 is no direction
   const [lottieDirection, setLottieDirection] = useState(0)
 
   const handleOnMouseEnter = e => {

@@ -36,11 +36,7 @@
   .chapter-list__item {
     a {
       padding: $sp-base $sp-md;
-    }
-    &:hover {
-      svg {
-        stroke: #ff0000;
-      }
+      margin-top: $sp-sm;
     }
   }
 
