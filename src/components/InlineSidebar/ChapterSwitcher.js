@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { navigate } from 'gatsby';
+import ProgressiveImage from "react-progressive-image"
+import Spacer from "../Spacer"
 
 // Import icons
 import HomeIcon from "../../assets/icons/32x32/home.inline.svg"
+
+// Import chapters data
+import chapters from "../../data/chapters.json"
 
 
 const Button = ({ text, link, style }) => (
@@ -30,7 +35,13 @@ const ChapterSwitcher = ({ currentChapter=0 }) => {
   return (
     <div className="chapter_switcher">
       <div className="chapter_switcher__content">
-        <h3>Chapter Name</h3>
+        <h4>Reading Chapter {currentChapter}</h4>
+        <Spacer height='sp_xxs'/>
+        <h3>{chapters[currentChapter]['chapterName']}</h3>
+        <Spacer height='sp_lg'/>
+        <ProgressiveImage src={require(`../../assets/images/chapter-heroes/${currentChapter}.png`)}>
+          {src => <img src={src}/> }
+        </ProgressiveImage> 
       </div>
       <div className="chapter_switcher__controls">
         <Button style={{ borderBottomLeftRadius: "8px" }} text="Previous Chapter" link={generatePreviousChapterLink(currentChapter)} />

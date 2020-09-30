@@ -1,6 +1,7 @@
 import React from "react";
 
 const spacings = {
+  sp_xxs: '0.4rem',
   sp_xs: '0.8rem',
   sp_sm: '1.6rem',
   sp_base: '2.4rem',

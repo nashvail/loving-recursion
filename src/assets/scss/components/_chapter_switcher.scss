@@ -1,15 +1,42 @@
 .chapter_switcher {
-  background: var(--color-grey-0);
+  background: var(--color-grey-minus1);
   border-radius: $sp-xs;
   display: grid;
   grid-template-rows: 1fr 7.2rem;
+  overflow: hidden;
 
   &__content {
     padding: $sp-base;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+
+    h3,
+    h4 {
+      text-align: center;
+    }
+
+    img {
+      margin-bottom: -30%;
+      width: 65%;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(27, 26, 28, 0) 0%, #1b1a1c 100%);
+    }
   }
 
   &__controls {
-    background-color: var(--color-grey-0);
+    background-color: var(--color-grey-minus1);
     border-bottom-left-radius: $sp-xs;
     border-bottom-right-radius: $sp-xs;
     display: grid;
@@ -18,7 +45,7 @@
 
     &__button {
       color: white;
-      background-color: var(--color-grey-1);
+      background-color: var(--color-grey-0);
       transition: background 0.25s;
       &:hover {
         background: var(--color-blue-0);
@@ -26,7 +53,7 @@
 
       &--icon-button {
         display: grid;
-        background-color: var(--color-grey-1);
+        background-color: var(--color-grey-0);
         place-items: center;
         &:hover {
           background: var(--color-blue-0);

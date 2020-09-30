@@ -22,7 +22,7 @@ $ln-xl: 6.4rem;
 }
 
 @mixin font-base {
-  line-height: $ln-base; 
+  line-height: $ln-base;
   font-size: $fs-base;
 }
 
@@ -30,27 +30,27 @@ $ln-xl: 6.4rem;
   @include heading-common;
   line-height: $ln-xl;
   font-size: $fs-xl;
-  font-family: 'GT America-Expanded Black';
+  font-family: "GT America-Expanded Black";
 }
 
 @mixin font-h2 {
   @include heading-common;
   font-size: $fs-lg;
   line-height: $ln-lg;
-  font-family: 'GT America-Expanded Bold';
+  font-family: "GT America-Expanded Bold";
 }
 
 @mixin font-h3 {
   @include heading-common;
-  font-family: 'GT America-Expanded Medium';
+  font-family: "GT America-Expanded Medium";
   font-size: $fs-md;
   line-height: $ln-md;
 }
 
 @mixin font-h4 {
   @include heading-common;
-  font-family: 'GT America-Standard Bold';
+  font-family: "GT Eesti Pro Text-Regular";
   font-size: $fs-base;
   line-height: $ln-base;
+  font-weight: normal;
 }
-
