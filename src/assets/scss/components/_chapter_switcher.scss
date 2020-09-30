@@ -1,0 +1,37 @@
+.chapter_switcher {
+  background: var(--color-grey-0);
+  border-radius: $sp-xs;
+  display: grid;
+  grid-template-rows: 1fr 7.2rem;
+
+  &__content {
+    padding: $sp-base;
+  }
+
+  &__controls {
+    background-color: var(--color-grey-0);
+    border-bottom-left-radius: $sp-xs;
+    border-bottom-right-radius: $sp-xs;
+    display: grid;
+    grid-template-columns: 1fr 7.2rem 1fr;
+    grid-gap: $sp-xs;
+
+    &__button {
+      color: white;
+      background-color: var(--color-grey-1);
+      transition: background 0.25s;
+      &:hover {
+        background: var(--color-blue-0);
+      }
+
+      &--icon-button {
+        display: grid;
+        background-color: var(--color-grey-1);
+        place-items: center;
+        &:hover {
+          background: var(--color-blue-0);
+        }
+      }
+    }
+  }
+}

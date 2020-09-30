@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 // Component Imports
 import ChapterClicker, { HomeClicker } from "../Home/ChapterClicker"
+import ChapterSwitcher from './ChapterSwitcher'
 import Spacer from "../Spacer"
 
 // Chapters data
@@ -53,18 +54,9 @@ const InlineSideBar = ({ currentChapter = 0 }) => {
           </div>
         </section>
         <section className="inline-sidebar__bottom">
-          {/* <hr
-            style={{ borderColor: "var(--color-grey-0)", borderWidth: "2px" }}
-          /> */}
           <Spacer height="sp_xxl" />
+          <ChapterSwitcher currentChapter={currentChapter} />
           <ol>
-            <ChapterClicker
-              style={{ padding: "3.2rem" }}
-              number="Take me"
-              name="Home"
-              link="/"
-              home
-            />
             <Chapters ignore={currentChapter} />
           </ol>
         </section>

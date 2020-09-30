@@ -1,7 +1,7 @@
 .chapter-list__item {
   margin: $sp-xs 0;
   background: darken($color: #2c2a2e, $amount: 5%);
-  border-radius: 8px;
+  border-radius: $sp-xs;
   cursor: pointer;
   transition: background 0.25s;
   a {
@@ -37,8 +37,8 @@
 .chapter-list__item--home {
   @extend .chapter-list__item;
   background: var(--color-blue-0) !important;
-  color: var(--color-white) !important; 
-  
+  color: var(--color-white) !important;
+
   &:hover {
     background: darken($color: #0b2a9e, $amount: 5%) !important;
     span {
@@ -59,7 +59,7 @@
   background-repeat: no-repeat, no-repeat;
   background-position: -35px center, center center;
   background-size: auto, cover;
-  border-radius: 8px;
+  border-radius: $sp-xs;
   height: 380px;
   width: 100%;
   div {

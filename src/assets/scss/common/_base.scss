@@ -1,56 +1,53 @@
 /* Font imports */
 @font-face {
-  font-family: 'GT America-Expanded Black';
-  src: url(../fonts/gt-america-expanded-black.woff) format('woff'),
-    url(../fonts/gt-america-expanded-black.woff2) format('woff2');
+  font-family: "GT America-Expanded Black";
+  src: url(../fonts/gt-america-expanded-black.woff) format("woff"),
+    url(../fonts/gt-america-expanded-black.woff2) format("woff2");
 }
 
-
 @font-face {
-  font-family: 'GT America-Expanded Bold';
-  src: url(../fonts/gt-america-expanded-bold-webfont.woff) format('woff'),
-    url(../fonts/gt-america-expanded-bold-webfont.woff2) format('woff2');
+  font-family: "GT America-Expanded Bold";
+  src: url(../fonts/gt-america-expanded-bold-webfont.woff) format("woff"),
+    url(../fonts/gt-america-expanded-bold-webfont.woff2) format("woff2");
   font-weight: bolder;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GT America-Expanded Regular';
-  src: url(../fonts/gt-america-expanded-regular.woff) format('woff'),
-    url(../fonts/gt-america-expanded-regular.woff2) format('woff2');
-  font-weight: bolder;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'GT America-Expanded Medium';
-  src: url(../fonts/gt-america-expanded-medium.woff) format('woff'),
-    url(../fonts/gt-america-expanded-medium.woff2) format('woff2');
+  font-family: "GT America-Expanded Regular";
+  src: url(../fonts/gt-america-expanded-regular.woff) format("woff"),
+    url(../fonts/gt-america-expanded-regular.woff2) format("woff2");
   font-weight: bolder;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GT America-Standard Regular';
-  src: url(../fonts/gt-america-standard-regular.woff) format('woff'),
-    url(../fonts/gt-america-standard-regular.woff2) format('woff2');
+  font-family: "GT America-Expanded Medium";
+  src: url(../fonts/gt-america-expanded-medium.woff) format("woff"),
+    url(../fonts/gt-america-expanded-medium.woff2) format("woff2");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT America-Standard Regular";
+  src: url(../fonts/gt-america-standard-regular.woff) format("woff"),
+    url(../fonts/gt-america-standard-regular.woff2) format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
-
 @font-face {
-  font-family: 'GT America-Standard Bold';
-  src: url(../fonts/gt-america-standard-bold.woff) format('woff'),
-    url(../fonts/gt-america-standard-bold.woff2) format('woff2');
+  font-family: "GT America-Standard Bold";
+  src: url(../fonts/gt-america-standard-bold.woff) format("woff"),
+    url(../fonts/gt-america-standard-bold.woff2) format("woff2");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GT Eesti Pro Text-Regular';
-  src: url(../fonts/gt-eesti-pro-text-regular.woff) format('woff');
+  font-family: "GT Eesti Pro Text-Regular";
+  src: url(../fonts/gt-eesti-pro-text-regular.woff) format("woff");
   font-weight: normal;
 }
 
@@ -58,7 +55,7 @@
  * Hide content
  * {@link https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/}
  */
- *[hidden] {
+*[hidden] {
   display: none !important;
 }
 
@@ -85,8 +82,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
-  -webkit-font-feature-settings: 'kern' off;
-  font-feature-settings: 'kern' off;
+  -webkit-font-feature-settings: "kern" off;
+  font-feature-settings: "kern" off;
   -webkit-font-kerning: none;
   font-kerning: none;
   cursor: default;
@@ -100,7 +97,7 @@ body {
   padding: 0;
   background-color: rgb(var(--color-white));
   color: rgb(var(--color-grey-0));
-  font-family: 'GT America-Standard Regular';
+  font-family: "GT America-Standard Regular";
   @include font-base;
 }
 
@@ -195,6 +192,9 @@ sub {
 button {
   @include button-reset;
   // color: rgb(var(--color-secondary));
+  &:active {
+    outline: 2px solid var(--color-blue-2);
+  }
 }
 
 img {
