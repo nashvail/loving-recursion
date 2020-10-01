@@ -1,5 +1,6 @@
 .chapter_switcher {
-  background: var(--color-grey-minus1);
+  // background: var(--color-grey-minus1);
+  background: var(--color-blue-0);
   border-radius: $sp-xs;
   display: grid;
   grid-template-rows: 1fr 7.2rem;
@@ -27,36 +28,45 @@
       content: "";
       display: block;
       position: absolute;
-      bottom: -1rem;
+      bottom: 0rem;
       left: 0;
       right: 0;
       height: 200px;
-      background: linear-gradient(180deg, rgba(27, 26, 28, 0) 0%, #1b1a1c 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(5, 27, 111, 0) 34.48%,
+        #051b6f 132.51%
+      );
     }
   }
 
   &__controls {
-    background-color: var(--color-grey-minus1);
+    background-color: var(--color-blue-1);
     border-bottom-left-radius: $sp-xs;
     border-bottom-right-radius: $sp-xs;
     display: grid;
     grid-template-columns: 1fr 7.2rem 1fr;
-    grid-gap: $sp-xs;
+    grid-gap: 2px;
 
     &__button {
       color: white;
-      background-color: var(--color-grey-0);
-      transition: background 0.25s;
+      background-color: var(--color-blue-0);
+      transition: all 0.25s $ease-in-out;
       &:hover {
-        background: var(--color-blue-0);
+        background: var(--color-grey-6);
+        color: var(--color-grey-0);
       }
 
       &--icon-button {
         display: grid;
-        background-color: var(--color-grey-0);
+        background-color: var(--color-blue-0);
         place-items: center;
         &:hover {
-          background: var(--color-blue-0);
+          svg {
+            transform: scale(0.96);
+          }
+          background: var(--color-grey-minus1);
+          color: var(--color-grey-0);
         }
       }
     }

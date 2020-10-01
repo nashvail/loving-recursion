@@ -95,9 +95,9 @@ const ChapterClicker = ({ number, name, link = "#", home }) => {
         onMouseLeave={handleOnMouseLeave}
       >
         <div>
-          <span className="chapter-list__item__chapter-number">
+          <h4 className="chapter-list__item__chapter-number">
             {typeof number === 'number' ? `Chapter ${number}` : number}
-          </span>
+          </h4>
           <span className="chapter-list__item__chapter-name">{name}</span>
         </div>
         <div>

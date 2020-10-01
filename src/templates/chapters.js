@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import ProgressiveImage from "react-progressive-image"
 import "@lottiefiles/lottie-player"
@@ -94,6 +94,7 @@ const Title = ({ addBreakAfter, text }) => {
   }
 }
 
+
 export const SideBarOpenContext = React.createContext()
 
 export default ({ children, pageContext }) => {
@@ -102,7 +103,7 @@ export default ({ children, pageContext }) => {
 
   const [isSideBarOpen, setIsSidebarOpen] = useState(false)
 
-  const toggleSideBar = _ => setIsSidebarOpen(!isSideBarOpen)
+  const toggleSideBar = () => setIsSidebarOpen(!isSideBarOpen);
 
   return (
     <>

@@ -14,9 +14,9 @@
   }
 
   &__chapter-number {
-    font-family: "GT Eesti Pro Text-Regular";
-    font-size: $fs-base;
-    display: block;
+    // font-family: "GT Eesti Pro Text-Regular";
+    // font-size: $fs-base;
+    // display: block;
     color: var(--color-grey-5);
   }
 
@@ -28,7 +28,8 @@
 
   &:hover {
     background: var(--color-grey-6);
-    span {
+    span,
+    h4 {
       color: var(--color-grey-0);
     }
   }
@@ -57,10 +58,10 @@
   background-color: var(--color-yellow-4);
   background-image: url(../images/inter-art.svg), url(../images/inter-bg.svg);
   background-repeat: no-repeat, no-repeat;
-  background-position: -35px center, center center;
+  background-position: -35px 0rem, center center;
   background-size: auto, cover;
   border-radius: $sp-xs;
-  height: 380px;
+  height: 300px;
   width: 100%;
   div {
     width: 65%;

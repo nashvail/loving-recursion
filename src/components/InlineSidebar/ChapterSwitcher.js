@@ -36,7 +36,6 @@ const ChapterSwitcher = ({ currentChapter=0 }) => {
     <div className="chapter_switcher">
       <div className="chapter_switcher__content">
         <h4>Reading Chapter {currentChapter}</h4>
-        <Spacer height='sp_xxs'/>
         <h3>{chapters[currentChapter]['chapterName']}</h3>
         <Spacer height='sp_lg'/>
         <ProgressiveImage src={require(`../../assets/images/chapter-heroes/${currentChapter}.png`)}>

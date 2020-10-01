@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import PropTypes from "prop-types"
 
 // Component Imports
@@ -32,7 +32,7 @@ const InlineSideBar = ({ currentChapter = 0 }) => {
   const tX = isSideBarOpen ? "0%" : "-100%"
 
   const toggleSidebar = _ => setIsSidebarOpen(!isSideBarOpen)
-
+  
   return (
     <>
       <aside

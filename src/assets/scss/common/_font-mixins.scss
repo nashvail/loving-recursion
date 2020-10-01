@@ -49,8 +49,8 @@ $ln-xl: 6.4rem;
 
 @mixin font-h4 {
   @include heading-common;
-  font-family: "GT Eesti Pro Text-Regular";
-  font-size: $fs-base;
+  font-family: "GT America-Expanded Regular";
+  font-size: $fs-sm;
   line-height: $ln-base;
   font-weight: normal;
 }
