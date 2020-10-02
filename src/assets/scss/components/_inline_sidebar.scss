@@ -7,10 +7,21 @@
   max-width: 65rem;
   height: 100vh;
   background-color: var(--color-grey-minus2);
-  z-index: 999;
+  z-index: 3;
   transition: transform 0.3s $ease-in-out;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: visible;
   padding-bottom: $sp-lg;
+
+  &__toggle-button {
+    position: fixed;
+    left: 2.4rem;
+    top: 2.4rem;
+    background: red;
+    transition: transform 0.3s $ease-in-out;
+    z-index: 3;
+  }
+
   &__top {
     padding: 0 $sp-lg 0 $sp-lg;
     display: grid;

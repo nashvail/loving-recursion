@@ -30,11 +30,20 @@ const InlineSideBar = ({ currentChapter = 0 }) => {
   const [isSideBarOpen, setIsSidebarOpen] = useContext(SideBarOpenContext)
 
   const tX = isSideBarOpen ? "0%" : "-100%"
+  const bX = isSideBarOpen ? "66rem" : "0"
 
   const toggleSidebar = _ => setIsSidebarOpen(!isSideBarOpen)
   
   return (
     <>
+        <button 
+          type="button" 
+          className="inline-sidebar__toggle-button"
+          style={{
+            transform: `translateX(${bX})`,
+          }}
+          onClick={toggleSidebar}
+          >Open</button>
       <aside
         style={{
           transform: `translateX(${tX})`,

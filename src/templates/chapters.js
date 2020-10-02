@@ -7,47 +7,9 @@ import "@lottiefiles/lottie-player"
 import ChapterEnd from "../components/ChapterEnd"
 import Spacer from "../components/Spacer"
 import InlineSideBar from "../components/InlineSidebar"
-// Can't use this in the lottie yet it's only accepting URL json
-import HamburgerLottieJson from "../lotties/hamburgerLottie.json"
-
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
-/**
- * Hamburger Lottie
- */
-const HamburgerLottie = ({ onClick, style }) => {
-  const lottieRef = useRef(null)
-
-  const handleMouseEnter = () => {
-    lottieRef.current.setSpeed(1)
-    lottieRef.current.setDirection(1)
-    lottieRef.current.play()
-  }
-
-  const handleMouseLeave = () => {
-    lottieRef.current.setSpeed(-3)
-    // lottieRef.current.setDirection(-1);
-    lottieRef.current.play()
-  }
-
-  return (
-    <button
-      className="chapter-view__ham"
-      tabIndex="1"
-      onClick={onClick}
-      style={style}
-    >
-      <lottie-player
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        ref={lottieRef}
-        src="https://assets4.lottiefiles.com/private_files/lf30_W9OT35.json"
-        style={{ width: "64px", height: "64px" }}
-      ></lottie-player>
-    </button>
-  )
-}
 
 // Number of words after which we're supposed to shove in a <br/> tag
 const CHAPTER_BREAKS = [-1, -1, 2, 2]
@@ -110,10 +72,6 @@ export default ({ children, pageContext }) => {
       <SideBarOpenContext.Provider value={[isSideBarOpen, setIsSidebarOpen]}>
         <InlineSideBar currentChapter={chapterNumber} />
         <main className="chapter-view">
-          <HamburgerLottie
-            style={{ transform: `translateX(${isSideBarOpen ? "65rem" : 0})` }}
-            onClick={toggleSideBar}
-          />
           <section className="chapter-view__hero">
             <h3 className="chapter-view__number">
               <motion.span
