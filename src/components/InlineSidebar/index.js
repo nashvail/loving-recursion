@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 import ChapterClicker, { HomeClicker } from "../Home/ChapterClicker"
 import ChapterSwitcher from './ChapterSwitcher'
 import Spacer from "../Spacer"
+import HamburgerButton from './Hamburger.js'
 
 // Chapters data
 import chapters from "../../data/chapters.json"
@@ -30,20 +31,11 @@ const InlineSideBar = ({ currentChapter = 0 }) => {
   const [isSideBarOpen, setIsSidebarOpen] = useContext(SideBarOpenContext)
 
   const tX = isSideBarOpen ? "0%" : "-100%"
-  const bX = isSideBarOpen ? "66rem" : "0"
-
   const toggleSidebar = _ => setIsSidebarOpen(!isSideBarOpen)
   
   return (
     <>
-        <button 
-          type="button" 
-          className="inline-sidebar__toggle-button"
-          style={{
-            transform: `translateX(${bX})`,
-          }}
-          onClick={toggleSidebar}
-          >Open</button>
+      <HamburgerButton /> 
       <aside
         style={{
           transform: `translateX(${tX})`,
