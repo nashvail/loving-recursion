@@ -2,6 +2,14 @@
   background: var(--color-grey-0);
   width: 100vw;
 
+  h1 {
+    font-size: clamp($fs-md, 3.6vw, $fs-xl);
+  }
+
+  h3 {
+    font-size: clamp($fs-base, 2vw, $fs-md);
+  }
+
   &__ham {
     position: fixed;
     top: 5rem;

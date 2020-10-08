@@ -66,7 +66,7 @@ export const ChapterAnnouncement = () => {
         </h3>
         <Spacer height="sp_base" />
         <p style={{ color: "var(--color-yellow-0)" }}>
-          I announce new chapters on my <a href="https://twitter.com/nashvail" target="__blank">Twitter</a>and <a target="__blank" href="https://dribbble.com/nashvail">Dribbble</a>.
+          I announce new chapters on my <a href="https://twitter.com/nashvail" target="__blank">Twitter </a>and <a target="__blank" href="https://dribbble.com/nashvail">Dribbble</a>.
         </p>
       </div>
     </li>

@@ -1,0 +1,68 @@
+.praise {
+  margin-top: $sp-md;
+  display: flex;
+  flex-direction: column;
+  &__text {
+    background: var(--color-blue-0);
+    color: white;
+    padding: $sp-lg $sp-xl $sp-lg $sp-xl;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -84px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 84px 84px 0;
+      border-color: transparent var(--color-blue-3) transparent transparent;
+    }
+  }
+
+  &__for {
+    width: calc(100% - 84px);
+    padding: $sp-sm;
+    &__content {
+      background: var(--color-yellow-4);
+      padding: $sp-md;
+      border-bottom-right-radius: $sp-sm;
+      border-bottom-left-radius: $sp-sm;
+    }
+  }
+
+  // 0 - Flap on left
+  // 1 - Flap on right
+
+  &__text-0 {
+    @extend .praise__text;
+    border-top-right-radius: $sp-sm;
+  }
+
+  &__text-1 {
+    @extend .praise__text;
+    border-top-left-radius: $sp-sm;
+    &::before {
+      right: 0;
+      left: unset;
+      transform: rotateY(180deg);
+    }
+  }
+
+  &__for-0 {
+    @extend .praise__for;
+    align-self: flex-end;
+    padding-right: 0;
+    &__content {
+      @extend .praise__for__content;
+    }
+  }
+
+  &__for-1 {
+    @extend .praise__for;
+    padding-left: 0;
+    &__content {
+      @extend .praise__for__content;
+    }
+  }
+}

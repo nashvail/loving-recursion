@@ -1,5 +1,8 @@
 import React from "react"
 
+// Import components
+import Spacer from "../Spacer"
+
 // Put all the praise and related links in this object
 const praises = [
   {
@@ -38,17 +41,49 @@ const SinglePraise = ({ direction, praiseObject }) => {
         className={`home-page__right__rest__praises__praise--text-${direction}`}
       >
         <h3>{`"${praiseObject["text"]}"`}</h3>
+        <Spacer height="sp_sm"/>
         <span>- {praiseObject.author}</span>
       </div>
-      <div
+      <a
+        href={praiseObject.workLink}
+        target="__blank"
         className={`home-page__right__rest__praises__praise--for-${direction}`}
       >
         <div
           className={`home-page__right__rest__praises__praise--for-${direction}__content`}
         >
-          <a href={praiseObject.workLink} target="__blank">{praiseObject.workTitle}</a>
+          <span>Written for</span>
+          <br/>
+          {praiseObject.workTitle}
         </div>
+      </a>
+    </li>
+  )
+}
+
+const SinglePraisePinch = ({ direction, praiseObject }) => {
+  return (
+    <li className="praise">
+      <div
+        className={`praise__text-${direction}`}
+      >
+        <h3>{`"${praiseObject["text"]}"`}</h3>
+        <Spacer height="sp_sm"/>
+        <span>- {praiseObject.author}</span>
       </div>
+      <a
+        href={praiseObject.workLink}
+        target="__blank"
+        className={`praise__for-${direction}`}
+      >
+        <div
+          className={`praise__for-${direction}__content`}
+        >
+          <span>Written for</span>
+          <br/>
+          {praiseObject.workTitle}
+        </div>
+      </a>
     </li>
   )
 }
@@ -57,7 +92,7 @@ export default () => {
   return (
     <ul className="home-page__right__rest__praises">
       {praises.map((_, index) => (
-        <SinglePraise
+        <SinglePraisePinch
           key={index}
           direction={index % 2}
           praiseObject={praises[index]}

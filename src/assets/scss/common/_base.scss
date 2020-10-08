@@ -167,10 +167,16 @@ strong {
 */
 
 a {
-  display: inline-block;
-  // color: rgb(var(--color-primary));
-  text-decoration: none;
-  // border-bottom: 1px solid white;
+  color: var(--color-blue-0);
+  text-decoration-style: solid;
+  text-decoration-color: var(--color-blue-3);
+  text-decoration-skip: spaces;
+  transition: 0.25s;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-color: var(--color-blue-0);
+  }
 }
 
 sub,
