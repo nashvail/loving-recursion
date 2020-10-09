@@ -62,9 +62,6 @@
       background-image: url(../images/topart.png);
     }
 
-    &__chapter-list {
-    }
-
     &__donut1 {
       position: absolute;
       right: -16rem;
@@ -75,12 +72,19 @@
   &__right {
     grid-column: 2/-1;
     max-width: 60vw;
-    max-height: 100vh;
-    min-height: 100vh;
-    overflow-y: auto;
+    height: auto;
+    // max-height: 100vh;
+    // min-height: 100vh;
+    overflow-y: scroll;
     background: var(--color-grey-6);
-    padding: 0 0 200vh;
+
+    & > section {
+      width: 85%;
+      margin: 0 auto;
+    }
+
     &__hero {
+      position: relative;
       max-height: 100vh;
       min-height: 100vh;
       overflow: hidden;
@@ -95,23 +99,50 @@
       }
       &__lottie-1 {
         position: absolute;
-        top: calc(4%);
-        left: calc(52% / 2 - (52% / 5) - 2rem);
+        top: calc(8%);
+        left: calc(52% / 2 - (52% / 5) - 7rem);
         z-index: 2;
       }
       &__lottie-2 {
         position: absolute;
-        right: calc(52% / 2 - 6rem);
-        bottom: calc(60%);
+        right: calc(52% / 2 - 10rem);
+        bottom: calc(20%);
       }
     }
 
-    &__rest {
-      width: 80%;
-      margin: 0rem auto 10rem auto;
-      &__praises {
-        list-style-type: none;
-        margin: 0;
+    &__end {
+      width: 100% !important;
+      &__content {
+        @extend .chapter-end;
+        max-width: unset;
+        a {
+          background: none;
+        }
+        .chapter-end__next-chapter {
+          background: var(--color-grey-6);
+          h3 {
+            color: var(--color-blue-0);
+          }
+          h4 {
+            color: var(--color-blue-2);
+          }
+          img {
+            width: 73%;
+            bottom: -50%;
+            filter: none;
+            z-index: 1;
+          }
+          &::after {
+            z-index: 0;
+            opacity: 55%;
+            height: 100%;
+            background: linear-gradient(
+              180.96deg,
+              rgba(11, 42, 158, 0) 19.59%,
+              #0b2a9e 154.92%
+            );
+          }
+        }
       }
     }
   }

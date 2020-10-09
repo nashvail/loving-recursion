@@ -10,14 +10,17 @@ import footer_art from "../../assets/images/footer_art.png"
 // Chapter Data
 import chapters from "../../data/chapters.json"
 
-const ChapterEnd = ({ nextChapterNumber }) => {
+const ChapterEnd = ({ nextChapterNumber = 0, onHome=false}) => {
+
+  let sectionClassName = onHome ? 'home-page__right__end__content' : 'chapter-end';
+
   return (
-    <section className="chapter-end">
+    <section className={sectionClassName}>
       <Link
         to={chapters[nextChapterNumber]["link"]}
         className="chapter-end__next-chapter"
       >
-        <h4>Next Chapter</h4>
+        <h4>{`${onHome ? 'Start Here' : 'Next Chapter' }`}</h4>
         <h3>{chapters[nextChapterNumber]["chapterName"]}</h3>
         <ProgressiveImage
           src={require(`../../assets/images/chapter-heroes/${nextChapterNumber}.png`)}

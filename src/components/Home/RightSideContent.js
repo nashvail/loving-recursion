@@ -8,6 +8,7 @@ import Spacer from "../Spacer"
 import heroineImage from "../../assets/images/head.png"
 import { RightSideScrollContext } from "../../pages/index"
 import Praise from "./Praise"
+import ChapterEnd from "../ChapterEnd"
 /// Lottie
 import circleFrontData from "../../lotties/circleExpand.json"
 import circleFrontData2 from "../../lotties/circleExpand2.json"
@@ -48,7 +49,7 @@ const RightSideContent = () => {
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
-      smooth: true,
+      smooth: false,
     })
 
     return () => {
@@ -61,8 +62,9 @@ const RightSideContent = () => {
   }
 
   return (
-    <section className="home-page__right" ref={scrollRef}>
-      <section className="home-page__right__hero">
+    <section className="home-page__right" ref={scrollRef} data-scroll data-scroll-container>
+      {/* Hero Section */}
+      <section className="home-page__right__hero" data-scroll data-scroll-section>
         <CircleExpandLottieFront
           width={100}
           height={100}
@@ -73,7 +75,8 @@ const RightSideContent = () => {
           src={heroineImage}
           data-scroll
           data-scroll-speed="1"
-          data-scroll-position="top"/>
+          data-scroll-position="top"
+        />
         <CircleExpandLottieFront
           width={80}
           height={80}
@@ -81,11 +84,11 @@ const RightSideContent = () => {
           animationData={circleFrontData2}
         />
       </section>
+      {/* Intro Section */}
       <section
-        className="home-page__right__rest"
+        className="home-page__right__intro"
         data-scroll
-        data-scroll-speed="3"
-        data-scroll-position="top"
+        data-scroll-section
       >
         <h1>
           <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
@@ -103,9 +106,13 @@ const RightSideContent = () => {
           normal human would. More details about this in the Introduction
           chapter.
         </p>
+      </section>
         <Spacer height="sp_xxl" />
         {/* Praise Section  */}
-        <section>
+      <section className="home-page__right__praise"
+      data-scroll
+      data-scroll-section
+      >
           <h1>
             {" "}
             <span style={{ color: "var(--color-yellow-4)" }}>
@@ -115,7 +122,15 @@ const RightSideContent = () => {
           </h1>
           <Spacer height="sp_lg" />
           <Praise />
-        </section>
+      </section>
+      {/* Footer + Chapter End section */}
+      <Spacer height="sp_xxl" />
+      <section className="home-page__right__end" 
+        data-scroll 
+        data-scroll-speed="3" 
+        data-scroll-section 
+        data-scroll-position="bottom" >
+        <ChapterEnd onHome/>
       </section>
     </section>
   )

@@ -36,33 +36,6 @@ const praises = [
 
 const SinglePraise = ({ direction, praiseObject }) => {
   return (
-    <li className="home-page__right__rest__praises__praise">
-      <div
-        className={`home-page__right__rest__praises__praise--text-${direction}`}
-      >
-        <h3>{`"${praiseObject["text"]}"`}</h3>
-        <Spacer height="sp_sm"/>
-        <span>- {praiseObject.author}</span>
-      </div>
-      <a
-        href={praiseObject.workLink}
-        target="__blank"
-        className={`home-page__right__rest__praises__praise--for-${direction}`}
-      >
-        <div
-          className={`home-page__right__rest__praises__praise--for-${direction}__content`}
-        >
-          <span>Written for</span>
-          <br/>
-          {praiseObject.workTitle}
-        </div>
-      </a>
-    </li>
-  )
-}
-
-const SinglePraisePinch = ({ direction, praiseObject }) => {
-  return (
     <li className="praise">
       <div
         className={`praise__text-${direction}`}
@@ -90,9 +63,9 @@ const SinglePraisePinch = ({ direction, praiseObject }) => {
 
 export default () => {
   return (
-    <ul className="home-page__right__rest__praises">
+    <ul className="praises">
       {praises.map((_, index) => (
-        <SinglePraisePinch
+        <SinglePraise
           key={index}
           direction={index % 2}
           praiseObject={praises[index]}
