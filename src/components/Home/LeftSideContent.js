@@ -83,13 +83,13 @@ const LeftSideContent = () => {
       {/* Spacer */}
       <Spacer height="sp_xl" />
       {/* Spacer */}
-      <h1 className="home-page__left__title" data-splitting>
-        <span className="home-page__left__title--word-one">loving</span>
-        <br />
-        <span className="home-page__left__title--word-two">recursion</span>
+      <h1 className="home-page__left__title">
+        LOVING RECURSION
+        {/* <span className="home-page__left__title--word-one">loving</span> */}
+        {/* <span className="home-page__left__title--word-two">recursion</span> */}
       </h1>
       {/* Spacer */}
-      <Spacer height="sp_xs" />
+      <Spacer height="sp_sm" />
       {/* Spacer */}
       <p style={{ color: "var(--color-grey-5)", width: "80%" }}>
         A book about learning to love recursion. Written in English and

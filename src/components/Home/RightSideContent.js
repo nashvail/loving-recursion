@@ -65,9 +65,10 @@ const RightSideContent = () => {
     <section className="home-page__right" ref={scrollRef} data-scroll data-scroll-container>
       {/* Hero Section */}
       <section className="home-page__right__hero" data-scroll data-scroll-section>
+
         <CircleExpandLottieFront
-          width={100}
-          height={100}
+          width={90}
+          height={90}
           className="home-page__right__hero__lottie-1"
           animationData={circleFrontData}
         />
@@ -124,6 +125,7 @@ const RightSideContent = () => {
           <Praise />
       </section>
       {/* Footer + Chapter End section */}
+      <Spacer height="sp_xxl" />
       <Spacer height="sp_xxl" />
       <section className="home-page__right__end" 
         data-scroll 

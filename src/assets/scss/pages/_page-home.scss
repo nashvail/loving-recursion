@@ -40,14 +40,14 @@
       color: white;
       text-transform: uppercase;
       margin-bottom: 0;
-      font-size: clamp($fs-md, 3.6vw, $fs-xl);
+      // font-size: clamp($fs-md, 3.6vw, $fs-xl);
       &--word-one,
       &--word-two {
         display: inline-block;
         overflow: hidden;
       }
       &--word-two {
-        margin-top: -0.5rem;
+        margin-top: -3rem;
       }
     }
 
@@ -92,16 +92,18 @@
       justify-items: center;
       align-items: end;
       img {
-        max-width: 52%;
-        min-width: 55rem;
-        padding-top: 10rem;
+        // max-width: 58rem;
+        // min-width: 58rem;
+        min-height: 100vh;
+        max-height: 100vh;
+        // margin-top: 4rem;
         z-index: 1;
       }
       &__lottie-1 {
         position: absolute;
-        top: calc(8%);
+        top: calc(10%);
         left: calc(52% / 2 - (52% / 5) - 7rem);
-        z-index: 2;
+        z-index: 0;
       }
       &__lottie-2 {
         position: absolute;
@@ -122,19 +124,22 @@
           background: var(--color-grey-6);
           h3 {
             color: var(--color-blue-0);
+            visibility: hidden;
           }
           h4 {
             color: var(--color-blue-2);
+            visibility: hidden;
           }
           img {
-            width: 73%;
-            bottom: -50%;
-            filter: none;
+            width: 45vw;
+            bottom: -30rem;
+            transform: translateX(-55%);
+            // filter: none;
             z-index: 1;
           }
           &::after {
             z-index: 0;
-            opacity: 55%;
+            opacity: 30%;
             height: 100%;
             background: linear-gradient(
               180.96deg,
