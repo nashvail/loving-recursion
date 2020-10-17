@@ -73,7 +73,7 @@ export const ChapterAnnouncement = () => {
   )
 }
 
-const ChapterClicker = ({ number, name, link = "#", home }) => {
+const ChapterClicker = ({ number=-1, name="Demo chapter", link = "#", home }) => {
   // 1 is forward, 2 is backward, 0 is no direction
   const [lottieDirection, setLottieDirection] = useState(0)
 

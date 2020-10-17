@@ -36,6 +36,11 @@
     background: #2c2a2e;
     @include font-sm;
 
+    @media (max-width: 1500px) {
+      visibility: hidden;
+      display: none;
+    }
+
     &__title {
       color: white;
       text-transform: uppercase;
@@ -78,9 +83,74 @@
     overflow-y: scroll;
     background: var(--color-grey-6);
 
+    @media (max-width: $large-desktop) {
+      grid-column: -1/1;
+      max-width: 100vw;
+    }
+
     & > section {
       width: 85%;
       margin: 0 auto;
+    }
+
+    &__header-resp {
+      width: 100vw !important;
+      background: var(--color-grey-2);
+      overflow: visible;
+      // background: green;
+
+      &__title {
+        color: white;
+        width: 50%;
+        margin: 0 auto;
+        &__flap {
+          display: block;
+          content: "";
+          height: 320px;
+          min-width: 200px;
+          margin-bottom: $sp-xl;
+          margin-top: -2 * $sp-xl;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-image: url(../images/topart.png);
+        }
+
+        @media (max-width: $tablet) {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          h1 {
+            text-align: center;
+          }
+          &__flap {
+          }
+        }
+      }
+    }
+
+    &__index-resp {
+      position: relative;
+      width: 100vw !important;
+      background: var(--color-grey-0);
+      padding: $sp-lg;
+      z-index: 2;
+      margin-top: -15rem !important;
+
+      & > ul {
+        display: grid;
+        grid-gap: $sp-base;
+        grid-template-columns: repeat(auto-fit, minmax(calc(450px), 1fr));
+
+        li {
+          margin: 0;
+        }
+      }
+
+      @media (min-width: $large-desktop) {
+        display: none;
+        visibility: hidden;
+      }
     }
 
     &__hero {
@@ -91,7 +161,14 @@
       display: grid;
       justify-items: center;
       align-items: end;
-      img {
+      z-index: 0;
+
+      @media (max-width: $large-desktop) {
+        background: var(--color-grey-2);
+        width: 100vw !important;
+      }
+
+      &__desk-heroine {
         // max-width: 58rem;
         // min-width: 58rem;
         min-height: 100vh;
@@ -109,6 +186,12 @@
         position: absolute;
         right: calc(52% / 2 - 10rem);
         bottom: calc(20%);
+      }
+
+      &__mobile-heroine {
+        max-height: 96vh;
+        // max-width: 55%;
+        // margin-bottom: -10rem;
       }
     }
 
