@@ -88,6 +88,14 @@ html {
   font-kerning: none;
   cursor: default;
   background: var(--color-grey-6);
+
+  @media (max-width: $tablet) {
+    font-size: 50%;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 30%;
+  }
 }
 
 body {

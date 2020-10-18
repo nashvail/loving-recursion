@@ -124,6 +124,7 @@
             text-align: center;
           }
           &__flap {
+            margin-top: -15rem;
           }
         }
       }
@@ -168,12 +169,13 @@
         width: 100vw !important;
       }
 
+      @media (max-width: $tablet) {
+        min-height: auto;
+      }
+
       &__desk-heroine {
-        // max-width: 58rem;
-        // min-width: 58rem;
         min-height: 100vh;
         max-height: 100vh;
-        // margin-top: 4rem;
         z-index: 1;
       }
       &__lottie-1 {
@@ -190,8 +192,13 @@
 
       &__mobile-heroine {
         max-height: 96vh;
+        overflow: visible;
         // max-width: 55%;
         // margin-bottom: -10rem;
+        @media (max-width: $tablet) {
+          width: 70%;
+          padding: 0;
+        }
       }
     }
 

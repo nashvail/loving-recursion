@@ -58,9 +58,10 @@
       }
 
       &--icon-button {
-        display: grid;
+        display: flex;
         background-color: var(--color-blue-0);
-        place-items: center;
+        align-items: center;
+        justify-content: center;
         &:hover {
           svg {
             transform: scale(0.96);

@@ -2,14 +2,6 @@
   background: var(--color-grey-0);
   width: 100vw;
 
-  h1 {
-    font-size: clamp($fs-md, 3.6vw, $fs-xl);
-  }
-
-  h3 {
-    font-size: clamp($fs-base, 2vw, $fs-md);
-  }
-
   &__ham {
     position: fixed;
     top: 5rem;
@@ -37,12 +29,19 @@
 
     img {
       padding-top: 5rem;
-      width: 60%;
-      // max-width: 800px;
+      max-width: 60%;
       margin: 0 auto;
-      // transform: translateX(-50px);
       z-index: 1;
+
+      @media (max-width: $large-desktop) {
+        max-width: 70%;
+      }
+
+      @media (max-width: $tablet) {
+        max-width: 90vw;
+      }
     }
+
     &::before {
       content: "";
       position: absolute;
@@ -83,10 +82,9 @@
     color: var(--color-grey-6);
     article {
       padding: 10rem 0;
-      width: 85%;
       margin: 0 auto;
-      min-width: 960px;
-      max-width: 960px;
+      min-width: 60ch;
+      max-width: 60ch;
 
       p {
         padding: $sp-base 0 $sp-base 0;
