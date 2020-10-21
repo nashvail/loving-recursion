@@ -13,6 +13,11 @@
     color: white;
     padding: $sp-lg $sp-xl $sp-lg $sp-xl;
     position: relative;
+    @media (max-width: $tablet) {
+      border-top-left-radius: $sp-sm;
+      border-top-right-radius: $sp-sm;
+    }
+    // Speech bubble fold arrow
     &::before {
       content: "";
       position: absolute;
@@ -23,6 +28,9 @@
       border-style: solid;
       border-width: 0 84px 84px 0;
       border-color: transparent var(--color-blue-3) transparent transparent;
+      @media (max-width: $tablet) {
+        display: none;
+      }
     }
   }
 
@@ -30,6 +38,10 @@
     width: calc(100% - 84px);
     padding: $sp-sm;
     text-decoration: none !important;
+    @media (max-width: $tablet) {
+      width: 100%;
+      padding: 0;
+    }
     &__content {
       background: var(--color-yellow-4);
       padding: $sp-md;

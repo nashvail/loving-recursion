@@ -149,10 +149,8 @@
       & > ul {
         display: grid;
         grid-gap: $sp-base;
-        /// TODO: FIX THIS
         grid-template-columns: 1fr 1fr;
-
-        // Hanging media query
+        // Hanging media query cuz required
         @media (max-width: 1218px) {
           grid-template-columns: 1fr;
         }
