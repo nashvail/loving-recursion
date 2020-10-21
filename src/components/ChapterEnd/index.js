@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { motion } from "framer-motion"
 import ProgressiveImage from "react-progressive-image"
 import { Link } from "gatsby"
+import { useMediaQuery } from 'react-responsive'
 
 // Image imports
 import footer_art from "../../assets/images/footer_art.png"
@@ -10,29 +11,39 @@ import footer_art from "../../assets/images/footer_art.png"
 // Chapter Data
 import chapters from "../../data/chapters.json"
 
-const ChapterEnd = ({ nextChapterNumber = 0, onHome=false}) => {
+const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
+
+  // Media queries
+  const isDesktop = useMediaQuery({ minWidth: 1500 })
+  const isTablet = useMediaQuery({ minWidth: 800, maxWidth: 1500 })
+  const isPhone = useMediaQuery({ maxWidth: 800 })
 
   let sectionClassName = onHome ? 'home-page__right__end__content' : 'chapter-end';
 
+  console.log('onHome', onHome);
+  console.log('isDesktop', isDesktop);
+
   return (
     <section className={sectionClassName}>
-      <Link
-        to={chapters[nextChapterNumber]["link"]}
-        className="chapter-end__next-chapter"
-      >
-        <h4>{`${onHome ? 'Start Here' : 'Next Chapter' }`}</h4>
-        <h3>{chapters[nextChapterNumber]["chapterName"]}</h3>
-        <ProgressiveImage
-          src={require(`../../assets/images/chapter-heroes/${nextChapterNumber}.png`)}
+      { ((onHome && isDesktop) || (!onHome)) &&
+        <Link
+          to={chapters[nextChapterNumber]["link"]}
+          className="chapter-end__next-chapter"
         >
-          {src => (
-            <motion.img
-              src={src}
-              alt={`Chapter ${nextChapterNumber} hero image`}
-            />
-          )}
-        </ProgressiveImage>
-      </Link>
+          <h4>{`${onHome ? 'Start Here' : 'Next Chapter'}`}</h4>
+          <h3>{chapters[nextChapterNumber]["chapterName"]}</h3>
+          <ProgressiveImage
+            src={require(`../../assets/images/chapter-heroes/${nextChapterNumber}.png`)}
+          >
+            {src => (
+              <motion.img
+                src={src}
+                alt={`Chapter ${nextChapterNumber} hero image`}
+              />
+            )}
+          </ProgressiveImage>
+        </Link>
+      }
       <footer className="footer">
         <div className="footer__left">
           <div>
