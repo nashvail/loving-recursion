@@ -30,19 +30,9 @@ const ResponsiveIndex = () => {
   return (
     <>
       <section className="home-page__right__index-resp">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "32px auto",
-            gridGap: "1rem",
-            alignItems: "center",
-          }}
-        >
-          <IndexIcon style={{ marginTop: "7px" }} />{" "}
-          <h3 style={{ color: "var(--color-yellow-4)" }}>Index</h3>
-        </div>
+        <h3 style={{ color: "var(--color-yellow-4)", textAlign: "center" }}>Index</h3>
         {/* Spacer */}
-        <Spacer height="sp_base" />
+        <Spacer height="sp_lg" />
         <ul style={{ listStyle: "none", margin: "0" }}>
           {chapters.map(({ chapterName, chapterNumber, link }) => (
             <ChapterClicker name={chapterName} number={chapterNumber} link={link} />
@@ -58,7 +48,7 @@ const ResponsiveIndex = () => {
 const ResponsiveHeader = () => {
   // Media queries
   const isDesktop = useMediaQuery({ minWidth: 1500 })
-  const isTablet = useMediaQuery({ minWidth: 800, maxWidth: 1500})
+  const isTablet = useMediaQuery({ minWidth: 800, maxWidth: 1500 })
   const isPhone = useMediaQuery({ maxWidth: 800 })
 
   return (

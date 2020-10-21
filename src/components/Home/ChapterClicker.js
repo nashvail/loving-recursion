@@ -3,15 +3,16 @@ import PropTypes from "prop-types"
 import Lottie from "react-lottie"
 import "@lottiefiles/lottie-player"
 import { Link } from "gatsby"
-// import TransitionLink from "gatsby-plugin-transition-link"
-// import AniLink from "gatsby-plugin-transition-link/AniLink"
+import MediaQuery, { useMediaQuery } from 'react-responsive'
 
 import Spacer from "../Spacer"
+import { BREAKPOINTS } from '../../constants'
 
 import eyeLottieData from "../../lotties/eg-lottie.json"
 import backToHomeLottieData from "../../lotties/backToHome.json"
 
 const IconLottie = ({ direction, animationData }) => {
+  // Hooks
   const lottieRef = useRef(null)
   const [speed, setSpeed] = useState(1)
   const [stopped, setIsStopped] = useState(true)
@@ -29,7 +30,7 @@ const IconLottie = ({ direction, animationData }) => {
   }
 
   useEffect(() => {
-    if(direction === 1) playForward();
+    if (direction === 1) playForward();
     else if (direction === 2) playBackward();
     else console.log('CANT IDENTIFY');
   }, [direction])
@@ -48,7 +49,7 @@ const IconLottie = ({ direction, animationData }) => {
       <Lottie
         speed={speed}
         isStopped={stopped}
-        ref= {lottieRef}
+        ref={lottieRef}
         options={defaultOptions}
         height={32}
         width={32}
@@ -73,9 +74,14 @@ export const ChapterAnnouncement = () => {
   )
 }
 
-const ChapterClicker = ({ number=-1, name="Demo chapter", link = "#", home }) => {
+const ChapterClicker = ({ number = -1, name = "Demo chapter", link = "#", home }) => {
   // 1 is forward, 2 is backward, 0 is no direction
   const [lottieDirection, setLottieDirection] = useState(0)
+
+  // Media query hooks
+  const isDesktop = useMediaQuery({ minWidth: BREAKPOINTS['large_desktop'] })
+  const isTablet = useMediaQuery({ minWidth: BREAKPOINTS['tablet'], maxWidth: BREAKPOINTS['large_desktop'] })
+  const isPhone = useMediaQuery({ maxWidth: BREAKPOINTS['tablet'] })
 
   const handleOnMouseEnter = e => {
     setLottieDirection(1);
@@ -101,7 +107,7 @@ const ChapterClicker = ({ number=-1, name="Demo chapter", link = "#", home }) =>
           <span className="chapter-list__item__chapter-name">{name}</span>
         </div>
         <div>
-          <IconLottie animationData={home ? backToHomeLottieData : eyeLottieData} direction={lottieDirection} />
+          {isDesktop && <IconLottie animationData={home ? backToHomeLottieData : eyeLottieData} direction={lottieDirection} />}
         </div>
       </Link>
     </li>

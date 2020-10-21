@@ -1,4 +1,5 @@
 .chapter-list__item {
+  display: block;
   margin: $sp-xs 0;
   background: darken($color: #2c2a2e, $amount: 5%);
   border-radius: $sp-xs;
@@ -12,18 +13,21 @@
     align-items: center;
     padding: $sp-lg;
     border-bottom: none;
+    width: 100%;
+
+    @media (max-width: $tablet) {
+      display: block;
+      grid-template-columns: unset;
+    }
   }
 
   &__chapter-number {
-    // font-family: "GT Eesti Pro Text-Regular";
-    // font-size: $fs-base;
-    // display: block;
     color: var(--color-grey-5);
   }
 
   &__chapter-name {
     font-family: "GT America-Expanded Medium";
-    font-size: 30px;
+    font-size: $fs-md; // 30px
     color: var(--color-white);
   }
 

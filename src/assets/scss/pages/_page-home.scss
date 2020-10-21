@@ -116,7 +116,7 @@
         }
 
         @media (max-width: $tablet) {
-          width: 80%;
+          width: 50%;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -124,7 +124,15 @@
             text-align: center;
           }
           &__flap {
-            margin-top: -15rem;
+            margin-top: -25rem;
+          }
+        }
+
+        @media (max-width: $mobile) {
+          &__flap {
+            max-height: 180px;
+            margin-top: -20px;
+            background-position: 50% 50%;
           }
         }
       }
@@ -141,7 +149,13 @@
       & > ul {
         display: grid;
         grid-gap: $sp-base;
-        grid-template-columns: repeat(auto-fit, minmax(calc(450px), 1fr));
+        /// TODO: FIX THIS
+        grid-template-columns: 1fr 1fr;
+
+        // Hanging media query
+        @media (max-width: 1218px) {
+          grid-template-columns: 1fr;
+        }
 
         li {
           margin: 0;
