@@ -1,0 +1,22 @@
+.mobile-sidebar {
+  /* Variables */
+  --control-strip-height: 64px;
+
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh);
+  background: red;
+  z-index: 9999;
+  transform: translateY(calc(100% - var(--control-strip-height)));
+
+  &__control-strip {
+    width: 100%;
+    height: var(--control-strip-height);
+    background: black;
+
+    button {
+      color: white;
+      background: blue;
+    }
+  }
+}

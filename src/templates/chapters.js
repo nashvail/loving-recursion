@@ -1,12 +1,14 @@
-import React, { useRef, useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
 import ProgressiveImage from "react-progressive-image"
 import "@lottiefiles/lottie-player"
+import { useMediaQuery } from 'react-responsive'
 
 // Local imports
 import ChapterEnd from "../components/ChapterEnd"
 import Spacer from "../components/Spacer"
 import InlineSideBar from "../components/InlineSidebar"
+import MobileSidebar from "../components/MobileSidebar"
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
@@ -63,14 +65,16 @@ export default ({ children, pageContext }) => {
   const chapterNumber = pageContext.frontmatter.number,
     chapterName = pageContext.frontmatter.name
 
-  const [isSideBarOpen, setIsSidebarOpen] = useState(false)
+  const isSmallDevice = useMediaQuery({ maxWidth: 1200 });
+  console.log('small device?', isSmallDevice);
 
-  const toggleSideBar = () => setIsSidebarOpen(!isSideBarOpen);
+  const [isSideBarOpen, setIsSidebarOpen] = useState(false)
 
   return (
     <>
       <SideBarOpenContext.Provider value={[isSideBarOpen, setIsSidebarOpen]}>
-        <InlineSideBar currentChapter={chapterNumber} />
+        {isSmallDevice ? <MobileSidebar currentChapter={chapterNumber} /> :
+          <InlineSideBar currentChapter={chapterNumber} />}
         <main className="chapter-view">
           <section className="chapter-view__hero">
             <h3 className="chapter-view__number">

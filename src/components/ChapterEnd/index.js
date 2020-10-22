@@ -20,9 +20,6 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
 
   let sectionClassName = onHome ? 'home-page__right__end__content' : 'chapter-end';
 
-  console.log('onHome', onHome);
-  console.log('isDesktop', isDesktop);
-
   return (
     <section className={sectionClassName}>
       { ((onHome && isDesktop) || (!onHome)) &&
