@@ -1,14 +1,16 @@
 .mobile-sidebar {
   /* Variables */
-  --control-strip-height: 64px;
+  --control-strip-height: 9rem;
 
   position: fixed;
   z-index: 999999;
   width: 100vw;
-  background: red;
-  max-height: calc(100vh);
-  min-height: calc(100vh);
+  height: 100vh;
+  // max-height: calc(100%);
+  // min-height: calc(100%);
+  background: var(--color-grey-0);
   z-index: 9999;
+  overflow: hidden;
   transform: translateY(calc(100% - var(--control-strip-height)));
   transition: transform 0.25s $ease-in-out;
   border-top-right-radius: $sp-sm;
@@ -17,8 +19,8 @@
   &__control-strip {
     width: 100%;
     height: var(--control-strip-height);
-    background: black;
-
+    background: var(--color-grey-minus1);
+    padding: 0 $sp-base;
     button {
       color: white;
       background: blue;
@@ -27,8 +29,17 @@
   }
 
   &__index {
-    background: green;
-    height: calc(100% - var(--control-strip-height));
+    padding: $sp-base;
+    padding-bottom: 2 * $sp-xxl;
+    height: calc(100vh);
+    // height: calc(100% - var(--control-strip-height));
     overflow-y: scroll;
+    ul {
+      list-style: none;
+      margin: 0;
+      li {
+        margin: $sp-sm;
+      }
+    }
   }
 }
