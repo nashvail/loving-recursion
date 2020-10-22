@@ -83,9 +83,8 @@
     article {
       padding: 10rem 0;
       margin: 0 auto;
-      min-width: 60ch;
-      max-width: 60ch;
-
+      width: 80%;
+      max-width: 70ch;
       p {
         padding: $sp-base 0 $sp-base 0;
       }

@@ -25,7 +25,7 @@ import donut1 from "../../assets/images/donut-1.svg";
 import chapters from "../../data/chapters.json"
 
 // The index section that comes when in tablet or mobile view
-const ResponsiveIndex = () => {
+export const ResponsiveIndex = () => {
 
   return (
     <>

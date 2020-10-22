@@ -6,7 +6,7 @@ import IconOpenSidebar from "../../assets/icons/32x32/sidebar-open.svg"
 import IconCloseSidebar from "../../assets/icons/32x32/sidebar-close.svg"
 
 // Sidebar context
-import { SideBarOpenContext } from "../../templates/chapters"
+import { SidebarOpenContext } from "../../templates/chapters"
 
 const ButtonStyled = styled.button`
   position: fixed;
@@ -23,12 +23,12 @@ const ButtonStyled = styled.button`
 `
 
 const HamburgerButton = () => {
-  const [isSideBarOpen, setIsSidebarOpen] = useContext(SideBarOpenContext)
+  const [isSidebarOpen, setIsSidebarOpen] = useContext(SidebarOpenContext)
 
-  const toggleSideBar = _ => setIsSidebarOpen(!isSideBarOpen)
+  const toggleSidebar = _ => setIsSidebarOpen(!isSidebarOpen)
 
   return (
-    <ButtonStyled isOpen={isSideBarOpen} onClick={toggleSideBar} />
+    <ButtonStyled isOpen={isSidebarOpen} onClick={toggleSidebar} />
   )
 }
 

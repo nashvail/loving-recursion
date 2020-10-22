@@ -59,7 +59,7 @@ const Title = ({ addBreakAfter, text }) => {
 }
 
 
-export const SideBarOpenContext = React.createContext()
+export const SidebarOpenContext = React.createContext()
 
 export default ({ children, pageContext }) => {
   const chapterNumber = pageContext.frontmatter.number,
@@ -68,11 +68,11 @@ export default ({ children, pageContext }) => {
   const isSmallDevice = useMediaQuery({ maxWidth: 1200 });
   console.log('small device?', isSmallDevice);
 
-  const [isSideBarOpen, setIsSidebarOpen] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   return (
     <>
-      <SideBarOpenContext.Provider value={[isSideBarOpen, setIsSidebarOpen]}>
+      <SidebarOpenContext.Provider value={[isSidebarOpen, setIsSidebarOpen]}>
         {isSmallDevice ? <MobileSidebar currentChapter={chapterNumber} /> :
           <InlineSideBar currentChapter={chapterNumber} />}
         <main className="chapter-view">
@@ -111,7 +111,7 @@ export default ({ children, pageContext }) => {
           </section>
           <ChapterEnd nextChapterNumber={chapterNumber + 1} />
         </main>
-      </SideBarOpenContext.Provider>
+      </SidebarOpenContext.Provider>
     </>
   )
 }

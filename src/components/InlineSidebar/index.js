@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import PropTypes from "prop-types"
 
 // Component Imports
@@ -11,7 +11,7 @@ import HamburgerButton from './Hamburger.js'
 import chapters from "../../data/chapters.json"
 
 // Import context
-import { SideBarOpenContext } from "../../templates/chapters"
+import { SidebarOpenContext } from "../../templates/chapters"
 
 // Renders the list of chapters
 const Chapters = ({ ignore }) =>
@@ -28,10 +28,10 @@ const Chapters = ({ ignore }) =>
   )
 
 const InlineSideBar = ({ currentChapter = 0 }) => {
-  const [isSideBarOpen, setIsSidebarOpen] = useContext(SideBarOpenContext)
+  const [isSidebarOpen, setIsSidebarOpen] = useContext(SidebarOpenContext)
 
-  const tX = isSideBarOpen ? "0%" : "-100%"
-  const toggleSidebar = _ => setIsSidebarOpen(!isSideBarOpen)
+  const tX = isSidebarOpen ? "0%" : "-100%"
+  const toggleSidebar = _ => setIsSidebarOpen(!isSidebarOpen)
   
   return (
     <>
@@ -65,7 +65,7 @@ const InlineSideBar = ({ currentChapter = 0 }) => {
       <div
         onClick={toggleSidebar}
         className="inline-sidebar-overlay"
-        style={{ display: `${isSideBarOpen ? "block" : "none"}` }}
+        style={{ display: `${isSidebarOpen ? "block" : "none"}` }}
       ></div>
     </>
   )
