@@ -12,11 +12,22 @@ import MobileSidebar from "../components/MobileSidebar"
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
+const ChapterNumber = ({ chapterNumber }) => (
+  <h3 className="chapter-view__number">
+    <motion.span
+      initial={{ y: 40 }}
+      animate={{ y: 0 }}
+      transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
+    >
+      Chapter {chapterNumber}
+    </motion.span>
+  </h3>
+)
 
 // Number of words after which we're supposed to shove in a <br/> tag
 const CHAPTER_BREAKS = [-1, -1, 2, 2]
 
-const Title = ({ addBreakAfter, text }) => {
+const ChapterTitle = ({ addBreakAfter, text }) => {
   if (addBreakAfter === -1) {
     return (
       <h1 className="chapter-view__title">
@@ -58,6 +69,22 @@ const Title = ({ addBreakAfter, text }) => {
   }
 }
 
+const HeroImage = ({ chapterNumber }) => (
+  <ProgressiveImage
+    src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
+  >
+    {src => (
+      <motion.img
+        src={src}
+        transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
+        initial={{ y: 200, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        alt={`Chapter ${chapterNumber} hero image`}
+      />
+    )}
+  </ProgressiveImage>
+)
+
 
 export const SidebarOpenContext = React.createContext()
 
@@ -77,34 +104,14 @@ export default ({ children, pageContext }) => {
           <InlineSideBar currentChapter={chapterNumber} />}
         <main className="chapter-view">
           <section className="chapter-view__hero">
-            <h3 className="chapter-view__number">
-              <motion.span
-                initial={{ y: 40 }}
-                animate={{ y: 0 }}
-                transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
-              >
-                Chapter {chapterNumber}
-              </motion.span>
-            </h3>
+            <ChapterNumber chapterNumber={chapterNumber} />
             <Spacer height="sp_base" />
-            <Title
+            <ChapterTitle
               addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
               text={chapterName}
             />
-            <Spacer height="sp_xxl" />
-            <ProgressiveImage
-              src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
-            >
-              {src => (
-                <motion.img
-                  src={src}
-                  transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
-                  initial={{ y: 200, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  alt={`Chapter ${chapterNumber} hero image`}
-                />
-              )}
-            </ProgressiveImage>
+            <Spacer height="sp_lg" />
+            <HeroImage chapterNumber={chapterNumber} />
           </section>
           <section className="chapter-view__content">
             <article>{children}</article>

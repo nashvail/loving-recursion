@@ -42,7 +42,7 @@ const InlineSideBar = ({ currentChapter = 0 }) => {
         }}
         className="inline-sidebar"
       >
-        {/*<section className="inline-sidebar__top">
+        <section className="inline-sidebar__top">
           <span
             style={{ marginTop: "-13rem" }}
             className="home-page__left__flap"
@@ -53,7 +53,7 @@ const InlineSideBar = ({ currentChapter = 0 }) => {
               <span>RECURSION</span>
             </h2>
           </div>
-      </section>*/}
+      </section>
         <section className="inline-sidebar__bottom">
           <Spacer height="sp_xxl" />
           <ChapterSwitcher currentChapter={currentChapter} />
