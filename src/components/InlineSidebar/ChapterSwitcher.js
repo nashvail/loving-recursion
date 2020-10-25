@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from "prop-types";
 import { navigate } from 'gatsby';
 import ProgressiveImage from "react-progressive-image"
+
+// Local imports
 import Spacer from "../Spacer"
+import { generateNextChapterLink, generatePreviousChapterLink } from "../../utils"
 
 // Import icons
 import HomeIcon from "../../assets/icons/32x32/home.inline.svg"
@@ -19,17 +22,17 @@ const IconButton = ({ link }) => (
   <button className="chapter_switcher__controls__button--icon-button" type="button" onClick={() => navigate(link)}><HomeIcon/></button>
 )
 
-const generateNextChapterLink = (currentChapter) => {
-  return `/chapter${currentChapter + 1}`;
-}
+// const generateNextChapterLink = (currentChapter) => {
+//   return `/chapter${currentChapter + 1}`;
+// }
 
-const generatePreviousChapterLink = (currentChapter) => {
-  if(currentChapter - 1 >= 0) {
-    return `/chapter${currentChapter - 1}`
-  } else {
-    return '/';
-  }
-}
+// const generatePreviousChapterLink = (currentChapter) => {
+//   if(currentChapter - 1 >= 0) {
+//     return `/chapter${currentChapter - 1}`
+//   } else {
+//     return '/';
+//   }
+// }
 
 const ChapterSwitcher = ({ currentChapter=0 }) => {
   return (
