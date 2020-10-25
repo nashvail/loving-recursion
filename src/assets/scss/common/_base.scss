@@ -75,7 +75,6 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   -ms-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
@@ -95,7 +94,7 @@ html {
   }
 
   @media (max-width: 400px) {
-    font-size: 30%;
+    font-size: 40%;
   }
 }
 
