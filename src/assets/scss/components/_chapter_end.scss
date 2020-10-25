@@ -3,6 +3,11 @@
   max-width: 960px;
   margin: 0 auto;
 
+  > li:first-child {
+    width: 80%;
+    margin: 0 auto;
+  }
+
   a {
     text-decoration: none;
   }
@@ -57,20 +62,28 @@
   }
 
   .footer {
+    width: 100%;
     background-color: var(--color-blue-0);
     display: grid;
     grid-template-columns: 70% 30%;
     color: var(--color-white);
+    @media (max-width: 1200px) {
+      grid-template-columns: 65% 35%;
+    }
+    @media (max-width: 710px) {
+      grid-template-columns: 100% 0;
+    }
 
     a {
       color: var(--color-white);
     }
 
     &__left {
-      padding: 4.8rem;
+      padding: $sp-xl;
       justify-content: space-between;
       display: flex;
       flex-direction: column;
+
       h3,
       h4 {
         margin: 0;
@@ -85,7 +98,10 @@
 
     &__right {
       align-items: center;
-      // background: red;
+      @media (max-width: 710px) {
+        display: none;
+        visibility: hidden;
+      }
       img {
         padding: 2.4rem;
         max-width: 250px;

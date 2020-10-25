@@ -5,6 +5,10 @@ import ProgressiveImage from "react-progressive-image"
 import { Link } from "gatsby"
 import { useMediaQuery } from 'react-responsive'
 
+// Local imports
+import ChapterClicker from "../Home/ChapterClicker"
+import Spacer from "../Spacer"
+
 // Image imports
 import footer_art from "../../assets/images/footer_art.png"
 
@@ -14,7 +18,7 @@ import chapters from "../../data/chapters.json"
 const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
 
   // Media queries
-  const isDesktop = useMediaQuery({ minWidth: 1500 })
+  const isDesktop = useMediaQuery({ minWidth: 1200 })
   const isTablet = useMediaQuery({ minWidth: 800, maxWidth: 1500 })
   const isPhone = useMediaQuery({ maxWidth: 800 })
 
@@ -22,7 +26,7 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
 
   return (
     <section className={sectionClassName}>
-      { ((onHome && isDesktop) || (!onHome)) &&
+      { isDesktop &&
         <Link
           to={chapters[nextChapterNumber]["link"]}
           className="chapter-end__next-chapter"
@@ -40,6 +44,13 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
             )}
           </ProgressiveImage>
         </Link>
+      }
+      {
+        (!isDesktop && !onHome) &&
+        <>
+          <ChapterClicker number="Next Chapter" name={chapters[nextChapterNumber]["chapterName"]} link={chapters[nextChapterNumber]["link"]} />
+          <Spacer height="sp_lg" />
+        </>
       }
       <footer className="footer">
         <div className="footer__left">

@@ -1,6 +1,6 @@
 .mobile-sidebar {
   /* Variables */
-  --control-strip-height: 9rem;
+  --control-strip-height: 9.5rem;
 
   position: fixed;
   bottom: 0;
@@ -28,7 +28,6 @@
     transition: all 0.25s;
     button {
       color: white;
-      background: blue;
       height: 100%;
     }
   }
