@@ -12,11 +12,18 @@
 
   &__number {
     color: var(--color-grey-5);
+    @media (max-width: $tablet) {
+      font-size: clamp($fs-sm, $fs-md, 4.5vw);
+    }
   }
 
   &__title {
     overflow: hidden;
     color: var(--color-white);
+
+    @media (max-width: $tablet) {
+      font-size: clamp($fs-sm, $fs-xl, 7.5vw);
+    }
   }
 
   &__hero {
@@ -26,6 +33,9 @@
     display: grid;
     justify-content: center;
     padding-top: 15rem;
+    @media (max-width: $tablet) {
+      padding-top: 5rem;
+    }
 
     img {
       padding-top: 5rem;
@@ -55,6 +65,7 @@
     h1,
     h3 {
       text-align: center;
+      z-index: 2;
     }
 
     h3 {
@@ -84,9 +95,19 @@
       padding: 10rem 0;
       margin: 0 auto;
       width: 80%;
-      max-width: 70ch;
+      max-width: 60ch;
       p {
         padding: $sp-base 0 $sp-base 0;
+      }
+      @media (max-width: $tablet) {
+        padding-top: 5rem;
+      }
+
+      @media (max-width: $mobile) {
+        width: 90%;
+        padding-top: 2rem;
+        font-size: $fs-md;
+        line-height: $ln-md;
       }
     }
   }

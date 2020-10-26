@@ -93,9 +93,34 @@ export default ({ children, pageContext }) => {
     chapterName = pageContext.frontmatter.name
 
   const isSmallDevice = useMediaQuery({ maxWidth: 1200 });
-  console.log('small device?', isSmallDevice);
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const desktopHeroElements = (
+    <section className="chapter-view__hero">
+      <ChapterNumber chapterNumber={chapterNumber} />
+      <Spacer height="sp_md" />
+      <ChapterTitle
+        addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
+        text={chapterName}
+      />
+      <Spacer height="sp_xxl" />
+      <HeroImage chapterNumber={chapterNumber} />
+    </section>
+  )
+
+  const tabletHeroElements = (
+    <section className="chapter-view__hero">
+      <HeroImage chapterNumber={chapterNumber} />
+      <Spacer height="sp_xxl" />
+      <ChapterNumber chapterNumber={chapterNumber} />
+      <Spacer height="sp_base" />
+      <ChapterTitle
+        addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
+        text={chapterName}
+      />
+    </section>
+  )
 
   return (
     <>
@@ -103,16 +128,7 @@ export default ({ children, pageContext }) => {
         {isSmallDevice ? <MobileSidebar currentChapter={chapterNumber} /> :
           <InlineSideBar currentChapter={chapterNumber} />}
         <main className="chapter-view">
-          <section className="chapter-view__hero">
-            <ChapterNumber chapterNumber={chapterNumber} />
-            <Spacer height="sp_base" />
-            <ChapterTitle
-              addBreakAfter={CHAPTER_BREAKS[chapterNumber]}
-              text={chapterName}
-            />
-            <Spacer height="sp_lg" />
-            <HeroImage chapterNumber={chapterNumber} />
-          </section>
+          { isSmallDevice ? tabletHeroElements : desktopHeroElements }
           <section className="chapter-view__content">
             <article>{children}</article>
           </section>
