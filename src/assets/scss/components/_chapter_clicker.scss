@@ -5,6 +5,7 @@
   border-radius: $sp-xs;
   cursor: pointer;
   transition: background 0.25s;
+
   a {
     display: grid;
     grid-template-columns: auto 32px;
@@ -14,7 +15,6 @@
     padding: $sp-lg;
     border-bottom: none;
     width: 100%;
-
     @media (max-width: $tablet) {
       display: block;
       grid-template-columns: unset;

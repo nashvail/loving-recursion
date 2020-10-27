@@ -65,7 +65,9 @@
     h1,
     h3 {
       text-align: center;
-      z-index: 2;
+      @media (max-width: 1200px) {
+        z-index: 2;
+      }
     }
 
     h3 {
