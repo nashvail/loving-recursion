@@ -9,12 +9,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-plugin-page-creator`,
-    //   options: {
-    //     path: `${__dirname}/src/pages`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
@@ -37,12 +31,23 @@ module.exports = {
         defaultLayouts: {
           posts: require.resolve("./src/templates/chapters.js"),
           default: require.resolve("./src/templates/chapters.js"),
-        }
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 900,
+              disableBgImageOnAlpha: true
+              // tracedSVG: true,
+            }
+          }
+        ]
       }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      // Don't know the fuck this is gotto check it out and fix it
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
