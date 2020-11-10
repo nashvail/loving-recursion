@@ -37,8 +37,8 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 900,
-              disableBgImageOnAlpha: true
-              // tracedSVG: true,
+              disableBgImageOnAlpha: true,
+              linkImagesToOriginal: false,
             }
           }
         ]
