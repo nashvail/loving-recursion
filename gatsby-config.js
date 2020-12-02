@@ -40,6 +40,14 @@ module.exports = {
               disableBgImageOnAlpha: true,
               linkImagesToOriginal: false,
             }
+          },
+          `gatsby-transformer-remark`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: true,
+              noInlineHighlight: false
+            }
           }
         ]
       }
