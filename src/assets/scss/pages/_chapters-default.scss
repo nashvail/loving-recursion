@@ -105,6 +105,22 @@
           margin: $sp-xl 0;
         }
       }
+
+      ol {
+        list-style: decimal;
+      }
+
+      hr {
+        border: none;
+        color: var(--color-white);
+        letter-spacing: 1em;
+        text-align: center;
+        margin: $sp-base 0;
+        &:after {
+          content: "...";
+        }
+      }
+
       @media (max-width: $tablet) {
         padding-top: 5rem;
       }

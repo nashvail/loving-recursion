@@ -31,11 +31,12 @@ And the numbers that cannot be divided into two equal parts are odd numbers.
 
 If you have ever written a computer program that checks whether a number is even you have - maybe without knowing - eluded to Euclid's definition of even numbers.
 
-```javascript{1}
-function isEven(number) {
-  // a function to check if a number is even (isEven?)
+```javascript
+// A function to check if a number is even (isEven?)
+let isEven = function (number) {
   if (number % 2 === 0) {
-    // If the number when divided by 2 leaves no remainder or, if the number is divisible by two
+    // If the number when divided by 2 leaves no remainder or,
+    // if the number is divisible by two
     return true // it is an even number
   } else {
     // else
@@ -43,3 +44,50 @@ function isEven(number) {
   }
 }
 ```
+
+Before we move any forward, let's be honest, the code you see above is unnecessarily verbose. It can be written more succinctly like so:
+
+```javascript
+let isEven = function (number) {
+  return number % 2 === 0
+}
+```
+
+And that's exactly how you should be writing your code. But I want the book and the code written in it to be readable by programmers at all levels. If anywhere in the book, you think there's a better way to write the same code, don't hold yourself back.
+
+---
+
+Returning to our discussion about even and odd numbers, let's consider the number `0`, we know that `0` is an even number as it is divisible by `2`, `(0/2 = 0)`.
+
+Now what we can do with `0`, is use it as an anchor in the natural sequence of numbers, starting from which the even and odd numbers alternate.
+
+We can make two rudimentary observations about even and odd numbers from the natural sequence.
+
+1. **A number `n` is even if it is either `0` or if the number before it is odd.**
+2. **A number is odd if it's not even.**
+
+Let's start with the first observation.
+
+The observation is, if you pick any random number in the sequence, it is even only if it is `0` or the number before the chosen number is odd.
+
+Take `8`, for example. Is `8` even? For that, `8` has to pass at least one of the two checks.
+
+1.  Is `8` `0`? No! -  _Failed_
+2.  Is the number before `8` `(8–1 = 7)` odd? Yes! `7` is an odd number.
+
+Since one of the checks pass, `8`, in fact, is an even number.
+Translating that into code we get,
+
+```javascript
+let isEven = function (number) {
+  if (number === 0) {
+    // A number is even if it is either 0...
+    return true
+  } else {
+    // ..or The number preceding it i.e. number - 1...
+    return isOdd(number - 1) // ..is odd.
+  }
+}
+```
+
+"That's a kind of a spooky way to write code, isn't it, Nash?" Yes, seems like it. Let me go ahead and write both the functions (`isOdd` and `isEven`) together in a succinct way; see if you understand it better.

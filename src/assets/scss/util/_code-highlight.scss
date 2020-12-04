@@ -2,12 +2,18 @@
 /**
  * Based on copypasta from Remy Bach and Sarah Drasner
  */
+
+pre {
+  background-color: var(--color-grey-minus1) !important;
+  padding: $sp-md !important;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   color: white;
   background: none;
-  padding: $sp-base !important;
   font-size: $fs-sm;
+  line-height: $ln-base;
   font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
   font-feature-settings: normal;
   text-align: left;
@@ -15,7 +21,6 @@ pre[class*="language-"] {
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
   margin-bottom: 0;
 
   -moz-tab-size: 4;
