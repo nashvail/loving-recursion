@@ -121,6 +121,13 @@
         }
       }
 
+      .gatsby-resp-image-figcaption {
+        text-align: center;
+        font-size: $fs-sm;
+        color: var(--color-grey-4);
+        font-style: normal;
+      }
+
       @media (max-width: $tablet) {
         padding-top: 5rem;
       }

@@ -39,6 +39,7 @@ module.exports = {
               maxWidth: 900,
               disableBgImageOnAlpha: true,
               linkImagesToOriginal: false,
+              showCaptions: true
             }
           },
           `gatsby-transformer-remark`,
