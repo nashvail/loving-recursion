@@ -35,6 +35,11 @@ pre[class*="language-"] {
   width: 0px;
 }
 
+code.language-text {
+  background: var(--color-grey-minus1) !important;
+  padding: $sp-xs $sp-xs !important;
+}
+
 /* Code blocks */
 pre[class*="language-"] {
   overflow: auto;

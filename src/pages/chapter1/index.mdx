@@ -4,35 +4,34 @@ number: 1
 name: "The Encounter"
 ---
 
-The projecting piece on a sundial that shows the time by the position of its shadow is called a Gnomon.
+The projecting piece on a sundial that shows the time by the position of its shadow, is called a Gnomon.
 
 ![A Sundial and its Gnomon](1.png)
 
-Gnomon, like "Hat", is just an English word, it's not a specific term for a piece
-of sundial's anatomy. For example, Gnomon is also the word the Greeks used for odd
-numbers. Possibly because of the following observation.
+Gnomon, like "Hat," is just an English word; it's not a specific term for a piece of sundial's anatomy. For example, Gnomon is also the word the Greeks used for odd numbers. Possibly because of the following observation.
 
 If you were to take an odd number of things, say 7 pebbles, and lay them out in two rows…
 
 ![7 pebbles laid out in two rows](2.png)
 
-... you will notice a pebble projecting out of an otherwise even shape. Forming a Gnomon.
+… you will notice a pebble projecting out of an otherwise even shape. Forming a Gnomon.
 
-![A pebble projects out of an even shape; forming a Gnomon](3.png)
+![1 Pebble projects out of an otherwise even shape; forming a Gnomon](3.png)
 
-And conversely, if you lay an even number of pebbles, say 8, in two rows you’ll find an _even_ rectangular shape.
+And conversely, if you lay an even number of pebbles, say 8, in two rows, you'll find an even rectangular shape.
 
-![](4.png)
+![An even number of pebbles can be divided into two equal parts.](4.png)
 
 This is supposedly the origin of the concept of even and odd numbers, or of their names at least.
-Much later, Euclid, a Math grandmaster formalized the definition of even numbers as: "An even number is that which is divisible into two equal parts".
 
-And the numbers that cannot be divided into two equal parts are odd numbers.
+Much later, Euclid, a Math grandmaster, formalized even numbers as: "An even number is that which is divisible into two equal parts." And the numbers that cannot be divided into two equal parts are odd.
 
-If you have ever written a computer program that checks whether a number is even you have - maybe without knowing - eluded to Euclid's definition of even numbers.
+![An odd number of pebbles cannot be divided into two equal parts.](5.png)
+![An even number of pebbles can be divided into two equal parts.](6.png)
+
+If you have ever written a computer program that checks whether a number is even, you have - maybe without knowing - eluded to Euclid's definition of even numbers.
 
 ```javascript
-// A function to check if a number is even (isEven?)
 let isEven = function (number) {
   if (number % 2 === 0) {
     // If the number when divided by 2 leaves no remainder or,
@@ -45,7 +44,7 @@ let isEven = function (number) {
 }
 ```
 
-Before we move any forward, let's be honest, the code you see above is unnecessarily verbose. It can be written more succinctly like so:
+Before we move forward, let's be honest, the code you see above is unnecessarily verbose. It can be written more succinctly like so:
 
 ```javascript
 let isEven = function (number) {
