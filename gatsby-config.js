@@ -42,7 +42,6 @@ module.exports = {
               showCaptions: true
             }
           },
-          `gatsby-transformer-remark`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
