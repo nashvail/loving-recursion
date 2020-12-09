@@ -276,7 +276,7 @@ And so on.
 
 Now notice this, we’re already writing a function (`getFibTerm(n)`) that gives us the Fibonacci term we ask of it.
 
-Hold that thought, and let’s rephrase this line from a previous paragraph…
+Hold that thought, and let’s rephrase the following line from a previous paragraph…
 
 **“Understand here, that to calculate the nth term in the Fibonacci sequence, you need the (n-1)th and (n-2)th terms."**
 
@@ -329,11 +329,13 @@ This section's point was never this “trick” but to show how to write the Fib
 
 Notice in the recursive call, how in each call we’re taking the function closer to the base case by subtracting 1 and 2 from the parameter.
 
-    function getFibTerm(n) {
-      if(n === 1) return 1;
-      if (n === 2) return 1;
-      **return getFibTerm(n- 1) + getFibTerm(n - 2);**
-    }
+```javascript{4}
+let getFibTerm = function (n) {
+  if (n === 1) return 1
+  if (n === 2) return 1
+  return getFibTerm(n - 1) + getFibTerm(n - 2)
+}
+```
 
 As the parameter reduces, the base case condition comes closer and closer to being true. Then once it has reached the very point where the condition becomes true the repeated execution stops, as return is executed before the function executes a call to itself.
 
@@ -389,10 +391,12 @@ With all that in mind, let’s give writing a factorial function a shot.
 
 Let’s start with the base case. The base case is where the program needs to stop. It is generally the point where you know the answer to the problem without any necessary calculation. Here, it is known that the factorial of 0 is 1. And hence that will be our base case.
 
-    let factorial = function(number) {
-      if(number === 0) return 1;
-      ...
-    }
+```javascript
+let factorial = function(number) {
+  if(number === 0) return 1;
+  ...
+}
+```
 
 Next, note that factorial of a number, say 5, is written as:
 
@@ -410,18 +414,26 @@ This means if we had 4! (**Give me this…**) we’ll simply multiply 5 to it (�
 
 Converting this to code and we’ll have the final line in our recursive function.
 
-    let factorial = function(number) {
-      if (number === 0) return 1;
-    **  return number * factorial(number - 1);**
-    }
+```javascript{3}
+let factorial = function (number) {
+  if (number === 0) return 1
+  return number * factorial(number - 1)
+}
+```
 
-Notice that each call decreases the load by 1 (...(number -1)) and hence pushes the program closer to the base case.
+Notice that each call decreases the load by 1 (`...(number - 1)`) and hence pushes the program closer to the base case.
 
 If we put all the three recursive programs we have written so far; a pattern is clearly visible.
 
 [ART]
 
+---
+
+<br />
+
 ## Summary
+
+<br />
 
 At this point, feeling confident in writing any recursive solution at all is totally normal, and I appreciate your excitement. But I’d suggest to hold it in for a while. Even for a chapter this long, we have only scratched the surface.
 
