@@ -98,6 +98,23 @@
       margin: 0 auto;
       width: 80%;
       max-width: 60ch;
+
+      blockquote {
+        position: relative;
+        font-style: oblique;
+        padding-left: $sp-base;
+        margin: $sp-sm 0;
+        &:after {
+          content: "";
+          display: block;
+          background-color: var(--color-white);
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 2px;
+        }
+      }
       p {
         padding: $sp-base 0 $sp-base 0;
 

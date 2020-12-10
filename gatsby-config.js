@@ -51,6 +51,12 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-embedder`
+          },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: 'ignore'
+            }
           }
         ]
       }
