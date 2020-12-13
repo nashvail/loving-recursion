@@ -129,6 +129,8 @@ isEven(5) // false
 isEven(4) // true
 ```
 
+https://codesandbox.io/s/snippet-3-dvp4j?expanddevtools=1&fontsize=16&theme=dark
+
 To understand how the two functions work together to arrive at an answer, let’s trace the execution for a small number, say 2.
 
 The diagram below shows how the two functions call each other in succession until they arrive at an answer.
@@ -137,7 +139,7 @@ The diagram below shows how the two functions call each other in succession unti
 
 I like to call these tracing diagrams “Staircase Diagrams.” For obvious reasons, like its shape.
 
-In the diagram, notice the repeated calls (signified by the downward pointing arrows) between isEven and isOdd , which only stops when the base-case isEven(0), which we know the answer to without any necessary calculation, is reached. And once the base case is reached, the answer starts bubbling up and pops out at the surface.
+In the diagram, notice the repeated calls (signified by the downward pointing arrows) between `isEven` and `isOdd` , which only stops when the base-case `isEven(0)`, which we know the answer to without any necessary calculation, is reached. And once the base-case is reached, the answer starts bubbling up and pops out at the surface.
 
 Now I will take the liberty to assume that the diagram didn’t make an iota of sense to you. Hence, as the author, take the responsibility of breaking it down into a small, digestible set of explanations.
 
@@ -172,7 +174,7 @@ This means `isOdd` will return whatever `isEven` returns but will do a NOT opera
 
 ![](https://cdn-images-1.medium.com/max/2160/1*lZflKI3VrWm27Aqqt3NSHw.png)
 
-So far, we have two pieces of the staircase diagram figured out. Now it’s time for the 3rd, the final, and the most important part—the base-case. The base case is where the repeated calls to the function stop, and the answer starts bubbling up. In our code, the base case is inside `isEven`.
+So far, we have two pieces of the staircase diagram figured out. Now it’s time for the 3rd, the final, and the most important part—the base-case. The base-case is where the repeated calls to the function stop, and the answer starts bubbling up. In our code, the base-case is inside `isEven`.
 
 ```javascript{2}
 let isEven = function (number) {
@@ -333,11 +335,23 @@ This produces the following output:
 
 https://codesandbox.io/s/snippet-4-pi0yc?expanddevtools=1&fontsize=14&theme=dark
 
-The sum of all these numbers is 11 \* 987 (the fourth term from the bottom) = **10,857**. Yes, you’re allowed to whip out a calculator and verify.
+The sum of all these numbers,
+
+$$
+55 + 89 + 144 + 233 + 377 + 610 + 987 + 1597 + 2584 + 4181
+$$
+
+is,
+
+$$
+11 \times 987 \textnormal{(4th term from the bottom)} = 10,857
+$$
+
+Yes, you’re allowed to whip out a calculator and verify.
 
 This section's point was never this “trick” but to show how to write the Fibonacci sequence recursively. And thanks for acting to be interested in the trick anyway.
 
-Notice in the recursive call, how in each call we’re taking the function closer to the base case by subtracting 1 and 2 from the parameter.
+Notice in the recursive call, how in each call we’re taking the function closer to the base-case by subtracting 1 and 2 from the parameter.
 
 ```javascript{4}
 let getFibTerm = function (n) {
@@ -347,7 +361,7 @@ let getFibTerm = function (n) {
 }
 ```
 
-As the parameter reduces, the base case condition comes closer and closer to being true. Then once it has reached the very point where the condition becomes true the repeated execution stops, as return is executed before the function executes a call to itself.
+As the parameter reduces, the base-case condition comes closer and closer to being true. Then once it has reached the very point where the condition becomes true the repeated execution stops, as return is executed before the function executes a call to itself.
 
 In my head, I often picture this scenario like this. A box loaded with bricks balanced on a rope. With each call, we’re reducing the number of bricks and straightening the rope. As the rope becomes completely straight, it touches sharp blades and the execution stops. Not a perfect analogy but something that’ll stay in your head nonetheless.
 
@@ -381,7 +395,7 @@ $$
 10! = 1 \times 2 \times 3 \times 4 \times 5 \times 6 \times 7 \times 8 \times 9 \times 10 = 3628800
 $$
 
-And, most importantly `0!` is 1.
+Most importantly, and I hope you're sitting for this, `0!` is 1.
 
 $$
 0! = 1
@@ -396,18 +410,18 @@ For a long time, factorial was denoted like so,
 Which was hard to print in the pre-computer ages, and hence choosing something simple like an exclamation mark (!) was a good decision.
 
 $$
-2! (2 factorial) = 1 \times 2  = 2
+2! \textnormal{(2 factorial)} = 1 \times 2  = 2
 $$
 
 $$
-5! (5 factorial) = 1 \times 2 \times 3 \times 4 \times 5 = 120
+5! \textnormal{(5 factorial)} = 1 \times 2 \times 3 \times 4 \times 5 = 120
 $$
 
 How about we collect everything we have learned so far and put it into writing a recursive program that calculates the factorial of a number. Shall we? We shall.
 
 From the previous example, it is clear that for a recursive solution:
 
-1. We need a base case.
+1. We need a base-case.
 2. We need the function to call itself in order to recurse.
 3. We want the load/parameter in each subsequent call to decrease so that the function with each call gets closer to the base-case and eventually stops.
 
