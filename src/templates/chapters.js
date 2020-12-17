@@ -9,6 +9,8 @@ import ChapterEnd from "../components/ChapterEnd"
 import Spacer from "../components/Spacer"
 import InlineSideBar from "../components/InlineSidebar"
 import MobileSidebar from "../components/MobileSidebar"
+import SEO from "../components/seo";
+
 // Import constants
 import { TRANSITION_EASE } from "../constants"
 
@@ -124,6 +126,7 @@ export default ({ children, pageContext }) => {
 
   return (
     <>
+      <SEO title={`Chapter ${chapterNumber} - ${chapterName}`} />
       <SidebarOpenContext.Provider value={[isSidebarOpen, setIsSidebarOpen]}>
         {isSmallDevice ? <MobileSidebar currentChapter={chapterNumber} /> :
           <InlineSideBar currentChapter={chapterNumber} />}
