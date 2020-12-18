@@ -63,7 +63,7 @@ export const ChapterAnnouncement = () => {
     <li className="chapter-list__inter">
       <div>
         <h3 style={{ color: "var(--color-blue-0)" }}>
-          New chapter every 2 weeks
+          Chapters below are being written
         </h3>
         <Spacer height="sp_base" />
         <p style={{ color: "var(--color-yellow-0)" }}>
