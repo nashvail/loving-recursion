@@ -2,26 +2,67 @@
   {
     "chapterName": "Introduction",
     "link": "/chapter0",
-    "chapterNumber": 0
+    "chapterNumber": 0,
+    "published": true
   },
   {
     "chapterName": "The Encounter",
     "link": "/chapter1",
-    "chapterNumber": 1
+    "chapterNumber": 1,
+    "published": true
   },
   {
     "chapterName": "And Then Comes Trust",
-    "link": "/chapter2",
-    "chapterNumber": 2
-  }, 
-  {
-    "chapterName": "Connections & Procedures",
-    "link": "/chapter3",
-    "chapterNumber": 3
+    "link": "/",
+    "chapterNumber": 2,
+    "published": false
   },
   {
-    "chapterName": "Interlude: Graphical Recursion",
-    "link": "/chapter4",
-    "chapterNumber": 4
+    "chapterName": "Connections & Procedures",
+    "link": "/",
+    "chapterNumber": 3,
+    "published": false
+  },
+  {
+    "chapterName": "Chasing Cars, Drawing Triangles",
+    "link": "/",
+    "chapterNumber": 4,
+    "published": false
+  },
+  {
+    "chapterName": "Graphical Recursion",
+    "link": "/",
+    "chapterNumber": 5,
+    "published": false
+  },
+  {
+    "chapterName": "Counting Cannons",
+    "link": "/",
+    "chapterNumber": 6,
+    "published": false
+  },
+  {
+    "chapterName": "Sculpted By Chance",
+    "link": "/",
+    "chapterNumber": 7,
+    "published": false
+  },
+  {
+    "chapterName": "Morality and The Math of Choices",
+    "link": "/",
+    "chapterNumber": 8,
+    "published": false
+  },
+  {
+    "chapterName": "Abstraction as Art",
+    "link": "/",
+    "chapterNumber": 9,
+    "published": false
+  },
+  {
+    "chapterName": "To Leave You With Something",
+    "link": "/",
+    "chapterNumber": 10,
+    "published": false
   }
 ]

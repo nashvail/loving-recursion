@@ -40,16 +40,31 @@
   }
 }
 
-.chapter-list__item--home {
+.chapter-list__item--disabled {
   @extend .chapter-list__item;
-  background: var(--color-blue-0) !important;
-  color: var(--color-white) !important;
+  background-color: var(--color-grey-2);
+  cursor: not-allowed;
+
+  a {
+    pointer-events: none;
+    h4,
+    span {
+      color: var(--color-grey-4);
+    }
+  }
 
   &:hover {
-    background: darken($color: #0b2a9e, $amount: 5%) !important;
-    span {
-      color: var(--color-white);
+    background-color: var(--color-grey-2);
+    a {
+      h4,
+      span {
+        color: var(--color-grey-4);
+      }
     }
+  }
+  // Hide the eye lottie
+  div:nth-child(2) {
+    display: none;
   }
 }
 

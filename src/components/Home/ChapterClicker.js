@@ -74,7 +74,8 @@ export const ChapterAnnouncement = () => {
   )
 }
 
-const ChapterClicker = ({ number = -1, name = "Demo chapter", link = "#", home }) => {
+const ChapterClicker = ({ number = -1, name = "Demo chapter", link = "#", published }) => {
+
   // 1 is forward, 2 is backward, 0 is no direction
   const [lottieDirection, setLottieDirection] = useState(0)
 
@@ -91,7 +92,7 @@ const ChapterClicker = ({ number = -1, name = "Demo chapter", link = "#", home }
     setLottieDirection(2);
   }
 
-  const mainClassName = home ? "chapter-list__item--home" : "chapter-list__item";
+  const mainClassName = published ? "chapter-list__item" : "chapter-list__item--disabled";
 
   return (
     <li className={mainClassName}>
@@ -102,12 +103,13 @@ const ChapterClicker = ({ number = -1, name = "Demo chapter", link = "#", home }
       >
         <div>
           <h4 className="chapter-list__item__chapter-number">
+            {/* Show Coming Soon for not published chapters */}
             {typeof number === 'number' ? `Chapter ${number}` : number}
           </h4>
           <span className="chapter-list__item__chapter-name">{name}</span>
         </div>
         <div>
-          {isDesktop && <IconLottie animationData={home ? backToHomeLottieData : eyeLottieData} direction={lottieDirection} />}
+          {isDesktop && <IconLottie animationData={eyeLottieData} direction={lottieDirection} />}
         </div>
       </Link>
     </li>

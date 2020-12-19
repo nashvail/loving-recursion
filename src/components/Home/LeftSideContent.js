@@ -26,6 +26,7 @@ const Chapters = () => {
       link={chapterData.link}
       name={chapterData.chapterName}
       number={chapterData.chapterNumber}
+      published={chapterData.published}
       key={key}
     />
   ))

@@ -34,8 +34,8 @@ export const ResponsiveIndex = () => {
         {/* Spacer */}
         <Spacer height="sp_lg" />
         <ul style={{ listStyle: "none", margin: "0" }}>
-          {chapters.map(({ chapterName, chapterNumber, link }) => (
-            <ChapterClicker name={chapterName} number={chapterNumber} link={link} />
+          {chapters.map(({ chapterName, chapterNumber, link, published }) => (
+            <ChapterClicker name={chapterName} number={chapterNumber} link={link} published={published} />
           ))}
         </ul>
       </section>
