@@ -145,7 +145,7 @@ Now I will take the liberty to assume that the diagram didn’t make an iota of 
 
 We start at the top with `isEven(2)`.
 
-![](https://cdn-images-1.medium.com/max/2160/1*q3jAOZGO1KMLxDVWO8sNwg.png)
+![](9.png)
 
 Inside `isEven`, the first line of code checks if the supplied parameter is equal to `0`. If it is, then the function will `return true`.
 
@@ -160,11 +160,11 @@ But `2` is not `0`, so the function continues to the next line, which executes, 
 
 And these become the first 2 steps in the staircase diagram. The downward pointing arrow signifies `isEven` _calls_ `isOdd`. Or, in other words, `isOdd` is executed inside `isEven`.
 
-![](https://cdn-images-1.medium.com/max/2160/1*A6uh0KlvFy-_6pWwaaRO0w.png)
+![](10.png)
 
 Next, stepping inside `isOdd` we have,
 
-```javascript
+```javascript{2}
 let isOdd = function (number) {
   return !isEven(number) // Notice the ! before isEven
 }
@@ -172,7 +172,7 @@ let isOdd = function (number) {
 
 This means `isOdd` will return whatever `isEven` returns but will do a NOT operation on the result first. That is, if `isEven` returns true, `!` will make it a `false` and vice versa. That’s exactly the reason why you’ll notice a small `(!)` in the upward pointing answer bubbling path.
 
-![](https://cdn-images-1.medium.com/max/2160/1*lZflKI3VrWm27Aqqt3NSHw.png)
+![](11.png)
 
 So far, we have two pieces of the staircase diagram figured out. Now it’s time for the 3rd, the final, and the most important part—the base-case. The base-case is where the repeated calls to the function stop, and the answer starts bubbling up. In our code, the base-case is inside `isEven`.
 
@@ -185,7 +185,7 @@ let isEven = function (number) {
 
 And _that_, in our staircase diagram, becomes this.
 
-![](https://cdn-images-1.medium.com/max/2160/1*-3fWVGVxiFFofmB_y8Opmg.png)
+![](12.png)
 
 No more function calls because we have the answer for `isEven(0)`. “uh… is `0` Even?” YES! TRUE! Or, `if (number === 0) return true;`
 
