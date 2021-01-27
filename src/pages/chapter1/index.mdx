@@ -191,9 +191,9 @@ No more function calls because we have the answer for `isEven(0)`. “uh… is `
 
 From here, it’s just tracking the final answer as it bubbles up. Now scroll up and look at the complete staircase diagram again, and it will make a lot more sense.
 
-As the number supplied to any of the functions gets bigger, the mutual calls between `isEven` and `isOdd` increases rapidly, till it hits the base-case and bounces back with an answer. Hence, and remember this, a base-case is an important part of a recursive solution. Think of it is as dropping a ball from the top of a staircase. If there’s no base, where will the ball go? Probably in a portal to come back and drop on the top of your head, which you probably don’t want.
+As the number supplied to any of the functions gets bigger, the mutual calls between `isEven` and `isOdd` increases rapidly, till it hits the base-case and bounces back with an answer. Hence, and remember this, a base-case is an important part of a recursive solution. Think of it as dropping a ball from the top of a staircase. If there’s no base, where will the ball go? Probably in a portal to come back and drop on the top of your head, which you probably don’t want.
 
-![](https://cdn-images-1.medium.com/max/2160/1*AeKDfUO-lXJKyyg5pYTdIA.png)
+![](15.png)
 
 This phenomenon of two functions (`isEven` and `isOdd`) repeatedly calling each other is called **mutual recursion**. And if that’s blowing your mind a little, wait till you see _just_ recursion, where one function calls itself. Over and over again.
 
@@ -238,7 +238,7 @@ $$
 1, 1, 2, 3, 5, 8, 13, 21, 34, 55...
 $$
 
-![](https://cdn-images-1.medium.com/max/2160/1*pcjDkY4Cx6Upva20mI1biw.png)
+![](14.png)
 
 In this sequence, and in any sequence, the first number in the sequence is also called the **first term**, the second, the **second term**, third, **third term**, and so on. Therefore, the 6th term in the Fibonacci sequence is 8; the 10th term is 55, and so on.
 
@@ -365,7 +365,7 @@ As the parameter reduces, the base-case condition comes closer and closer to bei
 
 In my head, I often picture this scenario like this. A box loaded with bricks balanced on a rope. With each call, we’re reducing the number of bricks and straightening the rope. As the rope becomes completely straight, it touches sharp blades and the execution stops. Not a perfect analogy but something that’ll stay in your head nonetheless.
 
-![](https://cdn-images-1.medium.com/max/5000/1*lFbUFljqHfvr_6BwoZd9Ug.png)
+![](16.png)
 
 Another cool thing about the Fibonacci sequence is that the square of any term in the sequence is equal to the product of the two terms around it plus or minus 1.
 
