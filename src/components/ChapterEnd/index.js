@@ -24,9 +24,11 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
 
   let sectionClassName = onHome ? 'home-page__right__end__content' : 'chapter-end';
 
+  const isNextChapterPublished = chapters[nextChapterNumber]['published'];
+
   return (
     <section className={sectionClassName}>
-      { isDesktop &&
+      { (isDesktop && isNextChapterPublished) && 
         <Link
           to={chapters[nextChapterNumber]["link"]}
           className="chapter-end__next-chapter"
@@ -46,7 +48,7 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
         </Link>
       }
       {
-        (!isDesktop && !onHome) &&
+        (!isDesktop && !onHome && isNextChapterPublished) &&
         <>
           <ChapterClicker number="Next Chapter" name={chapters[nextChapterNumber]["chapterName"]} link={chapters[nextChapterNumber]["link"]} />
           <Spacer height="sp_lg" />
