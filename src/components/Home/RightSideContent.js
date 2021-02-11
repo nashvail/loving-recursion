@@ -210,7 +210,7 @@ const RightSideContent = () => {
         data-scroll-speed="3"
         data-scroll-section
         data-scroll-position="bottom" >
-        <ChapterEnd onHome />
+        {/* <ChapterEnd onHome /> */}
       </section>
     </section>
   )
