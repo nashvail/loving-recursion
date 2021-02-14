@@ -16,13 +16,13 @@ import { TRANSITION_EASE } from "../constants"
 
 const ChapterNumber = ({ chapterNumber }) => (
   <h3 className="chapter-view__number">
-    <motion.span
+    <span
       initial={{ y: 40 }}
       animate={{ y: 0 }}
       transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
     >
       Chapter {chapterNumber}
-    </motion.span>
+    </span>
   </h3>
 )
 
@@ -33,13 +33,13 @@ const ChapterTitle = ({ addBreakAfter, text }) => {
   if (addBreakAfter === -1) {
     return (
       <h1 className="chapter-view__title">
-        <motion.span
+        <span
           initial={{ y: 300 }}
           animate={{ y: 0 }}
           transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
         >
           {text}
-        </motion.span>
+        </span>
       </h1>
     )
   } else {
@@ -50,22 +50,22 @@ const ChapterTitle = ({ addBreakAfter, text }) => {
     return (
       <h1 className="chapter-view__title">
         <span style={{ overflow: "hidden" }}>
-          <motion.span
+          <span
             initial={{ y: 300 }}
             animate={{ y: 0 }}
             transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
           >
             {sentence1.join(" ")}
-          </motion.span>
+          </span>
         </span>
         <br />
-        <motion.span
+        <span
           initial={{ y: 300 }}
           animate={{ y: 0 }}
           transition={{ ease: TRANSITION_EASE, delay: 0.2 }}
         >
           {sentence2.join(" ")}
-        </motion.span>
+        </span>
       </h1>
     )
   }
@@ -76,7 +76,7 @@ const HeroImage = ({ chapterNumber }) => (
     src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
   >
     {src => (
-      <motion.img
+      <img
         src={src}
         transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
         initial={{ y: 200, opacity: 0 }}
