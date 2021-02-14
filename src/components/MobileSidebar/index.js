@@ -11,6 +11,10 @@ import IndexIcon from "../../assets/icons/32x32/index-grey.inline.svg"
 import NextChapterIcon from "../../assets/icons/nextChapterArrow.inline.svg"
 import PreviousChapterIcon from "../../assets/icons/previousChapterArrow.inline.svg"
 
+// Import chapters data
+import chapters from "../../data/chapters.json"
+
+
 // Import context
 import { SidebarOpenContext } from "../../templates/chapters"
 
@@ -25,10 +29,27 @@ const ControlStrip = ({ toggleMobileSidebar, isSidebarOpen, currentChapter }) =>
   </div>
 )
 
+const ChapterList = () => (
+  <div className="mobile-sidebar__index">
+    <ul>
+      {(chapters.map((chapterData, key) => (
+        <ChapterClicker
+          link={chapterData.link}
+          name={chapterData.chapterName}
+          number={chapterData.chapterNumber}
+          published={chapterData.published}
+          key={key}
+        />
+      )))}
+    </ul>
+  </div>
+)
+
 const MobileSidebar = ({ currentChapter = 0 }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useContext(SidebarOpenContext);
 
-  const tY = isSidebarOpen ? '0%' : 'calc(100vh - 19rem)';
+  // This also needs a little bit of fixing 
+  const tY = isSidebarOpen ? '10%' : 'calc(100vh - 19rem)';
 
   const toggleMobileSidebar = _ => setIsSidebarOpen(!isSidebarOpen);
 
@@ -39,20 +60,7 @@ const MobileSidebar = ({ currentChapter = 0 }) => {
           transform: `translateY(${tY})`,
         }}>
         <ControlStrip toggleMobileSidebar={toggleMobileSidebar} isSidebarOpen={isSidebarOpen} currentChapter={currentChapter} />
-        <div className="mobile-sidebar__index">
-          <ul>
-            <ChapterClicker number={0} />
-            <ChapterClicker number={1} />
-            <ChapterClicker number={2} />
-            <ChapterClicker number={3} />
-            <ChapterClicker number={4} />
-            <ChapterClicker number={5} />
-            <ChapterClicker number={6} />
-            <ChapterClicker number={7} />
-            <ChapterClicker number={8} />
-            <ChapterClicker number={9} />
-          </ul>
-        </div>
+        <ChapterList />
       </aside>
       <div
         onClick={toggleMobileSidebar}
