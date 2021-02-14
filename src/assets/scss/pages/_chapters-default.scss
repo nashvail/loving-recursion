@@ -2,6 +2,11 @@
   background: var(--color-grey-0);
   width: 100vw;
 
+  .katex-display {
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+
   &__ham {
     position: fixed;
     top: 5rem;
