@@ -22,9 +22,13 @@ const ControlStrip = ({ toggleMobileSidebar, isSidebarOpen, currentChapter }) =>
   <div className="mobile-sidebar__control-strip" style={{
     backgroundColor: `${isSidebarOpen ? 'var(--color-grey-0)' : 'var(--color-grey-minus2)'}`
   }}>
+    {/* Toggle Index Button */}
     <button type="button" onClick={toggleMobileSidebar}><IndexIcon /></button>
+    {/* Previous Chapter Button */}
     <button type="button" onClick={() => navigate(generatePreviousChapterLink(currentChapter))}><PreviousChapterIcon /></button>
-    <button type="button" onClick={() => navigate(generateNextChapterLink(currentChapter))}><NextChapterIcon /></button>
+    {/* Next Chapter Button */}
+    <button type="button" onClick={() => navigate(generateNextChapterLink(currentChapter))} disabled={!chapters[currentChapter + 1]['published']}><NextChapterIcon /></button>
+    {/* Go Home Button */}
     <button type="button" onClick={() => navigate('/')}><HomeIcon /></button>
   </div>
 )

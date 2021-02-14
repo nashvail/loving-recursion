@@ -2,6 +2,11 @@
   /* Variables */
   --control-strip-height: 9.5rem;
 
+  button:disabled {
+    opacity: 30%;
+    cursor: not-allowed;
+  }
+
   position: fixed;
   bottom: 0;
   z-index: 999999;
