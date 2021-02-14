@@ -28,7 +28,7 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
 
   return (
     <section className={sectionClassName}>
-      { (isDesktop && isNextChapterPublished) && 
+      { (isDesktop && isNextChapterPublished) &&
         <Link
           to={chapters[nextChapterNumber]["link"]}
           className="chapter-end__next-chapter"
@@ -50,7 +50,7 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
       {
         (!isDesktop && !onHome && isNextChapterPublished) &&
         <>
-          <ChapterClicker number="Next Chapter" name={chapters[nextChapterNumber]["chapterName"]} link={chapters[nextChapterNumber]["link"]} />
+          <ChapterClicker number="Next Chapter" name={chapters[nextChapterNumber]["chapterName"]} link={chapters[nextChapterNumber]["link"]} published={true} /> {/* The isNextChapterPublished already has a check above so published will be true here anyway*/}
           <Spacer height="sp_lg" />
         </>
       }
