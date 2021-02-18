@@ -403,9 +403,9 @@ $$
 
 Christian initially called factorial, **faculty**. Arbogast, another mathematician who also came up with the concept of factorials at about the same time, chose to call it “factorial,” which to Christian sounded more French. And hence, there were no fights. Two mathematicians fighting isn’t much of a show anyway.
 
-For a long time, factorial was denoted like so,
+For a long time, factorial (of any number `n`) was denoted like so,
 
-[art]
+![Old way to write n factorial (n!)](19.png)
 
 Which was hard to print in the pre-computer ages, and hence choosing something simple like an exclamation mark (!) was a good decision.
 
@@ -456,7 +456,7 @@ $$
 4 \times 3 \times 2 \times 1
 $$
 
-[ART]
+![Relation between 4 and 5 factorials](20.png)
 
 This means if we had `4!` (**Give me this…**) we’ll simply multiply `5` to it (…**I’ll handle the rest**) and have the answer for `5!`. And so it goes for factorial of any number,
 
@@ -485,9 +485,70 @@ let factorial = function (number) {
 
 Notice that each call decreases the load by 1 (`...(number - 1)`) and hence pushes the program closer to the base-case.
 
-If we put all the three recursive programs we have written so far; a pattern is clearly visible.
+If we put all the three recursive programs we have written so far together; a few patterns are clearly visible.
 
-[ART]
+<br />
+
+### Base cases
+
+<br />
+
+```javascript {2}
+let isEven = function (number) {
+  if (number === 0) return true // Base case
+  return isOdd(number - 1)
+}
+
+let isOdd = function (number) {
+  return !isEven(number)
+}
+```
+
+```javascript{2, 3}
+let getFibTerm = function (n) {
+  if (n === 1) return 1 // Base case
+  if (n === 2) return 1 // Base case
+  return getFibTerm(n - 1) + getFibTerm(n - 2)
+}
+```
+
+```javascript{2}
+let factorial = function (number) {
+  if (number === 0) return 1 // Base case
+  return number * factorial(number - 1)
+}
+```
+
+<br />
+
+### Progressive decrease of parameter load
+
+<br />
+
+```javascript {3}
+let isEven = function (number) {
+  if (number === 0) return true // Base case
+  return isOdd(number - 1)
+}
+...
+```
+
+```javascript{4}
+let getFibTerm = function (n) {
+  if (n === 1) return 1 // Base case
+  if (n === 2) return 1 // Base case
+  return getFibTerm(n - 1) + getFibTerm(n - 2)
+}
+```
+
+```javascript{3}
+let factorial = function (number) {
+  if (number === 0) return 1 // Base case
+  return number * factorial(number - 1)
+}
+```
+
+#### Pattern 3: Use of the function inside the function
 
 ---
 
