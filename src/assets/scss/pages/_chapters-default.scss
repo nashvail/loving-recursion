@@ -104,6 +104,10 @@
       width: 80%;
       max-width: 60ch;
 
+      a {
+        color: var(--color-white);
+      }
+
       blockquote {
         position: relative;
         font-style: oblique;
