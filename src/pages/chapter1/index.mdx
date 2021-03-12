@@ -8,11 +8,11 @@ The projecting piece on a sundial that shows the time by the position of its sha
 
 ![A Sundial and its Gnomon](1.png)
 
-Gnomon, like “Hat,” is just an English word; it’s not a specific term for a piece of sundial’s anatomy. For example, Gnomon is also the word the Greeks used for odd numbers. Possibly because of the following observation.
+Gnomon, like “Hat,” is just an English word; it’s not a specific term for a piece of sundial’s anatomy. For example, Gnomon is also the word Greeks used for odd numbers. Possibly because of the following observation.
 
-If you were to take an odd number of things, say 7 pebbles, and lay them out in two rows…
+If you were to take an odd number of things, say 7 pebbles, and lay them down in two rows…
 
-![7 Pebbles laid out in two rows](2.png)
+![7 Pebbles laid down in two rows](2.png)
 
 … you will notice a pebble projecting out of an otherwise even shape. Forming a Gnomon.
 
@@ -20,7 +20,7 @@ If you were to take an odd number of things, say 7 pebbles, and lay them out in 
 
 And conversely, if you lay an even number of pebbles, say 8, in two rows, you’ll find an _even_ rectangular shape.
 
-![An even number of pebbles, when laid out in two rows, form an even rectangular shape.](4.png)
+![An even number of pebbles, when laid down in two rows, form an even rectangular shape.](4.png)
 
 This is supposedly the origin of the concept of even and odd numbers, or of their names at least.
 
@@ -32,7 +32,7 @@ Much later, Euclid, a Math grandmaster, formalized even numbers as: “An even n
 
 ---
 
-If you have ever written a computer program that checks whether a number is even, you have — maybe without knowing — eluded to Euclid’s definition of even numbers.
+If you have written a computer program that checks whether a number is even, you have — maybe without knowing — eluded to Euclid’s definition of even numbers.
 
 ```javascript
 let isEven = function (number) {
@@ -56,27 +56,29 @@ let isEven = function (number) {
 
 And that’s exactly how you should be writing your code. But I want the book and the code written in it to be readable by programmers at all levels. If anywhere in the book, you think there’s a better way to write the same code, don’t hold yourself back.
 
-Returning to our discussion about even and odd numbers, let’s consider the number `0`, we know that `0` is an even number as it is divisible by `2`, `(0/2 = 0)`. Now what we can do with `0` is use it as an anchor in the natural sequence of numbers, starting from which the even and odd numbers alternate.
+Returning to our discussion about even and odd numbers, let’s consider the number `0`, we know that `0` is an even number, as it is divisible by `2`, `(0/2 = 0)`. Now what we can do with `0` is use it as an anchor in the natural sequence of numbers, starting from which the even and odd numbers alternate.
 
 ![Alternating of even and odd numbers.](7.png)
 
 There are two rudimentary observations we can extract from this sequence:
 
 1. Any number `n` is even if it is either `0` or if the number just before `n` is odd.
-2. A number is odd if it’s not even.
+2. A number `n` is odd if it’s not even...(🤷)
 
 Let’s start with the first observation.
 
-The observation is, if you pick any random number in the sequence, it is even only if it is `0` or the number before the chosen number is odd.
+> Any number `n` is even if it is either `0` or if the number just before `n` is odd.
 
-Take `8`, for example. Is `8` even? For _that_, it has to pass at least one of the two checks.
+Take `8`. Is `8` even?
+
+For _that_, it has to pass at least one of the two checks.
 
 1. Is `8` `0`? No, `8` is not `0`, `8` is `8`! — Check failed!
 2. Is the number before `8` `(8–1 = 7)` odd? Yes, `7` is an odd number!
 
 Since one of the checks pass, `8`, in fact, is an even number.
 
-Translating this into code we get,
+Translating this into code we get:
 
 ```javascript
 let isEven = function (number) {
@@ -92,7 +94,9 @@ let isEven = function (number) {
 }
 ```
 
-What’s missing here is we don’t have a `isOdd` function yet. So what? Let’s go ahead and write one. Our 2nd insight (A number is odd if it’s not even) will be helpful.
+It's okay if you are a little taken aback by my use of a function (`isOdd`) which I haven't even defined yet.
+
+But it's not too late, we don't have the permission to execute the code until the function is properly defined, like I have done below.
 
 ```javascript
 let isOdd = function (number) {
@@ -137,7 +141,27 @@ The diagram below shows how the two functions call each other in succession unti
 
 ![](8.png)
 
-I like to call these tracing diagrams “Staircase Diagrams.” For obvious reasons, like its shape.
+I like to call these tracing diagrams, like the one above, “Staircase Diagrams”. For obvious reasons, like its shape.
+
+In the diagram, notice the repeated calls (signified by the downward pointing arrows) between `isEven` and `isOdd` , which only stops when the **base-case** is reached.
+
+Now, we'll take a moment here to get acquainted with an undeniably powerful mother-fucker, the base-case. Search for a recursive solution often starts with a search for a base-case.
+
+Now keep in mind I cannot conjure up a potion in one paragraph and have it absorbed into your skulls and explain base-case once and for all. It's one of those things you have to repeatedly observe in its natural habitat to get a proper hang of.
+
+The task of the base-case is to stop the program from going into an infinite loop of execution. A base-case snips the repeated calls when a certain condition is met. That condition, 99% of the time, is the answer to the smallest unit of the argument passed.
+
+In the even-odd program above it's this:
+
+```js
+if (number === 0) return true
+```
+
+We objectively know that `0` is an even number. No calculation necessary. That's when we can `return` an answer and then let the rest bubble up from the **base-case**.
+
+[ART zoomed in base case]
+
+---
 
 In the diagram, notice the repeated calls (signified by the downward pointing arrows) between `isEven` and `isOdd` , which only stops when the base-case `isEven(0)`, which we know the answer to without any necessary calculation, is reached. And once the base-case is reached, the answer starts bubbling up and pops out at the surface.
 
@@ -196,6 +220,10 @@ As the number supplied to any of the functions gets bigger, the mutual calls bet
 ![](15.png)
 
 This phenomenon of two functions (`isEven` and `isOdd`) repeatedly calling each other is called **mutual recursion**. And if that’s blowing your mind a little, wait till you see _just_ recursion, where one function calls itself. Over and over again.
+
+```
+aside (also mention the negative arguments to these functions) design and aside here
+```
 
 Any problem can have more than one solution. Want to consume liquid? Put it in a cup, pick it up and drink it, use a straw or, have it injected into your bloodstream via tubes and needles. Similarly, in mathematics and computer science, a problem can have more than one solution. Just like checking divisibility by 2 is a form of solution to check whether a number is even or odd, a recursive approach is also a form of solution. Sometimes, a recursive solution is the only solution to a problem. Sometimes, it’s better than all the other solutions in efficiency and speed, and sometimes it’s the worst. But all in all, recursive code is the closest thing I have read to a magic spell. That’s why I wrote a book about it. And if you’re not yet convinced, remember that you’re only in the middle of the first chapter.
 
@@ -381,7 +409,7 @@ There are patterns everywhere.
 
 <br />
 
-Christian Kramp chose “!” to denote factorial. Factorial of any number `n` is the product of all the integers from `1` to `n`.
+Factorial of any number `n` is the product of all the integers from `1` to `n`.
 
 The factorial of 5 is:
 
@@ -395,27 +423,19 @@ $$
 10! = 1 \times 2 \times 3 \times 4 \times 5 \times 6 \times 7 \times 8 \times 9 \times 10 = 3628800
 $$
 
-Most importantly, and I hope you're sitting for this, `0!` is 1.
+Most importantly, and I hope you're sitting down for this, `0!` is 1.
 
 $$
 0! = 1
 $$
 
-Christian initially called factorial, **faculty**. Arbogast, another mathematician who also came up with the concept of factorials at about the same time, chose to call it “factorial,” which to Christian sounded more French. And hence, there were no fights. Two mathematicians fighting isn’t much of a show anyway.
-
-For a long time, factorial (of any number `n`) was denoted like so,
+For a long time, before the Mathematician Christian Kramp in 1808 chose "!" to denote factorial, factorial (of any number `n`) was denoted like so:
 
 ![Old way to write n factorial (n!)](19.png)
 
-Which was hard to print in the pre-computer ages, and hence choosing something simple like an exclamation mark (!) was a good decision.
+This symbol before computers came along was hard to print and type on typewriters (|\_n) and hence, choosing something simple like an exclamation mark (!) was a good decision.
 
-$$
-2! \textnormal{(2 factorial)} = 1 \times 2  = 2
-$$
-
-$$
-5! \textnormal{(5 factorial)} = 1 \times 2 \times 3 \times 4 \times 5 = 120
-$$
+Christian also initially called factorial, **faculty**. Arbogast, another Mathematician who came up with the concept of factorials at about the same time as Christian, chose to call it “factorial”, which to Christian sounded more French. And hence, there were no fights. Two mathematicians fighting isn’t much of a show anyway.
 
 How about we collect everything we have learned so far and put it into writing a recursive program that calculates the factorial of a number. Shall we? We shall.
 
@@ -458,7 +478,7 @@ $$
 
 ![Relation between 4 and 5 factorials](20.png)
 
-This means if we had `4!` (**Give me this…**) we’ll simply multiply `5` to it (…**I’ll handle the rest**) and have the answer for `5!`. And so it goes for factorial of any number,
+This means if we had `4!` (**Give me this…**) we’ll simply multiply `5` to it (…**I’ll handle the rest**) and have the answer for `5!`. And so it goes for factorial of any number.
 
 $$
 8! = 8 \times 7!
@@ -468,13 +488,13 @@ $$
 32! = 32 \times 31!
 $$
 
-… and for a number `n`
+And therefore, for a number `n`
 
 $$
 n! = n \times (n-1)!
 $$
 
-Converting this to code and we’ll have the final line in our recursive function.
+Converting this forumla to code gives us the final line in our recursive function.
 
 ```javascript{3}
 let factorial = function (number) {
@@ -485,7 +505,7 @@ let factorial = function (number) {
 
 Notice that each call decreases the load by 1 (`...(number - 1)`) and hence pushes the program closer to the base-case.
 
-If we put all the three recursive programs we have written so far together; a few patterns are clearly visible.
+If we put all the three recursive programs we have written together; a few patterns, common to all recursive solutions, emerge.
 
 <br />
 
@@ -558,14 +578,14 @@ let factorial = function (number) {
 
 <br />
 
-At this point, feeling confident in writing any recursive solution at all is totally normal, and I appreciate your excitement. But I’d suggest to hold it in for a while. Even for a chapter this long, we have only scratched the surface.
+At this point, feeling confident about writing a recursive solution for any problem at all is totally normal, and I appreciate your excitement. Now whether it amplifies your excitement or diminishes it, I'd like to inform you that even for a chapter this long, we have only scratched the surface.
 
-The goal of this chapter was to set you up for things to come. In the beginning, we saw how divisibility by 2 isn’t the only way to check if a number is odd or even. There’s recursion, that, I hope was the first taste of recursion for you. The recursive solution to figure if a number is even or odd fascinates me to an absurd extent, and I hope it does the same to you.
+The goal of this chapter was to set you up for things to come. In the beginning, we saw how divisibility by 2 isn’t the only way to check if a number is odd or even. There’s recursion, that, perhaps was the first taste of recursion for you. The recursive solution to figure if a number is even or odd fascinates me to an absurd extent, and I hope it does the same to you.
 
-The next problem was generating the Fibonacci sequence, where we learned about the base-case, a function calling itself to recurse, and the, rather mouthful **Give me this, and I’ll handle the rest** rule.
+The next problem we delved into was generating the Fibonacci sequence. With it we solidified our understanding of the base-case, how a function calls itself to recurse, and learned about the rather mouthful, **Give me this, and I’ll handle the rest** rule.
 
-The chapter's final problem, finding factorial, was there to iron in the previous concepts. The concepts will be ironed more as we move further on to newer problems and their solutions.
+The chapter's final problem, finding factorial, was there to iron in the previous concepts. Don't worry if there still are leftover creases in your understanding, the concepts will be ironed more as we move further on to newer problems and their solutions.
 
-There’s a lot we have to go over, maths and graphical recursion and … before we forget the historical Towers of Hanoi problem, which more than anything will teach you how to trust.
+There’s a lot we have to go over: some Maths and some graphical recursion and … before we forget the historical Towers of Hanoi problem, which more than anything will teach you how to trust.
 
 That is what’s coming up next.
