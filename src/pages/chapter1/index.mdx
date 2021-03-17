@@ -22,8 +22,6 @@ And conversely, if you lay an even number of pebbles, say 8, in two rows, you’
 
 ![An even number of pebbles, when laid down in two rows, form an even rectangular shape.](4.png)
 
-This is supposedly the origin of the concept of even and odd numbers, or of their names at least.
-
 Much later, Euclid, a Math grandmaster, formalized even numbers as: “An even number is that which is divisible into two equal parts.” And the numbers that cannot be divided into two equal parts are odd.
 
 ![An odd number of pebbles cannot be divided into two equal parts.](5.png)
@@ -63,7 +61,7 @@ Returning to our discussion about even and odd numbers, let’s consider the num
 There are two rudimentary observations we can extract from this sequence:
 
 1. Any number `n` is even if it is either `0` or if the number just before `n` is odd.
-2. A number `n` is odd if it’s not even...(🤷)
+2. A number `n` is odd if it’s not even.
 
 Let’s start with the first observation.
 
@@ -89,7 +87,7 @@ let isEven = function (number) {
   } else {
     if (isOdd(number - 1)) {
       return true
-    } // ..is odd.
+    }
   }
 }
 ```
@@ -104,13 +102,13 @@ let isOdd = function (number) {
   if (!isEven(number)) {
     return true // then it's odd
   } else {
-    // otherwise
-    return false // it's even
+    // otherwise it's even
+    return false
   }
 }
 ```
 
-“That’s a kind of a spooky way to write code, isn’t it, Nash?” Yes, it does seem like it. Let me go ahead and write both the functions together in a succinct way; see if you understand it better.
+“That’s a spooky way to write code, isn’t it, Nash?” Yes, it does seem like it. Let me go ahead and write both the functions together in a succinct way; see if you understand it better.
 
 ```javascript
 let isEven = function (number) {
@@ -141,17 +139,17 @@ The diagram below shows how the two functions call each other in succession unti
 
 ![](8.png)
 
-I like to call these tracing diagrams, like the one above, “Staircase Diagrams”. For obvious reasons, like its shape.
+I like to call these tracing diagrams–like the one above–**Staircase Diagrams**. For obvious reasons, like its shape.
 
 In the diagram, notice the repeated calls (signified by the downward pointing arrows) between `isEven` and `isOdd` , which only stops when the **base-case** is reached.
 
-Now, we'll take a moment here to get acquainted with an undeniably powerful mother-fucker, the base-case. Search for a recursive solution often starts with a search for a base-case.
+Now, we'll take a moment here to get acquainted with an undeniably powerful mother-fucker, the base-case. Search for a recursive solution often starts with a search for the base-case.
 
-Now keep in mind I cannot conjure up a potion in one paragraph and have it absorbed into your skulls and explain base-case once and for all. It's one of those things you have to repeatedly observe in its natural habitat to get a proper hang of.
+Now keep in mind I cannot conjure up a potion in one paragraph and have it absorbed into your skulls and explain the concept of base-case once and for all. If I could, I would, trust me, but base-case is one of those things you have to repeatedly observe in its natural habitat to get a proper hang of.
 
 The task of the base-case is to stop the program from going into an infinite loop of execution. A base-case snips the repeated calls when a certain condition is met. That condition, 99% of the time, is the answer to the smallest unit of the argument passed.
 
-In the even-odd program above it's this:
+In the even-odd program above, it's this:
 
 ```js
 if (number === 0) return true
@@ -219,13 +217,13 @@ As the number supplied to any of the functions gets bigger, the mutual calls bet
 
 ![](15.png)
 
-This phenomenon of two functions (`isEven` and `isOdd`) repeatedly calling each other is called **mutual recursion**. And if that’s blowing your mind a little, wait till you see _just_ recursion, where one function calls itself. Over and over again.
+This phenomenon of two functions (`isEven` and `isOdd`) repeatedly calling each other is called **mutual recursion**. And if that’s blowing your mind, wait till you see _just_ recursion, where one function calls itself. Over and over again.
 
 ```
 aside (also mention the negative arguments to these functions) design and aside here
 ```
 
-Any problem can have more than one solution. Want to consume liquid? Put it in a cup, pick it up and drink it, use a straw or, have it injected into your bloodstream via tubes and needles. Similarly, in mathematics and computer science, a problem can have more than one solution. Just like checking divisibility by 2 is a form of solution to check whether a number is even or odd, a recursive approach is also a form of solution. Sometimes, a recursive solution is the only solution to a problem. Sometimes, it’s better than all the other solutions in efficiency and speed, and sometimes it’s the worst. But all in all, recursive code is the closest thing I have read to a magic spell. That’s why I wrote a book about it. And if you’re not yet convinced, remember that you’re only in the middle of the first chapter.
+Any problem can have more than one solution. Want to consume liquid? Put it in a cup, pick it up and drink it, use a straw, or, have it injected into your bloodstream via tubes and needles. Similarly, in mathematics and computer science, a problem can have more than one solution. Just like checking divisibility by 2 is a form of solution to check whether a number is even or odd, a recursive approach is also a form of solution. Sometimes, a recursive solution is the only solution to a problem. Sometimes, it’s better than all the other solutions in efficiency and speed, and sometimes it’s the worst. But all in all, recursive code is the closest thing I have read to a magic spell. That’s why I wrote a book about it. And if you’re not yet convinced, remember that you’re only in the middle of the first chapter.
 
 ---
 
@@ -236,13 +234,17 @@ Any problem can have more than one solution. Want to consume liquid? Put it in a
 <br />
 <br />
 
-A Mathematical trick consists of writing down a sequence of ten numbers and
-_instantly_ finding their sum. But not any sequence, the **Fibonacci sequence**.
-And if the word sequence somehow confuses you, here’s what it is
+A Math trick consists of writing down a sequence of ten huge numbers and
+_instantly_ finding their sum.
 
-Sequences of numbers are formed of two things, a starting number, or the first term, and a rule that generates the next number. E.g., In the natural sequence of numbers, the starting number is `0`, and the rule to generate the next number is to add `1` to the previous. Therefore after `0`, comes `(0 + 1) = 1`, after `1`, `(1+1)` `2`, and so on `1, 2, 3, 4, 5 …`
+But not any sequence, the **Fibonacci sequence**.
+And if the word sequence confuses you, here’s what it is.
 
-In the Fibonacci sequence, the rule says that the next term is generated by adding the two terms before it together. From the rule, it’s clear that we need two numbers to begin with because to add things, we at least need two of them. Generally, the first two numbers chosen for the Fibonacci sequence are `1` and `1`.
+Sequences of numbers are made up of two things, a starting number, or the first term, and a rule that generates the next number.
+
+E.g., In the natural sequence of numbers, the starting number, or the first term is `0`, and the rule to generate the next number is to add `1` to the previous. Therefore, after `0`, comes `(0 + 1) = 1`, after `1`, `(1+1)` `2`, and so on `1, 2, 3, 4, 5 …`
+
+For the Fibonacci sequence, the rule says that the next term is generated by adding the two terms before it together. Generally, the first two numbers chosen for the Fibonacci sequence are `1` and `1`.
 
 $$
 1, 1
@@ -268,21 +270,23 @@ $$
 
 ![](14.png)
 
-In this sequence, and in any sequence, the first number in the sequence is also called the **first term**, the second, the **second term**, third, **third term**, and so on. Therefore, the 6th term in the Fibonacci sequence is 8; the 10th term is 55, and so on.
+In the Fibonacci sequence, and in any sequence, the first number is also referred to as the **first term**, the second, the **second term**, third, **third term**, and so on.
 
-I hope you haven’t forgotten the point of all this; you want to know the trick mentioned in the first paragraph. But before I can go ahead and “reveal the trick,” we’ll have to first write the Fibonacci sequence in code.
+I hope you haven’t forgotten the point of all this; you want to know the trick mentioned in the first paragraph. But before I can go ahead and “reveal the trick,” we’ll have to first write a program that can generate the Fibonacci sequence for us.
 
-Now generating the Fibonacci sequence is a computer engineering problem, and as I mentioned earlier, a problem can have more than one solution. One way of printing the Fibonacci sequence is by using loops - a non-recursive solution. I won’t stop you from writing it, go ahead and give it a shot. What we’ll do together, though, is write a recursive solution.
+Now generating the Fibonacci sequence is a computer engineering problem, and like I mentioned earlier, a problem can have more than one solution. One way of printing the Fibonacci sequence is by using loops - a non-recursive solution. I won’t stop you from writing it, go ahead and give it a shot. What we’ll do together, though, is write a recursive solution.
 
 We’ll write a function, `getFibTerm(n)`, that takes in `n`, a term in the Fibonacci sequence. For example, if `n` is 3, the function should spit out `2` (the 3rd term), and if `n` is `8`, then `21`(the 8th term).
 
 ![](17.png)
 
-No matter the complexity of a recursive program, some things never change. The base-case is one of them. The base-case stops the program from going into an infinite loop of execution. The task of the base-case is to snip the repeated calls when a certain condition is met. That condition, 99% of the time, is the answer to the smallest unit of the argument passed.
+No matter the complexity of a recursive program, some things never change. The base-case is one of them.
 
-In the previous example (even-odd numbers), it was if(number === 0) return true;. We knew that 0 is an even number, and the smallest argument our function (isEven) will receive. For this problem, the base-case is going to be the following.
+If you remember, the base-case stops the program from going into an infinite loop of execution. The task of the base-case is to snip the repeated calls when a certain condition is met.
 
-```javascript
+In the previous example (even-odd numbers), it was `if(number === 0) return true;`. We know that 0 is an even number, and the smallest argument our function (`isEven`) will receive. For this problem, the base-case is going to be the following.
+
+```javascript{2,3}
 let getFibTerm = function(n) {
   if(n === 1) return 1;
   if(n === 2) return 1;
@@ -292,9 +296,9 @@ let getFibTerm = function(n) {
 
 The smallest arguments our Fibonacci function is going to receive are 1 and 2. We already know the answers to these. They are the first two terms in the Fibonacci sequence (**1, 1**, 2, 3, 5…), and hence, they together become our base-case.
 
-Now since we have already defined a base-case that’ll terminate repeated calls, it implies that we also need to have repeated calls to begin with. The question here is why? Why the repeated calls, what purpose does it serve? Let’s add the final line to our function and continue understanding this.
+Now since we have already defined a base-case that’ll terminate repeated calls, it implies that we also need to have repeated calls to begin with. The final line in our function does exactly that.
 
-```javascript
+```javascript{4}
 let getFibTerm = function (n) {
   if (n === 1) return 1
   if (n === 2) return 1
@@ -330,11 +334,11 @@ And that’s exactly what we’ve done with:
 return getFibTerm(n - 1) + getFibTerm(n - 2)
 ```
 
-And this is where a crucial rule of recursion, which I like to call the “**Give me this, and I’ll handle the rest,”** rule comes into play. We’ll be returning to this rule repeatedly throughout the book, so pay close attention.
+This is where a crucial rule of recursion, which I like to call the “**Give me this, and I’ll handle the rest,”** rule comes into play. We’ll be returning to this rule repeatedly throughout the book, so pay close attention.
 
 There’s a trust in “**Give me this…”** which in this program is `getFibTerm(n-1)` and `getFibTerm(n-2)`. There’s no easy way here to trace while writing the code that the program will return what you’re asking of it, but you’re trusting the program that it will. Then comes the **“…I’ll handle the rest”** part, which is that if the program correctly gave what you asked of it, you’ll do the required calculation, which in this example is adding the two terms together `getFibTerm(n-1) + getFibTerm(n-2)`.
 
-If you took a stab at writing a non-recursive solution to generate the Fibonacci sequence, seeing just three lines of code doing what sounds like a somewhat complex calculation might feel uneasy, or magical. That’s recursion for you, and even though it might have left you a little bewildered and dazed right now, you’ll learn to love it and understand it as we go deeper.
+If you took a stab at writing a non-recursive solution to generate the Fibonacci sequence, seeing just three lines of code doing what sounds like a somewhat complex calculation might feel uneasy, or magical, or both at the same time. That’s recursion for you, and even though it might have left you a little bewildered and dazed right now, you’ll learn to love it and understand it as we go deeper.
 
 The “trick” is this. If you write 10 Fibonacci numbers in a sequence, their sum will always be 11 multiplied by the fourth term from the bottom. Let’s give it a go!
 
@@ -346,7 +350,7 @@ for (let i = 10; i < 20; i++) {
 }
 ```
 
-This produces the following output:
+The above code produces the following output:
 
 ```
 55
@@ -375,7 +379,7 @@ $$
 11 \times 987 \textnormal{(4th term from the bottom)} = 10,857
 $$
 
-Yes, you’re allowed to whip out a calculator and verify.
+Yes, you’re allowed to whip out a calculator and verify. On a sidenote, if you literally just whipped out a calculator instead of launching a calculator app, you're very cool to be reading my book.
 
 This section's point was never this “trick” but to show how to write the Fibonacci sequence recursively. And thanks for acting to be interested in the trick anyway.
 
@@ -389,13 +393,13 @@ let getFibTerm = function (n) {
 }
 ```
 
-As the parameter reduces, the base-case condition comes closer and closer to being true. Then once it has reached the very point where the condition becomes true the repeated execution stops, as return is executed before the function executes a call to itself.
+As the parameter reduces, the base-case condition comes closer and closer to being true. Then once it becomes true the repeated execution stops, as return is executed before the function executes a call to itself.
 
-In my head, I often picture this scenario like this. A box loaded with bricks balanced on a rope. With each call, we’re reducing the number of bricks and straightening the rope. As the rope becomes completely straight, it touches sharp blades and the execution stops. Not a perfect analogy but something that’ll stay in your head nonetheless.
+In my head, I often picture this scenario like this. A box loaded with bricks balanced on a cloth. With each call, we’re reducing the number of bricks and straightening the cloth in the contraption. As the cloth becomes completely straight, it touches the two sharp blades and the execution stops. Not a perfect analogy but something that’ll stay in your head nonetheless.
 
 ![](16.png)
 
-Another cool thing about the Fibonacci sequence is that the square of any term in the sequence is equal to the product of the two terms around it plus or minus 1.
+Another cool fact about the Fibonacci sequence, is that the square of any term in the sequence, is equal to the product of the two terms around it, plus or minus 1.
 
 ![](18.png)
 
@@ -451,7 +455,7 @@ With all of that in mind, let’s give writing a factorial function a shot.
 
 Let’s start with the base-case. The base-case is where the program needs to stop. It is generally the point where you know the answer to the problem without any necessary calculation. Here, it is known that the factorial of 0 is 1. And hence that will be our base-case.
 
-```javascript
+```javascript{2}
 let factorial = function(number) {
   if(number === 0) return 1;
   ...
@@ -505,11 +509,11 @@ let factorial = function (number) {
 
 Notice that each call decreases the load by 1 (`...(number - 1)`) and hence pushes the program closer to the base-case.
 
-If we put all the three recursive programs we have written together; a few patterns, common to all recursive solutions, emerge.
+If you observe, in all the recursive programs we have written so far, a few patterns, common to all recursive solutions, emerge.
 
 <br />
 
-### Base cases
+### 1. Base cases
 
 <br />
 
@@ -541,7 +545,7 @@ let factorial = function (number) {
 
 <br />
 
-### Progressive decrease of parameter load
+### 2. Progressive decrease of parameter load
 
 <br />
 
@@ -568,7 +572,34 @@ let factorial = function (number) {
 }
 ```
 
-#### Pattern 3: Use of the function inside the function
+<br />
+
+### 3. Mandatory use of a function inside the same function
+
+<br />
+
+```javascript {1,3}
+let isEven = function (number) {
+  if (number === 0) return true
+  return isOdd(number - 1) // isOdd nests isEven
+}
+...
+```
+
+```javascript{1,4}
+let getFibTerm = function (n) {
+  if (n === 1) return 1
+  if (n === 2) return 1
+  return getFibTerm(n - 1) + getFibTerm(n - 2)
+}
+```
+
+```javascript{1,3}
+let factorial = function (number) {
+  if (number === 0) return 1
+  return number * factorial(number - 1)
+}
+```
 
 ---
 
@@ -584,7 +615,7 @@ The goal of this chapter was to set you up for things to come. In the beginning,
 
 The next problem we delved into was generating the Fibonacci sequence. With it we solidified our understanding of the base-case, how a function calls itself to recurse, and learned about the rather mouthful, **Give me this, and I’ll handle the rest** rule.
 
-The chapter's final problem, finding factorial, was there to iron in the previous concepts. Don't worry if there still are leftover creases in your understanding, the concepts will be ironed more as we move further on to newer problems and their solutions.
+The chapter's final problem, finding factorial, was there to iron in the previous concepts. Don't worry if there are still some leftover creases in your understanding, the concepts will be ironed more as we move further on to newer problems and their solutions.
 
 There’s a lot we have to go over: some Maths and some graphical recursion and … before we forget the historical Towers of Hanoi problem, which more than anything will teach you how to trust.
 
