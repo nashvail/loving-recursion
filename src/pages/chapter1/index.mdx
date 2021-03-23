@@ -212,8 +212,14 @@ As the number supplied to any of the functions gets bigger, the mutual calls bet
 This phenomenon of two functions (`isEven` and `isOdd`) repeatedly calling each other is called **mutual recursion**. And if that’s blowing your mind, wait till you see _just_ recursion, where one function calls itself. Over and over again.
 
 <Callout>
-  This is text that's supposed to be called out and this is{" "}
-  <code class="language-text">isEven</code> and this is `isOdd`
+  Oh hey! sorry! It's still me, the section you're reading this inside is called a callout. I unwillingly have to use a callout to mention things which would be too jarring to insert in the middle of a chapter without apologising first.
+
+In this particular callout I'd like to mention that the <code class="language-text">isEven</code> and <code class="language-text">isOdd</code> functions which we defined above are not to be used in production as is. If you notice, the current implementation skips over checks for clean parameter i.e. if the parameter passed is an actual number, whether it's positive or negative e.t.c.
+
+The checks are easy to put in and adding such naive complexity in the explanation will only cloud the meat that I want to actually share.
+
+And before I go, hint hint, wink wink, if you want to cleanse for negative numbers check out the <code class="language-text"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs">Math.abs</a></code> function. And remember, sign of a number does not effect its parity(the quality of being even or odd).
+
 </Callout>
 
 Any problem can have more than one solution. Want to consume liquid? Put it in a cup, pick it up and drink it, use a straw, or, have it injected into your bloodstream via tubes and needles. Similarly, in mathematics and computer science, a problem can have more than one solution. Just like checking divisibility by 2 is a form of solution to check whether a number is even or odd, a recursive approach is also a form of solution. Sometimes, a recursive solution is the only solution to a problem. Sometimes, it’s better than all the other solutions in efficiency and speed, and sometimes it’s the worst. But all in all, recursive code is the closest thing I have read to a magic spell. That’s why I wrote a book about it. And if you’re not yet convinced, remember that you’re only in the middle of the first chapter.
