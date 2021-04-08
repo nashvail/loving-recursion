@@ -137,7 +137,7 @@ https://codesandbox.io/s/snippet-3-dvp4j?expanddevtools=1&fontsize=16&theme=dark
 
 To understand how the two functions work together to arrive at an answer, let’s trace the execution for a small number, say 2.
 
-The diagram below shows how the two functions call each other in succession until they arrive at an answer.
+The diagram below shows how the two functions call each other in succession until a correct answer is returned.
 
 ![](8.png)
 
@@ -145,9 +145,11 @@ I like to call these tracing diagrams–like the one above–**Staircase Diagram
 
 In the diagram, notice the repeated calls (signified by the downward pointing arrows) between `isEven` and `isOdd` , which only stops when the **base-case** is reached.
 
-Now, we'll take a moment here to get acquainted with an undeniably powerful mother-fucker, the base-case. Search for a recursive solution often starts with a search for the base-case.
+Now, we'll take a moment here to get acquainted with an undeniably powerful mother-fucker, the base-case.
 
-Now keep in mind I cannot conjure up a potion in one paragraph and have it absorbed into your skulls and explain the concept of base-case once and for all. If I could, I would, trust me, but base-case is one of those things you have to repeatedly observe in its natural habitat to get a proper hang of.
+Search for a recursive solution often starts with a search for the base-case.
+
+Now keep in mind I cannot conjure up a potion in one paragraph and have it absorbed into your skull that'll explain the concept of base-case once and for all. If I could, I would, trust me, but base-case is one of those things you have to repeatedly observe in its natural habitat to get a proper hang of.
 
 The task of the base-case is to stop the program from going into an infinite loop of execution. A base-case snips the repeated calls when a certain condition is met. That condition, 99% of the time, is the answer to the smallest unit of the argument passed.
 
@@ -157,11 +159,9 @@ In the even-odd program above, it's this:
 if (number === 0) return true
 ```
 
-We objectively know that `0` is an even number. No calculation necessary. That's when we can `return` an answer and then let the rest bubble up from the **base-case**.
+We objectively know that `0` is an even number. No calculation necessary. That's when we can `return` an answer and then let the rest "bubble up" from the **base-case**.
 
-[ART zoomed in base case]
-
----
+![Further execution halts at base-case](21-mid.png)
 
 Now, for the rest of the diagram.
 
@@ -180,7 +180,7 @@ let isEven = function (number) {
 
 But `2` is not `0`, so the function continues to the next line, which executes, `isOdd(number-1)`. Or, in our case `(2–1 = 1)`, which is `isOdd(1)`.
 
-And these become the first 2 steps in the staircase diagram. The downward pointing arrow signifies `isEven` _calls_ `isOdd`. Or, in other words, `isOdd` is executed inside `isEven`.
+And these become the first 2 steps in the staircase diagram. The downward pointing arrow, again, signifies `isEven` _calls_ `isOdd`. Or, in other words, `isOdd` is executed inside `isEven`.
 
 ![](10.png)
 
@@ -192,18 +192,26 @@ let isOdd = function (number) {
 }
 ```
 
-This means `isOdd` will return whatever `isEven` returns but will do a NOT operation on the result first. That is, if `isEven` returns true, `!` will make it a `false` and vice versa. We're jumping a little ahead of ourselves here since we have not yet reached the part of the diagram where the answer begins to return, but this is an important detail to keep in mind nonetheless.
+We'll jump a little ahead of oursleves here. We have not yet reached the part of the diagram where the answer starts to bubble up, until that part arrives the explanation in the following paragraph is irrelevant, but it's an important detail to keep in mind nonetheless.
+
+Notice the `!` before `isEven` in the preceding block of code. This means `isOdd` will return whatever `isEven` returns but will do a NOT operation on the result first. That is, if `isEven` returns true, `!` will make it a `false` and vice versa. The NOT operation is shown in the diagram like so:
 
 ![](11.png)
 
-From inside `isOdd(1)` `isEven` is executed with an unchanged parameter, `1`.
-Inside `isEven` it's the same story, one check to see if the parameter is `0` if not, reduce `1`, handle control to `isOdd`.
+Continuing with the normal course, from inside `isOdd(1)` `isEven` is executed with an unchanged parameter, `1`.
+Inside `isEven` it's the same story, one check to see if the parameter is `0`, if it's not, reduce `1`, handle control to `isOdd`.
 
-[art]
+![](22-mid.png)
 
-Inside, `isOdd(0)`, `isEven` is executed with `0`, which if you remember is the base case. `isEven` performs a check to see if the parameter is 0, if it is returns `true` (since 0 is even). This answer then bubbles up the execution stack, effectively replacing the expression beside `return` in each function call with a value, allowing each function to return something to the parent function that called it.
+Inside `isOdd(0)`, `isEven` is executed with `0`, which if you remember is the base case. `isEven` on performing the check to see if the parameter is `0`, halts further execution and returns `true` (since 0 _is_ even). This is where we say the answer has started to bubble up.
 
-Eventually, the original function `isEven(2)` gets a value to return, and if everything was coded properly with correct logical insights, a correct answer is supplied.
+![](21-mid.png)
+
+The bubbling up of an answer in the execution stack, effectively replaces the expression beside `return` in each function call with a value (a true/false in our case), allowing each function to return something to the parent function that called it.
+
+[ART SHOWING THE EXECUTION STACK]
+
+Eventually, the original function `isEven(2)` gets a value to return, and if everything was coded properly with correct logical insights, a correct answer is then handed over.
 
 As the number supplied to any of the functions gets bigger, the mutual calls between `isEven` and `isOdd` increases rapidly, till it hits the base-case and bounces back with an answer. Hence, and remember this, a base-case is an important part of a recursive solution. Think of it as dropping a ball from the top of a staircase. If there’s no base, where will the ball go? Probably in a portal to come back and drop on the top of your head, which you probably don’t want.
 
@@ -212,13 +220,13 @@ As the number supplied to any of the functions gets bigger, the mutual calls bet
 This phenomenon of two functions (`isEven` and `isOdd`) repeatedly calling each other is called **mutual recursion**. And if that’s blowing your mind, wait till you see _just_ recursion, where one function calls itself. Over and over again.
 
 <Callout>
-  Oh hey! sorry! It's still me, the section you're reading this inside is called a callout. I unwillingly have to use a callout to mention things which would be too jarring to insert in the middle of a chapter without apologising first.
+ Oh hey! sorry! It's still me, the section you're reading this inside is called a callout. I unwillingly have to use a callout to mention things which would be too jarring to insert in the middle of a chapter without apologising first.
 
-In this particular callout I'd like to mention that the <code class="language-text">isEven</code> and <code class="language-text">isOdd</code> functions which we defined above are not to be used in production as is. If you notice, the current implementation skips over checks for clean parameter i.e. if the parameter passed is an actual number, whether it's positive or negative e.t.c.
+In this particular callout, I'd like to mention that the <code class="language-text">isEven</code> and <code class="language-text">isOdd</code> functions which we defined above are not to be used in production as is. If you notice, the current implementation skips over checks for clean parameter i.e. if the parameter passed is an actual number, whether it's positive or negative e.t.c.
 
-The checks are easy to put in and adding such naive complexity in the explanation will only cloud the meat that I want to actually share.
+The checks are easy to put in and adding such naive complexity in the explanation will only cloud the meat that I actually want to share.
 
-And before I go, hint hint, wink wink, if you want to cleanse for negative numbers check out the <code class="language-text"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs">Math.abs</a></code> function. And remember, sign of a number does not effect its parity(the quality of being even or odd).
+And before I go, hint hint, wink wink, if you want to cleanse for negative numbers check out the <code class="language-text"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs" target="_blank">Math.abs</a></code> function. And remember, sign of a number does not effect its parity(the quality of being even or odd).
 
 </Callout>
 
