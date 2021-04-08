@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
 import Lottie from "react-lottie"
-import "@lottiefiles/lottie-player"
 import { Link } from "gatsby"
 import MediaQuery, { useMediaQuery } from 'react-responsive'
 

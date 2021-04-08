@@ -1,7 +1,5 @@
 import React, { useState } from "react"
-import { motion } from "framer-motion"
 import ProgressiveImage from "react-progressive-image"
-import "@lottiefiles/lottie-player"
 import { useMediaQuery } from 'react-responsive'
 
 // Local imports
