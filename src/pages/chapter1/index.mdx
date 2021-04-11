@@ -209,9 +209,11 @@ Inside `isOdd(0)`, `isEven` is executed with `0`, which if you remember is the b
 
 The bubbling up of an answer in the execution stack, effectively replaces the expression beside `return` in each function call with a value (a true/false in our case), allowing each function to return something to the parent function that called it.
 
-[ART SHOWING THE EXECUTION STACK]
+![Execution stack](23.png)
 
 Eventually, the original function `isEven(2)` gets a value to return, and if everything was coded properly with correct logical insights, a correct answer is then handed over.
+
+![Bubbling up](24.png)
 
 As the number supplied to any of the functions gets bigger, the mutual calls between `isEven` and `isOdd` increases rapidly, till it hits the base-case and bounces back with an answer. Hence, and remember this, a base-case is an important part of a recursive solution. Think of it as dropping a ball from the top of a staircase. If there’s no base, where will the ball go? Probably in a portal to come back and drop on the top of your head, which you probably don’t want.
 
