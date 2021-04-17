@@ -1,4 +1,4 @@
-![Cover](./readme_images/1.png)
+![Cover](./readme_images/hero.gif)
 
 ![Figma](./readme_images/figma_link.png)
 
