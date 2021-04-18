@@ -6,7 +6,7 @@ import LocomotiveScroll from "locomotive-scroll"
 
 // Local imports
 import Spacer from "../Spacer"
-import heroineImage from "../../assets/images/head.png"
+import heroineImage from "../../assets/images/head-small.png"
 import heroineImage2 from "../../assets/images/head-small.png"
 import { RightSideScrollContext } from "../../pages/index"
 import Praise from "./Praise"
@@ -132,12 +132,12 @@ const RightSideContent = () => {
         {
           isBigScreen ?
             <>
-              <CircleExpandLottieFront
+              {/* <CircleExpandLottieFront
                 width={90}
                 height={90}
                 className="home-page__right__hero__lottie-1"
                 animationData={circleFrontData}
-              />
+              /> */}
               <img
                 src={heroineImage}
                 className="home-page__right__hero__desk-heroine"
@@ -145,12 +145,12 @@ const RightSideContent = () => {
                 data-scroll-speed="1"
                 data-scroll-position="top"
               />
-              <CircleExpandLottieFront
+              {/* <CircleExpandLottieFront
                 width={80}
                 height={80}
                 className="home-page__right__hero__lottie-2"
                 animationData={circleFrontData2}
-              />
+              /> */}
             </>
             :
             <>
