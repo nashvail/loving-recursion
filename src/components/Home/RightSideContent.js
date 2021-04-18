@@ -6,7 +6,7 @@ import LocomotiveScroll from "locomotive-scroll"
 
 // Local imports
 import Spacer from "../Spacer"
-import heroineImage from "../../assets/images/head-small.png"
+import heroineImage from "../../assets/images/head-new.png"
 import heroineImage2 from "../../assets/images/head-small.png"
 import { RightSideScrollContext } from "../../pages/index"
 import Praise from "./Praise"
