@@ -8,9 +8,22 @@ import Spacer from "../components/Spacer"
 import InlineSideBar from "../components/InlineSidebar"
 import MobileSidebar from "../components/MobileSidebar"
 import SEO from "../components/seo";
+import Image from "../components/image"
 
 // Import constants
 import { TRANSITION_EASE } from "../constants"
+
+// Break Points
+const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 1200 })
+  return isDesktop ? children : null
+}
+
+const Mobile = ({ children }) => {
+  const isMobile = useMediaQuery({ maxWidth: 1200 })
+  return isMobile ? children : null
+}
+
 
 const ChapterNumber = ({ chapterNumber }) => (
   <h3 className="chapter-view__number">
@@ -70,19 +83,10 @@ const ChapterTitle = ({ addBreakAfter, text }) => {
 }
 
 const HeroImage = ({ chapterNumber }) => (
-  <ProgressiveImage
+  <img
     src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
-  >
-    {src => (
-      <img
-        src={src}
-        transition={{ ease: TRANSITION_EASE, delay: 0.1 }}
-        initial={{ y: 200, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        alt={`Chapter ${chapterNumber} hero image`}
-      />
-    )}
-  </ProgressiveImage>
+    alt={`Chapter ${chapterNumber} hero image`}
+  />
 )
 
 
@@ -126,15 +130,16 @@ export default ({ children, pageContext }) => {
     <>
       <SEO title={`Chapter ${chapterNumber} - ${chapterName}`} />
       <SidebarOpenContext.Provider value={[isSidebarOpen, setIsSidebarOpen]}>
-        {isSmallDevice ? <MobileSidebar currentChapter={chapterNumber} /> :
-          <InlineSideBar currentChapter={chapterNumber} />}
+        <Mobile><MobileSidebar currentChapter={chapterNumber} /></Mobile>
+        <Desktop><InlineSideBar currentChapter={chapterNumber}/></Desktop>
         <main className="chapter-view">
-          { isSmallDevice ? tabletHeroElements : desktopHeroElements }
+          {isSmallDevice ? tabletHeroElements : desktopHeroElements}
           <section className="chapter-view__content">
             <article>{children}</article>
           </section>
           <ChapterEnd nextChapterNumber={chapterNumber + 1} />
         </main>
+
       </SidebarOpenContext.Provider>
     </>
   )
