@@ -19,8 +19,6 @@ const ChapterEnd = ({ nextChapterNumber = 0, onHome = false }) => {
 
   // Media queries
   const isDesktop = useMediaQuery({ minWidth: 1200 })
-  const isTablet = useMediaQuery({ minWidth: 800, maxWidth: 1500 })
-  const isPhone = useMediaQuery({ maxWidth: 800 })
 
   let sectionClassName = onHome ? 'home-page__right__end__content' : 'chapter-end';
 
