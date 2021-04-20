@@ -1,14 +1,12 @@
-import React, { useEffect, useContext, useLayoutEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Lottie from "react-lottie"
 import MediaQuery, { useMediaQuery } from 'react-responsive'
-import LocomotiveScroll from "locomotive-scroll"
 
 // Local imports
 import Spacer from "../Spacer"
-import heroineImage from "../../assets/images/head-new.png"
+import heroineImage from "../../assets/images/head.png"
 import heroineImage2 from "../../assets/images/head-small.png"
-import { RightSideScrollContext } from "../../pages/index"
 import Praise from "./Praise"
 import ChapterEnd from "../ChapterEnd"
 import ChapterClicker from "./ChapterClicker"
@@ -46,9 +44,8 @@ export const ResponsiveIndex = () => {
 }
 
 const ResponsiveHeader = () => {
+
   // Media queries
-  const isDesktop = useMediaQuery({ minWidth: 1500 })
-  const isTablet = useMediaQuery({ minWidth: 800, maxWidth: 1500 })
   const isPhone = useMediaQuery({ maxWidth: 800 })
 
   return (
@@ -101,74 +98,148 @@ const CircleExpandLottieFront = ({
   )
 }
 
+const DesktopHero = () => (
+  <>
+    <CircleExpandLottieFront
+      width={90}
+      height={90}
+      className="home-page__right__hero__lottie-1"
+      animationData={circleFrontData}
+    />
+    <img
+      src={heroineImage}
+      className="home-page__right__hero__desk-heroine"
+    />
+    <CircleExpandLottieFront
+      width={80}
+      height={80}
+      className="home-page__right__hero__lottie-2"
+      animationData={circleFrontData2}
+    />
+  </>
+);
+
+const MobileHero = () => (
+  <>
+    <img
+      src={heroineImage2}
+      className="home-page__right__hero__mobile-heroine"
+    />
+  </>
+)
+
+// Sections
+const MobileContent = () => {
+  return (
+    <section className="home-page__right">
+      <ResponsiveHeader />
+      <section className="home-page__right__hero">
+        <MobileHero />
+      </section>
+      <ResponsiveIndex />
+      <section className="home-page__right__intro" >
+        <h1>
+          <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
+          <br /> THE BOOK?
+      </h1>
+        <Spacer height="sp_lg" />
+        <p>
+          This book is because one day an article about recursion that I was
+          writing got too long and too deep to be called just an article. See
+          this project as a collection of articles on the same topic or, a
+          “book”, if you want me to feel better and more pompous than I already
+          do; now that I have finished a project I thought I never would. This
+          book is also a test of my ideas on teaching philosophy that I have
+          come up with after some amount of pondering, about 10% more than a
+          normal human would. More details about this in the Introduction
+          chapter.
+      </p>
+      </section>
+      <Spacer height="sp_xxl" />
+      <section className="home-page__right__praise" >
+        <h1>
+          {" "}
+          <span style={{ color: "var(--color-yellow-4)" }}>
+            A LITTLE
+          </span>{" "}
+          <br /> BIT OF PRAISE
+        </h1>
+        <Spacer height="sp_lg" />
+        <Praise />
+      </section>
+    </section>
+  )
+}
+
+const DesktopContent = () => {
+  return (
+    <section className="home-page__right">
+      <section className="home-page__right__hero">
+        <DesktopHero />
+      </section>
+      <section className="home-page__right__intro" >
+        <h1>
+          <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
+          <br /> THE BOOK?
+      </h1>
+        <Spacer height="sp_lg" />
+        <p>
+          This book is because one day an article about recursion that I was
+          writing got too long and too deep to be called just an article. See
+          this project as a collection of articles on the same topic or, a
+          “book”, if you want me to feel better and more pompous than I already
+          do; now that I have finished a project I thought I never would. This
+          book is also a test of my ideas on teaching philosophy that I have
+          come up with after some amount of pondering, about 10% more than a
+          normal human would. More details about this in the Introduction
+          chapter.
+      </p>
+      </section>
+      <Spacer height="sp_xxl" />
+      <section className="home-page__right__praise" >
+        <h1>
+          {" "}
+          <span style={{ color: "var(--color-yellow-4)" }}>
+            A LITTLE
+          </span>{" "}
+          <br /> BIT OF PRAISE
+        </h1>
+        <Spacer height="sp_lg" />
+        <Praise />
+      </section>
+    </section>
+  );
+}
+
+const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 1500 })
+  return isDesktop ? children : null
+}
+
+const Mobile = ({ children }) => {
+  const isMobile = useMediaQuery({ maxWidth: 1500 })
+  return isMobile ? children : null
+}
+
+
 const RightSideContent = () => {
-  const [scrollContext, setScrollContext] = useContext(RightSideScrollContext)
-  const scrollRef = React.createRef()
+  return (
+    <>
+      <Desktop><DesktopContent/></Desktop>
+      <Mobile><MobileContent/></Mobile>
+    </>
+  )
+}
 
-  // Media queries
-  const isBigScreen = useMediaQuery({ query: '(min-width: 1500px)' })
-  const isSmallScreen = useMediaQuery({ query: '(max-width: 1500px)' })
-
-  useEffect(() => {
-    const scroll = new LocomotiveScroll({
-      el: scrollRef.current,
-      smooth: false,
-    })
-
-    return () => {
-      scroll.destroy()
-    }
-  }, [])
-
-  const onSectionScroll = e => {
-    setScrollContext(e.target.scrollTop)
-  }
+/*
+const RightSideContent = () => {
 
   return (
-    <section className="home-page__right" ref={scrollRef} data-scroll data-scroll-container>
-      { isSmallScreen && <ResponsiveHeader />}
-      {/* Hero Section */}
-      <section className="home-page__right__hero" data-scroll data-scroll-section>
-        {
-          isBigScreen ?
-            <>
-              {/* <CircleExpandLottieFront
-                width={90}
-                height={90}
-                className="home-page__right__hero__lottie-1"
-                animationData={circleFrontData}
-              /> */}
-              <img
-                src={heroineImage}
-                className="home-page__right__hero__desk-heroine"
-                data-scroll
-                data-scroll-speed="1"
-                data-scroll-position="top"
-              />
-              {/* <CircleExpandLottieFront
-                width={80}
-                height={80}
-                className="home-page__right__hero__lottie-2"
-                animationData={circleFrontData2}
-              /> */}
-            </>
-            :
-            <>
-              <img
-                src={heroineImage2}
-                className="home-page__right__hero__mobile-heroine"
-              />
-            </>
-        }
+    <section className="home-page__right">
+      <section className="home-page__right__hero">
+            <DesktopHero />
       </section>
-      {/* Index section for responsive view */}
-      { isSmallScreen && <ResponsiveIndex />}
-      {/* Intro Section */}
-      <section
-        className="home-page__right__intro"
-        data-scroll
-        data-scroll-section
-      >
+      <section className="home-page__right__intro" >
         <h1>
           <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
           <br /> THE BOOK?
@@ -187,11 +258,7 @@ const RightSideContent = () => {
         </p>
       </section>
       <Spacer height="sp_xxl" />
-      {/* Praise Section  */}
-      <section className="home-page__right__praise"
-        data-scroll
-        data-scroll-section
-      >
+      <section className="home-page__right__praise" >
         <h1>
           {" "}
           <span style={{ color: "var(--color-yellow-4)" }}>
@@ -202,18 +269,58 @@ const RightSideContent = () => {
         <Spacer height="sp_lg" />
         <Praise />
       </section>
-      {/* Footer + Chapter End section */}
+    </section>
+  )
+}
+*/
+
+/*
+const RightSideContent = () => {
+
+  // Media queries
+  const isBigScreen = useMediaQuery({ minWidth: 1500 })
+  const isSmallScreen = useMediaQuery({ maxWidth: 1500 })
+
+  return (
+    <section className="home-page__right">
+      <ResponsiveHeader/>
+      <section className="home-page__right__hero">
+        <MobileHero/>
+      </section>
+      <ResponsiveIndex/>
+      <section className="home-page__right__intro" >
+        <h1>
+          <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
+          <br /> THE BOOK?
+        </h1>
+        <Spacer height="sp_lg" />
+        <p>
+          This book is because one day an article about recursion that I was
+          writing got too long and too deep to be called just an article. See
+          this project as a collection of articles on the same topic or, a
+          “book”, if you want me to feel better and more pompous than I already
+          do; now that I have finished a project I thought I never would. This
+          book is also a test of my ideas on teaching philosophy that I have
+          come up with after some amount of pondering, about 10% more than a
+          normal human would. More details about this in the Introduction
+          chapter.
+        </p>
+      </section>
       <Spacer height="sp_xxl" />
-      <Spacer height="sp_xxl" />
-      <section className="home-page__right__end"
-        data-scroll
-        data-scroll-speed="3"
-        data-scroll-section
-        data-scroll-position="bottom" >
-        {/* <ChapterEnd onHome /> */}
+      <section className="home-page__right__praise" >
+        <h1>
+          {" "}
+          <span style={{ color: "var(--color-yellow-4)" }}>
+            A LITTLE
+            </span>{" "}
+          <br /> BIT OF PRAISE
+          </h1>
+        <Spacer height="sp_lg" />
+        <Praise />
       </section>
     </section>
   )
 }
+*/
 
 export default RightSideContent
