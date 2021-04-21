@@ -40,6 +40,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-lottie": "^1.2.3",
     "react-progressive-image": "^0.6.0",
     "react-responsive": "^8.2.0",

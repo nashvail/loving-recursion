@@ -186,10 +186,14 @@
         min-height: auto;
       }
 
+      span {
+        z-index: 999;
+      }
+
       &__desk-heroine {
         min-height: 100vh;
         max-height: 100vh;
-        z-index: 1;
+        z-index: 999 !important;
       }
       &__lottie-1 {
         position: absolute;

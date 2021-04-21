@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import ProgressiveImage from "react-progressive-image"
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive'
 
 // Local imports
@@ -83,11 +83,17 @@ const ChapterTitle = ({ addBreakAfter, text }) => {
 }
 
 const HeroImage = ({ chapterNumber }) => (
-  <img
-    src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
-    alt={`Chapter ${chapterNumber} hero image`}
+  <LazyLoadImage
+      alt="Hero image"
+      src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
+      effect="blur"
   />
 )
+
+  {/*<img
+    src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
+    alt={`Chapter ${chapterNumber} hero image`}
+  />*/}
 
 
 export const SidebarOpenContext = React.createContext()

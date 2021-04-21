@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Lottie from "react-lottie"
 import MediaQuery, { useMediaQuery } from 'react-responsive'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Local imports
 import Spacer from "../Spacer"
@@ -106,10 +108,16 @@ const DesktopHero = () => (
       className="home-page__right__hero__lottie-1"
       animationData={circleFrontData}
     />
-    <img
+    <LazyLoadImage
+      alt="Hero image"
       src={heroineImage}
+      effect="blur"
       className="home-page__right__hero__desk-heroine"
     />
+    {/*<img
+      src={heroineImage}
+      className="home-page__right__hero__desk-heroine"
+    />*/}
     <CircleExpandLottieFront
       width={80}
       height={80}
@@ -225,8 +233,8 @@ const Mobile = ({ children }) => {
 const RightSideContent = () => {
   return (
     <>
-      <Desktop><DesktopContent/></Desktop>
-      <Mobile><MobileContent/></Mobile>
+      <Desktop><DesktopContent /></Desktop>
+      <Mobile><MobileContent /></Mobile>
     </>
   )
 }
