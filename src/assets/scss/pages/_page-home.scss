@@ -96,12 +96,12 @@
 
     &__header-resp {
       width: 100vw !important;
-      background: var(--color-grey-2);
+      background: var(--color-grey-6);
       overflow: visible;
       // background: green;
 
       &__title {
-        color: white;
+        color: var(--color-blue-0);
         width: 50%;
         margin: 0 auto;
         &__flap {
@@ -178,7 +178,7 @@
       z-index: 0;
 
       @media (max-width: $large-desktop) {
-        background: var(--color-grey-2);
+        background: var(--color-grey-6);
         width: 100vw !important;
       }
 
