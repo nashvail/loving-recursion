@@ -7,10 +7,10 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Local imports
 import Spacer from "../Spacer"
+import Footer from "../Footer"
 import heroineImage from "../../assets/images/head.png"
 import heroineImage2 from "../../assets/images/head-small.png"
 import Praise from "./Praise"
-import ChapterEnd from "../ChapterEnd"
 import ChapterClicker from "./ChapterClicker"
 
 // Lottie imports
@@ -175,6 +175,8 @@ const MobileContent = () => {
         <Spacer height="sp_lg" />
         <Praise />
       </section>
+      <Spacer height="sp_xl" />
+      <Footer/>
     </section>
   )
 }
@@ -215,6 +217,8 @@ const DesktopContent = () => {
         <Spacer height="sp_lg" />
         <Praise />
       </section>
+      <Spacer height="sp_xl" />
+      <Footer/>
     </section>
   );
 }
