@@ -1,8 +1,6 @@
 import React from "react"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { navigate } from 'gatsby';
-import Helmet from 'react-helmet';
-
 
 import Footer from "../components/Footer"
 import SEO from "../components/seo"
@@ -17,10 +15,9 @@ const GoHomeButton= () => (
   <button type="button" onClick={() => navigate('/')}><HomeIcon /></button>
 )
 
-const NotFoundPage = () => (
+export default () => (
   <main className="four_o_four">
     <SEO title="404: Not found" />
-    <Helmet bodyAttributes={{style: 'background-color : #112D32'}}/>
     <section>
       <div className="art">
         <h1>404</h1>
@@ -41,5 +38,3 @@ const NotFoundPage = () => (
     </section>
   </main>
 )
-
-export default NotFoundPage
