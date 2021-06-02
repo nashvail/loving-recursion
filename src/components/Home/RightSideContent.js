@@ -55,8 +55,8 @@ const ResponsiveHeader = () => {
       <div className="home-page__right__header-resp__title">
         <span className="home-page__right__header-resp__title__flap" />
         <h1>LOVING RECURSION</h1>
-        {!isPhone && (<><Spacer height="sp_sm" />
-          <p>A book about learning to love recursion. Written in English and JavaScript</p></>)}
+        <Spacer height="sp_sm" />
+        <p>A book about learning to love recursion. Written in English and JavaScript</p>
       </div>
       <Spacer height="sp_xl" />
       {!isPhone && <img src={donut1}
@@ -176,7 +176,7 @@ const MobileContent = () => {
         <Praise />
       </section>
       <Spacer height="sp_xl" />
-      <Footer/>
+      <Footer />
     </section>
   )
 }
@@ -218,7 +218,7 @@ const DesktopContent = () => {
         <Praise />
       </section>
       <Spacer height="sp_xl" />
-      <Footer/>
+      <Footer />
     </section>
   );
 }
