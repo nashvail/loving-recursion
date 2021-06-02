@@ -3,9 +3,13 @@ main.four_o_four {
   display: grid;
   place-items: center;
   section {
+    width: 960px;
     margin-top: 10rem;
     display: grid;
     place-items: center;
+    @media (max-width: 960px) {
+      width: 100%;
+    }
     .art {
       margin: 5rem;
       position: relative;
@@ -17,6 +21,10 @@ main.four_o_four {
         width: 210px;
         font-size: $fs-sm;
         line-height: $fs-base;
+        @media (max-width: 500px) {
+          visibility: hidden;
+          display: none;
+        }
       }
       .art_p_1 {
         left: -40px;
@@ -33,7 +41,8 @@ main.four_o_four {
       }
       img {
         display: hidden;
-        max-width: 430px;
+        width: 430px;
+        min-width: 80px;
       }
 
       h1 {
@@ -44,6 +53,10 @@ main.four_o_four {
         mix-blend-mode: overlay;
         color: var(--color-yellow-4);
         z-index: 2;
+        @media (max-width: 500px) {
+          font-size: 8rem;
+          right: 0;
+        }
       }
     }
 
@@ -62,6 +75,6 @@ main.four_o_four {
   }
 
   footer {
-    bottom: 0;
+    margin-bottom: 0 !important;
   }
 }
