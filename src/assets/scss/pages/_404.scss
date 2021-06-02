@@ -1,0 +1,67 @@
+main.four_o_four {
+  // background: var(--color-grey-0);
+  display: grid;
+  place-items: center;
+  section {
+    margin-top: 10rem;
+    display: grid;
+    place-items: center;
+    .art {
+      margin: 5rem;
+      position: relative;
+      display: grid;
+      place-items: center;
+      p {
+        position: absolute;
+        color: var(--color-white);
+        width: 210px;
+        font-size: $fs-sm;
+        line-height: $fs-base;
+      }
+      .art_p_1 {
+        left: -40px;
+        top: 100px;
+        background-color: var(--color-blue-2);
+        mix-blend-mode: screen;
+      }
+
+      .art_p_2 {
+        top: 300px;
+        right: -50px;
+        background-color: var(--color-yellow-1);
+        mix-blend-mode: overlay;
+      }
+      img {
+        display: hidden;
+        max-width: 430px;
+      }
+
+      h1 {
+        position: absolute;
+        right: -75px;
+        top: 50px;
+        font-size: 12rem;
+        mix-blend-mode: overlay;
+        color: var(--color-yellow-4);
+        z-index: 2;
+      }
+    }
+
+    button {
+      width: 2 * $sp-xxl;
+      height: 2 * $sp-xxl;
+      padding: $sp-base;
+      border-radius: 100%;
+      background-color: var(--color-grey-minus1);
+      margin-bottom: $sp-xl;
+      transition: background-color 0.3s $ease-out;
+      &:hover {
+        background-color: var(--color-blue-0);
+      }
+    }
+  }
+
+  footer {
+    bottom: 0;
+  }
+}

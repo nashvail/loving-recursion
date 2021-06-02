@@ -11,17 +11,17 @@ const Footer = () => {
           <h3>By Nash Vail</h3>
           <ul className="footer__left__links">
             <li>
-              <a href="#">
+              <a href="http://twitter.com/nashvail">
                 <h4>Tweet a Feedback</h4>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://www.buymeacoffee.com/6WOkNZ4l3">
                 <h4>Support</h4>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://github.com/nashvail/loving-recursion">
                 <h4>Contribute</h4>
               </a>
             </li>
