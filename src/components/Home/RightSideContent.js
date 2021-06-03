@@ -10,6 +10,7 @@ import Spacer from "../Spacer"
 import Footer from "../Footer"
 import heroineImage from "../../assets/images/head.png"
 import heroineImage2 from "../../assets/images/head-small.png"
+import heroineImagePlacholder from "../../assets/images/head_placeholder.jpg"
 import Praise from "./Praise"
 import ChapterClicker from "./ChapterClicker"
 
@@ -112,12 +113,10 @@ const DesktopHero = () => (
       alt="Hero image"
       src={heroineImage}
       effect="blur"
+      placeholderSrc={heroineImagePlacholder}
       className="home-page__right__hero__desk-heroine"
+      beforeLoad={() => console.log('loaded')}
     />
-    {/*<img
-      src={heroineImage}
-      className="home-page__right__hero__desk-heroine"
-    />*/}
     <CircleExpandLottieFront
       width={80}
       height={80}

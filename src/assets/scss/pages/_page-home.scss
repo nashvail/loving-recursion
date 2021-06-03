@@ -180,7 +180,7 @@
     &__hero {
       position: relative;
       max-height: 100vh;
-      min-height: 100vh;
+      min-height: 1000px;
       overflow: hidden;
       display: grid;
       justify-items: center;
@@ -201,7 +201,7 @@
       }
 
       &__desk-heroine {
-        min-height: 100vh;
+        min-height: 1000px;
         max-height: 100vh;
         z-index: 999 !important;
       }

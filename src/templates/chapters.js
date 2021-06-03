@@ -8,7 +8,6 @@ import Spacer from "../components/Spacer"
 import InlineSideBar from "../components/InlineSidebar"
 import MobileSidebar from "../components/MobileSidebar"
 import SEO from "../components/seo";
-import Image from "../components/image"
 
 // Import constants
 import { TRANSITION_EASE } from "../constants"
@@ -86,15 +85,10 @@ const HeroImage = ({ chapterNumber }) => (
   <LazyLoadImage
       alt="Hero image"
       src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
+      placeholderSrc={require(`../assets/images/chapter-heroes/placeholders/${chapterNumber}.jpg`)}
       effect="blur"
   />
 )
-
-  {/*<img
-    src={require(`../assets/images/chapter-heroes/${chapterNumber}.png`)}
-    alt={`Chapter ${chapterNumber} hero image`}
-  />*/}
-
 
 export const SidebarOpenContext = React.createContext()
 

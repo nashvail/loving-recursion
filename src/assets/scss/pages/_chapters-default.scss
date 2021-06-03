@@ -49,6 +49,7 @@
         padding-top: 5rem;
         max-width: 60%;
         z-index: 1;
+        max-width: 1000px;
 
         @media (max-width: $large-desktop) {
           max-width: 70%;
