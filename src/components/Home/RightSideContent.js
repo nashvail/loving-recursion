@@ -115,7 +115,6 @@ const DesktopHero = () => (
       effect="blur"
       placeholderSrc={heroineImagePlacholder}
       className="home-page__right__hero__desk-heroine"
-      beforeLoad={() => console.log('loaded')}
     />
     <CircleExpandLottieFront
       width={80}

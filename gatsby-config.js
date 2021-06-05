@@ -5,6 +5,31 @@ module.exports = {
     title: `Loving Recursion`,
     description: `A book about learning to love recursion`,
     author: `@nashvail`,
+    url: 'https://loving-recursion.co',
+    image:'og.png',
+    keywords: [
+      "nash",
+      "vail",
+      "tutorial",
+      "code",
+      "javascript",
+      "recursion",
+      "algorithms",
+      "algorithm",
+      "recursive",
+      "web",
+      "hanoi",
+      "graphical recursion",
+      "sierpinski",
+      "koch",
+      "snowflake",
+      "mondrian",
+      "art",
+      "understanding"
+    ],
+    social: {
+      twitter: "@nashvail",
+    }
   },
   plugins: [
     `gatsby-plugin-transition-link`,
