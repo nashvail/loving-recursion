@@ -13,9 +13,9 @@
   },
   {
     "chapterName": "And Then Comes Trust",
-    "link": "/",
+    "link": "/chapter2",
     "chapterNumber": 2,
-    "published": false
+    "published": true
   },
   {
     "chapterName": "Connections & Procedures",
