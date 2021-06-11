@@ -68,7 +68,6 @@ const ChapterTitle = ({ addBreakAfter, text }) => {
             {sentence1.join(" ")}
           </span>
         </span>
-        <br />
         <span
           initial={{ y: 300 }}
           animate={{ y: 0 }}
