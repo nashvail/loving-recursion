@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "loving-recursion-book",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "loving-recursion-book",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Nash Vail <howdynash@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
@@ -46,7 +46,9 @@
     "react-progressive-image": "^0.6.0",
     "react-responsive": "^8.2.0",
     "splitting": "^1.0.6",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "remark-html-katex": "3.0.0",
+    "remark-math": "3.0.1"
   },
   "devDependencies": {
     "prettier": "2.0.5"

@@ -57,6 +57,10 @@ module.exports = {
           posts: require.resolve("./src/templates/chapters.js"),
           default: require.resolve("./src/templates/chapters.js"),
         },
+        remarkPlugins: [
+          require('remark-math'),
+          require('remark-html-katex'),
+        ],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
