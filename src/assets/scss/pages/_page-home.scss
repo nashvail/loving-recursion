@@ -33,11 +33,10 @@
     max-width: 40vw;
     height: 100vh;
     padding: 0 40px 64px 40px;
-    // background: var(--color-white);
     background: #2c2a2e;
     @include font-sm;
 
-    @media (max-width: 1500px) {
+    @media (max-width: 1280px) {
       visibility: hidden;
       display: none;
     }
@@ -46,7 +45,7 @@
       color: white;
       text-transform: uppercase;
       margin-bottom: 0;
-      // font-size: clamp($fs-md, 3.6vw, $fs-xl);
+      font-size: clamp($fs-md, 3.8vw, $fs-xl);
       &--word-one,
       &--word-two {
         display: inline-block;
