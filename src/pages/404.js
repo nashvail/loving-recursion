@@ -12,7 +12,7 @@ import HomeIcon from "../assets/icons/32x32/home.inline.svg"
 import heroineFourOFour from "../assets/images/head_404.png"
 
 const GoHomeButton= () => (
-  <button type="button" onClick={() => navigate('/')}><HomeIcon /></button>
+  <button role="button" type="button" onClick={() => navigate('/')}><HomeIcon /></button>
 )
 
 export default () => (

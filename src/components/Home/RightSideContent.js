@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import React from "react"
 import Lottie from "react-lottie"
-import MediaQuery, { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'react-responsive'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -19,7 +18,6 @@ import circleFrontData from "../../lotties/circleExpand.json"
 import circleFrontData2 from "../../lotties/circleExpand2.json"
 
 // Icon/Images imports
-import IndexIcon from "../../assets/icons/32x32/index-yellow.inline.svg"
 import donut1 from "../../assets/images/donut-1.svg";
 
 // Data imports
@@ -128,6 +126,7 @@ const DesktopHero = () => (
 const MobileHero = () => (
   <>
     <img
+      alt="Hero Art"
       src={heroineImage2}
       className="home-page__right__hero__mobile-heroine"
     />

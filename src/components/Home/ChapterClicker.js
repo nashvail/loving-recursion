@@ -2,13 +2,12 @@ import React, { useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
 import Lottie from "react-lottie"
 import { Link } from "gatsby"
-import MediaQuery, { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'react-responsive'
 
 import Spacer from "../Spacer"
 import { BREAKPOINTS } from '../../constants'
 
 import eyeLottieData from "../../lotties/eg-lottie.json"
-import backToHomeLottieData from "../../lotties/backToHome.json"
 
 const IconLottie = ({ direction, animationData }) => {
   // Hooks
@@ -80,8 +79,6 @@ const ChapterClicker = ({ number = -1, name = "Demo chapter", link = "#", publis
 
   // Media query hooks
   const isDesktop = useMediaQuery({ minWidth: BREAKPOINTS['large_desktop'] })
-  const isTablet = useMediaQuery({ minWidth: BREAKPOINTS['tablet'], maxWidth: BREAKPOINTS['large_desktop'] })
-  const isPhone = useMediaQuery({ maxWidth: BREAKPOINTS['tablet'] })
 
   const handleOnMouseEnter = e => {
     setLottieDirection(1);

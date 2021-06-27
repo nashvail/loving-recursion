@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
+import React from "react"
 
 import LeftSideContent from "../components/Home/LeftSideContent"
 import RightSideContent from "../components/Home/RightSideContent"

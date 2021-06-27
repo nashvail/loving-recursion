@@ -32,7 +32,7 @@ const ChapterSwitcher = ({ currentChapter = 0 }) => {
         <h3>{chapters[currentChapter]['chapterName']}</h3>
         <Spacer height='sp_lg' />
         <ProgressiveImage src={require(`../../assets/images/chapter-heroes/${currentChapter}.png`)}>
-          {src => <img src={src} />}
+          {src => <img alt="Chapter Hero" src={src} />}
         </ProgressiveImage>
       </div>
       <div className="chapter_switcher__controls">
@@ -49,7 +49,3 @@ ChapterSwitcher.propTypes = {
 }
 
 export default ChapterSwitcher
-
-/*
- <Button style={{ borderBottomRightRadius: "8px" }} text="Next Chapter" link={generateNextChapterLink(currentChapter)} />
-*/

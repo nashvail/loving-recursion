@@ -154,7 +154,7 @@
       background: var(--color-grey-0);
       padding: $sp-lg;
       z-index: 2;
-      margin-top: -15rem !important;
+      // margin-top: -15rem !important;
 
       & > ul {
         display: grid;
@@ -179,7 +179,7 @@
     &__hero {
       position: relative;
       max-height: 100vh;
-      min-height: 1000px;
+      // min-height: 1000px;
       overflow: hidden;
       display: grid;
       justify-items: center;
@@ -189,10 +189,6 @@
       @media (max-width: $large-desktop) {
         background: var(--color-grey-6);
         width: 100vw !important;
-      }
-
-      @media (max-width: $tablet) {
-        min-height: auto;
       }
 
       span {
@@ -205,19 +201,33 @@
         z-index: 999 !important;
       }
       &__lottie-1 {
+        visibility: hidden;
+        display: none;
         position: absolute;
         top: calc(10%);
         left: calc(52% / 2 - (52% / 5) - 7rem);
         z-index: 0;
+        @media (min-width: 1500px) and (max-width: 2000px) {
+          visibility: visible;
+          display: block;
+        }
       }
       &__lottie-2 {
+        visibility: hidden;
+        display: none;
         position: absolute;
         right: calc(52% / 2 - 10rem);
         bottom: calc(20%);
+        @media (min-width: 1500px) and (max-width: 2000px) {
+          visibility: visible;
+          display: block;
+        }
       }
 
       &__mobile-heroine {
-        max-height: 96vh;
+        // max-height: auto;
+        height: auto;
+        width: 600px;
         overflow: visible;
         // max-width: 55%;
         // margin-bottom: -10rem;
