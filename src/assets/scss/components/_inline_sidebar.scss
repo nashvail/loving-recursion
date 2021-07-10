@@ -1,4 +1,20 @@
 .inline-sidebar {
+
+  // Styling the default scrollbar
+  &::-webkit-scrollbar {
+    width: 1rem;
+    background: var(--color-grey-minus1);
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-blue-1);
+    outline: none;
+  }
+
   position: fixed;
   color: var(--color-white);
   top: 0;
@@ -28,10 +44,12 @@
     grid-template-columns: auto auto;
     grid-gap: $sp-base;
     align-items: end;
+
     div {
       h2 {
         span {
           display: block;
+
           &:nth-child(2) {
             margin-top: -$sp-sm/2;
           }
