@@ -1,9 +1,9 @@
-![Cover](./readme_images/hero.gif)
+[![Cover](./readme_images/hero.gif)](https://loving-recursion.co)
 
-![Figma](./readme_images/figma_link.png)
+[![Figma File](./readme_images/figma_link.png)](https://www.figma.com/community/file/995653062242637146/Loving-Recursion-Book)
 
-### Upcoming Chapters
+### Published Chapters
 -----
-![Chapter 1](./readme_images/2.png)
+[![Chapter 0](./readme_images/ch0.gif)](https://loving-recursion.co/chapter0)
 
-![Chapter 2](./readme_images/3.png)
+[![Chapter 1](./readme_images/ch1.gif)](https://loving-recursion.co/chapter1)
