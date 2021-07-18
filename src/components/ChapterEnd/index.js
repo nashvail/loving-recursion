@@ -10,9 +10,6 @@ import ChapterClicker from "../Home/ChapterClicker"
 import Spacer from "../Spacer"
 import Footer from "../Footer"
 
-// Image imports
-import footer_art from "../../assets/images/footer_art.png"
-
 // Chapter Data
 import chapters from "../../data/chapters.json"
 

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import React from "react"
+import { Link } from "gatsby"
 import Lottie from "react-lottie"
-import MediaQuery, { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'react-responsive'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -19,7 +19,6 @@ import circleFrontData from "../../lotties/circleExpand.json"
 import circleFrontData2 from "../../lotties/circleExpand2.json"
 
 // Icon/Images imports
-import IndexIcon from "../../assets/icons/32x32/index-yellow.inline.svg"
 import donut1 from "../../assets/images/donut-1.svg";
 
 // Data imports
@@ -128,6 +127,7 @@ const DesktopHero = () => (
 const MobileHero = () => (
   <>
     <img
+      alt="Hero Art"
       src={heroineImage2}
       className="home-page__right__hero__mobile-heroine"
     />
@@ -147,19 +147,15 @@ const MobileContent = () => {
         <h1>
           <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
           <br /> THE BOOK?
-      </h1>
+        </h1>
         <Spacer height="sp_lg" />
         <p>
-          This book is because one day an article about recursion that I was
-          writing got too long and too deep to be called just an article. See
-          this project as a collection of articles on the same topic or, a
-          “book”, if you want me to feel better and more pompous than I already
-          do; now that I have finished a project I thought I never would. This
-          book is also a test of my ideas on teaching philosophy that I have
-          come up with after some amount of pondering, about 10% more than a
-          normal human would. More details about this in the Introduction
-          chapter.
-      </p>
+          This book exists because an article about recursion that I was writing quietly sneaked past the respectable word limit of an article, and didn't stop until it was inside the borders of numbers of words one could expect in a book.
+        </p>
+        <br/>
+        <p>
+          See this project as a collection of articles on the same topic, or, a "book", if you wish, it'll only make me feel better. This book is also a test of my ideas on teaching philosophy, which I have come up with after pondering on the topic about 10% more than an average human would. More details about this in the <Link to="/chapter0">Introduction Chapter</Link>.
+        </p>
       </section>
       <Spacer height="sp_xxl" />
       <section className="home-page__right__praise" >
@@ -189,19 +185,15 @@ const DesktopContent = () => {
         <h1>
           <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
           <br /> THE BOOK?
-      </h1>
+        </h1>
         <Spacer height="sp_lg" />
         <p>
-          This book is because one day an article about recursion that I was
-          writing got too long and too deep to be called just an article. See
-          this project as a collection of articles on the same topic or, a
-          “book”, if you want me to feel better and more pompous than I already
-          do; now that I have finished a project I thought I never would. This
-          book is also a test of my ideas on teaching philosophy that I have
-          come up with after some amount of pondering, about 10% more than a
-          normal human would. More details about this in the Introduction
-          chapter.
-      </p>
+          This book exists because an article about recursion that I was writing quietly sneaked past the respectable word limit of an article, and didn't stop until it was inside the borders of numbers of words one could expect in a book.
+        </p>
+        <br/>
+        <p>
+          See this project as a collection of articles on the same topic, or, a "book", if you wish, it'll only make me feel better. This book is also a test of my ideas on teaching philosophy, which I have come up with after pondering on the topic about 10% more than an average human would. More details about this in the <Link to="/chapter0">Introduction Chapter</Link>.
+        </p>
       </section>
       <Spacer height="sp_xxl" />
       <section className="home-page__right__praise" >
@@ -222,12 +214,12 @@ const DesktopContent = () => {
 }
 
 const Desktop = ({ children }) => {
-  const isDesktop = useMediaQuery({ minWidth: 1500 })
+  const isDesktop = useMediaQuery({ minWidth: 1280 })
   return isDesktop ? children : null
 }
 
 const Mobile = ({ children }) => {
-  const isMobile = useMediaQuery({ maxWidth: 1500 })
+  const isMobile = useMediaQuery({ maxWidth: 1280 })
   return isMobile ? children : null
 }
 
@@ -241,96 +233,5 @@ const RightSideContent = () => {
   )
 }
 
-/*
-const RightSideContent = () => {
-
-  return (
-    <section className="home-page__right">
-      <section className="home-page__right__hero">
-            <DesktopHero />
-      </section>
-      <section className="home-page__right__intro" >
-        <h1>
-          <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
-          <br /> THE BOOK?
-        </h1>
-        <Spacer height="sp_lg" />
-        <p>
-          This book is because one day an article about recursion that I was
-          writing got too long and too deep to be called just an article. See
-          this project as a collection of articles on the same topic or, a
-          “book”, if you want me to feel better and more pompous than I already
-          do; now that I have finished a project I thought I never would. This
-          book is also a test of my ideas on teaching philosophy that I have
-          come up with after some amount of pondering, about 10% more than a
-          normal human would. More details about this in the Introduction
-          chapter.
-        </p>
-      </section>
-      <Spacer height="sp_xxl" />
-      <section className="home-page__right__praise" >
-        <h1>
-          {" "}
-          <span style={{ color: "var(--color-yellow-4)" }}>
-            A LITTLE
-            </span>{" "}
-          <br /> BIT OF PRAISE
-          </h1>
-        <Spacer height="sp_lg" />
-        <Praise />
-      </section>
-    </section>
-  )
-}
-*/
-
-/*
-const RightSideContent = () => {
-
-  // Media queries
-  const isBigScreen = useMediaQuery({ minWidth: 1500 })
-  const isSmallScreen = useMediaQuery({ maxWidth: 1500 })
-
-  return (
-    <section className="home-page__right">
-      <ResponsiveHeader/>
-      <section className="home-page__right__hero">
-        <MobileHero/>
-      </section>
-      <ResponsiveIndex/>
-      <section className="home-page__right__intro" >
-        <h1>
-          <span style={{ color: "var(--color-yellow-4)" }}>WHY</span>
-          <br /> THE BOOK?
-        </h1>
-        <Spacer height="sp_lg" />
-        <p>
-          This book is because one day an article about recursion that I was
-          writing got too long and too deep to be called just an article. See
-          this project as a collection of articles on the same topic or, a
-          “book”, if you want me to feel better and more pompous than I already
-          do; now that I have finished a project I thought I never would. This
-          book is also a test of my ideas on teaching philosophy that I have
-          come up with after some amount of pondering, about 10% more than a
-          normal human would. More details about this in the Introduction
-          chapter.
-        </p>
-      </section>
-      <Spacer height="sp_xxl" />
-      <section className="home-page__right__praise" >
-        <h1>
-          {" "}
-          <span style={{ color: "var(--color-yellow-4)" }}>
-            A LITTLE
-            </span>{" "}
-          <br /> BIT OF PRAISE
-          </h1>
-        <Spacer height="sp_lg" />
-        <Praise />
-      </section>
-    </section>
-  )
-}
-*/
 
 export default RightSideContent

@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import PropTypes from "prop-types"
 
 // Component Imports
-import ChapterClicker, { HomeClicker } from "../Home/ChapterClicker"
+import ChapterClicker from "../Home/ChapterClicker"
 import ChapterSwitcher from './ChapterSwitcher'
 import Spacer from "../Spacer"
 import HamburgerButton from './Hamburger.js'

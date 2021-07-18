@@ -30,7 +30,7 @@ const Footer = () => {
         <h4>License: <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="__blank">CC BY-NC-SA</a></h4>
       </div>
       <div className="footer__right">
-        <img src={footer_art} />
+        <img src={footer_art} alt="Footer art image" />
       </div>
     </footer>
   );
