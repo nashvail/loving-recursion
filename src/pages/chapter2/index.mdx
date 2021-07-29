@@ -13,3 +13,92 @@ That is why this chapter is important, it'll help you learn to trust. That even 
 The problem we're going to explore in this chapter has no computational utility, it's not an algorithm that makes your online transactions smoother or makes memes load faster. It exists entirely to help develop your trust in the recursive process.
 
 Well, now that I have warmed you up with four bland paragraphs. Let's jump right into the problem!
+
+Here's the setup.
+
+We have 8 discs, 8 is an arbitrarily chosen number by me because it's nice and even and round, it could be any other number and the problem would still function. So again, we have 8 discs. And we have 3 spires. Those things you see below with a round base and a rod sticking out? Yup! those are our spires - A, B, and C. One important thing to notice is that the discs have holes in the center so that they can be slid on the spires.
+
+[ART 1]
+
+The 8 discs are of different sizes, each slightly bigger than the other, so that when stacked properly on a spire, they form a pyramid. 
+To begin with, the 8 discs are stacked on the first spire, or on spire A.
+Our task is to move the pyramid, or the tower, or the stack of discs, it's all the same, from spire A to spire B…
+
+[ART 2]
+
+...while, and this is important, not breaking the following 2 rules.
+
+
+1. We can only move one disc at a time.
+2. While moving, we cannot in any condition place a larger disc over the top of a small one.
+
+Now an obvious question here is, if the task is to move the tower of discs from
+one spire to the next, why the third spire?
+
+[ART 3]
+
+There's no easy way to explain that, except with an example. And before we start, the program we're going to write will of course not animate the solution in the form of discs flying between spires, but rather, quite disappointingly so, write the steps of the solution in your browser's console. You'll see what the steps look like in a bit.
+
+Let's consider an example where 2 discs are stacked on spire A.
+
+[Art 4]
+
+To move this tower from spire A to spire B while also following the two rules, the steps we need to follow are:
+
+*Step-1*: Move disc from spire A to spire C.
+
+[Art 5]
+
+*Step-2*: Move disc from spire A to spire B.
+
+[ART 6]
+
+*Step-3*: Move disc from spire C to spire B.
+
+[Art 7]
+
+The steps of the solution above will be printed in the browser's console (by the function we're going to write in a while) like so:
+
+```
+Move Disc: A to C
+Move Disc: A to B
+Move Disc: C to B
+```
+
+And, I don't know if I *really* need to say this explicitly but taking all the discs off of the first spire, laying them all on the ground, and rearranging them again on the destination spire is not a solution. We have to use the three spires and we have to shuffle the discs between them and we have to not break the two rules, we have to not act like complete idiots. It's the constraints that make this problem so interesting.
+
+So yes, we were able to transfer the stack of discs in just 3 steps. It's because, and you might want to sit down for this, we had just 2 discs. As the number of discs will increase, the steps involved in shifting them will grow exponentially. To move a stack of 4 discs from spire A to B, there are 15 steps involved. To move a stack of 8 discs, 255. Yeah, it's kinda berserk, but stay with me.
+
+It's evident from the steps that the third spire exists to temporarily hold the discs. It's a necessary part. It facilitates the solution, without it we won't be able to complete the objective and also not break the two rules.
+
+Notice that we're not numbering the discs in the steps, as in move disc 1 or disc 2 or disc 7. We are simply saying "Move Disc". The rule says we can only move one disc at a time. Therefore, when it's said "Move Disc: C to A", we know that we'll be moving the disc at the top of the spire C to the top of spire A. Hence, there's no need to uniquely identify each disc with a number.
+
+Now, time for a bigger set of discs, how about 8? Why don't you give it a try on paper? Try writing down the steps, Move Disc from A to B, then from A to C then C to A … e.t.c. e.t.c and eventually lose your mind and sanity. It's not so bad on this side of the fence, promise.
+
+But in all honesty, it's unreasonable to task the human mind to figure and write steps for discs any greater than 5. That's why we have computers and that's why we have code!
+
+---
+
+The point of this chapter is to teach you to trust the recursive process. And after enough warming up, we're here now, we can start. I am going to propose a solution to the discs problem, or like it's lovingly called in Computer Science circles, "The towers of Hanoi" problem or the "Brahma's Discs" problem.
+
+To begin with, we will go back to our original problem with 8 discs and then generalize the solution for any number of discs.
+
+Ready?
+
+Okay!
+
+With all the 8 discs stacked on spire A, imagine if a certain *someone*, for us, **while also not violating any of the 2 necessary rules**, moved the 7 discs at the top of spire A to spire C, and left just one disc on spire A.
+
+[Art 8]
+
+Then, what we can do is move the remaining single disc from spire A to spire B. Remember that, moving a single disc isn't a violation of any of the rules.
+
+[Art 9]
+
+Later, we ask the same, someone, that moved the 7 discs tower from A to C, to move the 7 discs tower from C to B.
+
+[Art 10]
+
+And there it is! Our final desired state! All 8 discs stacked on top of spire B.
+
+"Okay Nash… but who is this *someone*?", you might ask.

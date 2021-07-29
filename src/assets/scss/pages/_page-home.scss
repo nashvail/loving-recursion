@@ -26,10 +26,9 @@
 
   &__left {
 
-    // Styling the default scrollbar
     &::-webkit-scrollbar {
       width: 1rem;
-      background: var(--color-grey-minus1);
+      background: var(--color-grey-minus2);
     }
 
     &::-webkit-scrollbar-track {
@@ -37,10 +36,9 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(--color-blue-1);
+      background-color: var(--color-grey-1);
       outline: none;
     }
-
 
     // This left is not a grid item
     position: fixed;
