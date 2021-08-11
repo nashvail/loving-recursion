@@ -16,15 +16,22 @@ Well, now that I have warmed you up with four bland paragraphs. Let's jump right
 
 Here's the setup.
 
-We have 8 discs, 8 is an arbitrarily chosen number by me because it's nice and even and round, it could be any other number and the problem would still function. So again, we have 8 discs. And we have 3 spires. Those things you see below with a round base and a rod sticking out? Yup! those are our spires - A, B, and C. One important thing to notice is that the discs have holes in the center so that they can be slid on the spires.
+We have 8 discs, 8 is an arbitrarily chosen number by me because it's nice and even and round, it could be any other number and the problem would still function. So again, we have 8 discs.
 
-[ART 1]
+![8 Discs](1.png)
 
-The 8 discs are of different sizes, each slightly bigger than the other, so that when stacked properly on a spire, they form a pyramid. 
-To begin with, the 8 discs are stacked on the first spire, or on spire A.
+And we have 3 spires. Those things you see below with a round base and a rod sticking out? Yup! those are our spires - A, B, and C. One important thing to notice is that the discs have holes in the center so that they can be slid on the spires.
+
+![3 Spires](2.png)
+
+The 8 discs, as apparent from the first image, are of different sizes, each slightly bigger than the other, so that when stacked properly on a spire, they form a pyramid. To begin with, the 8 discs are stacked on the first spire, or on spire A.
+
+![Discs stacked like pyramid](3.png)
+
 Our task is to move the pyramid, or the tower, or the stack of discs, it's all the same, from spire A to spire B…
 
-[ART 2]
+
+![The problem](4.png)
 
 ...while, and this is important, not breaking the following 2 rules.
 
@@ -102,3 +109,62 @@ Later, we ask the same, someone, that moved the 7 discs tower from A to C, to mo
 And there it is! Our final desired state! All 8 discs stacked on top of spire B.
 
 "Okay Nash… but who is this *someone*?", you might ask.
+
+This, *someone*, is the thing that we need to learn to trust.
+
+Remember the rule I talked about in the first chapter? Now that I come to think of it, we could've given it a better name, but we're now stuck with "Give me this and I'll handle the rest" rule. And to quote me from the previous chapter:
+
+> **There's a trust in "Give me this…"** which in this program is `getFibonacciNumber(n-1)` and `getFibonacciNumber(n-2)`. There's no easy way here to trace while writing that the program will return what you're asking of it, but you're trusting the program that it will. Then, comes the "…I'll handle the rest" part which is that if the program correctly gave what you asked of it, you'll do the required calculation, which in this example is adding the two terms together getFibonacciNumber(n-1) + getFibonacciNumber(n-2).
+
+Recursive programs work because the problems they work on are decomposable i.e. they can be broken down into smaller sizes and still be solved with the same exact steps.
+
+Here's what I mean:
+
+Look at the 2 discs problem that we solved earlier. In that problem, leaving just one disc behind, we took the rest of the tower (yes, just 1 disc tall) and transferred it to spire C. Then, we moved the remaining one disc on spire A to spire B, and in the final step moved the rest of the tower - which was just one disc tall - to spire B and finally had the entire tower on spire B. All of that without breaking any of the two rules.
+
+[ART]
+
+If you think, even with just two of your many brain cells; you'll notice a stunning similarity between the solution for 2 discs and the solution we proposed for 8 discs.
+
+So, pulling a common string from the two solutions the steps involved in a general solution, given that we have `n` number discs (where `n` can be ) stacked on spire A, seems to be this:
+
+1. Take the tower of `n-1` discs and move it to spire C. (This will leave a single disc on spire A).
+2. We'll take that single disc on spire A and move it to spire B.
+3. Then, we'll move the tower with `n-1` discs on spire C to spire B.
+4. There's no step 4, we're done moving the tower of n discs from spire A to spire B.
+
+Notice the struck out 1 above? It's because we don't need a solution to move a single disc from spire A to spire B. It's just - pick up the disc and place it there! And this, (hint hint) can become the base case of our general recursive solution.
+
+If we were to write all of that in code, here's what it will look like.
+
+```javascript
+function moveTower(n, startSpire, endSpire, tempSpire) {
+  if (n == 1) {
+    moveSingleDisc(startSpire, endSpire)
+    return
+  }
+  // Step 1
+  moveTower(n - 1, startSpire, tempSpire, endSpire)
+  // Step 2
+  moveSingleDisc(startSpire, endSpire)
+  // Step 3
+  moveTower(n - 1, tempSpire, endSpire, startSpire)
+
+  // 4. There's no step 4, 
+  // We're done moving the tower of n discs from spire A to spire B.
+}
+
+function moveSingleDisc(startSpire, endSpire) {
+  // Print the step
+  console.log("Move Disc:", startSpire, " to ", endSpire)
+}
+
+// Execute the program and print the steps
+moveTower(8, "A", "B", "C")
+```
+
+Feeling lost?
+
+Don't.
+
+Let's start with the two extreme lines in the code block.
