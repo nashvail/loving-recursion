@@ -4,6 +4,8 @@ number: 2
 name: "And then comes trust"
 ---
 
+import Callout from "../../components/In Chapter/Callout"
+
 The difference between normal solutions and recursive ones is that of foresight and trust. Generally, while coming up with a non-recursive solution, your thought process knows the exact steps and where those steps lead to, that's foresight. Whereas, in recursion, you have to, to some degree rely on trusting the process, because you can't–realistically–trace the complete execution of the program.
 
 Whether it's `factorial`, `getFibTerm` or `isOdd`. In all of these recursive functions, it's difficult, and with a greater magnitude of parameters - close to impossible to see exactly how the function is going to unfold and reveal an answer. Even if you were, with some minor difficulties able to trace their execution, as the examples will grow complex you will find yourself losing that foresight and the ability to trace the execution, and it'll be frustrating.
@@ -171,6 +173,9 @@ function moveSingleDisc(startSpire, endSpire) {
 moveTower(8, "A", "B", "C")
 ```
 
+[Notice the ordering of spire parameters in `// Step 1` and `// Step 3`, that was a little doozy, we'll get to it later but it's something to keep in mind.]
+
+
 Feeling lost?
 
 Don't.
@@ -191,15 +196,17 @@ moveTower(8, 'A', 'B', 'C');
 
 The function `moveTower` takes in 4 parameters:
 1. `n`: the number of discs stacked on the starting spire.
-2. `startSpire`: The name of the spire on which discs are stacked initially (we're using the name `A` for `startSpire`).
-3. `endSpire`: The name of the destination spire, where the discs stacked on the `startSpire` are supposed to be transferred to (we've named the `endSpire` `B`).
-4. `tempSpire`: The name of the spire that facilitates the solution, or, temporarily holds the discs (in our case we've given it the name `C`)
+2. `startSpire`: The spire on which the discs are currently stacked.
+3. `endSpire`: The destination spire, the spire to which discs stacked on `startSpire` are supposed to be transferred to.
+4. `tempSpire`: The spire that is going to be used to temporarily hold the discs while they are transferred between `startSpire` and `endSpire`. 
 
-Ignoring the unimaginative spire names, when we execute `moveTower(8, 'A', 'B', 'C')`, it's asking the computer to move a stack of 8 discs stacked on spire 'A' to spire 'B' while using spire 'C' to temporarily hold the discs. And the computer does exactly what it's asked to. The program written above works and prints out the two hundred and fifty-five steps involved in moving an 8 disc tower to Spire B without breaking the 2 aforementioned rules. You can execute the program, follow the steps and see it for yourself!
+Therefore, when we execute `moveTower(8, 'A', 'B', 'C')`, it's asking the computer to move a stack of 8 discs stacked on spire 'A' to spire 'B' while using spire 'C' to temporarily hold the discs. And the computer does exactly what it's asked to. The program written above works and prints out the two hundred and fifty-five steps involved in moving an 8 disc tower to Spire B without breaking the 2 aforementioned rules.
 
-https://codesandbox.io/embed/snippet-1-1po5d?expanddevtools=1&fontsize=16&theme=dark
+Here's a working version of the `moveTower` program, peep the console.
 
-Try changing the value of n in moveTower from 8 to 2, you'll see that the 3 step solution we wrote earlier for 2 discs gets printed.
+https://codesandbox.io/s/snippet-1-1po5d?expanddevtools=1&fontsize=16&theme=dark
+
+Try changing the value of `n` in moveTower from 8 to 2, you'll see that the 3 step solution we wrote earlier for 2 discs gets printed.
 
 ---
 
@@ -221,7 +228,7 @@ function moveTower(n, startSpire, endSpire, tempSpire) {
 }
 ```
 
-The first block we run into is a familiar one. It's the base case! It's here, it was there when we wrote `isEven`, `isOdd`, `getFibTerm`, `factorial`, god! we have already done so much together and we're only in Chapter 2, isn't that exciting?
+The first block we run into inside `moveTower` is a familiar one. It's the base case! It's here, it was there when we wrote `isEven`, `isOdd`, `getFibTerm`, `factorial`, god! we have already done so much together and we're only in Chapter 2, isn't that exciting?
 
 ```javascript{2-5}
 function moveTower(n, startSpire, endSpire, tempSpire) {
@@ -262,13 +269,15 @@ moveTower(8, "A", "B", "C")
 ```
 The following values are assigned to `moveTower`'s parameters.
 * `n` becomes 8.
-* `startSpire` gets the name A.
-* `endSpire` becomes B, and
-* `tempSpire` becomes C.
+* `"A"` becomes the `startSpire`,
+* `"B"` the `endSpire`, and
+* `"C"`, `tempSpire`.
 
-Now, if you remember the general solution, the first step was to slice the tower of discs leaving only one disc on Spire A and transfer the remaining `n-1` discs to Spire C, correct?
+[art here signifying the assignment of parameters of spire]
 
-Which, in code is `moveTower(n-1, 'A', 'C', 'B')`. Again, we're moving from A to
+Now, if you remember the general solution, the first step was to slice the tower of discs leaving only one disc on Spire A and transfer the remaining `n-1` discs to Spire C, *this means*, using Spire B as `tempSpire`, correct?
+
+And this, in code becomes `moveTower(n-1, 'A', 'C', 'B')`. Again, we're moving from A to
 C in this step hence our start spire is A and our ending spire is C (as opposed to B). And that's exactly why we have the first call to `moveTower` inside `moveTower` as:
 
 ```javascript{6,7}
@@ -304,6 +313,8 @@ And in the end, the final step is of moving the sliced tower we put on spire C t
   moveTower(n - 1, tempSpire, endSpire, startSpire)
 ```
 
+[ART]
+
 And thus, the pyramid is is transferred where it’s supposed to be transferred.
 
 After all the mayhem and madness we can quietly come back to *someone*, now isn’t that romantic? The *someone* we were imagining who would transfer the sliced tower with one less disc to the other spire was no one other than our function `moveTower` itself. 
@@ -321,10 +332,11 @@ Let that sink in.
 
 Because recursive problems are decomposable and a problem with a smaller size can be solved with the same exact steps, we can reuse the function we are writing. We let the program sequentially work on problems with smaller and smaller magnitudes, till it hits the base case and comes back with results that can be assembled together into the actual solution of the main problem.
 
-Aside:
-When I say a problem with smaller size or magnitude here’s what I mean. For example  `factorial` when executed with 5 spawns `factorial(4)`. 
+<Callout>
+When I say a problem with smaller size or magnitude here’s what I mean. For example `factorial` when executed with 5 spawns `factorial(4)`. 
 
 Factorial working on 4 is the same problem, calculating  factorial of a number, but with a smaller magnitude i.e. 4 (4 < 5). `factorial(4)` spawns `factorial(3)` which is of even smaller size/magnitude. This goes on until the base case is hit and each spawn assembles and answer which is later assembled into the final result of 5! = 120
+</Callout>
 
 [ART]
 
