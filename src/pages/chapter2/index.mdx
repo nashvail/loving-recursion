@@ -14,7 +14,7 @@ That is why this chapter is important, it'll help you learn to trust. That even 
 
 The problem we're going to explore in this chapter has no computational utility, it's not an algorithm that makes your online transactions smoother or makes memes load faster. It exists entirely to help develop your trust in the recursive process.
 
-Well, now that I have warmed you up with four bland paragraphs. Let's jump right into the problem!
+Now that I have warmed you up with four bland paragraphs. Let's jump right into the problem!
 
 Here's the setup.
 
@@ -50,13 +50,13 @@ one spire to the next, why the third spire?
 
 There's no easy way to explain that, except with an example. And before we start, the program we're going to write will of course not animate the solution in the form of discs flying between spires, but rather, quite disappointingly so, write the steps of the solution in your browser's console. You'll see what the steps look like in a bit.
 
-Let's consider an example where 2 discs are stacked on Spire A.
+Now to account for the existence of a third spire. Let's consider an example where 2 discs are stacked on Spire A.
 
 ![2 discs stacked on Spire A](6.png)
 
-To move this tower (of 2 discs) from Spire A to Spire B **while also following the two rules**, the steps we need to follow are:
+To move this stack of 2 discs from Spire A to Spire B **while respecting the two rules**, the steps we need to follow are:
 
-*Step-1*: Move disc from Spire A to Spire C.
+<b><u>Step 1</u></b>: Move disc from Spire A to Spire C.
 
 ![Move Disc: A to C](7.png)
 
@@ -64,11 +64,11 @@ To move this tower (of 2 discs) from Spire A to Spire B **while also following t
 
 ![](8.png) -->
 
-*Step-2*: Move disc from Spire A to Spire B.
+<b><u>Step 2</u></b>: Move disc from Spire A to Spire B.
 
 ![Move Disc: A to B](9.png)
 
-*Step-3*: Move disc from Spire C to Spire B.
+<b><u>Step 3</u></b>: Move disc from Spire C to Spire B.
 
 ![Move Disc: C to B](10.png)
 
@@ -86,13 +86,13 @@ Move Disc: C to B
 
 And, I don't know if I *really* need to say this explicitly but taking all the discs off of the first spire, laying them all on the ground, and rearranging them again on the destination spire is not a solution. We have to use the three spires and we have to shuffle the discs between them and we have to not break the two rules, we have to not act like complete idiots. It's the constraints that make this problem so interesting.
 
-So yes, we were able to transfer the stack of discs in just 3 steps. It's because, and you might want to sit down for this, we had just 2 discs. As the number of discs will increase, the steps involved in shifting them will grow exponentially. To move a stack of 4 discs from spire A to B, there are 15 steps involved. To move a stack of 8 discs, 255. Yeah, it's kinda berserk, but stay with me.
+So yes, we were able to transfer the stack of discs in just 3 steps. It's because, and you might want to sit down for this, we had just 2 discs. As the number of discs will increase, the steps involved in shifting them will grow exponentially. To move a stack of 4 discs, there are 15 steps involved. To move a stack of 8 discs, 255. Yeah, it's kinda berserk, but stay with me.
 
-It's evident from the steps that the third spire exists to temporarily hold the discs. It's a necessary part. It facilitates the solution, without it we won't be able to complete the objective and also not break the two rules.
+It's evident from the steps that the third spire exists to temporarily hold the discs. It's a necessary part. It facilitates the solution, without it we won't be able to complete the objective.
 
-Notice that we're not numbering the discs in the steps, as in move disc 1 or disc 2 or disc 7. We are simply saying "Move Disc". The rule says we can only move one disc at a time. Therefore, when it's said "Move Disc: C to A", we know that we'll be moving the disc at the top of the spire C to the top of spire A. Hence, there's no need to uniquely identify each disc with a number.
+Notice that we're not numbering the discs in the steps, as in move disc 1 or disc 2 or disc 7. We are simply saying "Move Disc". The rule says we can only move one disc at a time. Therefore, when it's said "Move Disc: C to A", we know that we'll be moving the disc at the top of the Spire C to the top of Spire A. Hence, there's no need to uniquely identify each disc with a number.
 
-Now, time for a bigger set of discs, how about 8? Why don't you give it a try on paper? Try writing down the steps, Move Disc from A to B, then from A to C then C to A … e.t.c. e.t.c and eventually lose your mind and sanity. It's not so bad on this side of the fence, promise.
+Now time for a bigger set of discs, how about 8? Why don't you give it a try on paper? Try writing down the steps, Move Disc from A to B, then from A to C then C to A … e.t.c. e.t.c and eventually lose your mind and sanity. It's not so bad on this side of the fence, promise.
 
 But in all honesty, it's unreasonable to task the human mind to figure and write steps for discs any greater than 5. That's why we have computers and that's why we have code!
 
@@ -100,13 +100,13 @@ But in all honesty, it's unreasonable to task the human mind to figure and write
 
 The point of this chapter is to teach you to trust the recursive process. And after enough warming up, we're here now, we can start. I am going to propose a solution to the discs problem, or like it's lovingly called in Computer Science circles, "The towers of Hanoi" problem or the "Brahma's Discs" problem.
 
-To begin with, we will go back to our original problem with 8 discs and then generalize the solution for any number of discs.
+Recall that I introduced the problem at the beginning of this chapter with 8 discs stacked on Spire A. Let's try and solve that, then later we will generalise the solution for any number of discs, not just 2 or 8.
 
 Ready?
 
 Okay!
 
-With all the 8 discs stacked on spire A, imagine if a certain *someone*, for us, **while also not violating any of the 2 necessary rules**, moved the 7 discs at the top of Spire A to Spire C, and left just one disc on Spire A.
+With all the 8 discs stacked on Spire A, imagine if a certain *someone*, for us, **while also not violating any of the 2 necessary rules**, moved the 7 discs at the top of Spire A to Spire C, and left just one disc on Spire A.
 
 ![Removing 7 discs from Spire A leaves only one disc on Spire A](12.png)
 
@@ -114,7 +114,7 @@ Then, what *we* can do is move the remaining single disc from Spire A to Spire B
 
 ![Move the single disc on Spire A to Spire B](13.png)
 
-Later, we ask the same, *someone*, that moved the 7 discs tower from A to C, to move the 7 discs tower from C to B.
+Later, we ask the same, *someone*, that moved the 7 discs stack from A to C, to move the same stack from C to B.
 
 ![Move the 7 discs tower from Spire C to Spire B](14.png)
 
@@ -124,9 +124,7 @@ And there it is! Our final desired state! All 8 discs stacked on top of Spire B.
 
 This, *someone*, is the thing that we need to learn to trust.
 
-Remember the rule I talked about in the first chapter? Now that I come to think of it, we could've given it a better name, but we're now stuck with "Give me this and I'll handle the rest" rule. And to quote myself from the previous chapter:
-
-> **There's a trust in "Give me this…"** which in this program is `getFibTerm(n-1)` and `getFibTerm(n-2)`. There's no easy way here to trace while writing that the program will return what you're asking of it, but you're trusting the program that it will. Then, comes the "…I'll handle the rest" part which is that if the program correctly gave what you asked of it, you'll do the required calculation, which in this example is adding the two terms together `getFibTerm(n-1) + getFibTerm(n-2)`.
+---
 
 Recursive programs work because the problems they work on are decomposable i.e. they can be broken down into smaller sizes and still be solved with the same exact steps.
 
@@ -134,213 +132,246 @@ Here's what I mean:
 
 Look at the 2 discs problem that we solved earlier. In that problem, leaving just one disc behind, we took the rest of the tower (yes, just 1 disc tall) and transferred it to Spire C. Then, we moved the remaining one disc on Spire A to Spire B, and in the final step moved the rest of the tower - which was just one disc tall - to Spire B and finally had the entire tower on Spire B. All of that without breaking any of the two rules.
 
-If you think, even with just two of your many brain cells; you'll notice a stunning similarity between the solution for 2 discs and the solution we proposed for 8 discs.
+[RECALL ART 2 DISC PROBLEM]
 
-So, pulling a common string from the two solutions the steps involved in a general solution, given that we have `n` number discs (where `n` can be any integer greater than 1 ) stacked on Spire A, seems to be this:
+If you think, even with just two of your many brain cells; you'll notice a stunning similarity between the solution for 2 discs and the solution we just went over for 8 discs.
 
-1. Take the tower of `n-1` discs and move it to spire C. (This will leave a single disc on spire A).
-2. We'll take that single disc on spire A and move it to spire B.
-3. Then, we'll move the tower with `n-1` discs on spire C to spire B.
-4. There's no step 4, we're done moving the tower of n discs from spire A to spire B.
+Do you see it?
 
-Notice I said `n` can be any number *greater than 1*, it's because we don't need a solution to move a single disc from Spire A to Spire B. It's just - pick up the disc and place it there! And this, (hint hint) can become the base case of our general recursive solution.
+Pulling a common string from the two solutions can help us in proposing a general solution for an `n` number of discs, where `n` could be any integer greater than 1.
 
-If we were to write all of that in code, here's what it will look like.
+We'll write a function called `moveStack`, whose signature looks like this.
 
 ```javascript
-function moveTower(n, startSpire, endSpire, tempSpire) {
+function moveStack(n, fromSpire, toSpire, tempSpire) {}
+```
+
+`moveStack` takes in 4 parameters:
+1. `n`: the number of discs to be moved.
+2. `fromSpire`: The name of the spire on which the discs are currently stacked.
+3. `toSpire`: The name of the destination spire, the spire to which discs stacked on `fromSpire` are supposed to be transferred to.
+4. `tempSpire`: The name of the spire that is going to be used to temporarily hold the discs while they are transferred between `fromSpire` and `toSpire`.
+
+Once we have filled in the `moveStack` function with the correct algorithm between the braces, executing ... 
+
+```javascript
+moveStack(8, 'A', 'B', 'C')
+```
+
+... will print the steps involved in moving a stack of `8` discs from a spire named 'A' to spire named 'B' while using the spire named 'C' as the temporary spire.
+
+Before writing the steps in JavaScript, let's write them down in English.
+
+In case you have forgotten, here's a quick recap of the setup.
+
+To begin with the `n` discs are stacked on a spire we have name 'A', we could've name it Ahmed, or Anita but A is a good enough name for a spire. Our goal is to move the stack of discs from Spire A (`fromSpire`) to Spire B (`toSpire`) while using Spire C as the temporary spire (`tempSpire`).
+
+[ART GENERAL SETUP]
+
+With this setup, the steps involved in the general solution are:
+
+<b><u>Step-1:</u></b> Take the tower of `n-1` discs from `fromSpire` and move it to *tempSpire*. (This will leave a single disc on `fromSpire`).
+
+[ART]
+
+<b><u>Step-2:</u></b>  Take that single disc on `fromSpire` (From Spire) and move it to `toSpire`
+
+[ART]
+
+<b><u>Step-3:</u></b> Then, we'll move the tower with `n-1` discs on `tempSpire` (Temp Sire) to `toSpire`
+
+[ART]
+
+<b><u>Step-4:</u></b>  There's no step 4, we're done moving the stack!
+
+[ART?]
+
+Here's how everything looks when written in code, don't worry if it doesn't make sense in the first go, we'll break it down soon after the chunk of code you see below.
+
+```javascript
+function moveStack(n, fromSpire, toSpire, tempSpire) {
+  // Base case
   if (n == 1) {
-    moveSingleDisc(startSpire, endSpire)
+    moveSingleDisc(fromSpire, toSpire)
     return
   }
   // Step 1
-  moveTower(n - 1, startSpire, tempSpire, endSpire)
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
   // Step 2
-  moveSingleDisc(startSpire, endSpire)
+  moveSingleDisc(fromSpire, toSpire)
   // Step 3
-  moveTower(n - 1, tempSpire, endSpire, startSpire)
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
 
   // 4. There's no step 4, 
-  // We're done moving the tower of n discs from spire A to spire B.
+  // We're done moving the stack!
 }
 
-function moveSingleDisc(startSpire, endSpire) {
+function moveSingleDisc(fromSpire, toSpire) {
   // Print the step
-  console.log("Move Disc:", startSpire, " to ", endSpire)
+  console.log("Move Disc:", fromSpire, " to ", toSpire)
 }
 
 // Execute the program and print the steps
-moveTower(8, "A", "B", "C")
+moveStack(8, "A", "B", "C")
 ```
 
-[Notice the ordering of spire parameters in `// Step 1` and `// Step 3`, that was a little doozy, we'll get to it later but it's something to keep in mind.]
+The only confusion landmine I am worried about, that can surprise you here is the ordering of parameters inside `moveStack` in `// Step 1` and `// Step 3`.
 
-
-Feeling lost?
-
-Don't.
-
-Let's start with the two extreme lines in the code block.
-
-```javascript{1,9}
-function moveTower(n, startSpire, endSpire, tempSpire) {
-  ...
-}
-
-function moveSingleDisc(startSpire, endSpire) {
-  ...
-}
-
-moveTower(8, 'A', 'B', 'C');
+```javascript{1-2,5-6}
+  // Step 1
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
+  // Step 2
+  moveSingleDisc(fromSpire, toSpire)
+  // Step 3
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
 ```
 
-The function `moveTower` takes in 4 parameters:
-1. `n`: the number of discs stacked on the starting spire.
-2. `startSpire`: The spire on which the discs are currently stacked.
-3. `endSpire`: The destination spire, the spire to which discs stacked on `startSpire` are supposed to be transferred to.
-4. `tempSpire`: The spire that is going to be used to temporarily hold the discs while they are transferred between `startSpire` and `endSpire`. 
+That, took some extra brain power for me to understand, from where I am I cannot reliably predict if you're stumped by the same confusion or if I am just a slight bit slower than an averager person. But in any case we'll try to minimize that confusion as we go.
 
-Therefore, when we execute `moveTower(8, 'A', 'B', 'C')`, it's asking the computer to move a stack of 8 discs stacked on spire 'A' to spire 'B' while using spire 'C' to temporarily hold the discs. And the computer does exactly what it's asked to. The program written above works and prints out the two hundred and fifty-five steps involved in moving an 8 disc tower to Spire B without breaking the 2 aforementioned rules.
-
-Here's a working version of the `moveTower` program, peep the console.
+Before we proceed, here's a working version of the whole program. Peep the console.
 
 https://codesandbox.io/s/snippet-1-1po5d?expanddevtools=1&fontsize=16&theme=dark
 
-Try changing the value of `n` in moveTower from 8 to 2, you'll see that the 3 step solution we wrote earlier for 2 discs gets printed.
+In the editor, try changing the value of `n` in `moveStack` from 8 to 2, you'll see that the 3 step solution we wrote earlier for 2 discs gets printed.
+
+i.e.
+
+```
+Move Disc: A to C
+Move Disc: A to B
+Move Disc: C to B
+```
 
 ---
 
 It's deceptively simple how less than 10 lines of code are able to accomplish something seemingly impossible for the human brain, right? That's how Recursion feels like sometimes, get used to it.
 
-If we peek at the innards of `moveTower`, it's just plain English so it shouldn't be that hard to wrap your head around it.
+If we peek at the innards of `moveStack`, it's just plain English so it shouldn't be that hard to wrap your head around it.
 
-Here's the entire `moveTower` function without any comments. Take a second and marvel at its beauty.
+Here's the entire `moveStack` function without any comments. Take a second and marvel at its beauty, its short size and its humongous ability.
 
 ```javascript
-function moveTower(n, startSpire, endSpire, tempSpire) {
+function moveStack(n, fromSpire, toSpire, tempSpire) {
   if (n === 1) {
-    moveSingleDisc(startSpire, endSpire)
+    moveSingleDisc(fromSpire, toSpire)
     return
   }
-  moveTower(n - 1, startSpire, tempSpire, endSpire)
-  moveSingleDisc(startSpire, endSpire)
-  moveTower(n - 1, tempSpire, endSpire, startSpire)
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
+  moveSingleDisc(fromSpire, toSpire)
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
 }
 ```
 
-The first block we run into inside `moveTower` is a familiar one. It's the base case! It's here, it was there when we wrote `isEven`, `isOdd`, `getFibTerm`, `factorial`, god! we have already done so much together and we're only in Chapter 2, isn't that exciting?
+The first block we run into inside `moveStack` is a familiar one. It's the base case! It's here, it was there when we wrote `isEven`, `isOdd`, `getFibTerm`, `factorial`, god! we have already done so much together and we're only in Chapter 2, isn't that exciting?
 
 ```javascript{2-5}
-function moveTower(n, startSpire, endSpire, tempSpire) {
+function moveStack(n, fromSpire, toSpire, tempSpire) {
   // Base case
   if (n == 1) {
-    moveSingleDisc(startSpire, endSpire)
+    moveSingleDisc(fromSpire, toSpire)
     return
   }
-  moveTower(n - 1, startSpire, tempSpire, endSpire)
-  moveSingleDisc(startSpire, endSpire)
-  moveTower(n - 1, tempSpire, endSpire, startSpire)
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
+  moveSingleDisc(fromSpire, toSpire)
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
 }
 ```
 
-The base case, if you remember, is what stops the execution from going into an infinite loop. If that has slipped your mind, then "a missing base case will make a ball dropped from the top of a staircase go into a portal and hit on the top of your head" should ring a bell.
+The base case, if you remember, is what stops the execution from going into an infinite loop. If that has slipped your mind, then, "a missing base case will make a ball dropped from the top of a staircase go into a portal and hit on the top of your head" should ring a bell.
 
 ![](15.png)
 
 Notice, how in each call we're reducing the value of `n` by `1`, so eventually `n` *will* become `1` and hit the base case and we *will* stop the repeated execution with a `return `.
 
 ```javascript{4,6,8}
-function moveTower(n, startSpire, endSpire, tempSpire) {
+function moveStack(n, fromSpire, toSpire, tempSpire) {
   if (n == 1) {
-    moveSingleDisc(startSpire, endSpire)
+    moveSingleDisc(fromSpire, toSpire)
     return
   }
-  moveTower(n - 1, startSpire, tempSpire, endSpire)
-  moveSingleDisc(startSpire, endSpire)
-  moveTower(n - 1, tempSpire, endSpire, startSpire)
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
+  moveSingleDisc(fromSpire, toSpire)
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
 }
 ```
 
-The other thing to pay attention to is the different sequence of spire parameters ordering in the first and second calls to `moveTower` inside `moveTower`. This is important, so follow closely, that Instagram DM can wait.
+The other thing, like I mentioned before, is to pay attention to the different ordering of spire parameters in the first and second calls to `moveStack` inside `moveStack`. This is important, so follow closely.
 
-When you execute `moveTower`, say like so:
+When you execute `moveStack`, say like so:
 ``` javascript
-moveTower(8, "A", "B", "C")
+moveStack(8, 'A', 'B', 'C')
 ```
-The following values are assigned to `moveTower`'s parameters.
+The following values are assigned to `moveStack`'s parameters.
 * `n` becomes 8.
-* `"A"` becomes the `startSpire`,
-* `"B"` the `endSpire`, and
-* `"C"`, `tempSpire`.
+* `fromSpire` becomes A
+* `toSpire` becomes B, and 
+* `tempSpire` becomes C
 
-[art here signifying the assignment of parameters of spire]
 
-Now, if you remember the general solution, the first step was to slice the tower of discs leaving only one disc on Spire A and transfer the remaining `n-1` discs to Spire C, *this means*, using Spire B as `tempSpire`, correct?
+Now, if you remember the general solution, the **first** step was to slice the tower of discs leaving only one disc on `fromSpire` and transfer the remaining `n-1` discs to `tempSpire`, *this is why* the first call to `moveStack` inside `moveStack` has `toSpire` as the 3rd parameter because the stack of discs is being transferred between `fromSpire` and `tempSpire`
 
-And this, in code becomes `moveTower(n-1, 'A', 'C', 'B')`. Again, we're moving from A to
-C in this step hence our start spire is A and our ending spire is C (as opposed to B). And that's exactly why we have the first call to `moveTower` inside `moveTower` as:
+[ART OF THE TWO CONCERNED]
 
-```javascript{6,7}
-function moveTower(n, startSpire, endSpire, tempSpire) {
+
+```javascript{6}
+function moveStack(n, fromSpire, toSpire, tempSpire) {
   if (n == 1) {
-    moveSingleDisc(startSpire, endSpire)
+    moveSingleDisc(fromSpire, toSpire)
     return
   }
-  // startSpire = A, tempSpire = C, endSpire = B
-  moveTower(n - 1, startSpire, tempSpire, endSpire)
-  moveSingleDisc(startSpire, endSpire)
-  moveTower(n - 1, tempSpire, endSpire, startSpire)
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
+  moveSingleDisc(fromSpire, toSpire)
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
 }
 ```
 
-It's very easy to get confused here with the different ordering of parameters so DO NOT move beyond this point unless you understand it fully.
+And for a similar reason, since in the last step we're transferring stack from `tempSpire` to `toSpire` we have `fromSpire` as the third parameter.
 
-Alright?…
-
-…hoping that you *did*, the next function is `moveSingleDisc`. All it does is it prints the step of moving a disc from one spire to another to the console. That’s all!
-
-```javascript
-function moveSingleDisc(startSpire, endSpire) {
-  console.log("Move Disc:", startSpire, " to ", endSpire)
+```javascript{8}
+function moveStack(n, fromSpire, toSpire, tempSpire) {
+  if (n == 1) {
+    moveSingleDisc(fromSpire, toSpire)
+    return
+  }
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
+  moveSingleDisc(fromSpire, toSpire)
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
 }
 ```
 
-And in the end, the final step is of moving the sliced tower we put on spire C to spire B.
+At this point I am hoping with 3 :finger-crossed-emojis: that you have understood the reason behind different ordering of spire parameters in the first and second calls to `moveStack`.
 
+The next function we need to talk about is `moveSingleDisc`. All it does is it prints the step of moving a single disc from one spire to another to the console. That’s all!
 
 ```javascript
-  // tempSpire = C, endSpire = B, startSpire = A
-  moveTower(n - 1, tempSpire, endSpire, startSpire)
+function moveSingleDisc(fromSpire, toSpire) {
+  console.log("Move Disc:", fromSpire, " to ", toSpire)
+}
 ```
 
-[ART]
+After all the mayhem and madness we can quietly come back to *someone*, now isn’t that romantic? The *someone* we were imagining who would transfer the sliced stack with one less disc to the other spire was no one other than our function `moveStack` itself!! 
 
-And thus, the pyramid is is transferred where it’s supposed to be transferred.
+That reliance on *someone* is signified by the calls to `moveStack` *inside* `moveStack`
 
-After all the mayhem and madness we can quietly come back to *someone*, now isn’t that romantic? The *someone* we were imagining who would transfer the sliced tower with one less disc to the other spire was no one other than our function `moveTower` itself. 
+[SOME SORTA ART MAYBE HERE]
 
-*cue mind-blown emoji*
+And if you recall the "Give me this and I'll handle the rest" rule from the [first chapter](https://loving-recursion.co/chapter1), which now I come to think of it is *quite* a verbose name. There's a trust in "Give me this..", which in `moveStack` is asking the program to move the stack without breaking the two rules and "...I'll handle the rest" is moving the single disc from `fromSpire` to `toSpire`.
 
-🤯
-
----
-[Code highlighting moveTowers inside moveTower]
-
-And so is the case with “Give me this…” in `getFibonacciNumber` or any of the other recursive functions we have written previously. The someone we are asking to “give” is the function we are writing, isn’t it?
+And so is the case with “Give me this…” in `getFibTerm` or any of the other recursive functions we have written previously. The *someone* we are asking to “give” is the function we are writing, isn’t it?
 
 Let that sink in.
 
 Because recursive problems are decomposable and a problem with a smaller size can be solved with the same exact steps, we can reuse the function we are writing. We let the program sequentially work on problems with smaller and smaller magnitudes, till it hits the base case and comes back with results that can be assembled together into the actual solution of the main problem.
 
 <Callout>
-When I say a problem with smaller size or magnitude here’s what I mean. For example `factorial` when executed with 5 spawns `factorial(4)`. 
+When I say a problem with smaller size or magnitude here’s what I mean. 
 
-Factorial working on 4 is the same problem, calculating  factorial of a number, but with a smaller magnitude i.e. 4 (4 < 5). `factorial(4)` spawns `factorial(3)` which is of even smaller size/magnitude. This goes on until the base case is hit and each spawn assembles and answer which is later assembled into the final result of 5! = 120
+For example, `factorial` function (which we wrote in the previous chapter) when executed with 5 spawns `factorial(4)`. Factorial working on 4 is the same problem, calculating  factorial of a number, but with a smaller magnitude i.e. 4 (4 < 5). `factorial(4)` spawns `factorial(3)` which is of even smaller size/magnitude. This goes on until the base case is hit and each spawn assembles an answer which is later assembled into the final result of 5! = 120
 </Callout>
 
 [ART]
 
-This, spawning of multiple arms is not clearly visible from the surface, when you write `moveTower(n-1….` it’s not easy to see that it will go ahead and spawn another `moveTower` and that will spawn another one, and that in turn another one until the result is reached. The missing foresight is why we need to develop trust in the recursive process. Given, that our recursive insight works on a problem with given magnitude it will also work on problems with different and smaller magnitudes.
+This, spawning of multiple arms is not clearly visible from the surface, when you write `moveStack(n-1….` it’s not easy to see that it will go ahead and spawn another `moveStack` and that will spawn another one, and that in turn another one until the result is reached. The missing foresight is why we need to develop trust in the recursive process. Given, that our recursive insight works on a problem with given magnitude it will also work on problems with different and smaller magnitudes.
 
 
 ## Summary
