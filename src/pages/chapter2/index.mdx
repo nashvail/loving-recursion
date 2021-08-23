@@ -136,6 +136,8 @@ Look at the 2 discs problem that we solved earlier. In that problem, leaving jus
 
 If you think, even with just two of your many brain cells; you'll notice a stunning similarity between the solution for 2 discs and the solution we just went over for 8 discs.
 
+![Do you see it?](15.png)
+
 Do you see it?
 
 Pulling a common string from the two solutions can help us in proposing a general solution for an `n` number of discs, where `n` could be any integer greater than 1.
@@ -152,7 +154,7 @@ function moveStack(n, fromSpire, toSpire, tempSpire) {}
 3. `toSpire`: The name of the destination spire, the spire to which discs stacked on `fromSpire` are supposed to be transferred to.
 4. `tempSpire`: The name of the spire that is going to be used to temporarily hold the discs while they are transferred between `fromSpire` and `toSpire`.
 
-Once we have filled in the `moveStack` function with the correct algorithm between the braces, executing ... 
+Once we have filled in the `moveStack` function with the correct algorithm, executing ... 
 
 ```javascript
 moveStack(8, 'A', 'B', 'C')
@@ -164,13 +166,15 @@ Before writing the steps in JavaScript, let's write them down in English.
 
 In case you have forgotten, here's a quick recap of the setup.
 
-To begin with the `n` discs are stacked on a spire we have name 'A', we could've name it Ahmed, or Anita but A is a good enough name for a spire. Our goal is to move the stack of discs from Spire A (`fromSpire`) to Spire B (`toSpire`) while using Spire C as the temporary spire (`tempSpire`).
+To begin with the `n` discs are stacked on a spire we have name 'A', we could've name it Ahmed, or Anita but A is a good enough name for a spire. Our goal is to move the stack of discs from Spire A (`fromSpire`) to Spire B (`toSpire`) while using Spire C (`tempSpire`) as the temporary spire .
 
-[ART GENERAL SETUP]
+![](16.png)
 
 With this setup, the steps involved in the general solution are:
 
-<b><u>Step-1:</u></b> Take the tower of `n-1` discs from `fromSpire` and move it to *tempSpire*. (This will leave a single disc on `fromSpire`).
+<b><u>Step 1</u></b>: 
+
+Take the tower of `n-1` discs from `fromSpire` and move it to *tempSpire*. (This will leave a single disc on `fromSpire`).
 
 [ART]
 
@@ -201,9 +205,8 @@ function moveStack(n, fromSpire, toSpire, tempSpire) {
   moveSingleDisc(fromSpire, toSpire)
   // Step 3
   moveStack(n - 1, tempSpire, toSpire, fromSpire)
-
-  // 4. There's no step 4, 
-  // We're done moving the stack!
+  // Step 4
+  // There's no step 4, we're done moving the stack!
 }
 
 function moveSingleDisc(fromSpire, toSpire) {
@@ -228,7 +231,7 @@ The only confusion landmine I am worried about, that can surprise you here is th
 
 That, took some extra brain power for me to understand, from where I am I cannot reliably predict if you're stumped by the same confusion or if I am just a slight bit slower than an averager person. But in any case we'll try to minimize that confusion as we go.
 
-Before we proceed, here's a working version of the whole program. Peep the console.
+Before we proceed, here's a working version of the whole program. Peep the console for the 255 steps involved in moving a stack of 8 discs.
 
 https://codesandbox.io/s/snippet-1-1po5d?expanddevtools=1&fontsize=16&theme=dark
 
@@ -244,7 +247,7 @@ Move Disc: C to B
 
 ---
 
-It's deceptively simple how less than 10 lines of code are able to accomplish something seemingly impossible for the human brain, right? That's how Recursion feels like sometimes, get used to it.
+It's deceptively simple how less than 10 lines of code are able to accomplish something seemingly impossible for the human brain, right? That's how Recursion feels like sometimes, you should get used to it.
 
 If we peek at the innards of `moveStack`, it's just plain English so it shouldn't be that hard to wrap your head around it.
 
@@ -279,7 +282,7 @@ function moveStack(n, fromSpire, toSpire, tempSpire) {
 
 The base case, if you remember, is what stops the execution from going into an infinite loop. If that has slipped your mind, then, "a missing base case will make a ball dropped from the top of a staircase go into a portal and hit on the top of your head" should ring a bell.
 
-![](15.png)
+![](base-case.png)
 
 Notice, how in each call we're reducing the value of `n` by `1`, so eventually `n` *will* become `1` and hit the base case and we *will* stop the repeated execution with a `return `.
 
@@ -371,12 +374,12 @@ For example, `factorial` function (which we wrote in the previous chapter) when 
 
 [ART]
 
-This, spawning of multiple arms is not clearly visible from the surface, when you write `moveStack(n-1….` it’s not easy to see that it will go ahead and spawn another `moveStack` and that will spawn another one, and that in turn another one until the result is reached. The missing foresight is why we need to develop trust in the recursive process. Given, that our recursive insight works on a problem with given magnitude it will also work on problems with different and smaller magnitudes.
+This, spawning of multiple arms is not clearly visible from the surface, when you write `moveStack(n-1….` it’s not easy to see that it will go ahead and spawn another `moveStack` and that will spawn another one, and that in turn another one until the result is reached. The missing foresight is why we need to develop trust in the recursive process. Given, that our recursive insight works on a problem with given magnitude it will also work on problems with smaller magnitudes.
 
 
 ## Summary
 
 The Towers of Hanoi problem is often a trip.  You look at the solution and think “Okay, this works.”,  “But good Heavens how?”. Something beautiful about this problem is that “good heavens how?” doesn’t vanish until you have properly understood the workings of recursion. So this problem, becomes an acid test for someone’s understanding of the recursive process.
 
-Though I hope you have passed the acid test, if there’s still confusion stuck like chocolate bar in different insides of your skull, take your time, move ahead in the book. Come back later, try to understand it again and let the aha moment hit you in all its pure glory.
+Though I hope you have passed the acid test, if there’s still confusion stuck like chocolate bar in the insides of your skull, take your time, move ahead in the book. Come back later, try to understand it again and let the aha moment hit you in all its pure glory.
 
