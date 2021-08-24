@@ -22,7 +22,7 @@ We have 8 discs, 8 is an arbitrarily chosen number by me because it's nice and e
 
 ![8 Discs](1.png)
 
-And we have 3 spires. Those things you see below with a round base and a rod sticking out? Yup! those are our spires - A, B, and C. One important thing to notice is that the discs have holes in the center so that they can be slid on the spires.
+And we have 3 spires. Those things you see below with a round base and a rod sticking out? Those are our spires - A, B, and C. One important thing to notice is that the discs have holes in the center so that they can be slid on the spires.
 
 ![3 Spires](2.png)
 
@@ -43,8 +43,8 @@ Our task is to move the pyramid a.k.a the tower a.k.a the stack of discs from Sp
 1. We can only move one disc at a time.
 2. While moving, we cannot in any condition place a bigger disc on top of a small one.
 
-Now an obvious question here is, if the task is to move the tower of discs from
-one spire to the next, why the third spire?
+Now an obvious question here is, if the task is to move the stack of discs from
+one spire to the next, why are there *3* spires?
 
 ![Why is there a third spire?](5.png)
 
@@ -88,13 +88,11 @@ And, I don't know if I *really* need to say this explicitly but taking all the d
 
 So yes, we were able to transfer the stack of discs in just 3 steps. It's because, and you might want to sit down for this, we had just 2 discs. As the number of discs will increase, the steps involved in shifting them will grow exponentially. To move a stack of 4 discs, there are 15 steps involved. To move a stack of 8 discs, 255. Yeah, it's kinda berserk, but stay with me.
 
-It's evident from the steps that the third spire exists to temporarily hold the discs. It's a necessary part. It facilitates the solution, without it we won't be able to complete the objective.
+It's evident from the steps that a third spire exists to temporarily hold the discs. It's a necessary part. It facilitates the solution, with just two spires we won't be able to complete the objective.
 
 Notice that we're not numbering the discs in the steps, as in move disc 1 or disc 2 or disc 7. We are simply saying "Move Disc". The rule says we can only move one disc at a time. Therefore, when it's said "Move Disc: C to A", we know that we'll be moving the disc at the top of the Spire C to the top of Spire A. Hence, there's no need to uniquely identify each disc with a number.
 
-Now time for a bigger set of discs, how about 8? Why don't you give it a try on paper? Try writing down the steps, Move Disc from A to B, then from A to C then C to A … e.t.c. e.t.c and eventually lose your mind and sanity. It's not so bad on this side of the fence, promise.
-
-But in all honesty, it's unreasonable to task the human mind to figure and write steps for discs any greater than 5. That's why we have computers and that's why we have code!
+Now time for a bigger set of discs, how about 8? Why don't you give it a try on paper? Try writing down the steps, Move Disc from A to B, then from A to C then C to A … e.t.c. e.t.c and eventually lose your mind and sanity. It's not so bad on this side of the fence, promise. But in all honesty, it's unreasonable to task the human mind to figure and write steps for discs any greater than 5. That's why we have computers and that's why we have code!
 
 ---
 
@@ -130,9 +128,8 @@ Recursive programs work because the problems they work on are decomposable i.e. 
 
 Here's what I mean:
 
-Look at the 2 discs problem that we solved earlier. In that problem, leaving just one disc behind, we took the rest of the tower (yes, just 1 disc tall) and transferred it to Spire C. Then, we moved the remaining one disc on Spire A to Spire B, and in the final step moved the rest of the tower - which was just one disc tall - to Spire B and finally had the entire tower on Spire B. All of that without breaking any of the two rules.
+Look at the 2 discs problem that we solved earlier. In that problem, leaving just one disc behind, we took the rest of the stack (yes, just 1 disc tall) and transferred it to Spire C. Then, we moved the remaining one disc on Spire A to Spire B, and in the final step moved the rest of the stack- which was just one disc tall - to Spire B and finally had the entire tower on Spire B. All of that without breaking any of the two rules.
 
-[RECALL ART 2 DISC PROBLEM]
 
 If you think, even with just two of your many brain cells; you'll notice a stunning similarity between the solution for 2 discs and the solution we just went over for 8 discs.
 
@@ -176,19 +173,25 @@ With this setup, the steps involved in the general solution are:
 
 Take the tower of `n-1` discs from `fromSpire` and move it to *tempSpire*. (This will leave a single disc on `fromSpire`).
 
-[ART]
+![](17.png)
 
-<b><u>Step-2:</u></b>  Take that single disc on `fromSpire` (From Spire) and move it to `toSpire`
+<b><u>Step 2</u></b>:
 
-[ART]
+Take that single disc on `fromSpire` (From Spire) and move it to `toSpire`
 
-<b><u>Step-3:</u></b> Then, we'll move the tower with `n-1` discs on `tempSpire` (Temp Sire) to `toSpire`
+![](18.png)
 
-[ART]
+<b><u>Step 3</u></b>:
 
-<b><u>Step-4:</u></b>  There's no step 4, we're done moving the stack!
+Then, we'll move the tower with `n-1` discs on `tempSpire` (Temp Sire) to `toSpire`
 
-[ART?]
+![](19.png)
+
+<b><u>Step 4</u></b>: 
+
+There's no step 4, we're done moving the stack!
+
+![](20.png)
 
 Here's how everything looks when written in code, don't worry if it doesn't make sense in the first go, we'll break it down soon after the chunk of code you see below.
 
@@ -247,7 +250,7 @@ Move Disc: C to B
 
 ---
 
-It's deceptively simple how less than 10 lines of code are able to accomplish something seemingly impossible for the human brain, right? That's how Recursion feels like sometimes, you should get used to it.
+It's deceptively simple how less than 10 lines of code are able to accomplish something seemingly impossible for the human brain, right? That's what Recursion feels like sometimes, you should get used to it.
 
 If we peek at the innards of `moveStack`, it's just plain English so it shouldn't be that hard to wrap your head around it.
 
@@ -313,8 +316,6 @@ The following values are assigned to `moveStack`'s parameters.
 
 Now, if you remember the general solution, the **first** step was to slice the tower of discs leaving only one disc on `fromSpire` and transfer the remaining `n-1` discs to `tempSpire`, *this is why* the first call to `moveStack` inside `moveStack` has `toSpire` as the 3rd parameter because the stack of discs is being transferred between `fromSpire` and `tempSpire`
 
-[ART OF THE TWO CONCERNED]
-
 
 ```javascript{6}
 function moveStack(n, fromSpire, toSpire, tempSpire) {
@@ -351,6 +352,8 @@ function moveSingleDisc(fromSpire, toSpire) {
   console.log("Move Disc:", fromSpire, " to ", toSpire)
 }
 ```
+
+---
 
 After all the mayhem and madness we can quietly come back to *someone*, now isn’t that romantic? The *someone* we were imagining who would transfer the sliced stack with one less disc to the other spire was no one other than our function `moveStack` itself!! 
 
