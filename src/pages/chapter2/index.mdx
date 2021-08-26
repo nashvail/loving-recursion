@@ -359,7 +359,15 @@ After all the mayhem and madness we can quietly come back to *someone*, now isn�
 
 That reliance on *someone* is signified by the calls to `moveStack` *inside* `moveStack`
 
-[SOME SORTA ART MAYBE HERE]
+
+```javascript{3,5}
+function moveStack(n, fromSpire, toSpire, tempSpire) {
+  ...
+  moveStack(n - 1, fromSpire, tempSpire, toSpire)
+  ...
+  moveStack(n - 1, tempSpire, toSpire, fromSpire)
+}
+```
 
 And if you recall the "Give me this and I'll handle the rest" rule from the [first chapter](https://loving-recursion.co/chapter1), which now I come to think of it is *quite* a verbose name. There's a trust in "Give me this..", which in `moveStack` is asking the program to move the stack without breaking the two rules and "...I'll handle the rest" is moving the single disc from `fromSpire` to `toSpire`.
 
@@ -375,10 +383,13 @@ When I say a problem with smaller size or magnitude here’s what I mean.
 For example, `factorial` function (which we wrote in the previous chapter) when executed with 5 spawns `factorial(4)`. Factorial working on 4 is the same problem, calculating  factorial of a number, but with a smaller magnitude i.e. 4 (4 < 5). `factorial(4)` spawns `factorial(3)` which is of even smaller size/magnitude. This goes on until the base case is hit and each spawn assembles an answer which is later assembled into the final result of 5! = 120
 </Callout>
 
-[ART]
+This, spawning of multiple arms is not clearly visible from the surface, when you write `moveStack(n-1….` it’s not easy to see that it will go ahead and spawn another `moveStack` ...
 
-This, spawning of multiple arms is not clearly visible from the surface, when you write `moveStack(n-1….` it’s not easy to see that it will go ahead and spawn another `moveStack` and that will spawn another one, and that in turn another one until the result is reached. The missing foresight is why we need to develop trust in the recursive process. Given, that our recursive insight works on a problem with given magnitude it will also work on problems with smaller magnitudes.
+![Multiple spawns](21.png)
 
+...and that will spawn another one, and that in turn another one until the result is reached. The missing foresight is why we need to develop trust in the recursive process. Given, that our recursive insight works on a problem with given magnitude it will also work on problems with smaller magnitudes.
+
+<br/>
 
 ## Summary
 
