@@ -4,6 +4,10 @@
 
 ### Published Chapters
 -----
-[![Chapter 0](./readme_images/ch0.gif)](https://loving-recursion.co/chapter0)
 
-[![Chapter 1](./readme_images/ch1.gif)](https://loving-recursion.co/chapter1)
+[Chapter 0 - Introduction](https://loving-recursion.co/chapter0)
+<br/>
+[Chapter 1 - The Encounter](https://loving-recursion.co/chapter1)
+<br/>
+[Chapter 2 - And Then Comes Trust](https://loving-recursion.co/chapter2)
+
