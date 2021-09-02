@@ -19,9 +19,9 @@
   },
   {
     "chapterName": "Connections & Procedures",
-    "link": "/",
+    "link": "/chapter3",
     "chapterNumber": 3,
-    "published": false
+    "published": true
   },
   {
     "chapterName": "Chasing Cars, Drawing Triangles",
