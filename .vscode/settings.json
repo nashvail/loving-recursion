@@ -23,5 +23,11 @@
     "javascript",
     "javascriptreact"
   ],
-  "cSpell.enabled": true
+  "cSpell.enabled": true,
+  "cSpell.enableFiletypes": [
+    "mdx"
+  ],
+  "cSpell.ignoreWords": [
+    "POTPAL"
+  ]
 }
