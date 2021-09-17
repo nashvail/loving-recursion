@@ -20,7 +20,7 @@ POTPAL 
 
 Do you see what reversing a word is?
 
-The non-recursive way of reversing a word is to begin by picking the extreme letters, switching their positions, and then, incrementally moving in from both sides and switching positions of the remaining letters one by one.
+The non-recursive way of reversing a word is to begin by picking the extreme letters, switching their positions, and then incrementally moving in from both sides and switching positions of the remaining letters one by one.
 
 ![Reversing the word LAPTOP](1.png)
 
@@ -30,9 +30,7 @@ The recursive solution is along the same lines, but it's going to be a lot more 
 
 As you set off on this new adventure of yours, thinking and grappling, I would like to talk to you about something, if I have your permission.
 
-Sometimes you see, I dream of living in a world where it's legal to use a rule, a procedure, or a formula only if you know how/why that formula works. I also dream about a world where cafe latte pours out of sink taps as soon as you walk into the kitchen, an unending supply of sogginess murderer soup.
-
-Make what you can of that and let's keep going.
+Sometimes you see, I dream of living in a world where it's legal to use a rule, a procedure, or a formula only if you know how/why that formula works. I also dream about a world where cafè latte pours out of sink taps as soon as you walk into the kitchen.
 
 Take the polygon below for example, what's the sum of its interior angles (shown in blue and called so because they are *inside* the polygon)?
 
@@ -40,20 +38,22 @@ Take the polygon below for example, what's the sum of its interior angles (shown
 
 "That's a very random question!", I know, but play along.
 
-Here's the formula to calculate the sum of interior angles of a polygon, let's pretend like we have common sense, and instead of calling it the "sum of interior angles of a polygon" over and over again, call it something simple, like capital S.
+Here's the formula to calculate the sum of interior angles of a polygon. But before that, some nomenclature because I don't want to be writing "Sum of interior angles of a polygon" or, "Number of sides in a polygon" over and over again, so we'll use:
+1. `S-I` for Sum of interior angles, and
+2. `N` for Number of sides in a polygon
 
-So, according to the formula:
+Coming back to the formula, here's how it goes:
 
 $$
-\textnormal{S} = 180^\circ \times (\textnormal{No. of sides} - 2)
+\textnormal{S-I} = 180^\circ \times (\textnormal{N} - 2)
 $$
 
 Count the number of sides, plug it into the formula, and off you go with the correct answer.
 
-Since the polygon above has 8 sides, we can plug in 8 into the formula
+Since the polygon shown above has 8 sides, we can plug in 8 into the formula to get the sum of its interior angles.
 
 $$
-\textnormal{S} = 180^\circ \times (8 - 2) \\
+\textnormal{S-I} = 180^\circ \times (8 - 2) \\
 \Rightarrow 180^\circ \times 6 \\
 \Rightarrow 1080^\circ
 $$
@@ -70,17 +70,19 @@ A polygon has as many interior angles as its number of sides. A pentagon has 5 s
 
 ![A polygon has as many internal angles as its number of sides](3.png)
 
-The other type of angles these polygons have are called exterior angles. They are the angles between one side extended in length and the outside of the adjacent side.
+The other type of angles polygons have are called exterior angles. They are the angles between one side extended in length and the outside of the adjacent side.
 
 These are the three exterior angles in a triangle.
 
 ![Exterior angles of a Triangle](4.png)
 
-The cool thing about the exterior angles is that if you were to club them together they'd form a whole 3 hundred and 60 degrees. (360)
+The cool thing about the exterior angles is that if you were to club them together they'd form a whole 3 hundred and 60 degrees.
 
 ![Exterior angles of a polygon always sum to 360 degrees](5.png)
 
 In any other polygon, square for example. The exteriors also sum up to 360 degrees, and in a pentagon too, and also in a hexagon and any other -gon. Because in any polygon it is possible to arrange the sides to look as if they are originating from one point. And when you follow along summing up the angles you realise that they form a circle and what's a full circle angle? Correct! 360 degrees.
+
+![Exterior angles in any polygon add up to 360 degrees](mid-1.png)
 
 From here we deduce that the sum of exterior angles of any polygon is always equal to 360 degrees.
 
@@ -92,12 +94,85 @@ Now if we were to take a triangle (or any polygon). We can see a unique relation
 
 ![Interior and Exterior angles shown together, like never before.](6.png)
 
-The first observation is that, a given pair of exterior and interior angles lie on a single line. Which means the sum of each of  these pairs is equal to 180 degrees.
+The first observation is that, a given pair of exterior and interior angles lie on a straight line. Which means the sum of each of  these pairs is equal to 180 degrees.
 
-![ART](7.png)
+![Each exterior + interior angle pairs add up to 180 degrees](7.png)
 
 Another, quite rudimentary observation is that the number of pairs of exterior + interior angles in a polygon is equal to the number of sides it has.
 
-Because we have three sides in a triangle we have three pairs of angles, if we had a square with 4 sides or a pentagon with PENT sides, we'd have 5 pairs of angles each pair adding up to 180 degrees. 
+In a triangle we have three pairs of angles, if we had a pentagon with PENT sides, we'd have 5 pairs of angles each pair adding up to 180 degrees. 
 
-![ART](8.png)
+![Number of Interior Exterior angle pairs = Number of sides in a polygon](8.png)
+
+From these two observations, and make sure you get it, we can say,
+
+$$
+\textnormal{Sum of all interior angles} + \textnormal{Sum of all exterior angles} =
+$$
+
+$$
+\textnormal{Number of I-E angle pairs} \times 180^\circ
+$$
+
+Now one thing we already made abundantly clear is that the Sum of exterior angles is 360 degrees.
+
+And the thing about the number 360 is, 
+
+$$
+360 = 180 \times 2
+$$
+
+THEREFORE,
+
+$$
+\textnormal{Sum of all interior angles} + (2 \times 180^\circ) =
+$$
+
+$$
+\textnormal{Number of I-E angle pairs} \times 180^\circ
+$$
+
+Now number of Interior Exterior angle pairs is same as the number of sides in a polygon.
+
+So, for any polygon (holup we're getting there)
+
+$$
+\textnormal{Sum of all interior angles} + (2 \times 180^\circ) =
+$$
+
+$$
+\textnormal{Number of sides in a polygon} \times 180^\circ
+$$
+
+
+Substituting that (we're using big mathy words now) into the formula above, we arrive at a simple procedure.
+
+Sum of interior angles of a polygon + (2 * 180) = (number of sides * 180)
+=> Sum of interior angles of a polygon = (number of sides * 180) - (2 * 180)
+
+Or, after taking 180 as common,
+
+Sum of interior angles of a polygon = 180 * (number of sides in that polygon - 2).
+
+And now you know where the formula in which you can simply plug in the number of sides and be handed the answer came from. When you understand why a formula works, it sticks better and for longer.
+
+So much to say that if you're writing recursive solutions, or reading recursive solutions, what's important is not just identifying the rules. Rules are handy, they're quick, they're great, they're like little beautiful mathematical poems but, the real reward is in understanding why the rules work. Understanding forces you to make connections between concepts. Connections you would have not discovered if you simply followed a procedure.
+
+As you move forward in the book, I hope you keep this in mind and eventually also dream about a world where it's illegal to use a rule without knowing how it actually works.
+
+And if it's difficult to trust my word on that, you can trust Socrates who said, "…to fully understand, and engage with ideas, we need to understand where they come from…"
+[ART]
+
+---
+
+Well, well, well guess who forgot that we are reading a book about recursion?
+Hoping that you took a stab at writing a recursive solution for reversing a word, here's the actual solution.
+Let's start with the "Give me this, and I'll handle the rest" rule and how it fits in this scenario.
+
+Imagine if someone was to reverse the insides of the word for us. (Give me this)
+
+[ART]
+
+All that we'd have to do is switch the position of the letters at the extremes. (I'll handle the rest)
+
+[ART]
