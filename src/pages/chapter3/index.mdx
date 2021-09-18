@@ -100,21 +100,18 @@ The first observation is that, a given pair of exterior and interior angles lie 
 
 Another, quite rudimentary observation is that the number of pairs of exterior + interior angles in a polygon is equal to the number of sides it has.
 
-In a triangle we have three pairs of angles, if we had a pentagon with PENT sides, we'd have 5 pairs of angles each pair adding up to 180 degrees. 
+In a triangle we have three pairs of angles, if we had a pentagon with PENT sides, we'd have 5 pairs of angles with each pair adding up to 180 degrees. 
 
 ![Number of Interior Exterior angle pairs = Number of sides in a polygon](8.png)
 
 From these two observations, and make sure you get it, we can say,
 
 $$
-\textnormal{Sum of all interior angles} + \textnormal{Sum of all exterior angles} =
-$$
-
-$$
+\textnormal{Sum of all interior angles (S-I)} + \textnormal{Sum of all exterior angles (S-E)} = \\
 \textnormal{Number of I-E angle pairs} \times 180^\circ
 $$
 
-Now one thing we already made abundantly clear is that the Sum of exterior angles is 360 degrees.
+Now one thing we have already made abundantly clear is that the Sum of all exterior angles is 360 degrees.
 
 And the thing about the number 360 is, 
 
@@ -122,57 +119,133 @@ $$
 360 = 180 \times 2
 $$
 
-THEREFORE,
+Therefore,
 
 $$
-\textnormal{Sum of all interior angles} + (2 \times 180^\circ) =
-$$
-
-$$
-\textnormal{Number of I-E angle pairs} \times 180^\circ
+\textnormal{S-I} + (2 \times 180^\circ) = \textnormal{Number of I-E angle pairs} \times 180^\circ
 $$
 
 Now number of Interior Exterior angle pairs is same as the number of sides in a polygon.
 
-So, for any polygon (holup we're getting there)
+So, for any polygon (we're getting there)
 
 $$
-\textnormal{Sum of all interior angles} + (2 \times 180^\circ) =
+\textnormal{S-I} + (2 \times 180^\circ) = \textnormal{N} \times 180^\circ
 $$
 
+With some shifting around the equals sign we can say,
+
+$$ 
+\textnormal{S-I} + (2 \times 180^\circ) = \textnormal{N} \times 180^\circ \\
+\Rightarrow \textnormal{S-I} = (\textnormal{N} \times 180^\circ) - (2 \times 180^\circ) \\
+\Rightarrow \textnormal{S-I} = 180^\circ \times (\textnormal{N} - 2)
 $$
-\textnormal{Number of sides in a polygon} \times 180^\circ
-$$
 
-
-Substituting that (we're using big mathy words now) into the formula above, we arrive at a simple procedure.
-
-Sum of interior angles of a polygon + (2 * 180) = (number of sides * 180)
-=> Sum of interior angles of a polygon = (number of sides * 180) - (2 * 180)
-
-Or, after taking 180 as common,
-
-Sum of interior angles of a polygon = 180 * (number of sides in that polygon - 2).
-
-And now you know where the formula in which you can simply plug in the number of sides and be handed the answer came from. When you understand why a formula works, it sticks better and for longer.
+And now you know the formula in which you can simply plug in the number of sides and be handed the answer came from. When you understand why a formula works, it sticks better and for longer.
 
 So much to say that if you're writing recursive solutions, or reading recursive solutions, what's important is not just identifying the rules. Rules are handy, they're quick, they're great, they're like little beautiful mathematical poems but, the real reward is in understanding why the rules work. Understanding forces you to make connections between concepts. Connections you would have not discovered if you simply followed a procedure.
 
-As you move forward in the book, I hope you keep this in mind and eventually also dream about a world where it's illegal to use a rule without knowing how it actually works.
-
-And if it's difficult to trust my word on that, you can trust Socrates who said, "…to fully understand, and engage with ideas, we need to understand where they come from…"
-[ART]
+As you move forward in the book, I hope you keep this in mind and eventually also dream about a world where it's illegal to use a rule without knowing how it actually works. Because, like Socrates put it "…to fully understand, and engage with ideas, we need to understand where they come from…"
 
 ---
 
 Well, well, well guess who forgot that we are reading a book about recursion?
 Hoping that you took a stab at writing a recursive solution for reversing a word, here's the actual solution.
-Let's start with the "Give me this, and I'll handle the rest" rule and how it fits in this scenario.
+Let's start with the "Give me this, and I'll handle the rest" rule and see how it fits in this scenario.
 
-Imagine if someone was to reverse the insides of the word for us. (Give me this)
+Imagine if *someone* was to reverse the insides of the word for us. (Give me this)
 
-[ART]
+![ART](10.png)
 
 All that we'd have to do is switch the position of the letters at the extremes. (I'll handle the rest)
 
+![ART](11.png)
+
+And just like that, BE DONE!
+
+The Give me this and I'll handle the rest rule works because like any other recursive problem, the problem of reversing a word is decomposable. In the sense that it can be broken down into smaller magnitudes and still be solved by the exact same steps. And the end each result from can be combined into the final result.
+
+Let's start coding the recursive solution. We'll call our function `reverseString`. Why not `reverseWord`? Because words are called strings in programming lingo and more or less they are the same thing.
+
+So, `reverseString`. Alright?
+
+`reverseString` takes in a string/word as an argument, recursively reverses it, and returns the reversed version of the string.
+
+Here it is, and it's beautiful.
+
+```javascript
+function reverseString(string) {
+  // Get the extreme letters
+  let firstLetter = string[0];
+  let lastLetter = string.slice(-1);
+  let remainingString = getRemainingString(string); // remaining string after getting rid of first and last letters
+    
+  return lastLetter + reverseString(remainingString) + fristLetter;
+}
+```
+
+Now let's start breaking it down. The retrieval of firstLetter is fairly straightforward. The lastLetter can be also got to by `string[string.length - 1]`
+
 [ART]
+
+But, we're using JavaScript's `String.prototype.slice` method for the task. We'll take a short detour to the `.slice` method to understand how it works and then quickly jump back to breaking down the solution. Before we do that though, notice we also have the method `getRemainingString`, the task of `getRemainingString` is to return the string that remains after you remove the first and last letters/characters from it. And to do this we'll again, take help of the `.slice` method, like so.
+
+```javascript
+/* Returns the portion of string after removing the first and the last letters */
+function getRemainingString(string) {
+  return string.slice(1, -1);
+}
+```
+
+If nothing's making sense yet, no worries, it all will in a while. Ready for the `.slice` crash course? Here we go!
+
+[think if you really need to put it in here or not]
+
+Now that we know how `.slice() `works, we can move to the next line, which essentially is the "..I'll handle the rest". What we're doing here is taking the first and last letters and switching their positions.
+
+```javascript
+return lastLetter + reverseString(remainingString) + fristLetter;
+```
+Notice how `lastLetter` is at the beginning of the sentence and `firstLetter` is at the end. Yes, in JavaScript you can use + to add strings together.
+Also, notice that the recursive code we just wrote has a missing base case. To figure what the base case should be, always start by noticing what's changing in each call. With `reverseString`, it's the parameter string of course. With every call, we're removing two letters and hence the length of the string parameter is decreasing and will eventually become 0 or 1. That is exactly where our base case is.
+
+The reversed version of a string of 0 or 1 characters is simply the string itself. Didn't get it? Here's a string "a" what do you get when you reverse it? "a" right? That's what I am talking about.
+
+When the length of string becomes 0 or 1, we hit our base case and stop the execution by simply returning the string.
+
+```javascript
+function reverseString(string) {
+  if(string.length <= 1) return string;
+  // Get the extreme letters
+  let firstLetter = string[0];
+  let lastLetter = string.slice(-1);
+  let rest = getRestString(string)// Rest of the string
+
+  return lastLetter + reverseString(rest) + firstLetter;
+}
+```
+
+Now if you execute the function, you'll see the reversed string printed to the console.
+
+```javascript
+console.log(reverseString('LAPTOP'); // POTPAL
+```
+
+By now you should be in the early stages of developing the recursive lens and identifying the crucial 3 parts of a recursive solution. The base case, the trust in the solution a.k.a "Give me this, and I'll handle the rest".
+
+At this stage, having a little itch to solve another problem recursively is normal. I know you must be feeling full with ammo and arsenal ready to tackle your next recursive problem, so I am going to give you one. The problem is of counting cannonballs. I'll define the problem here in a bit, and we'll get back to solving it together after the next two chapters. In the next two chapters, we'll delve into something a little different from what we've been doing so far. In the two chapters that follow you'll be learning Maths and HTML5 canvas and you'll draw recursive art in your browser window.
+Until then, I'll leave you with the cannonballs problem.
+What you have is a number of spherical cannonballs stacked to form a pyramid with a square base. Your job is to write a recursive function that takes in the height of the pyramid as the only argument and returns the number of cannonballs in that pyramid.
+For example, say we have a pyramid of height 3
+[ART]
+Don't get fooled by just the front view of the pyramid, it's actually 3 dimensional. Each of the 3 layers of the pyramid is made up of cannonballs like so:
+[ART]
+When all of these 3 layers are stacked on top of each other, a pyramid is formed
+[ART]
+The program you will write will recursively calculate the number of cannonballs in the pyramid of a given height. By height what I simply mean is number of layers of cannonballs stacked in that pyramid. In the above example the pyramid has 3 layers, hence it's of height 3.
+And the pyramid of height 3, if you count, has 14 cannonballs.
+[ART]
+How many cannonballs will a pyramid of height 7 contain? and of height 10? Your recursive function will calculate the number of cannonballs in the pyramid of any given height. Here's a hint, since the pyramid is of a square base, it's easy to figure out the number of cannonballs in any given layer.
+Now onto new adventures with math and drawing and drawing and math … whatever…
+
+## Summary
