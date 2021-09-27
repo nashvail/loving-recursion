@@ -4,6 +4,8 @@ number: 3
 name: "Connections & Procedures"
 ---
 
+import Callout from "../../components/In Chapter/Callout"
+
 Introducing the next chapter at the beginning of the chapter that you're writing has to be the worst way to write an introduction to a chapter. But I just CAN'T WAIT to tell you that in the coming chapter we will learn how to draw using Math and JavaScript.
 
 Since drawing with Math is going to be so exciting and consuming, you could lose touch with everything we have learned so far. Therefore, as the last polish to the tools we have collected, we'll solve one more example before proceeding to Math and drawing or, "Graphical Recursion".
@@ -174,7 +176,7 @@ function reverseString(string) {
   // Get the first letter
   let firstLetter = string[0];
   // Get the last letter
-  let lastLetter = string.slice(-1);
+  let lastLetter = string[string.length - 1]
   // Get the string that remains after removing first and last letters
   let remainingString = getRemainingString(string);
 
@@ -184,9 +186,13 @@ function reverseString(string) {
 
 https://codesandbox.io/s/reversestring-nqxp1?fontsize=14&hidenavigation=1&theme=dark
 
-Let's start breaking it down. The retrieval of `firstLetter` is fairly straightforward. The `lastLetter` can be also got to by `string[string.length - 1]` but we're using JavaScript's [`String.prototype.slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) method for the task. Passing around negative arguments in `.slice()` can possibly throw you off a little if you don't understand it well, so here's a video of me explaining it.
+Let's start breaking it down. First is the base case, which we will get to in a bit. Beyond that, the retrieval of `firstLetter` and `lastLetter` is straightforward, we're just picking characters at the first (`[0]`) and last (`[string.length - 1]`) indices of the string that is passed as the argument.
 
-Notice we also have the method `getRemainingString`, the task of `getRemainingString` is to return the string that remains after you remove the first and last letters/characters from it. And to do this we'll again, take help of the `.slice` method, like so.
+Notice we also have the method `getRemainingString`, the task of `getRemainingString` is to return the string that remains after you remove the first and last letters/characters from it. 
+
+[ART illustrating what remaining string is]
+
+And to do that we're using JavaScript's [`String.prototype.slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) method.
 
 ```javascript
 //Returns the portion of string after removing the first and the last letters 
@@ -195,7 +201,21 @@ function getRemainingString(string) {
 }
 ```
 
-We are again passing in negative arguments to `.slice` for the job, if that's confusing remember the video or just read the docs.
+<br/>
+
+<Callout>
+
+A special thing about `.slice` is that it also accepts negative numbers for parameters. When it notices a negative number, it adds that number to the length of the original string, to keep everything within the bound of indices.
+
+For example, the length of the string “LAPTOP” is 6, therefore, `LAPTOP.slice(-1)` is equivalent to `LAPTOP.slice( 6+ (-1))` which is same as `LAPTOP.slice(5)`, which returns the character at the fifth index - `P`. Which means you can also retrieve `lastLetter` as: 
+
+```
+let lastLetter = string.slice(-1)
+```
+
+In a similar fashion `string.slice(1, -1)` starts slicing the string from 1 to -1. -1 is converted to a positive number by adding it to the length of the string. Therefore `LAPTOP.slice(1, -1)` is equivalent to `LAPTOP.slice(1, 6 + (-1))` = `LAPTOP.slice(1, 5)` = “APTO”. And that is how `getRemainingString` returns the slice of the passed in string without the first and the last letters.
+
+</Callout>
 
 We can move to the next line, which essentially is the "..I'll handle the rest" part. What we're doing here is taking the first and last letters and switching their positions around *reversed* `remainingString`.
 
@@ -267,3 +287,7 @@ Here's a hint, since the pyramid is of a square base, it's easy to figure out th
 This chapter was all about revisiting and polishing the heuristics that we have used to write all our recursive functions. Once you have the heuristics and the basic understanding taken care of, we can move on to more advanced concepts, which I probably don't need to mention again because my eager self has already that leaked that information multiple times in this same chapter. 
 
 It's time to move on to Graphical Recursion.
+
+<Callout>
+Want to read the next chapter early, or help me review and write it? I have made a discord server where I post progress on the next chapter and also share PDFs for early review. If that's something you're interested in, come hang!
+</Callout>
