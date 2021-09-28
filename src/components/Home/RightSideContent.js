@@ -150,7 +150,7 @@ const MobileContent = () => {
         </h1>
         <Spacer height="sp_lg" />
         <p>
-          This book exists because an article about recursion that I was writing quietly sneaked past the respectable word limit of an article, and didn't stop until it was inside the borders of numbers of words one could expect in a book.
+          This book exists because an article about recursion that I was writing quietly sneaked past the respectable word limit of an article, and didn't stop until it was inside the borders of number of words one could expect in a book.
         </p>
         <br/>
         <p>
