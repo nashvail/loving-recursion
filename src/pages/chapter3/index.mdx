@@ -6,7 +6,7 @@ name: "Connections & Procedures"
 
 import Callout from "../../components/In Chapter/Callout"
 
-Introducing the next chapter at the beginning of the chapter that you're writing has to be the worst way to write an introduction to a chapter. But I just CAN'T WAIT to tell you that in the coming chapter we will learn how to draw using Math and JavaScript.
+Introducing the *next* chapter in the first paragraph of the chapter that you're writing, isn't the best of ideas. But I CAN'T WAIT to tell you that in the coming chapter we will learn how to draw using Math and JavaScript.
 
 Since drawing with Math is going to be so exciting and consuming, you could lose touch with everything we have learned so far. Therefore, as the last polish to the tools we have collected, we'll solve one more example before proceeding to Math and drawing or, "Graphical Recursion".
 
@@ -40,7 +40,7 @@ Take the polygon below for example, what's the sum of its interior angles (shown
 
 "That's a very random question!", I know, but play along.
 
-Here's the formula to calculate the sum of interior angles of a polygon. But before that, some nomenclature, because I don't want to be writing "Sum of interior angles of a polygon" or, "Number of sides in a polygon" over and over again, so we'll use:
+Here's the formula to calculate the sum of interior angles of a polygon. But because I don't want to be writing "Sum of interior angles of a polygon" or, "Number of sides in a polygon" over and over again, we need to agree on some nomenclature first. We will use:
 1. `S-I` for Sum of interior angles, and
 2. `N` for Number of sides in a polygon
 
@@ -68,9 +68,9 @@ It has been observed - as David Epstein in his book Range points out - t
 
 > When students bring home problems that force them to make connections, Richland told me, "parents are like, 'let me show you a easier way'" . [The parents] are not good at seeing bewildered kids. But, with learning that is both durable and flexible fast and easy is precisely the problem. - From [Range (David Epstein)](https://www.goodreads.com/book/show/41795733-range)
 
-A polygon has as many interior angles as its number of sides. A pentagon has 5 sides and 5 interior angles, an octagon has 8 sides and 8 interior angles and a triagon has 3 of both. (Sign the petition to rename triangle to triagon at your neighbourhood Mathematician's house today!)
+A polygon has as many interior angles as its number of sides. A pentagon has 5 sides and 5 interior angles, an octagon has 8 sides and 8 interior angles and a triagon has 3 of both. (Sign the petition to rename triangle to triagon at your neighborhood Mathematician's house today!)
 
-![A polygon has as many internal angles as its number of sides](3.png)
+![A polygon has as many interior angles as its number of sides](3.png)
 
 The other type of angles polygons have are called exterior angles. They are the angles between one side extended in length and the outside of the adjacent side.
 
@@ -78,9 +78,9 @@ These are the three exterior angles in a triangle.
 
 ![Exterior angles of a Triangle](4.png)
 
-The cool thing about exterior angles is that if club them together they'd form a whole 3 hundred and 60 degrees.
+The cool thing about exterior angles is that if you club them together they'd form a whole 3 hundred and 60 degrees.
 
-![Exterior angles of a polygon always sum to 360 degrees](5.png)
+![Exterior angles of a polygon always sum yo to 360 degrees](5.png)
 
 In any other polygon, square for example, the exteriors also sum up to 360 degrees, and in a pentagon too, and also in a hexagon and any other -gon. Because in any polygon it is possible to arrange the sides to look as if they are originating from one point. And when you follow along summing up the angles you realise that they form a circle, and what's a full circle angle? Correct! 360 degrees.
 
@@ -98,9 +98,9 @@ Now if we were to take a triangle (or any polygon for that matter), we can make 
 
 The first observation is that, a given pair of exterior and interior angles lie on a straight line. Which means the sum of each of  these pairs is equal to 180 degrees.
 
-![Each exterior + interior angle pairs add up to 180 degrees](7.png)
+![Each exterior + interior angle pair adds up to 180 degrees](7.png)
 
-Another, quite rudimentary observation is that the number of pairs of exterior + interior angles in a polygon is equal to the number of sides it has.
+Another quite rudimentary observation is that the number of pairs of exterior + interior angles in a polygon is equal to the number of sides it has.
 
 In a triangle we have three pairs of angles, if we had a pentagon with PENT sides, we'd have 5 pairs of angles with each pair adding up to 180 degrees. 
 
@@ -145,21 +145,22 @@ $$
 
 And now you know from where the formula in which you can plug in the number of sides and be handed the answer came from. When you understand why a formula works, it sticks better and for longer.
 
-So much to say that if you're writing recursive solutions, or reading recursive solutions, what's important is not just identifying the rules. Rules are handy, they're quick, they're great, they're like little beautiful mathematical poems but, the real reward is in understanding why the rules work. Understanding forces you to make connections between concepts. Connections you would have not discovered if you simply followed a procedure.
+So much to say that if you're writing recursive solutions, or reading recursive solutions, what's important is not just identifying the rules. Rules are handy, they're quick, they're great, they're like little beautiful mathematical poems but, the real reward is in understanding why the rules work. Understanding forces you to make connections between concepts. Connections you would have not discovered if you had simply followed a procedure.
 
-As you move forward in the book, I hope you keep this in mind and eventually also dream about a world where it's illegal to use a rule without knowing how it actually works. Because, like Socrates put it "…to fully understand, and engage with ideas, we need to understand where they come from…"
+As you move forward in the book, I hope you keep this in mind and eventually also dream about a world where it's illegal to use a rule without knowing how it actually works. Because, like Socrates put it "…to fully understand, and engage with ideas, we need to understand where they come from…".
 
 ---
 
 Well, well, well guess who forgot that we are reading a book about recursion?
+
 Hoping that you took a stab at writing a recursive solution for reversing a word, here's the actual solution.
 Let's start with the "Give me this, and I'll handle the rest" rule and see how it fits in this scenario.
 
-Imagine if *someone* was to reverse the insides of the word for us. (Give me this)
+Imagine if *someone* was to reverse the insides of the word for us (Give me this ...).
 
 ![Give me this...](10.png)
 
-All that we'd have to do is switch the position of the letters at the first and the last positions. `L` and `P` in the case of the word LAPTOP ... (I'll handle the rest)
+All that we'll have to do is switch the position of the letters at the first and the last positions. `L` and `P` in the case of the word LAPTOP (...I'll handle the rest).
 
 ![... I'll handle the rest](11.png)
 
@@ -186,13 +187,13 @@ function reverseString(string) {
 
 https://codesandbox.io/s/reversestring-nqxp1?fontsize=14&hidenavigation=1&theme=dark
 
-Let's start breaking it down. First is the base case, which we will get to in a bit. Beyond that, the retrieval of `firstLetter` and `lastLetter` is straightforward, we're just picking characters at the first (`[0]`) and last (`[string.length - 1]`) indices of the string that is passed as the argument.
+Let's start breaking it down. First is the base case, which we will get to in a bit. Beyond that, the retrieval of `firstLetter` and `lastLetter` is straightforward, we're just picking characters at the first (`[0]`) and the last (`[string.length - 1]`) indices of the string that is passed as the argument.
 
 Notice we also have the method `getRemainingString`, the task of `getRemainingString` is to return the string that remains after you remove the first and last letters/characters from it. 
 
-[ART illustrating what remaining string is]
+![Utility of getRemainingString](remainingString.png)
 
-And to do that we're using JavaScript's [`String.prototype.slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) method.
+To do that we're using JavaScript's [`String.prototype.slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) method.
 
 ```javascript
 //Returns the portion of string after removing the first and the last letters 
@@ -205,7 +206,7 @@ function getRemainingString(string) {
 
 <Callout>
 
-A special thing about `.slice` is that it also accepts negative numbers for parameters. When it notices a negative number, it adds that number to the length of the original string, to keep everything within the bound of indices.
+A special thing about `.slice` is that it also accepts negative numbers as parameter. When it notices a negative number, to keep everything within the bound of indices, it adds that number to the length of the original string, 
 
 For example, the length of the string “LAPTOP” is 6, therefore, `LAPTOP.slice(-1)` is equivalent to `LAPTOP.slice( 6+ (-1))` which is same as `LAPTOP.slice(5)`, which returns the character at the fifth index - `P`. Which means you can also retrieve `lastLetter` as: 
 
@@ -252,7 +253,7 @@ By now you should be in the early stages of developing the recursive lens and id
 
 At this stage, having a little itch to solve another problem recursively is normal. I know you must be feeling full with ammo and arsenal ready to tackle your next recursive problem, so I am going to give you one. The problem is of counting cannonballs. I'll define the problem here in a bit, and we'll get back to solving it together after the next two chapters. 
 
-In the next two chapters, we'll delve into something a little different from what we've been doing so far. In the two chapters that follow you'll be learning Maths and HTML5 canvas and you'll draw recursive art in your browser window.
+In the next two chapters, we'll delve into something a little different from what we've been doing so far. In the two chapters that follow you'll learn Maths and HTML5 canvas and you'll draw recursive art in your browser window.
 
 Until then, I'll leave you with the cannonballs problem.
 
@@ -276,7 +277,7 @@ And the pyramid of height 3, if you count, has 14 cannonballs.
 
 ![A pyramid of height 3 has 14 cannonballs](15.png)
 
-How many cannonballs will a pyramid of height 7 contain? and of height 10? Your recursive function will calculate the number of cannonballs in the pyramid of *any* given height. 
+How many cannonballs will a pyramid of height 7 contain? and of height 10? Your recursive function should calculate the number of cannonballs in the pyramid of *any* given height. 
 
 Here's a hint, since the pyramid is of a square base, it's easy to figure out the number of cannonballs in any given layer.
 
@@ -284,10 +285,10 @@ Here's a hint, since the pyramid is of a square base, it's easy to figure out th
 
 ## Summary
 
-This chapter was all about revisiting and polishing the heuristics that we have used to write all our recursive functions. Once you have the heuristics and the basic understanding taken care of, we can move on to more advanced concepts, which I probably don't need to mention again because my eager self has already that leaked that information multiple times in this same chapter. 
+This chapter was all about revisiting and polishing the heuristics that we have used to write all our recursive functions. Once you have the heuristics and the basic understanding taken care of, we can move on to more advanced concepts, which I probably don't need to mention again because my eager self has already leaked that information multiple times in this same chapter. 
 
 It's time to move on to Graphical Recursion.
 
 <Callout>
-Want to read the next chapter early, or help me review and write it? I have made a discord server where I post progress on the next chapter and also share PDFs for early review. If that's something you're interested in, come hang!
+Want to read the next chapter early? Or help me review and write it? I have made a discord server where I plan to post progress on the next chapter and also share PDFs for early review. If that's something you're interested in, <a href="https://discord.gg/qGTggq5q">come hang!</a>
 </Callout>
