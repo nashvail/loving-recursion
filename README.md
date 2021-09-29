@@ -10,4 +10,6 @@
 [Chapter 1 - The Encounter](https://loving-recursion.co/chapter1)
 <br/>
 [Chapter 2 - And Then Comes Trust](https://loving-recursion.co/chapter2)
+<br/>
+[Chapter 3 - Connections and Procedures](https://loving-recursion.co/chapter3)
 
