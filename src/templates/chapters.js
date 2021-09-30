@@ -37,7 +37,7 @@ const ChapterNumber = ({ chapterNumber }) => (
 )
 
 // Number of words after which we're supposed to shove in a <br/> tag
-const CHAPTER_BREAKS = [-1, -1, 2, 2]
+const CHAPTER_BREAKS = [-1, -1, 2, 2, 2]
 
 const ChapterTitle = ({ addBreakAfter, text }) => {
   if (addBreakAfter === -1) {

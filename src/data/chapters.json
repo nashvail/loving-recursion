@@ -24,10 +24,10 @@
     "published": true
   },
   {
-    "chapterName": "Chasing Cars, Drawing Triangles",
-    "link": "/",
+    "chapterName": "Chasing Cars Drawing Triangles",
+    "link": "/chapter4",
     "chapterNumber": 4,
-    "published": false
+    "published": true
   },
   {
     "chapterName": "Graphical Recursion",

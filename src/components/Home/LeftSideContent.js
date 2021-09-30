@@ -25,7 +25,7 @@ const Chapters = () => {
   ))
 
   // Insert the intermediary
-  chapterClickers.splice(4, 0, <ChapterAnnouncement />)
+  chapterClickers.splice(5, 0, <ChapterAnnouncement />)
 
   return (
     <ol className="home-page__left__chapter-list">
