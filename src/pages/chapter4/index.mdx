@@ -46,7 +46,12 @@ This two-dimensional system of describing the position of a point is called the 
 
 And since we're lost in history and mathematics let's not forget the agenda of all this is to draw triangles on our computer screens. We'll need to know Polar Coordinate Geometry to do that, so let's keep going.
 
+<br/>
+<br/>
+
 ## The Polar Coordinate system
+
+<br/>
 
 Like the Cartesian Coordinate system, the Polar coordinate system is also used to specify a location of a point, or, yes, a fly. Instead of saying it's `x` units in the horizontal direction and `y` units in the vertical direction from the reference point (or the origin), in the Polar coordinate system we say it's at a distance `r` away from the reference point and at an angle of `θ` (theta).
 
@@ -61,8 +66,11 @@ Moreover, these two coordinate systems are interchangeable with the help of some
 Now we both know it's too early and there are too few lines I have written about the Polar Coordinate system to expect you to completely understand and run home with it. For now, though, knowing that something like a "Polar Coordinate system" exists and it's used to specify the position of a point on a plane is enough. Now, before we can move any further we need to get one thing out of the way and straight into our heads, theta (`θ`).
 
 <br/>
+<br/>
 
 ## Theta, Degrees, Radians, and the Circle
+
+<br/>
 
 Let's assume that the only unit of measuring angles that you know is degrees.
 
@@ -79,3 +87,49 @@ There's an intimate relationship between circles and angles. About 4,000 years a
 It worked out alright, stood the test of time, and 4,000 years later in our schools we still teach that all the angles of an equilateral triangle are 60 "degrees". It's not so immediately evident but there's a problem with this unit of measurement. I might be preaching, but this unit of measurement and the way it's defined mars the elegance Mathematics should possess.
 
 > Mathematics, rightly viewed, possesses not only truth, but supreme beauty - a beauty cold and austere, like that of sculpture, without appeal to any part of our weaker nature, without the gorgeous trappings of painting or music, yet sublimely pure, and capable of a stern perfection such as only the greatest art can show. - Bertrand Russell
+
+If you ask, why divide the circle into 360 equal parts, why not 400? Why not 150? There's no clear answer, we can say it's because 360 is readily divisible, has 24 divisors, a year is about 360 days e.t.c but, that's not the original reason. We're deriving reasons after we already have 360 in place, if the Babylonians had decided to go with 400, we would be giving reasons why 400 is a good number of parts to divide a circle in.
+
+Choosing a number that we feel is right is in fact, in the words of Bertrand Russell "..appeal to a part of our weaker nature". We need a new unit of measurement for angles, one that is not based on an arbitrarily chosen number.
+
+Let's start with a circle and define something called "Arc Length". As fancy as it sounds it's … uhh…not. Here's what arc length is. Consider a portion of the circle's circumference.
+
+[ART]
+
+Straighten it and measure its length, whatever the measurement is the arc length of that arc.
+
+[art]
+
+Next, let's take a circle of radius `r`.
+
+[art]
+
+Then, consider an arc of arc length same as the length of the radius `r`.
+
+[art]
+
+Whatever angle this arc subtends at the center of the circle is our 1 [new unit], as opposed to dividing a circle in 360 parts and calling one part 1 [degree].
+
+[art]
+
+We need a name for this unit. Since it's based on something so innate (and not arbitrary) - the radius, let's call it "radian", or "rad" for short.
+
+Therefore, the definition for 1 radian is: the angle subtended at the center of a circle by an arc equal in length to its radius.
+
+This implies the angle subtended by arc length of 2 radii will be two radians.
+
+3 radii 3 radians …. and,
+
+(bottom here needs some rephrasing)
+An arc of semicircle will be the same as the arclength of semicircle which, we know is 2πr/2 = πr. Don't we?
+
+Since both radians and degrees are units of measurement of angles, there must be a relation between them that allows you to convert radians to degrees and vice versa. Similar to how you'd convert Fahrenheit to Celsius or Kilometers to Miles and vice versa.
+
+In a semicircle, the angle subtended at the center is 180 degrees, and like we just saw the same measure in radians is π radians. Therefore from here, we can derive a relation
+
+180 degrees = π radians
+60 degrees = π/3 radians
+30 degrees = π/6 radians
+e.t.c
+
+Measuring angles in radians is what makes calculus possible, degrees are good only to a certain point, if they were useful even beyond a certain level of Mathematics they would be used and not replaced by radians. In drawing triangles, we'll be using radians and not degrees, and that's why you had to read through this entire section. Moving on!
